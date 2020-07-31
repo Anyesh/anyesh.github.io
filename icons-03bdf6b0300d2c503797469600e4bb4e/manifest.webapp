@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "anyesh",
+  "description": null,
+  "icons": {
+    "60": "/icons-03bdf6b0300d2c503797469600e4bb4e/firefox_app_60x60.png",
+    "128": "/icons-03bdf6b0300d2c503797469600e4bb4e/firefox_app_128x128.png",
+    "512": "/icons-03bdf6b0300d2c503797469600e4bb4e/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": null,
+    "url": null
+  }
+}
