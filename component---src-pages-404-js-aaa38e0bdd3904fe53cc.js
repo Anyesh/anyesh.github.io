@@ -1,0 +1,2 @@
+(self.webpackChunkanyesh=self.webpackChunkanyesh||[]).push([[883],{9616:function(e,t,n){"use strict";n.r(t);var l=n(7294),u=n(161);t.default=function(){return l.createElement(u.Ar,null,l.createElement(u.HJ,{title:"404: Not found",location:"/404"}),l.createElement("h1",null,"NOT FOUND"),l.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-aaa38e0bdd3904fe53cc.js.map
