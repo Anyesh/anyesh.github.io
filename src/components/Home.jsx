@@ -50,8 +50,13 @@ export default function Home() {
           )}
 
           <div className="grid">
-            {shown.map((a) => (
-              <Link key={a.slug} to={`/a/${a.slug}`} className="card">
+            {shown.map((a, i) => (
+              <Link
+                key={a.slug}
+                to={`/a/${a.slug}`}
+                className="card"
+                style={{ "--i": i }}
+              >
                 <div className="card-top">
                   <span className="card-cat">{a.category}</span>
                   {a.date && <span className="card-date">{a.date}</span>}

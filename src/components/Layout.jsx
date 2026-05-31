@@ -27,9 +27,13 @@ export default function Layout({ children }) {
         <span>
           {site.name} — built by {site.author}
         </span>
-        <span className="footer-note">
-          Drop a `.jsx` into <code>src/artifacts/</code> and it shows up here.
-        </span>
+        <nav className="footer-links">
+          {site.links.map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
+              {l.label}
+            </a>
+          ))}
+        </nav>
       </footer>
     </div>
   );

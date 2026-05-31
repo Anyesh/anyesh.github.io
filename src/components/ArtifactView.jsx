@@ -45,6 +45,14 @@ export default function ArtifactView() {
       </header>
 
       <div className="canvas">
+        <div className="canvas-bar">
+          <span className="canvas-dot" aria-hidden="true" />
+          <span className="canvas-bar-label">Live</span>
+          <span className="canvas-bar-sep" aria-hidden="true">
+            /
+          </span>
+          <span>Interactive · drag, toggle, run it</span>
+        </div>
         <Suspense
           fallback={<div className="canvas-loading">Loading artifact…</div>}
         >
