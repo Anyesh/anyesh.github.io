@@ -34,13 +34,16 @@ function extractMetaObject(source) {
   return null;
 }
 
+const ARTIFACT_EXT = /\.(jsx|tsx)$/;
+
 function readArtifacts(dir) {
   if (!fs.existsSync(dir)) return [];
+  const seen = new Map();
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith(".jsx"))
+    .filter((f) => ARTIFACT_EXT.test(f))
     .map((file) => {
-      const slugBase = file.replace(/\.jsx$/, "");
+      const slugBase = file.replace(ARTIFACT_EXT, "");
       const source = fs.readFileSync(path.join(dir, file), "utf8");
       const objText = extractMetaObject(source);
       let meta = {};
@@ -54,8 +57,18 @@ function readArtifacts(dir) {
           );
         }
       }
+      const slug = meta.slug || slugBase;
+      // Two source files resolving to one slug would silently shadow each
+      // other at the /a/:slug route, so fail loud instead.
+      if (seen.has(slug)) {
+        throw new Error(
+          `Two artifacts claim the slug "${slug}": ${seen.get(slug)} and ${file}. ` +
+            `Rename one or give it an explicit meta.slug.`
+        );
+      }
+      seen.set(slug, file);
       return {
-        slug: meta.slug || slugBase,
+        slug,
         title: meta.title || slugBase,
         category: meta.category || "Uncategorized",
         description: meta.description || "",
@@ -87,7 +100,7 @@ export default function artifactsPlugin() {
     },
     configureServer(s) {
       server = s;
-      s.watcher.add(path.join(artifactsDir, "*.jsx"));
+      s.watcher.add(path.join(artifactsDir, "*.{jsx,tsx}"));
       const onChange = (file) => {
         if (file.startsWith(artifactsDir)) invalidate();
       };
