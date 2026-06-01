@@ -1,8 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const VIRTUAL_ID = "virtual:artifacts";
+const VIRTUAL_ID = "virtual:artifact-loaders";
 const RESOLVED_ID = "\0" + VIRTUAL_ID;
+const MANIFEST_FILE = "artifacts-manifest.json";
+
+function toManifest(list) {
+  return list.map(({ file, ...meta }) => meta);
+}
 
 function extractMetaObject(source) {
   const marker = source.indexOf("export const meta");
@@ -107,6 +112,16 @@ export default function artifactsPlugin() {
       s.watcher.on("add", onChange);
       s.watcher.on("unlink", onChange);
       s.watcher.on("change", onChange);
+
+      // Served live (re-read per request) so the gallery sees new artifacts without a restart.
+      s.middlewares.use((req, res, next) => {
+        const url = (req.url || "").split("?")[0];
+        if (!url.endsWith(`/${MANIFEST_FILE}`)) return next();
+        const body = JSON.stringify(toManifest(readArtifacts(artifactsDir)));
+        res.setHeader("Content-Type", "application/json");
+        res.setHeader("Cache-Control", "no-store");
+        res.end(body);
+      });
     },
     resolveId(id) {
       if (id === VIRTUAL_ID) return RESOLVED_ID;
@@ -115,13 +130,13 @@ export default function artifactsPlugin() {
       if (id !== RESOLVED_ID) return;
       const list = readArtifacts(artifactsDir);
       const entries = list
-        .map((a) => {
-          const meta = { ...a };
-          delete meta.file;
-          return `  { ...${JSON.stringify(meta)}, load: () => import("/src/artifacts/${a.file}") }`;
-        })
+        .map((a) => `  ${JSON.stringify(a.slug)}: () => import("/src/artifacts/${a.file}")`)
         .join(",\n");
-      return `export const artifacts = [\n${entries}\n];\n`;
+      return `export const loaders = {\n${entries}\n};\n`;
+    },
+    generateBundle() {
+      const source = JSON.stringify(toManifest(readArtifacts(artifactsDir)));
+      this.emitFile({ type: "asset", fileName: MANIFEST_FILE, source });
     },
   };
 }

@@ -1,25 +1,36 @@
-import { Suspense, lazy, useEffect, useMemo } from "react";
+import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getArtifact } from "../registry.js";
+import { loaders } from "virtual:artifact-loaders";
+import { getManifest } from "../registry.js";
 import NotFound from "./NotFound.jsx";
 
 export default function ArtifactView() {
   const { slug } = useParams();
-  const artifact = getArtifact(slug);
+  const [manifest, setManifest] = useState(null);
 
   useEffect(() => {
-    if (artifact) document.title = `${artifact.title} — Learning Lab`;
+    let alive = true;
+    getManifest()
+      .then((m) => alive && setManifest(m))
+      .catch(() => alive && setManifest([]));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const loader = loaders[slug];
+  const meta = manifest ? manifest.find((a) => a.slug === slug) : null;
+
+  useEffect(() => {
+    if (meta) document.title = `${meta.title} — Learning Lab`;
     return () => {
       document.title = "Learning Lab";
     };
-  }, [artifact]);
+  }, [meta]);
 
-  const Component = useMemo(
-    () => (artifact ? lazy(artifact.load) : null),
-    [artifact]
-  );
+  const Component = useMemo(() => (loader ? lazy(loader) : null), [loader]);
 
-  if (!artifact) return <NotFound />;
+  if (!loader) return <NotFound />;
 
   return (
     <article className="artifact">
@@ -27,22 +38,22 @@ export default function ArtifactView() {
         ← All artifacts
       </Link>
 
-      <header className="artifact-head">
-        <span className="artifact-cat">{artifact.category}</span>
-        <h1 className="artifact-title">{artifact.title}</h1>
-        {artifact.description && (
-          <p className="artifact-desc">{artifact.description}</p>
-        )}
-        {artifact.tags.length > 0 && (
-          <div className="card-tags">
-            {artifact.tags.map((t) => (
-              <span key={t} className="tag">
-                {t}
-              </span>
-            ))}
-          </div>
-        )}
-      </header>
+      {meta && (
+        <header className="artifact-head">
+          <span className="artifact-cat">{meta.category}</span>
+          <h1 className="artifact-title">{meta.title}</h1>
+          {meta.description && <p className="artifact-desc">{meta.description}</p>}
+          {meta.tags && meta.tags.length > 0 && (
+            <div className="card-tags">
+              {meta.tags.map((t) => (
+                <span key={t} className="tag">
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+      )}
 
       <div className="canvas">
         <div className="canvas-bar">
@@ -53,9 +64,7 @@ export default function ArtifactView() {
           </span>
           <span>Interactive · drag, toggle, run it</span>
         </div>
-        <Suspense
-          fallback={<div className="canvas-loading">Loading artifact…</div>}
-        >
+        <Suspense fallback={<div className="canvas-loading">Loading artifact…</div>}>
           <Component />
         </Suspense>
       </div>

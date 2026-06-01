@@ -1,9 +1,19 @@
-import { artifacts } from "virtual:artifacts";
+const MANIFEST_URL = `${import.meta.env.BASE_URL}artifacts-manifest.json`;
 
-export { artifacts };
+let manifestPromise = null;
 
-export const categories = [...new Set(artifacts.map((a) => a.category))].sort();
+export function getManifest() {
+  if (!manifestPromise) {
+    manifestPromise = fetch(MANIFEST_URL).then((res) => {
+      if (!res.ok) throw new Error(`Failed to load artifact manifest (${res.status})`);
+      return res.json();
+    });
+  }
+  return manifestPromise;
+}
 
-export function getArtifact(slug) {
-  return artifacts.find((a) => a.slug === slug);
+export function categoriesOf(manifest) {
+  const counts = new Map();
+  for (const a of manifest) counts.set(a.category, (counts.get(a.category) || 0) + 1);
+  return [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0]));
 }
