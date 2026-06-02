@@ -4,7 +4,7 @@ export const meta = {
   title: "Bayesian vs Frequentist",
   category: "Statistics",
   description:
-    "One coin, one question: what is its bias? Estimate it two ways on the same data. A frequentist confidence interval that you watch earn its 95% over repeated samples, and a Bayesian Beta posterior that says outright how probable each value of p is.",
+    "One coin, one question: what is its bias? Answer it two ways on the same flips, a confidence interval that earns its 95% over repeated samples and a Bayesian posterior that says how probable each bias is.",
   date: "2026-05-28",
   tags: ["bayesian", "frequentist", "confidence-interval", "credible-interval"],
 };

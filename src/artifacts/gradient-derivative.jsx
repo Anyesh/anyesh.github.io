@@ -4,7 +4,7 @@ export const meta = {
   title: "The Gradient and the Derivative",
   category: "Calculus",
   description:
-    "Build the derivative from the limit of a secant, then stack two of them into a gradient. Drag a point on a curve to read its tangent, drag a point on a contour map to read the steepest-ascent vector, and watch the directional derivative peak when you aim along the gradient.",
+    "A derivative is a secant line in the limit, and a gradient is two of them at once. Drag a point to read the tangent on a curve and the steepest-ascent vector on a contour map.",
   date: "2026-05-26",
   tags: ["calculus", "derivative", "gradient", "directional-derivative"],
 };

@@ -4,7 +4,7 @@ export const meta = {
   title: "Two's Complement: Signed vs Unsigned",
   category: "Computer Systems",
   description:
-    "One row of bits, read two ways. Toggle bits and watch the unsigned and signed values move together, walk the number wheel to see where 255 wraps to 0 and 127 wraps to -128, then negate by flipping bits and adding one and add two signed numbers until they overflow.",
+    "The same bits mean 200 unsigned and -56 signed. Toggle them, walk the number wheel where 127 wraps to -128, and negate a value by flipping every bit and adding one.",
   date: "2026-05-08",
   tags: ["twos-complement", "binary", "signed-integers", "overflow"],
 };

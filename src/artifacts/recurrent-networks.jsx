@@ -4,7 +4,7 @@ export const meta = {
   title: "Recurrent Networks, End to End",
   category: "Deep Learning",
   description:
-    "Real multi-unit RNN and LSTM cells with actual weight matrices, backprop through time, and an in-browser optimizer. See the hidden state as living memory, train both architectures on a long-range task and watch the vanilla RNN's gradient vanish while the LSTM survives, step the gradient backward through the unrolled cells, and trace why the additive cell-state path saves gradients.",
+    "A plain RNN forgets fast. Train one against an LSTM on a long-range task and watch the vanilla net's gradient die through time while the LSTM's cell-state path keeps memory alive.",
   date: "2026-05-30",
   tags: ["rnn", "lstm", "bptt", "gradients", "deep-learning", "training", "memory"],
 };

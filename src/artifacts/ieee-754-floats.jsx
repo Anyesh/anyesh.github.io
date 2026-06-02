@@ -4,7 +4,7 @@ export const meta = {
   title: "IEEE 754 Floating Point",
   category: "Computer Systems",
   description:
-    "Toggle the real 32 bits a float is made of, type a decimal and watch the nearest representable value snap into place, and see honestly why 0.1 plus 0.2 misses 0.3. Every bit pattern is the exact one your hardware stores.",
+    "0.1 plus 0.2 is not 0.3, and a float explains why. Toggle the 32 bits of sign, exponent, and mantissa, type a decimal, and watch the nearest value your hardware can store snap into place.",
   date: "2026-05-11",
   tags: ["ieee-754", "floating-point", "binary", "computer-systems"],
 };

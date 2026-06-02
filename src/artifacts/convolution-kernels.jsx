@@ -4,7 +4,7 @@ export const meta = {
   title: "Convolution: Kernels on an Image",
   category: "Computer Vision",
   description:
-    "Slide a 3x3 kernel across a small grayscale image and watch the multiply-and-sum that produces each output pixel, the same operation a CNN learns to detect edges, blur, and sharpen.",
+    "Edge detection, blur, and sharpen are all the same nine-number trick. Slide a 3x3 kernel across an image and watch the multiply-and-sum behind each output pixel, the operation a CNN learns on its own.",
   date: "2026-03-17",
   tags: ["convolution", "cnn", "kernels", "computer-vision"],
 };

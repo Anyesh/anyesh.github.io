@@ -4,7 +4,7 @@ export const meta = {
   title: "PCA vs t-SNE: What Each One Lies About",
   category: "Machine Learning",
   description:
-    "Two ways to flatten high-dimensional data into a picture you can actually look at. PCA keeps the global shape but cannot unbend a curved manifold; t-SNE draws gorgeous clusters whose sizes and spacing mean nothing. Run both on the same data and watch where each one cheats.",
+    "Both flatten high-dimensional data into a picture, and both lie. PCA keeps the global shape but cannot unbend a curve; t-SNE draws clean clusters whose sizes and spacing mean nothing. Run both and see where each one cheats.",
   date: "2026-05-17",
   tags: ["pca", "t-sne", "dimensionality-reduction", "embeddings"],
 };

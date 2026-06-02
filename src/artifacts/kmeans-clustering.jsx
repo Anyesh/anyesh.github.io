@@ -4,7 +4,7 @@ export const meta = {
   title: "K-Means: Finding Clusters by Hand",
   category: "Machine Learning",
   description:
-    "Drop points on a plane and watch Lloyd's algorithm chase the centers. Every assignment, every mean, and every drop in inertia is computed for real, including the local minima that make k-means restart-sensitive.",
+    "Drop points on a plane and watch Lloyd's algorithm chase the cluster centers, assign, recenter, repeat. The same data can settle differently each run, the local minima that make k-means restart-sensitive.",
   date: "2026-03-23",
   tags: ["k-means", "clustering", "unsupervised", "lloyd"],
 };

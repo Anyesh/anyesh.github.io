@@ -4,7 +4,7 @@ export const meta = {
   title: "Solve vs Verify: P vs NP Made Concrete",
   category: "Complexity Theory",
   description:
-    "One Boolean formula, two jobs. A real DPLL solver searches an exponential tree of assignments while a linear-time checker confirms any proposed answer in a glance. Watch the two counters diverge and feel the open question behind P vs NP.",
+    "Checking an answer can be instant while finding one takes forever. Watch a DPLL solver grind through an exponential search tree while a checker verifies any solution in a glance: the gap behind P vs NP.",
   date: "2026-04-30",
   tags: ["p-vs-np", "complexity", "sat", "dpll", "np-complete"],
 };

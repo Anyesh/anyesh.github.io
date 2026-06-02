@@ -4,7 +4,7 @@ export const meta = {
   title: "UTF-8 and Unicode",
   category: "Computer Systems",
   description:
-    "Type any string and watch it split into the three things people confuse: graphemes you can see, the code points Unicode assigns, and the real UTF-8 bytes a computer stores. Watch the bit packing happen, and see exactly why an emoji is four bytes and why string length lies.",
+    "One emoji can be four bytes, and string length lies about it. Type any text and watch it split into graphemes you see, the code points Unicode assigns, and the UTF-8 bytes that get stored.",
   date: "2026-02-06",
   tags: ["unicode", "utf-8", "encoding", "strings", "computer-systems"],
 };

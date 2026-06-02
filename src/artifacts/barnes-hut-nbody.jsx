@@ -4,7 +4,7 @@ export const meta = {
   title: "Barnes-Hut: Gravity in n log n",
   category: "Physics",
   description:
-    "Hundreds of bodies pull on each other under real gravity. A quadtree rebuilt every frame lets distant clumps act as one mass, turning the brute-force n squared force sum into an n log n walk. Tune the opening angle and watch accuracy trade against speed.",
+    "Hundreds of bodies pull on each other, but a quadtree lets distant clumps act as one mass, turning an n squared force sum into n log n. Tune the opening angle and watch accuracy trade against speed.",
   date: "2026-04-13",
   tags: ["n-body", "barnes-hut", "quadtree", "gravity"],
 };

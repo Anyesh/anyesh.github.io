@@ -4,7 +4,7 @@ export const meta = {
   title: "Pathfinding: Dijkstra & A*",
   category: "Algorithms",
   description:
-    "Watch Dijkstra flood a grid evenly while A* aims straight at the goal, then read why an admissible heuristic lets A* visit far fewer cells for the same shortest path.",
+    "Dijkstra floods a grid in every direction while A* aims straight at the goal. Race them on the same maze and see why a good heuristic visits far fewer cells for the same shortest path.",
   date: "2026-02-03",
   tags: ["pathfinding", "dijkstra", "a-star", "graphs"],
 };

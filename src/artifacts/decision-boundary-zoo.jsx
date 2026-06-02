@@ -4,7 +4,7 @@ export const meta = {
   title: "Decision Boundary Zoo",
   category: "Machine Learning",
   description:
-    "Four classifiers, four 2D datasets, one honest comparison. Watch a linear model fail on moons and circles while kNN, an RBF kernel SVM, and a small neural net curve around them. Every boundary is drawn by really training the model and classifying a grid.",
+    "A straight line cannot separate two moons. Train four classifiers on the same tangled data and watch the linear model fail while kNN, an RBF SVM, and a small neural net curve around it.",
   date: "2026-05-20",
   tags: ["classification", "decision-boundary", "svm", "neural-networks", "knn"],
 };

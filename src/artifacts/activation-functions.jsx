@@ -4,7 +4,7 @@ export const meta = {
   title: "Activation Functions, Curve by Curve",
   category: "Deep Learning",
   description:
-    "Plot seven activation functions against their exact analytic derivatives, drag an input point across the saturation regions, and stack derivative magnitudes to watch sigmoid and tanh vanish while the ReLU family keeps the gradient alive.",
+    "Sigmoid and tanh flatten at the edges, and their gradient dies there. Drag a point across the curves to compare slopes, and watch the ReLU family keep the gradient alive where the others go silent.",
   date: "2026-05-22",
   tags: ["activation-functions", "gradients", "vanishing-gradients", "deep-learning", "relu"],
 };

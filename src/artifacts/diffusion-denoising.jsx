@@ -5,7 +5,7 @@ export const meta = {
   title: "Diffusion: Noise and Denoise",
   category: "Machine Learning",
   description:
-    "Watch a 2D point cloud dissolve into pure noise under the forward process, then watch a real score-based sampler walk it back to the data manifold one small step at a time.",
+    "Destroy a shape into pure noise, then rebuild it. Watch a point cloud dissolve under the forward process, then a score-based sampler walk it back to the data one small step at a time.",
   date: "2026-02-15",
   tags: ["diffusion", "generative-models", "ddpm", "score"],
 };

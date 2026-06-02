@@ -4,7 +4,7 @@ export const meta = {
   title: "The Interactive Byte",
   category: "Computer Systems",
   description:
-    "Eight bits you can toggle, with place values, running sums, and live binary, decimal, hex, octal, and ASCII readouts that stay in sync. Then a bitwise playground where AND, OR, XOR, NOT, and shifts are computed column by column.",
+    "Toggle eight bits and watch one number speak binary, decimal, hex, octal, and ASCII at once. Then play with AND, OR, XOR, NOT, and shifts computed column by column.",
   date: "2026-05-04",
   tags: ["bits", "bytes", "binary", "bitwise", "computer-systems"],
 };

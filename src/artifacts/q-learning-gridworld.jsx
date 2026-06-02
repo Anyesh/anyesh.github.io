@@ -4,7 +4,7 @@ export const meta = {
   title: "Q-learning on a Gridworld",
   category: "Reinforcement Learning",
   description:
-    "An agent starts knowing nothing and learns to reach a goal from reward alone. Watch the value of each cell fill backward from the reward, the greedy arrows snap into a path, and see why cutting off exploration too early traps the agent on a worse route.",
+    "An agent that knows nothing learns a path from reward alone. Watch value fill backward from the goal and the greedy arrows snap into a route, then see how cutting off exploration too soon traps it on a worse one.",
   date: "2026-05-06",
   tags: ["reinforcement-learning", "q-learning", "temporal-difference", "exploration"],
 };

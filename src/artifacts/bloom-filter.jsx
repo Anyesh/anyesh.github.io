@@ -5,7 +5,7 @@ export const meta = {
   title: "Bloom Filters",
   category: "Data Structures",
   description:
-    "A real bit array with k hash probes you can poke at: insert keys, watch their bits light up, query anything, and catch the moment a key that was never added reads as possibly present.",
+    "A bloom filter can say a key is present when it never was. Insert keys, watch their bits light up across k hash probes, and catch the false positive the moment it happens.",
   date: "2026-03-05",
   tags: ["bloom-filter", "probabilistic", "hashing", "data-structures"],
 };

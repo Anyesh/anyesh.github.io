@@ -4,7 +4,7 @@ export const meta = {
   title: "Inside an LSTM Cell",
   category: "Deep Learning",
   description:
-    "Open one LSTM cell and run it on a short sequence. Watch the forget, input, and output gates compute for real, see the cell state carry memory along a near-identity highway, and trace why an additive gated update lets gradients survive the long time horizons where a vanilla recurrent net vanishes.",
+    "An LSTM remembers across gaps where a plain RNN forgets. Open one cell, run it on a sequence, and watch the forget, input, and output gates carry memory along the cell state's near-identity highway.",
   date: "2026-05-29",
   tags: ["lstm", "rnn", "gates", "gradients", "deep-learning", "memory"],
 };

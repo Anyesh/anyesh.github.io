@@ -4,7 +4,7 @@ export const meta = {
   title: "PageRank by Random Walk",
   category: "Graphs",
   description:
-    "Build a small directed graph and watch two ways to rank its nodes agree: power iteration on the Google matrix, and a single random surfer that teleports with the damping factor. The empirical visit frequencies converge to the exact PageRank vector.",
+    "One random surfer, clicking forever, ranks a whole web. Build a graph and watch a surfer's visit frequencies converge to the same PageRank vector that power iteration computes.",
   date: "2026-04-03",
   tags: ["pagerank", "graphs", "markov-chain", "power-iteration", "random-walk"],
 };

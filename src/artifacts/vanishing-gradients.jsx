@@ -4,7 +4,7 @@ export const meta = {
   title: "Vanishing and Exploding Gradients",
   category: "Deep Learning",
   description:
-    "Backprop turns a deep chain into a product of per-layer Jacobians. Tune the depth, activation, and weight scale and watch the real per-layer gradient norm decay toward the input or blow up, then see the same thing happen through time in a recurrent net.",
+    "Stack enough layers and the gradient either fades to nothing or explodes. Tune depth, activation, and weight scale, watch the per-layer gradient norm decay or blow up, then see it happen through time in an RNN.",
   date: "2026-05-14",
   tags: ["gradients", "deep-learning", "backpropagation", "rnn", "initialization"],
 };

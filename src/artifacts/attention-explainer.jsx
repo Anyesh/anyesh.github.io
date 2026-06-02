@@ -4,7 +4,7 @@ export const meta = {
   title: "Attention & the KV Cache",
   category: "Transformers",
   description:
-    "Five tokens, four-dimensional vectors, and one attention head computed by hand. Step through embeddings, Q/K/V, scaled dot products, masked softmax, and the weighted output, then watch why a KV cache makes generation cheap.",
+    "One attention head, five tokens, worked by hand. Step from embeddings through Q/K/V and masked softmax to the output, then see why a KV cache makes generation cheap.",
   date: "2026-01-26",
   tags: ["attention", "transformers", "kv-cache", "softmax"],
 };

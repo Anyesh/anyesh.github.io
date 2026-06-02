@@ -4,7 +4,7 @@ export const meta = {
   title: "Fourier: Drawing with Circles",
   category: "Signals",
   description:
-    "A real discrete Fourier transform turns any closed path into a stack of rotating circles, then sums them back into the curve. Add circles one at a time and watch a crude loop sharpen into the exact shape.",
+    "Any closed drawing is just a stack of spinning circles. A Fourier transform finds them, and adding one circle at a time sharpens a crude loop into the shape you drew.",
   date: "2026-02-27",
   tags: ["fourier", "dft", "signals", "epicycles"],
 };

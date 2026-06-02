@@ -4,7 +4,7 @@ export const meta = {
   title: "Raft: Leader Election & Replication",
   category: "Distributed Systems",
   description:
-    "A live five-node Raft cluster you can break: watch randomized timeouts elect a leader, replicate a log to a majority, and recover safely when the leader dies.",
+    "Five nodes have to agree on one log, even when servers crash. Kill the leader and watch randomized timeouts elect a new one, replicate to a majority, and recover without losing a committed entry.",
   date: "2026-03-11",
   tags: ["raft", "consensus", "distributed-systems", "replication"],
 };

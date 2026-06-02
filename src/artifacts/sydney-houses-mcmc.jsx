@@ -5,7 +5,7 @@ export const meta = {
   title: "House Prices with MCMC",
   category: "Bayesian Inference",
   description:
-    "Forty synthetic Sydney houses, four unknown weights, and a Markov chain that explores the whole posterior at once. Watch it converge, then predict a price as a full distribution.",
+    "Forty houses, four unknown weights, and a Markov chain that wanders the whole posterior. Watch it converge, then predict a price not as one number but as a full distribution.",
   date: "2026-01-20",
   tags: ["mcmc", "bayesian", "regression", "uncertainty"],
 };

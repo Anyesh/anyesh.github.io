@@ -5,7 +5,7 @@ export const meta = {
   title: "Consistent Hashing",
   category: "Distributed Systems",
   description:
-    "A hash ring you can poke at: place nodes and keys by a real hash, add and remove servers, and watch why only a thin slice of keys ever moves while mod-N reshuffles almost everything.",
+    "Add or remove a server and almost nothing should move. Place nodes and keys on a hash ring and watch why only a thin slice of keys shifts, while mod-N reshuffles nearly everything.",
   date: "2026-02-21",
   tags: ["consistent-hashing", "distributed-systems", "sharding", "load-balancing"],
 };

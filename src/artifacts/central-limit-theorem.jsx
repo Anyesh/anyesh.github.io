@@ -4,7 +4,7 @@ export const meta = {
   title: "The Central Limit Theorem",
   category: "Statistics",
   description:
-    "Pick a deliberately lopsided source: a hard right skew, a U-shape, a die. Draw real samples, average each one, and watch the histogram of those averages climb into a bell regardless of how lumpy the source was. Every number is computed from seeded draws.",
+    "Start from a lopsided source, a hard skew or a U-shape, draw samples and average each batch, then watch the histogram of those averages climb into a bell no matter how lumpy the source was.",
   date: "2026-04-06",
   tags: ["central-limit-theorem", "sampling", "gaussian", "probability"],
 };

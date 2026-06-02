@@ -4,7 +4,7 @@ export const meta = {
   title: "Monty Hall",
   category: "Probability",
   description:
-    "After the host opens a goat door it feels like a coin flip, so switching cannot matter. Play the real game with a host who knows where the prize is, then run thousands of games and watch staying settle at 1/3 while switching settles at 2/3.",
+    "Once the host opens a goat door, switching feels like it cannot matter. Play the game, then run thousands of rounds and watch staying settle at 1/3 while switching settles at 2/3.",
   date: "2026-03-02",
   tags: ["monty-hall", "probability", "conditional-probability", "simulation"],
 };

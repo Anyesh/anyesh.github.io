@@ -4,7 +4,7 @@ export const meta = {
   title: "Optimizer Race",
   category: "Machine Learning",
   description:
-    "Four optimizers (SGD, Momentum, RMSProp, Adam) descend the same 2D loss from the same point in lockstep. Watch momentum power through a ravine and adaptive methods rescale each axis while plain SGD crawls or oscillates.",
+    "Drop four optimizers on the same loss surface from the same point and race them. Watch momentum carry through a ravine and Adam rescale each axis while plain SGD crawls or oscillates.",
   date: "2026-04-22",
   tags: ["optimization", "gradient-descent", "adam", "momentum"],
 };
