@@ -1,9 +1,9 @@
 # Learning Lab
 
 Interactive artifacts that make hard ideas click. Each one runs the real
-algorithm in your browser (no faked numbers) and lets you poke at it: machine
-learning, maths, algorithms, systems, signals, and the odd corner of computer
-science. Live at **[anyesh.github.io](https://anyesh.github.io)**.
+algorithm in your browser and lets you poke at it: machine learning, maths,
+algorithms, systems, signals, and the odd corner of computer science. Live at
+**[anyesh.github.io](https://anyesh.github.io)**.
 
 Built with Vite + React.
 
