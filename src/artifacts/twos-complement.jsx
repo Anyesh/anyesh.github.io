@@ -903,7 +903,7 @@ export default function App() {
         </Card>
 
         <p style={{ textAlign: "center", fontSize: 11.5, color: C.faint, marginTop: 22, lineHeight: 1.6 }}>
-          Every value here comes from real bit math: masking to {width} bits, sign extension from the top
+          The bit math: masking to {width} bits, sign extension from the top
           bit, and addition modulo 2{superscript(width)} = {1 << width}.
         </p>
       </div>

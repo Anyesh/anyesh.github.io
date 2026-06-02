@@ -505,11 +505,11 @@ export default function App() {
               maxWidth: "64ch",
             }}
           >
-            A Bloom filter is a bit array plus a few hash functions. To add a key it sets the{" "}
-            <i>k</i> bits the hashes point at; to check a key it tests those same bits. If any is 0
-            the key is definitely absent. If all are 1 it is probably present, with a small chance
-            the bits were set by other keys. It trades a controlled error rate for tiny memory and
-            constant-time lookups.
+            A Bloom filter can tell you for certain when something is absent, but it can only ever say
+            something is <i>probably</i> present. That one-sided trade buys it tiny memory and constant-time
+            lookups. It is just a bit array and a few hash functions: adding a key flips the{" "}
+            <i>k</i> bits the hashes point at, and checking tests those same bits. Any 0 means definitely
+            absent; all 1s mean probably present, since other keys may have set those bits too.
           </p>
         </div>
 

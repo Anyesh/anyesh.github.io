@@ -574,8 +574,8 @@ export default function App() {
           <p style={{ color: C.ink, opacity: 0.86, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "64ch", textWrap: "pretty" }}>
             K-means groups points into <b>k</b> clusters by repeating two moves until nothing changes. First it assigns
             every point to its nearest center. Then it slides each center to the average of the points that picked it.
-            That loop, called Lloyd's algorithm, is running for real below: every assignment, every mean, and every drop
-            in the within-cluster sum of squares is computed from the points you see, not scripted.
+            That loop, called Lloyd's algorithm, settles fast, but where it settles depends on where the centers
+            started, so drop your own points and watch it find a different answer each time you reseed.
           </p>
         </header>
 

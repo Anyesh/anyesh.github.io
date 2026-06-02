@@ -592,8 +592,8 @@ export default function App() {
             A coin has some unknown bias p toward heads. You flip it and watch two schools answer the same
             question from the same data. The frequentist treats p as one fixed number and reports an interval
             whose 95% is a property of the procedure. The Bayesian treats p as uncertain, carries a distribution,
-            and reports an interval you can read as a direct probability. Every number below is computed for real
-            from seeded draws, no fakery.
+            and reports an interval you can read as a direct probability. Change the hidden bias, add flips, and watch
+            the two intervals tell their different stories about the same data.
           </p>
         </header>
 

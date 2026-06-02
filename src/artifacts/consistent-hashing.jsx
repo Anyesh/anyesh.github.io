@@ -666,7 +666,7 @@ export default function App() {
         </Card>
 
         <div style={{ marginTop: 18, textAlign: "center", fontSize: 11, color: C.muted }}>
-          Positions are real FNV-1a hashes of the node and key ids, mapped from 0..2³² onto 0..360°
+          Positions are FNV-1a hashes of the node and key ids, mapped from 0..2³² onto 0..360°
         </div>
       </div>
     </div>

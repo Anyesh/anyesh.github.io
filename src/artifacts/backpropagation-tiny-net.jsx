@@ -631,8 +631,9 @@ export default function App() {
             Backpropagation, by Hand
           </h1>
           <p style={{ color: C.muted, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "62ch" }}>
-            A two-input network with two tanh neurons and one sigmoid output, learning XOR. Every number here is the real
-            forward pass and the real analytic gradient, computed by the chain rule. Walk it one step at a time.
+            XOR is the smallest problem a single neuron cannot solve, so it needs a hidden layer, which makes it the
+            perfect place to watch backprop work. This net has two tanh neurons and one sigmoid output; walk the forward
+            pass and the chain rule backward one step at a time, and read every gradient as it forms.
           </p>
         </header>
 

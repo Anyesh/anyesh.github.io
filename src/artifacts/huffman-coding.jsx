@@ -751,12 +751,12 @@ export default function App() {
               maxWidth: "66ch",
             }}
           >
-            Huffman coding assigns short binary codes to frequent symbols and long ones to rare
-            symbols. It counts how often each character appears, then greedily merges the two
-            least frequent nodes over and over until a single tree remains. Reading 0 for every
-            left branch and 1 for every right branch gives each symbol a codeword that is
-            prefix-free: no codeword is the start of another, so the bitstream decodes with no
-            separators.
+            Spend fewer bits on the letters you use most and you can shrink text below its fixed-width size,
+            with no separators marking where one code ends and the next begins. Huffman coding finds those
+            codes by a stubbornly simple rule: count each character, then keep merging the two rarest nodes
+            until one tree remains. Reading 0 for every left branch and 1 for every right gives each symbol a
+            prefix-free codeword, no codeword the start of another, and it is provably as short as any such
+            code can get.
           </p>
         </div>
 

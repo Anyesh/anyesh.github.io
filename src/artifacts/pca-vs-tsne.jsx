@@ -671,8 +671,8 @@ export default function App() {
             distorts something on the way down. PCA finds the directions of greatest variance and projects onto
             them: linear, global, honest about distance, but unable to bend. t-SNE matches the neighbourhood
             structure instead, drawing crisp clusters that look definitive while quietly throwing away cluster size
-            and the distances between groups. Both run for real below, on the same data, so you can see exactly
-            where each one cheats.
+            and the distances between groups. Run both on the same data below and you can see exactly where each
+            one cheats.
           </p>
         </header>
 

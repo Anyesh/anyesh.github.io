@@ -856,8 +856,8 @@ export default function App() {
           </h1>
           <p style={{ color: C.muted, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "62ch" }}>
             A classifier carves the plane into regions, one per class; the seam between them is the decision
-            boundary. Pick a dataset and a model, and every boundary you see is drawn by really training the model
-            and classifying a fine grid of points. Watch where a straight line is enough and where it is not.
+            boundary. Pick a dataset and a model, and the boundary you see is traced by classifying a fine grid of
+            points after the model trains. Watch where a straight line is enough and where it bends or gives up.
           </p>
         </header>
 

@@ -942,9 +942,9 @@ export default function App() {
             }}
           >
             Everything a computer stores is bits, and they travel in groups of eight called bytes.
-            Toggle the eight bits below and watch the same value appear as binary, decimal, hex,
-            octal, and a character, all kept in step by real conversions. Then take two bytes into
-            the bitwise playground and see AND, OR, XOR, NOT, and shifts worked out column by column.
+            Toggle the eight bits below and the same value shows up at once as binary, decimal, hex,
+            octal, and a character. Then take two bytes into the bitwise playground and see AND, OR,
+            XOR, NOT, and shifts worked out column by column.
           </p>
         </header>
 
@@ -952,8 +952,7 @@ export default function App() {
         <BitwisePlayground reduce={reduce} />
 
         <div style={{ marginTop: 4, textAlign: "center", fontSize: 11, color: C.muted }}>
-          Every number here is computed from the bits in real time. Place value i contributes 2^i
-          when its bit is 1.
+          Place value i contributes 2^i when its bit is 1.
         </div>
       </div>
     </div>

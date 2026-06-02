@@ -709,10 +709,9 @@ export default function App() {
               maxWidth: "64ch",
             }}
           >
-            A real five-node cluster running the Raft state machine. Nodes elect a leader using
-            randomized timeouts, the leader replicates a log to a majority, and the whole thing
-            recovers when you kill the leader. Everything you see is the actual protocol, not a
-            scripted animation.
+            Five nodes have to agree on a single ordered log while any of them can crash at any moment. Raft
+            pulls this off by electing one leader on randomized timeouts, replicating its log to a majority,
+            and re-electing the moment that leader goes dark. Kill the leader below and watch the cluster heal.
           </p>
         </div>
 

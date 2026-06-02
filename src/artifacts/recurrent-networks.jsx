@@ -1621,9 +1621,9 @@ export default function App() {
             Recurrent Networks, End to End
           </h1>
           <p style={{ color: C.muted, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "64ch" }}>
-            Four confusions about recurrent nets, dissolved on real multi-unit cells. Every hidden vector, every
-            gate, every gradient, and the training itself is the genuine computation running in your browser:
-            actual weight matrices, real backprop through time, a real optimizer. Nothing here is a stand-in number.
+            A plain recurrent network forgets fast. Send a signal twenty steps down a sequence and it has usually
+            faded to nothing by the time it matters, which is what made early RNNs so hard to train. LSTMs fixed it
+            with three small gates: train one below, and watch its memory hold where a vanilla RNN's slips away.
           </p>
         </header>
 

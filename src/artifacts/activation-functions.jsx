@@ -523,8 +523,8 @@ export default function App() {
           <p style={{ color: C.muted, fontSize: 15, lineHeight: 1.6, margin: "10px 0 0", maxWidth: "64ch" }}>
             An activation is the nonlinearity a neuron applies after its weighted sum. Without it a stack of layers
             collapses into one linear map, so the network could never bend a decision boundary. Its derivative is what
-            backprop multiplies as the gradient flows back, so the shape of that derivative decides how well a deep net
-            learns. Every curve and number below is the exact function and its closed-form derivative.
+            backprop multiplies as the gradient flows back, so the shape of that derivative quietly decides how well a
+            deep net learns. Overlay a few below and watch where each one keeps its slope alive and where it flatlines.
           </p>
         </header>
 

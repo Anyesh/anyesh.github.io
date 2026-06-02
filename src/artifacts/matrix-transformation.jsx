@@ -587,8 +587,8 @@ export default function App() {
           <p style={{ color: C.muted, fontSize: 15, lineHeight: 1.6, margin: "10px 0 0", maxWidth: "64ch" }}>
             A 2x2 matrix is not a static grid of numbers, it is an instruction for moving every point of the plane
             at once. The rule keeps lines straight, keeps parallel lines parallel, and leaves the origin where it is.
-            Everything below is the genuine matrix-vector product applied to the grid, to a sample shape, and to the
-            two basis vectors. Drag the labelled tips, or type the entries, and read the geometry off the numbers.
+            Drag the labelled tips of the two basis vectors, or type the entries, and read the geometry off the
+            numbers as the grid and a sample shape bend with them.
           </p>
         </header>
 

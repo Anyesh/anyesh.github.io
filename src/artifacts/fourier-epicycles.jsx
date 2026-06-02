@@ -715,7 +715,7 @@ export default function App() {
         </Card>
 
         <p style={{ textAlign: "center", fontSize: 11.5, color: C.faint, marginTop: 22, lineHeight: 1.6 }}>
-          Real discrete Fourier transform over {N} complex samples. Reconstruction sums {clampedCount} rotating
+          Discrete Fourier transform over {N} complex samples. Reconstruction sums {clampedCount} rotating
           vectors; with all {maxCircles} the path returns exactly.
         </p>
       </div>

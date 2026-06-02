@@ -373,8 +373,8 @@ export default function App() {
           <p style={{ color: C.ink, opacity: 0.82, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "64ch" }}>
             A convolution slides a tiny grid of weights, the kernel, across an image. At each position it multiplies
             the kernel against the pixels underneath and sums them into one output pixel. That weighted local average
-            is the whole operation. Change the weights and the same machinery detects edges, blurs, or sharpens. This
-            runs real 2D convolution in your browser, nothing is faked.
+            is the whole operation. The surprise is how much falls out of just nine numbers: change the weights and
+            the same machinery detects edges, blurs, or sharpens.
           </p>
         </header>
 

@@ -483,8 +483,8 @@ export default function App() {
           >
             Backprop sends one gradient backward through a deep chain by multiplying, layer by layer,
             by a local factor: the activation derivative times the weight. Multiply many factors below
-            one and the gradient collapses before it reaches the first layer. Multiply many above one
-            and it blows up. Every number here is the real forward and backward pass of the chain.
+            one and the gradient collapses before it reaches the first layer; multiply many above one
+            and it explodes instead. Tune the chain below and watch which way it tips.
           </p>
         </header>
 

@@ -508,7 +508,7 @@ export default function App() {
           <p style={{ color: C.muted, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "62ch" }}>
             A flock looks choreographed, yet nothing choreographs it. In Craig Reynolds' 1986 model every boid sees
             only its near neighbors and follows three steering rules. The global pattern below is genuinely emergent:
-            it is computed from those local interactions alone, with no leader and no script.
+            it falls out of those local interactions alone, with no leader steering and no path laid down in advance.
           </p>
         </header>
 

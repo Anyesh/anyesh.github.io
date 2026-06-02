@@ -627,8 +627,8 @@ export default function App() {
             A plain recurrent net rewrites its whole memory at every step, so a gradient flowing back through
             time gets multiplied by a Jacobian over and over until it vanishes. An LSTM keeps a separate cell
             state and learns three gates that decide what to erase, what to write, and what to read. Step one
-            cell through a short sequence below. Every gate, every cell update, and the gradient path through
-            time are the real computation, not stand-ins.
+            cell through a short sequence below and watch the cell state carry information forward while the
+            gradient still has a path home through time.
           </p>
         </header>
 

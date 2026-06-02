@@ -919,8 +919,8 @@ export default function App() {
         </Card>
 
         <div style={{ marginTop: 18, textAlign: "center", fontSize: 11, color: C.faintInk }}>
-          Real power iteration on G = d M + (1 - d)/N, with dangling columns spread uniformly. The
-          surfer is a genuine Monte Carlo sample of the same chain.
+          Power iteration on G = d M + (1 - d)/N, with dangling columns spread uniformly. The
+          surfer is a Monte Carlo sample of the same chain.
         </div>
       </div>
     </div>

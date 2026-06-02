@@ -362,8 +362,8 @@ export default function App() {
           <p style={{ color: C.muted, fontSize: 15, margin: "10px 0 0", lineHeight: 1.6, maxWidth: "62ch" }}>
             A diffusion model learns to reverse a process that gradually destroys data. Here the data is a 2D
             ring of six clusters. The forward process dissolves it into pure noise; the reverse process rebuilds
-            it. Because the target is a Gaussian mixture, its score is known exactly, so the sampler below is the
-            real thing, not an approximation.
+            it. Because the target is a Gaussian mixture, its score is known in closed form, so you can watch the
+            exact sampler walk noise back into structure.
           </p>
         </header>
 
