@@ -6,7 +6,7 @@ export const meta = {
   category: "Distributed Systems",
   description:
     "A hash ring you can poke at: place nodes and keys by a real hash, add and remove servers, and watch why only a thin slice of keys ever moves while mod-N reshuffles almost everything.",
-  date: "2026-06-01",
+  date: "2026-02-21",
   tags: ["consistent-hashing", "distributed-systems", "sharding", "load-balancing"],
 };
 

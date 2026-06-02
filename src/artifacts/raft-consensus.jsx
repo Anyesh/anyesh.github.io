@@ -5,7 +5,7 @@ export const meta = {
   category: "Distributed Systems",
   description:
     "A live five-node Raft cluster you can break: watch randomized timeouts elect a leader, replicate a log to a majority, and recover safely when the leader dies.",
-  date: "2026-06-01",
+  date: "2026-03-11",
   tags: ["raft", "consensus", "distributed-systems", "replication"],
 };
 

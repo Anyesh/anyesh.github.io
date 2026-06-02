@@ -5,7 +5,7 @@ export const meta = {
   category: "Signals",
   description:
     "A real discrete Fourier transform turns any closed path into a stack of rotating circles, then sums them back into the curve. Add circles one at a time and watch a crude loop sharpen into the exact shape.",
-  date: "2026-06-01",
+  date: "2026-02-27",
   tags: ["fourier", "dft", "signals", "epicycles"],
 };
 

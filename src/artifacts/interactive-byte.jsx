@@ -5,7 +5,7 @@ export const meta = {
   category: "Computer Systems",
   description:
     "Eight bits you can toggle, with place values, running sums, and live binary, decimal, hex, octal, and ASCII readouts that stay in sync. Then a bitwise playground where AND, OR, XOR, NOT, and shifts are computed column by column.",
-  date: "2026-06-02",
+  date: "2026-05-04",
   tags: ["bits", "bytes", "binary", "bitwise", "computer-systems"],
 };
 

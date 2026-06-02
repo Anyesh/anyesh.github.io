@@ -5,7 +5,7 @@ export const meta = {
   category: "Machine Learning",
   description:
     "Drop points on a plane and watch Lloyd's algorithm chase the centers. Every assignment, every mean, and every drop in inertia is computed for real, including the local minima that make k-means restart-sensitive.",
-  date: "2026-06-02",
+  date: "2026-03-23",
   tags: ["k-means", "clustering", "unsupervised", "lloyd"],
 };
 

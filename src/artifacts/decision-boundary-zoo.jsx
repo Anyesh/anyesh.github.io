@@ -5,7 +5,7 @@ export const meta = {
   category: "Machine Learning",
   description:
     "Four classifiers, four 2D datasets, one honest comparison. Watch a linear model fail on moons and circles while kNN, an RBF kernel SVM, and a small neural net curve around them. Every boundary is drawn by really training the model and classifying a grid.",
-  date: "2026-06-02",
+  date: "2026-05-20",
   tags: ["classification", "decision-boundary", "svm", "neural-networks", "knn"],
 };
 

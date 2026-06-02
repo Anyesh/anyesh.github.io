@@ -5,7 +5,7 @@ export const meta = {
   category: "Information Theory",
   description:
     "Type a string and watch a real Huffman tree assemble itself bottom up: count symbols, merge the two rarest nodes again and again, then read prefix-free codewords off the branches. See the encoded size, the compression ratio, and how the average code length lands between the source entropy and entropy plus one bit.",
-  date: "2026-06-02",
+  date: "2026-04-26",
   tags: ["huffman", "compression", "entropy", "information-theory"],
 };
 

@@ -6,7 +6,7 @@ export const meta = {
   category: "Data Structures",
   description:
     "A real bit array with k hash probes you can poke at: insert keys, watch their bits light up, query anything, and catch the moment a key that was never added reads as possibly present.",
-  date: "2026-06-01",
+  date: "2026-03-05",
   tags: ["bloom-filter", "probabilistic", "hashing", "data-structures"],
 };
 

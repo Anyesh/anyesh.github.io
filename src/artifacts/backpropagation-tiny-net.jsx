@@ -5,7 +5,7 @@ export const meta = {
   category: "Machine Learning",
   description:
     "A two-input, two-neuron network learning XOR. Step the forward pass neuron by neuron, then watch the gradient flow backward edge by edge as the chain rule assembles itself in front of you.",
-  date: "2026-06-01",
+  date: "2026-02-09",
   tags: ["backpropagation", "neural-networks", "gradients", "autodiff"],
 };
 

@@ -6,7 +6,7 @@ export const meta = {
   category: "Bayesian Inference",
   description:
     "Forty synthetic Sydney houses, four unknown weights, and a Markov chain that explores the whole posterior at once. Watch it converge, then predict a price as a full distribution.",
-  date: "2026-05-31",
+  date: "2026-01-20",
   tags: ["mcmc", "bayesian", "regression", "uncertainty"],
 };
 

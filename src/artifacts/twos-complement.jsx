@@ -5,7 +5,7 @@ export const meta = {
   category: "Computer Systems",
   description:
     "One row of bits, read two ways. Toggle bits and watch the unsigned and signed values move together, walk the number wheel to see where 255 wraps to 0 and 127 wraps to -128, then negate by flipping bits and adding one and add two signed numbers until they overflow.",
-  date: "2026-06-02",
+  date: "2026-05-08",
   tags: ["twos-complement", "binary", "signed-integers", "overflow"],
 };
 

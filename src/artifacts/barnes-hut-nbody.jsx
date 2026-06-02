@@ -5,7 +5,7 @@ export const meta = {
   category: "Physics",
   description:
     "Hundreds of bodies pull on each other under real gravity. A quadtree rebuilt every frame lets distant clumps act as one mass, turning the brute-force n squared force sum into an n log n walk. Tune the opening angle and watch accuracy trade against speed.",
-  date: "2026-06-02",
+  date: "2026-04-13",
   tags: ["n-body", "barnes-hut", "quadtree", "gravity"],
 };
 

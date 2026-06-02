@@ -6,7 +6,7 @@ export const meta = {
   category: "Machine Learning",
   description:
     "Watch a 2D point cloud dissolve into pure noise under the forward process, then watch a real score-based sampler walk it back to the data manifold one small step at a time.",
-  date: "2026-06-01",
+  date: "2026-02-15",
   tags: ["diffusion", "generative-models", "ddpm", "score"],
 };
 

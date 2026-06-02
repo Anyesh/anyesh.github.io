@@ -5,7 +5,7 @@ export const meta = {
   category: "Machine Learning",
   description:
     "Two ways to flatten high-dimensional data into a picture you can actually look at. PCA keeps the global shape but cannot unbend a curved manifold; t-SNE draws gorgeous clusters whose sizes and spacing mean nothing. Run both on the same data and watch where each one cheats.",
-  date: "2026-06-02",
+  date: "2026-05-17",
   tags: ["pca", "t-sne", "dimensionality-reduction", "embeddings"],
 };
 

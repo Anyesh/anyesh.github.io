@@ -5,7 +5,7 @@ export const meta = {
   category: "Deep Learning",
   description:
     "Open one LSTM cell and run it on a short sequence. Watch the forget, input, and output gates compute for real, see the cell state carry memory along a near-identity highway, and trace why an additive gated update lets gradients survive the long time horizons where a vanilla recurrent net vanishes.",
-  date: "2026-06-02",
+  date: "2026-05-29",
   tags: ["lstm", "rnn", "gates", "gradients", "deep-learning", "memory"],
 };
 

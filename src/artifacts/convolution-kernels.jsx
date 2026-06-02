@@ -5,7 +5,7 @@ export const meta = {
   category: "Computer Vision",
   description:
     "Slide a 3x3 kernel across a small grayscale image and watch the multiply-and-sum that produces each output pixel, the same operation a CNN learns to detect edges, blur, and sharpen.",
-  date: "2026-06-01",
+  date: "2026-03-17",
   tags: ["convolution", "cnn", "kernels", "computer-vision"],
 };
 

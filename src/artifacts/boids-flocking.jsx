@@ -5,7 +5,7 @@ export const meta = {
   category: "Emergence",
   description:
     "No leader, no global plan. Each boid only watches the handful of neighbors within its perception radius and obeys three simple steering rules. Dial separation, alignment, and cohesion and watch a coherent flock appear or fall apart.",
-  date: "2026-06-02",
+  date: "2026-04-18",
   tags: ["boids", "flocking", "emergence", "agent-based"],
 };
 

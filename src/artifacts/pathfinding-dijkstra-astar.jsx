@@ -5,7 +5,7 @@ export const meta = {
   category: "Algorithms",
   description:
     "Watch Dijkstra flood a grid evenly while A* aims straight at the goal, then read why an admissible heuristic lets A* visit far fewer cells for the same shortest path.",
-  date: "2026-06-01",
+  date: "2026-02-03",
   tags: ["pathfinding", "dijkstra", "a-star", "graphs"],
 };
 

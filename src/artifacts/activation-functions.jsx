@@ -5,7 +5,7 @@ export const meta = {
   category: "Deep Learning",
   description:
     "Plot seven activation functions against their exact analytic derivatives, drag an input point across the saturation regions, and stack derivative magnitudes to watch sigmoid and tanh vanish while the ReLU family keeps the gradient alive.",
-  date: "2026-06-02",
+  date: "2026-05-22",
   tags: ["activation-functions", "gradients", "vanishing-gradients", "deep-learning", "relu"],
 };
 

@@ -5,7 +5,7 @@ export const meta = {
   category: "Procedural Generation",
   description:
     "A grid where every cell starts as a superposition of every terrain tile, then collapses one cell at a time. Each collapse ripples through the neighbours as a constraint wave until the whole map agrees. Step it, watch the entropy drain, and force a contradiction to see it backtrack.",
-  date: "2026-06-02",
+  date: "2026-04-08",
   tags: ["wfc", "constraint-propagation", "procedural-generation", "entropy"],
 };
 

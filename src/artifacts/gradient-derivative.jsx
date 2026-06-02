@@ -5,7 +5,7 @@ export const meta = {
   category: "Calculus",
   description:
     "Build the derivative from the limit of a secant, then stack two of them into a gradient. Drag a point on a curve to read its tangent, drag a point on a contour map to read the steepest-ascent vector, and watch the directional derivative peak when you aim along the gradient.",
-  date: "2026-06-02",
+  date: "2026-05-26",
   tags: ["calculus", "derivative", "gradient", "directional-derivative"],
 };
 

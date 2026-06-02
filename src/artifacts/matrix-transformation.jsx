@@ -5,7 +5,7 @@ export const meta = {
   category: "Linear Algebra",
   description:
     "A 2x2 matrix is a recipe for bending the plane while keeping every line straight and the origin pinned. Drag where the basis vectors land and watch the grid, the determinant as signed area, and the eigenvectors as the directions that refuse to turn.",
-  date: "2026-06-02",
+  date: "2026-05-24",
   tags: ["linear-algebra", "matrix", "eigenvectors", "determinant"],
 };
 

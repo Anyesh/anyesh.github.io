@@ -5,7 +5,7 @@ export const meta = {
   category: "Complexity Theory",
   description:
     "One Boolean formula, two jobs. A real DPLL solver searches an exponential tree of assignments while a linear-time checker confirms any proposed answer in a glance. Watch the two counters diverge and feel the open question behind P vs NP.",
-  date: "2026-06-02",
+  date: "2026-04-30",
   tags: ["p-vs-np", "complexity", "sat", "dpll", "np-complete"],
 };
 

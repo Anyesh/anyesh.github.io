@@ -5,7 +5,7 @@ export const meta = {
   category: "Computer Systems",
   description:
     "Toggle the real 32 bits a float is made of, type a decimal and watch the nearest representable value snap into place, and see honestly why 0.1 plus 0.2 misses 0.3. Every bit pattern is the exact one your hardware stores.",
-  date: "2026-06-02",
+  date: "2026-05-11",
   tags: ["ieee-754", "floating-point", "binary", "computer-systems"],
 };
 

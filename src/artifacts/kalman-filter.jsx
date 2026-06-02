@@ -5,7 +5,7 @@ export const meta = {
   category: "Signals",
   description:
     "A real 2D constant-velocity Kalman filter follows a moving target. Watch the predict step grow uncertainty and the update step shrink it, drag the noise sliders, and drop measurements to see the covariance ellipse breathe.",
-  date: "2026-06-02",
+  date: "2026-03-29",
   tags: ["kalman-filter", "estimation", "covariance", "tracking"],
 };
 

@@ -5,7 +5,7 @@ export const meta = {
   category: "Statistics",
   description:
     "One coin, one question: what is its bias? Estimate it two ways on the same data. A frequentist confidence interval that you watch earn its 95% over repeated samples, and a Bayesian Beta posterior that says outright how probable each value of p is.",
-  date: "2026-06-02",
+  date: "2026-05-28",
   tags: ["bayesian", "frequentist", "confidence-interval", "credible-interval"],
 };
 
