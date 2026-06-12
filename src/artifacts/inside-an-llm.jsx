@@ -1238,8 +1238,8 @@ export default function App() {
             }}
           >
             Every time you prompt a language model, a file of frozen numbers gets multiplied
-            against your text until one more token falls out. No database of answers, no hidden
-            reasoning module, and nothing learns while you chat. That claim is easy to repeat and
+            against your text until one more token falls out. No database of answers or any hidden
+            reasoning module. Nothing learns while you chat. That claim is easy to repeat and
             strangely hard to believe, so this page ships an actual trained transformer, all{" "}
             {PARAM_COUNT.toLocaleString()} weights of it, and runs it in front of you. Type a
             prompt, step through the machine, read the numbers in flight, then break a weight and
