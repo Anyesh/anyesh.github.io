@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const meta = {
   title: "EVOKE: Evicting and Recovering the KV Cache",
@@ -486,6 +487,111 @@ function scoreColor(score) {
   return C.danger;
 }
 
+// One frozen decode step for the bridge diagram: a softmax row over nine
+// cached tokens, grouped into the three blocks they belong to. Percentages
+// sum to 100 so the "row sums to 1" claim is checkable by eye.
+const ROW_DEMO = [
+  {
+    block: "system",
+    sum: 6,
+    color: KIND_COLORS.sys,
+    tint: "#eef1f7",
+    tokens: [
+      ["You", 2],
+      ["are", 1],
+      ["an agent", 3],
+    ],
+  },
+  {
+    block: "file: app.py",
+    sum: 54,
+    color: KIND_COLORS.tool,
+    tint: C.matchSoft,
+    tokens: [
+      ["def", 41],
+      ["main", 8],
+      ["():", 5],
+    ],
+  },
+  {
+    block: "tool log",
+    sum: 40,
+    color: KIND_COLORS.tools,
+    tint: C.spliceSoft,
+    tokens: [
+      ["wrote", 30],
+      ["app", 6],
+      [".py", 4],
+    ],
+  },
+];
+
+function SoftmaxRowDiagram() {
+  const maxSum = Math.max(...ROW_DEMO.map((g) => g.sum));
+  return (
+    <div
+      role="img"
+      aria-label="One decode step's softmax row over nine cached tokens, grouped into three blocks: system collects 6 percent, file app.py collects 54 percent, tool log collects 40 percent."
+      style={{ display: "flex", gap: 14, flexWrap: "wrap", margin: "14px 0" }}
+    >
+      {ROW_DEMO.map((g) => (
+        <div key={g.block} style={{ flex: "1 1 180px" }}>
+          <div style={{ display: "flex", gap: 4 }}>
+            {g.tokens.map(([tok, pct]) => (
+              <div
+                key={tok}
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                  border: `1.5px solid ${g.color}`,
+                  borderRadius: 8,
+                  background: g.tint,
+                  padding: "6px 2px",
+                }}
+              >
+                <div style={{ fontSize: 11, fontWeight: 600, color: C.ink }}>{tok}</div>
+                <div style={{ fontSize: 10.5, color: C.muted, marginTop: 2 }}>{pct}%</div>
+              </div>
+            ))}
+          </div>
+          <div
+            style={{
+              borderLeft: `1.5px solid ${g.color}88`,
+              borderRight: `1.5px solid ${g.color}88`,
+              borderBottom: `1.5px solid ${g.color}88`,
+              borderRadius: "0 0 6px 6px",
+              height: 5,
+              margin: "3px 4px 0",
+            }}
+          />
+          <div
+            style={{
+              textAlign: "center",
+              fontSize: 11.5,
+              marginTop: 4,
+              color: g.sum === maxSum ? C.match : C.muted,
+              fontWeight: g.sum === maxSum ? 700 : 500,
+            }}
+          >
+            {g.block} → {g.sum}%
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CrossLink({ to, children }) {
+  return (
+    <Link
+      to={to}
+      style={{ color: C.accent, textDecorationColor: `${C.accent}66`, fontWeight: 600 }}
+    >
+      {children}
+    </Link>
+  );
+}
+
 function BlockChip({ block, highlighted, flash, reduce, shelf }) {
   const kc = KIND_COLORS[block.kind] || C.muted;
   const hasScore = typeof block.score === "number";
@@ -856,6 +962,29 @@ export default function App() {
             Discard respects the budget but re-decodes history every turn. No-eviction decodes
             cheaply (an intact cache is a perfect prefix cache) but its footprint grows with the
             session. EVOKE holds both: budget enforced, and recovery makes the resend nearly free.
+          </p>
+        </Card>
+
+        <Card style={{ marginBottom: 16 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 4 }}>
+            Where the percentages come from
+          </div>
+          <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.7, margin: "0 0 4px" }}>
+            Each generated token runs one lookup over everything cached: its query vector is
+            dotted against every cached key, and softmax turns the raw scores into a row of
+            percentages that sums to 1. That row is the model's own record of where it looked
+            while choosing the next token.{" "}
+            <CrossLink to="/a/attention-explainer">Attention, From the Ground Up</CrossLink>{" "}
+            builds that machinery (queries, keys, values, softmax) interactively; this page only
+            needs its output. Below, one frozen decode step over nine cached tokens:
+          </p>
+          <SoftmaxRowDiagram />
+          <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.7, margin: 0 }}>
+            EVOKE sums the row inside each block's token range, so a single decode step hands
+            every block its share of the model's attention. Smoothed over the last few dozen
+            steps with a decay, that share is the attention signal behind the score bars above:
+            here the model is clearly working from <b>file: app.py</b>, so that block stays,
+            while a block stuck at a few percent for long enough becomes the next eviction.
           </p>
         </Card>
 
