@@ -505,11 +505,28 @@ export default function App() {
               maxWidth: "64ch",
             }}
           >
-            A Bloom filter can tell you for certain when something is absent, but it can only ever say
-            something is <i>probably</i> present. That one-sided trade buys it tiny memory and constant-time
-            lookups. It is just a bit array and a few hash functions: adding a key flips the{" "}
-            <i>k</i> bits the hashes point at, and checking tests those same bits. Any 0 means definitely
-            absent; all 1s mean probably present, since other keys may have set those bits too.
+            You have a membership check that is expensive: a database round trip, a disk
+            seek, a call to another service to ask "have we seen this before?" A Bloom filter
+            is a tiny in-memory thing you put <i>in front</i> of that check. You ask it first.
+            If it says no, you can skip the expensive lookup entirely and trust that answer. If
+            it says maybe, you fall through and do the real check. Being wrong only ever costs
+            you one wasted lookup; it never gives you a wrong answer.
+          </p>
+          <p
+            style={{
+              color: C.ink,
+              fontSize: 13.5,
+              margin: "10px 0 0",
+              lineHeight: 1.65,
+              maxWidth: "64ch",
+            }}
+          >
+            Under the hood it is one bit array shared by every key. Adding a key hashes it to{" "}
+            <i>k</i> positions and flips those bits to 1. Checking a key tests the same{" "}
+            <i>k</i> positions. Any 0 means it was definitely never added, because adding it
+            would have set that bit. All 1s mean it was <i>probably</i> added: other keys may
+            have flipped those same bits, and the filter cannot tell the difference. That is
+            the whole trade, and the playground below lets you trigger it yourself.
           </p>
         </div>
 
