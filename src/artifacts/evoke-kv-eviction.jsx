@@ -5,7 +5,7 @@ export const meta = {
   title: "EVOKE: Evicting and Recovering the KV Cache",
   category: "LLM Systems",
   description:
-    "An agent session outgrows its GPU memory budget fast. Watch every cache block earn a relevance score from the model's own attention, see the lowest scorers evicted to host RAM, then spliced back by content identity when the history is re-sent, so almost nothing is recomputed.",
+    "An agent session outgrows its GPU memory budget fast. Watch every cache block earn a relevance score from how well it still matches the task in focus, see the lowest scorers evicted to host RAM, then spliced back by content identity when the history is re-sent, so almost nothing is recomputed.",
   date: "2026-06-11",
   tags: ["kv-cache", "llm-inference", "eviction", "agents", "memory-hierarchy"],
 };
@@ -57,10 +57,11 @@ function usePrefersReducedMotion() {
 // The scripted agent session: a coding agent builds a small webapp. Each turn
 // brings new prompt blocks (tool results, user messages) and generates one
 // assistant block. Mirrors the live demo run shape (system prompt + tools,
-// then tool traffic). `attends` is the share of softmax attention mass that
-// landed in each block while this turn's reply was generated; in the real
-// system the forked llama.cpp captures these rows after every decode step,
-// here they are scripted so the run is deterministic and scrubbable.
+// then tool traffic). `focus` is the share of the turn's task relevance that
+// landed in each block: in the headline config a block's relevance is how
+// closely its embedding still matches the running task-focus vector (the
+// coherence signal, the largest weight in the scorer). The values are scripted
+// so the run is deterministic and scrubbable.
 const SESSION = [
   {
     label: "Turn 1: the task arrives",
@@ -70,7 +71,7 @@ const SESSION = [
       { id: "user1", kind: "user", label: "user: build it" },
     ],
     gen: { id: "a1", kind: "assist", label: "assistant ① write app.py" },
-    attends: { user1: 0.6, tools: 0.25, sys: 0.15 },
+    focus: { user1: 0.6, tools: 0.25, sys: 0.15 },
   },
   {
     label: "Turn 2: tool result comes back",
@@ -79,30 +80,31 @@ const SESSION = [
       { id: "f1", kind: "tool", label: "file: app.py" },
     ],
     gen: { id: "a2", kind: "assist", label: "assistant ② write README" },
-    attends: { f1: 0.45, user1: 0.2, a1: 0.2, tools: 0.15 },
+    focus: { f1: 0.45, user1: 0.2, a1: 0.2, tools: 0.15 },
   },
   {
     label: "Turn 3: another result",
     newBlocks: [{ id: "t2", kind: "tool", label: "tool: wrote README" }],
     gen: { id: "a3", kind: "assist", label: "assistant ③ run check" },
-    attends: { f1: 0.3, t2: 0.25, tools: 0.2, a2: 0.15, user1: 0.1 },
+    focus: { f1: 0.3, t2: 0.25, tools: 0.2, a2: 0.15, user1: 0.1 },
   },
   {
     label: "Turn 4: the check passes",
     newBlocks: [{ id: "t3", kind: "tool", label: "tool: check ok" }],
     gen: { id: "a4", kind: "assist", label: "assistant ④ done" },
-    attends: { t3: 0.5, user1: 0.3, a3: 0.2 },
+    focus: { t3: 0.5, user1: 0.3, a3: 0.2 },
   },
 ];
 
-// Scoring constants mirror EvokeConfig defaults so the demo's numbers match
-// the system it depicts: user turns floor at 0.6 and assistant turns at 0.5
-// (conversation backbone outlives tool output), attention dominates the mix
-// the way the bench config weights it, and recency decays exponentially.
-const SCORE_W_ATTN = 0.6;
+// Scoring constants mirror the headline EvokeConfig (the evoke_kv_restore
+// benchmark arm): task coherence is the dominant weight at 0.6, recency at 0.4,
+// attention off by default. User turns floor at 0.6 and assistant turns at 0.5
+// (conversation backbone outlives tool output), and recency decays
+// exponentially.
+const SCORE_W_COHERENCE = 0.6;
 const SCORE_W_RECENCY = 0.4;
 const RECENCY_DECAY = 0.45;
-const ATTN_EWMA = 0.5;
+const FOCUS_EWMA = 0.5;
 const FLOOR_USER = 0.6;
 const FLOOR_ASSIST = 0.5;
 
@@ -122,18 +124,18 @@ function simulate(policy, budget) {
   let mismatches = 0;
   let peak = 0;
   const steps = [];
-  const attnEwma = new Map();
+  const focusEwma = new Map();
 
   const resident = () => order.filter((id) => blocks.get(id).state === "resident");
 
-  // Per-turn attention folds into a running average (the real scorer keeps a
-  // decayed sliding window over recent decode steps; one turn here stands in
-  // for that window) so a block that stops earning attention fades over a
-  // couple of turns instead of dropping off a cliff.
-  function absorbAttention(attends) {
+  // Per-turn focus folds into a running average (the real scorer keeps a
+  // decayed sliding window so the task-focus vector drifts rather than jumps;
+  // one turn here stands in for that window) so a block that stops matching the
+  // task fades over a couple of turns instead of dropping off a cliff.
+  function absorbFocus(focus) {
     for (const id of order) {
-      const prev = attnEwma.get(id) || 0;
-      attnEwma.set(id, prev * ATTN_EWMA + (attends[id] || 0) * (1 - ATTN_EWMA));
+      const prev = focusEwma.get(id) || 0;
+      focusEwma.set(id, prev * FOCUS_EWMA + (focus[id] || 0) * (1 - FOCUS_EWMA));
     }
   }
 
@@ -145,9 +147,9 @@ function simulate(policy, budget) {
         b.score = 1;
         return;
       }
-      const attn = attnEwma.get(id) || 0;
+      const coherence = focusEwma.get(id) || 0;
       const recency = Math.exp(-RECENCY_DECAY * (res.length - 1 - i));
-      let raw = SCORE_W_ATTN * attn + SCORE_W_RECENCY * recency;
+      let raw = SCORE_W_COHERENCE * coherence + SCORE_W_RECENCY * recency;
       if (b.kind === "user") raw = Math.max(raw, FLOOR_USER);
       if (b.kind === "assist") raw = Math.max(raw, FLOOR_ASSIST);
       b.score = Math.min(raw, 1);
@@ -270,12 +272,12 @@ function simulate(policy, budget) {
       "gen"
     );
 
-    // Phase 4: rescore. The manager reads the captured attention and refreshes
-    // every block's relevance before the budget pass, so eviction acts on what
-    // the model just did rather than on block age.
-    absorbAttention(turn.attends || {});
+    // Phase 4: rescore. The manager refreshes every block's coherence to the
+    // running task focus before the budget pass, so eviction acts on what the
+    // session is working on now rather than on block age.
+    absorbFocus(turn.focus || {});
     rescore();
-    const ranked = Object.entries(turn.attends || {}).sort((a, b) => b[1] - a[1]);
+    const ranked = Object.entries(turn.focus || {}).sort((a, b) => b[1] - a[1]);
     const topNames = ranked
       .slice(0, 2)
       .map(([id, share]) => `${blocks.get(id).label} (${Math.round(share * 100)}%)`)
@@ -284,8 +286,8 @@ function simulate(policy, budget) {
       "score",
       turnNo,
       policy === "none"
-        ? `While generating, the model's attention mass landed mostly in ${topNames}. Every block rescores (bars below each chip), but with no eviction policy nothing acts on the scores.`
-        : `While generating, the model's attention mass landed mostly in ${topNames}. Every block rescores: attention it keeps earning, blended with recency, floors holding up user and assistant turns. The lowest scorers are now the eviction candidates.`,
+        ? `This turn's task focus tracked mostly to ${topNames}. Every block rescores (bars below each chip), but with no eviction policy nothing acts on the scores.`
+        : `This turn's task focus tracked mostly to ${topNames}. Every block rescores: coherence to the current task, blended with recency, floors holding up user and assistant turns. The lowest scorers are now the eviction candidates.`,
       ranked.length ? ranked[0][0] : null,
       "attend"
     );
@@ -743,10 +745,10 @@ export default function App() {
           <p style={{ color: C.muted, fontSize: 13.5, margin: "7px 0 0", lineHeight: 1.6, maxWidth: "64ch" }}>
             An agent re-sends its whole conversation every turn, but the GPU can only hold so much
             attention state. EVOKE treats the KV cache like an OS treats memory. Every block
-            carries a relevance score: the attention the model still pays it, blended with recency,
-            with floors under conversation turns. At turn ends the lowest scorers are evicted to
-            host RAM, and when the same bytes come back, the saved tensors splice in instead of
-            being recomputed.
+            carries a relevance score: how well it still matches the task in focus, blended with
+            recency, with floors under conversation turns. At turn ends the lowest scorers are
+            evicted to host RAM, and when the same bytes come back, the saved tensors splice in
+            instead of being recomputed.
           </p>
         </div>
 
@@ -967,12 +969,14 @@ export default function App() {
 
         <Card style={{ marginBottom: 16 }}>
           <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 4 }}>
-            Where the percentages come from
+            An optional signal: the model's own attention
           </div>
           <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.7, margin: "0 0 4px" }}>
-            Each generated token runs one lookup over everything cached: its query vector is
-            dotted against every cached key, and softmax turns the raw scores into a row of
-            percentages that sums to 1. That row is the model's own record of where it looked
+            The score bars above come from coherence and recency, the weights the headline
+            benchmark arm uses. EVOKE can also read a second signal: the attention the model still
+            pays each block. Each generated token runs one lookup over everything cached, its query
+            vector is dotted against every cached key, and softmax turns the raw scores into a row
+            of percentages that sums to 1. That row is the model's own record of where it looked
             while choosing the next token.{" "}
             <CrossLink to="/a/attention-explainer">Attention, From the Ground Up</CrossLink>{" "}
             builds that machinery (queries, keys, values, softmax) interactively; this page only
@@ -980,11 +984,12 @@ export default function App() {
           </p>
           <SoftmaxRowDiagram />
           <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.7, margin: 0 }}>
-            EVOKE sums the row inside each block's token range, so a single decode step hands
-            every block its share of the model's attention. Smoothed over the last few dozen
-            steps with a decay, that share is the attention signal behind the score bars above:
-            here the model is clearly working from <b>file: app.py</b>, so that block stays,
-            while a block stuck at a few percent for long enough becomes the next eviction.
+            The forked llama.cpp sums each decode step's row inside a block's token range, so the
+            block gets its share of the model's attention. An attention-weighted config (attention
+            0.5, coherence 0.3, recency 0.2) blends that share into the score; the headline config
+            leaves attention at zero weight and scores on coherence and recency alone. Either way,
+            here the work is clearly centered on <b>file: app.py</b>, so that block stays while a
+            block left cold for long enough becomes the next eviction.
           </p>
         </Card>
 
@@ -993,19 +998,21 @@ export default function App() {
             <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 8 }}>How a block earns its score</div>
             <ul style={{ fontSize: 12, color: C.muted, lineHeight: 1.7, margin: 0, paddingLeft: 18 }}>
               <li>
-                <b>The model's own attention</b>: the forked llama.cpp copies each decode step's
-                post-softmax attention row into a host buffer. A block's signal is the share of
-                that mass landing in its tokens, smoothed over recent steps; the rescore phase
-                shows where it landed each turn.
+                <b>Task coherence</b> (the dominant weight, 0.60): each block's embedding is
+                compared against a running task-focus embedding, so a block earns its score by
+                still matching what the session is working on. This is the signal driving the
+                score bars and rescore phase above; switch tasks and the focus drifts, so the old
+                task's blocks go cold within a turn or two.
               </li>
               <li>
-                <b>Recency</b>: an exponential decay that keeps just-arrived blocks safe and acts
-                as a stability prior, so one attention spike cannot thrash the cache.
+                <b>Recency</b> (0.40): an exponential decay that keeps just-arrived blocks safe and
+                acts as a stability prior, so one spike cannot thrash the cache.
               </li>
               <li>
-                <b>Task coherence</b>: each block's embedding is compared against a running
-                task-focus embedding. Switch tasks and the focus snaps, so the old task's blocks
-                go cold within a turn or two (not animated in this demo).
+                <b>The model's own attention</b> (off by default): the forked llama.cpp can copy
+                each decode step's post-softmax attention row into a host buffer and hand each
+                block its share. An attention-weighted variant blends it into the score; the
+                headline arm leaves it at zero.
               </li>
               <li>
                 <b>Protections</b>: the first tokens are attention sinks and never leave, user
@@ -1021,8 +1028,8 @@ export default function App() {
               <li>
                 <b>Score bars under every chip</b>: eviction takes the lowest score, not the
                 oldest block. At the default budget, turn 3's first victim is a tool ack from the
-                turn before, while the turn-1 user message outlives it, because nothing attends
-                to the ack anymore.
+                turn before, while the turn-1 user message outlives it, because the ack no longer
+                matches the task in focus.
               </li>
               <li>
                 <b style={{ color: C.splice }}>Blue splices</b>: an evicted block whose exact bytes
