@@ -10,7 +10,7 @@ export const meta = {
   title: "Watch a Language Model Do Arithmetic",
   category: "Interpretability",
   description:
-    "Ask a model for (2 + 3) * 4 and it writes 20, with no calculator and no code. A lens that decodes the model's half-formed thought at every layer shows where the 20 comes from: it reaches the sub-sum 5 partway up the stack, then twenty near the top. Real readouts from Qwen3.5-4B.",
+    "I gave a language model (2 + 3) * 4 and it wrote 20 without running a calculator. Using the paper's lens I read the model's half-formed answer out of each layer and watched it reach the sub-sum 5 partway up, then twenty near the top. The readouts are from a 4B model I ran myself.",
   date: "2026-07-07",
   tags: ["interpretability", "transformers", "reasoning", "jacobian-lens", "arithmetic"],
 };
@@ -113,20 +113,19 @@ export default function WatchItCalculate() {
 
         <div style={{ fontSize: 17, lineHeight: 1.7, color: "#2c2823" }}>
           <p style={{ margin: "0 0 16px" }}>
-            Type <code style={codeS}>(2 + 3) * 4</code> into a language model and it
-            answers <strong>20</strong>. No calculator was called, no Python ran. The
-            answer fell out of a single forward pass, the same one-shot sweep through
-            the network that predicts the next word in a sentence. So where does the 20
-            actually come from?
+            I typed <code style={codeS}>(2 + 3) * 4</code> into a language model and it
+            answered <strong>20</strong>. It didn't run a calculator or any code, it just
+            did one forward pass, the same single sweep through the network it uses to
+            guess the next word in a sentence. So where does the 20 come from?
           </p>
           <p style={{ margin: "0 0 16px" }}>
-            You can look. A transformer builds its answer in stages, one per layer, and
-            the paper below fits a{" "}
-            <em>lens</em> that decodes the half-formed guess sitting in the model at any
-            layer into plain vocabulary words, a bit like attaching a probe to a chip and
-            reading the bus mid-computation. Sweep the slider and watch the guess climb:
-            it reaches the inner sum <strong>5</strong> partway up the stack, then{" "}
-            <strong>twenty</strong> near the top, before a single digit is written.
+            So I looked. A transformer builds its answer in stages, one per layer, and the
+            paper below comes with a <em>lens</em> that decodes the half-formed guess
+            sitting in the model at any layer into plain words, a bit like clipping a probe
+            onto a chip and reading the bus while it computes. I ran that lens on every
+            layer. Drag the slider and you see what I saw: the guess reaches the inner sum{" "}
+            <strong>5</strong> partway up, then <strong>twenty</strong> near the top,
+            before it writes a single digit.
           </p>
         </div>
 
@@ -162,23 +161,22 @@ export default function WatchItCalculate() {
             lineHeight: 1.55,
           }}
         >
-          The model is given two worked examples first (a two-shot primer), then the
-          expression. Without that nudge the 4B model treats a bare{" "}
-          <code style={codeSmall}>expr =</code> as a quiz to echo rather than solve, and
-          computes nothing. Mid layers are genuinely noisy: stray tokens and question
-          marks show up between the clean milestones. That noise is real, not smoothed
-          away.
+          I give the model two worked examples first, then the expression. Without that
+          nudge the 4B model reads a bare <code style={codeSmall}>expr =</code> as a quiz
+          to echo back rather than solve, and computes nothing. The middle layers are
+          genuinely noisy: stray tokens and question marks turn up between the clean
+          milestones. I left that noise in rather than smooth it out.
         </div>
 
         <Card style={{ marginTop: 28 }}>
           <h3 style={h3S}>The answer shows up as a word, not a digit</h3>
           <p style={pS}>
-            Notice the answer surfaces as <code style={codeSmall}>twenty</code> or{" "}
+            The answer shows up as <code style={codeSmall}>twenty</code> or{" "}
             <code style={codeSmall}>forty</code>, not <code style={codeSmall}>2</code> or{" "}
-            <code style={codeSmall}>4</code>. Inside the network the result is a
-            number <em>concept</em>, and only in the final layers does it commit to the
-            specific digit token it will emit. Reading meaning rather than surface form is
-            exactly what makes the lens useful: the plan is legible before the output is.
+            <code style={codeSmall}>4</code>. Inside the network the result is a number as
+            a <em>concept</em>, and only in the last few layers does it commit to the
+            actual digit it will write. That is what makes the lens worth using to me: I
+            can read the meaning the model is holding before it turns into output.
           </p>
         </Card>
 
@@ -233,8 +231,8 @@ export default function WatchItCalculate() {
             </li>
           </ul>
           <p style={{ marginTop: 16, fontSize: 13, color: C.faint }}>
-            Readouts are real, computed on {data.model} with the lens{" "}
-            {data.lens}. Method and the headline example from{" "}
+            I computed these readouts on {data.model} with the lens{" "}
+            {data.lens}. The method and the original arithmetic example come from{" "}
             <a
               href="https://transformer-circuits.pub/2026/workspace/index.html"
               target="_blank"

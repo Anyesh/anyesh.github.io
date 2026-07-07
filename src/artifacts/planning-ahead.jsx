@@ -10,7 +10,7 @@ export const meta = {
   title: "The Word It Has Already Chosen",
   category: "Interpretability",
   description:
-    "Misspell langauge and a model reads it as language anyway. Set up a rhyme and it locks the last word in long before writing it. A lens that decodes the model's internal guess at each layer shows the correction and the rhyme are settled well before the output. Real readouts from Qwen3.5-4B.",
+    "I misspelled langauge and the model read it as language anyway. I set up a rhyme and it locked the last word in long before writing it. Decoding the model's internal guess at each layer with the paper's lens, I could see the correction and the rhyme were settled well before the output. The readouts are from a 4B model I ran myself.",
   date: "2026-07-07",
   tags: ["interpretability", "transformers", "jacobian-lens", "planning", "typos"],
 };
@@ -72,21 +72,20 @@ export default function PlanningAhead() {
 
         <div style={{ fontSize: 17, lineHeight: 1.7, color: "#2c2823" }}>
           <p style={{ margin: "0 0 16px" }}>
-            Write <code style={codeS}>langauge</code>, with the letters flipped, and a
-            model still understands <strong>language</strong>. It does not stumble over
-            the typo the way a strict string match would. Somewhere inside, the messy
-            characters on the page get read as the word you meant. Where does that happen,
-            and how early?
+            I wrote <code style={codeS}>langauge</code>, with two letters flipped, and the
+            model still understood <strong>language</strong>. It didn't stumble on the typo
+            the way a strict string match would. Somewhere inside, the messy characters on
+            the page get read as the word I meant. Where does that happen, and how early?
           </p>
           <p style={{ margin: "0 0 16px" }}>
             The lens from{" "}
             <a href="/a/watch-it-calculate" style={linkS}>the arithmetic walkthrough</a>{" "}
-            answers it directly: decode the model's internal guess at each layer and the
+            answers that. When I decode the model's internal guess at each layer, the
             corrected word <strong>language</strong> is already its top pick by the lower
-            middle of the network, while the literal misspelling never leads. Switch to
-            the rhyming couplet and you see the same early commitment: the model fixes on{" "}
-            <strong>death</strong> to rhyme with <em>breath</em> and then holds it, steady,
-            for the rest of the stack.
+            middle of the network, and the literal misspelling never leads. The rhyming
+            couplet shows the same early commitment: the model settles on{" "}
+            <strong>death</strong> to rhyme with <em>breath</em> and then holds it for the
+            rest of the stack.
           </p>
         </div>
 
@@ -107,13 +106,13 @@ export default function PlanningAhead() {
         <Card style={{ marginTop: 28 }}>
           <h3 style={h3S}>Read at the right spot</h3>
           <p style={pS}>
-            Both readouts are taken at the last token of the prompt, the point where the
-            model is deciding what comes next. For the typo that means it has folded the
-            garbled spelling into a clean sense of the word before it does anything else
-            with it. For the rhyme it means the payoff word is chosen up front, not
-            improvised at the last instant. The paper shows a sharper version of this on
-            larger models, where the rhyme for the <em>next</em> line is already planned
-            several words in advance; here the effect is smaller but the shape is the same.
+            I take both readouts at the last token of the prompt, the point where the
+            model is deciding what comes next. For the typo that means it has already
+            folded the garbled spelling into a clean sense of the word. For the rhyme it
+            means the payoff word is chosen up front rather than improvised at the last
+            instant. The paper shows a sharper version on larger models, where the rhyme
+            for the <em>next</em> line is planned several words ahead. Here the effect is
+            smaller, but the shape is the same.
           </p>
         </Card>
 
@@ -125,7 +124,7 @@ export default function PlanningAhead() {
             <li><a href="/a/global-workspace" style={linkS}>The global workspace</a> : the bigger claim behind all of these.</li>
           </ul>
           <p style={{ marginTop: 16, fontSize: 13, color: C.faint }}>
-            Readouts are real, computed on {data.model} with the lens {data.lens}. From{" "}
+            I computed these readouts on {data.model} with the lens {data.lens}. From{" "}
             <a href="https://transformer-circuits.pub/2026/workspace/index.html" target="_blank" rel="noreferrer" style={linkS}>
               Verbalizable Representations Form a Global Workspace in Language Models
             </a>{" "}

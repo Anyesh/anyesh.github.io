@@ -9,7 +9,7 @@ export const meta = {
   title: "A Global Workspace Inside the Model",
   category: "Interpretability",
   description:
-    "Nobody told the model the author was British. It inferred that from a few spellings and then quietly started spelling colour, not color, itself. A lens reads that unstated decision forming and steering the output. This is the paper's larger claim: language models hold a shared, readable set of active ideas. Real readouts from Qwen3.5-4B.",
+    "Nobody told the model the author was British. It worked that out from a few spellings and then started spelling colour, not color, on its own. With the paper's lens I can read that unstated decision forming and steering the output. It is a small window onto the paper's larger claim, that language models hold a shared, readable set of active ideas. The readouts are from a 4B model I ran myself.",
   date: "2026-07-07",
   tags: ["interpretability", "transformers", "jacobian-lens", "global-workspace", "cognition"],
 };
@@ -69,12 +69,11 @@ export default function GlobalWorkspace() {
             choice further down the line.
           </p>
           <p style={{ margin: "0 0 16px" }}>
-            The same lens from the other readouts catches that inference forming. Watch
-            the British spelling pull clear of both the American one and plain synonyms,
-            climbing to the very top of the vocabulary. This is the phenomenon the paper is
-            really about: not one trick, but a general pattern where a language model works
-            something out, holds it active, uses it, and, crucially, holds it in a form we
-            can read.
+            The same lens catches that inference forming. When I run it, the British
+            spelling pulls clear of both the American one and plain synonyms and climbs to
+            the top of the vocabulary. This is what the paper is about, and not just in
+            this one example. The model works something out, keeps it active while it keeps
+            writing, and holds it in a form I can read back out.
           </p>
         </div>
 
@@ -115,12 +114,12 @@ export default function GlobalWorkspace() {
         <Card style={{ marginTop: 16, background: "#fbfaf7" }}>
           <h3 style={h3S}>Where it does not reproduce</h3>
           <p style={pS}>
-            We also tried the classic probe of asking the model to think about its
-            greatest fear without saying it. At this model size the fear concept did not
-            surface cleanly in the readout, so we left it out rather than dress up noise as
-            a result. The effects on this page are real but modest: a 4B model with roughly
-            thirty layers is a small stand-in for the frontier systems the paper studies,
-            where the workspace is sharper and the experiments go much further.
+            I also tried the classic probe of asking the model to think about its greatest
+            fear without saying it. At this model size the fear concept didn't surface
+            cleanly, so I left it out rather than dress up noise as a result. The effects on
+            this page are real but modest. A 4B model with about thirty layers is a small
+            stand-in for the frontier systems the paper studies, where the workspace is
+            sharper and the experiments go much further.
           </p>
         </Card>
 
@@ -132,8 +131,8 @@ export default function GlobalWorkspace() {
             <li><a href="/a/planning-ahead" style={linkS}>Planning the next word</a> : rhymes and typo fixes settled early.</li>
           </ul>
           <p style={{ marginTop: 16, fontSize: 13, color: C.faint }}>
-            Readouts are real, computed on {data.model} with the lens {data.lens}. The
-            framework, and the experiments this only gestures at, are from{" "}
+            I computed these readouts on {data.model} with the lens {data.lens}. The
+            framework, and the experiments this page only gestures at, come from{" "}
             <a href="https://transformer-circuits.pub/2026/workspace/index.html" target="_blank" rel="noreferrer" style={linkS}>
               Verbalizable Representations Form a Global Workspace in Language Models
             </a>{" "}

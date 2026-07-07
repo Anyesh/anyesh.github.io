@@ -10,7 +10,7 @@ export const meta = {
   title: "The Reasoning Step It Never Says Out Loud",
   category: "Interpretability",
   description:
-    "Ask for the currency of the country shaped like a boot and a model answers euro. To get there it must first decide the country is Italy, yet it never writes Italy. That middle step happens silently, inside. A lens catches Italy surfacing mid-network, then handing off to euro. Real readouts from Qwen3.5-4B.",
+    "I asked a model for the currency of the country shaped like a boot and it answered euro. To get there it first has to decide the country is Italy, but it never writes Italy. That step happens silently, inside. Using the paper's lens I caught Italy surfacing mid-network before it hands off to euro. The readouts are from a 4B model I ran myself.",
   date: "2026-07-07",
   tags: ["interpretability", "transformers", "reasoning", "jacobian-lens", "multi-hop"],
 };
@@ -75,20 +75,20 @@ export default function MultiHopReadout() {
 
         <div style={{ fontSize: 17, lineHeight: 1.7, color: "#2c2823" }}>
           <p style={{ margin: "0 0 16px" }}>
-            "The currency used in the country shaped like a boot is..." and the model
-            finishes with <strong>euro</strong>. Getting there takes two hops: first work
-            out that the boot-shaped country is <strong>Italy</strong>, then recall that
-            Italy uses the euro. But the model never writes "Italy". It goes straight from
-            the riddle to the currency, so the middle step is invisible from the outside.
+            I gave a model "The currency used in the country shaped like a boot is..." and
+            it finished with <strong>euro</strong>. That takes two hops: first work out
+            that the boot-shaped country is <strong>Italy</strong>, then recall that Italy
+            uses the euro. But the model never writes "Italy". It jumps straight from the
+            riddle to the currency, so from the outside the middle step is invisible.
           </p>
           <p style={{ margin: "0 0 16px" }}>
             The same lens from{" "}
             <a href="/a/watch-it-calculate" style={linkS}>the arithmetic walkthrough</a>{" "}
             makes it visible. It decodes what the model is leaning toward saying at each
-            layer, and here you can watch <strong>Italy</strong> rise out of the noise in
-            the middle of the network, hold at the top for a while, then hand off to{" "}
-            <strong>euro</strong> near the end. A thought the model needed but never
-            spoke.
+            layer, and when I ran it here I could watch <strong>Italy</strong> rise out of
+            the noise in the middle of the network, hold near the top for a while, then
+            hand off to <strong>euro</strong> near the end. The model needed that thought
+            and never said it.
           </p>
         </div>
 
@@ -109,13 +109,13 @@ export default function MultiHopReadout() {
         <Card style={{ marginTop: 28 }}>
           <h3 style={h3S}>Why the buried step matters</h3>
           <p style={pS}>
-            This is the difference between a model that pattern-matches "boot currency"
-            straight to "euro" from training text, and one that genuinely composes two
-            separate facts. The lens shows Italy present as its own distinct thing before
-            the currency ever forms, which is evidence for the second story: the country
-            is computed, held, and then used. In the Carnival case the buried country
-            (Brazil) is fainter, and you can see it in the softer orange line, an honest
-            reminder that not every hop reads out as cleanly at this model size.
+            There are two ways a model could answer this. It could pattern-match "boot
+            currency" straight to "euro" from training text, or it could actually compose
+            two separate facts. The lens shows Italy present as its own distinct thing
+            before the currency forms, which points to the second: the country gets
+            computed, held, and then used. In the Carnival case the buried country
+            (Brazil) is fainter, which you can see in the softer orange line. Not every
+            hop reads out this cleanly at 4B.
           </p>
         </Card>
 
@@ -127,7 +127,7 @@ export default function MultiHopReadout() {
             <li><a href="/a/global-workspace" style={linkS}>The global workspace</a> : what the paper argues these readable thoughts really are.</li>
           </ul>
           <p style={{ marginTop: 16, fontSize: 13, color: C.faint }}>
-            Readouts are real, computed on {data.model} with the lens {data.lens}. From{" "}
+            I computed these readouts on {data.model} with the lens {data.lens}. From{" "}
             <a href="https://transformer-circuits.pub/2026/workspace/index.html" target="_blank" rel="noreferrer" style={linkS}>
               Verbalizable Representations Form a Global Workspace in Language Models
             </a>{" "}
