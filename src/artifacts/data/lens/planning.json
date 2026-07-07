@@ -1,0 +1,3764 @@
+{
+ "model": "Qwen/Qwen3.5-4B",
+ "lens": "neuronpedia/jacobian-lens@qwen-n1000",
+ "items": [
+  {
+   "name": "couplet-breath-death",
+   "prompt": "A rhyming couplet:\nThe soldier held his final, rattling breath,\nAnd closed his eyes to greet the face of",
+   "tokens": [
+    "A",
+    " rh",
+    "ym",
+    "ing",
+    " couple",
+    "t",
+    ":",
+    "\n",
+    "The",
+    " soldier",
+    " held",
+    " his",
+    " final",
+    ",",
+    " ratt",
+    "ling",
+    " breath",
+    ",",
+    "\n",
+    "And",
+    " closed",
+    " his",
+    " eyes",
+    " to",
+    " greet",
+    " the",
+    " face",
+    " of"
+   ],
+   "read_pos": -1,
+   "read_token": " of",
+   "track_words": [
+    "death",
+    "God",
+    "peace"
+   ],
+   "answer": "death",
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ],
+   "n_layers": 32,
+   "per_layer": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "tok": ",",
+       "prob": 0.08912
+      },
+      {
+       "tok": "the",
+       "prob": 0.02399
+      },
+      {
+       "tok": "\"",
+       "prob": 0.01989
+      },
+      {
+       "tok": "of",
+       "prob": 0.01455
+      },
+      {
+       "tok": "at",
+       "prob": 0.01367
+      },
+      {
+       "tok": "in",
+       "prob": 0.01206
+      },
+      {
+       "tok": "a",
+       "prob": 0.00646
+      },
+      {
+       "tok": "and",
+       "prob": 0.00646
+      },
+      {
+       "tok": "'",
+       "prob": 0.00606
+      },
+      {
+       "tok": "an",
+       "prob": 0.00444
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 137,
+       "prob": 0.000364
+      },
+      "God": {
+       "rank": 9357,
+       "prob": 1.3e-05
+      },
+      "peace": {
+       "rank": 853,
+       "prob": 8.1e-05
+      }
+     }
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "tok": "\u2026.",
+       "prob": 0.21471
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.04791
+      },
+      {
+       "tok": ",",
+       "prob": 0.04501
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.03731
+      },
+      {
+       "tok": "the",
+       "prob": 0.03505
+      },
+      {
+       "tok": "a",
+       "prob": 0.03293
+      },
+      {
+       "tok": "\u2022",
+       "prob": 0.03093
+      },
+      {
+       "tok": ".\u2022",
+       "prob": 0.01997
+      },
+      {
+       "tok": "..",
+       "prob": 0.01656
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.01289
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 376,
+       "prob": 0.000115
+      },
+      "God": {
+       "rank": 3381,
+       "prob": 1.6e-05
+      },
+      "peace": {
+       "rank": 969,
+       "prob": 4.8e-05
+      }
+     }
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "tok": ",",
+       "prob": 0.48563
+      },
+      {
+       "tok": ".",
+       "prob": 0.05449
+      },
+      {
+       "tok": ".,",
+       "prob": 0.03518
+      },
+      {
+       "tok": "..",
+       "prob": 0.03518
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.03305
+      },
+      {
+       "tok": "\n",
+       "prob": 0.03105
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.02271
+      },
+      {
+       "tok": ".[",
+       "prob": 0.02134
+      },
+      {
+       "tok": "the",
+       "prob": 0.01662
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.01561
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 271,
+       "prob": 6.8e-05
+      },
+      "God": {
+       "rank": 2100,
+       "prob": 8e-06
+      },
+      "peace": {
+       "rank": 1271,
+       "prob": 1.2e-05
+      }
+     }
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.26115
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.2165
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.13978
+      },
+      {
+       "tok": "'",
+       "prob": 0.05474
+      },
+      {
+       "tok": "\n\n\n",
+       "prob": 0.04263
+      },
+      {
+       "tok": ",",
+       "prob": 0.02586
+      },
+      {
+       "tok": "the",
+       "prob": 0.02586
+      },
+      {
+       "tok": "..",
+       "prob": 0.01221
+      },
+      {
+       "tok": "``",
+       "prob": 0.00894
+      },
+      {
+       "tok": "...",
+       "prob": 0.00741
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 48,
+       "prob": 0.000504
+      },
+      "God": {
+       "rank": 2546,
+       "prob": 8e-06
+      },
+      "peace": {
+       "rank": 1314,
+       "prob": 1.5e-05
+      }
+     }
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.90968
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.03997
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.02139
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.01888
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.00308
+      },
+      {
+       "tok": "..",
+       "prob": 0.00165
+      },
+      {
+       "tok": "\u2026..",
+       "prob": 0.00073
+      },
+      {
+       "tok": "...",
+       "prob": 0.00065
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.00057
+      },
+      {
+       "tok": "'",
+       "prob": 0.00057
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 88,
+       "prob": 2e-06
+      },
+      "God": {
+       "rank": 633,
+       "prob": 0.0
+      },
+      "peace": {
+       "rank": 926,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.93185
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.02814
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.01934
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.00806
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.00297
+      },
+      {
+       "tok": ".",
+       "prob": 0.00231
+      },
+      {
+       "tok": "..",
+       "prob": 0.00124
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00096
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.00085
+      },
+      {
+       "tok": "...",
+       "prob": 0.0008
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 194,
+       "prob": 0.0
+      },
+      "God": {
+       "rank": 887,
+       "prob": 0.0
+      },
+      "peace": {
+       "rank": 1229,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 6,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.87544
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.04939
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.02996
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.02333
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.00858
+      },
+      {
+       "tok": ".",
+       "prob": 0.00297
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.00192
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.0014
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.00124
+      },
+      {
+       "tok": "..",
+       "prob": 0.0007
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 184,
+       "prob": 1e-06
+      },
+      "God": {
+       "rank": 1065,
+       "prob": 0.0
+      },
+      "peace": {
+       "rank": 1324,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 7,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.80525
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.0749
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.05148
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.04009
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.00789
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.0045
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.00329
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00273
+      },
+      {
+       "tok": ".",
+       "prob": 0.00129
+      },
+      {
+       "tok": "\u2026..",
+       "prob": 0.00054
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 119,
+       "prob": 5e-06
+      },
+      "God": {
+       "rank": 1098,
+       "prob": 0.0
+      },
+      "peace": {
+       "rank": 1256,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 8,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.80611
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.08496
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.04548
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.03126
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.00896
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.00841
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.00543
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.002
+      },
+      {
+       "tok": ".",
+       "prob": 0.00137
+      },
+      {
+       "tok": "\u2026..",
+       "prob": 0.00094
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 74,
+       "prob": 5e-06
+      },
+      "God": {
+       "rank": 328,
+       "prob": 0.0
+      },
+      "peace": {
+       "rank": 1433,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 9,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.74602
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.11441
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.04769
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.03714
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01648
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.01206
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.00779
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00345
+      },
+      {
+       "tok": "\u2026..",
+       "prob": 0.00112
+      },
+      {
+       "tok": "[\u2026]",
+       "prob": 0.00112
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 29,
+       "prob": 8.1e-05
+      },
+      "God": {
+       "rank": 133,
+       "prob": 9e-06
+      },
+      "peace": {
+       "rank": 1435,
+       "prob": 1e-06
+      }
+     }
+    },
+    {
+     "layer": 10,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.67434
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.09715
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.05892
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.04589
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.04311
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01913
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.0109
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00427
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.00332
+      },
+      {
+       "tok": "\u2026..",
+       "prob": 0.00202
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 13,
+       "prob": 0.001149
+      },
+      "God": {
+       "rank": 86,
+       "prob": 5.4e-05
+      },
+      "peace": {
+       "rank": 902,
+       "prob": 4e-06
+      }
+     }
+    },
+    {
+     "layer": 11,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.61794
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.06933
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.06933
+      },
+      {
+       "tok": "\u2026\"",
+       "prob": 0.05072
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.03486
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01547
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.01282
+      },
+      {
+       "tok": ",\u2026",
+       "prob": 0.01132
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.00778
+      },
+      {
+       "tok": "[\u2026]",
+       "prob": 0.00443
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 10,
+       "prob": 0.003674
+      },
+      "God": {
+       "rank": 42,
+       "prob": 0.000321
+      },
+      "peace": {
+       "rank": 642,
+       "prob": 1.8e-05
+      }
+     }
+    },
+    {
+     "layer": 12,
+     "top": [
+      {
+       "tok": ".\\\"",
+       "prob": 0.13513
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.11926
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.09887
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.07233
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.05292
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.04121
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.02348
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.02206
+      },
+      {
+       "tok": ",\\\"",
+       "prob": 0.02072
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.01947
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 15,
+       "prob": 0.00632
+      },
+      "God": {
+       "rank": 39,
+       "prob": 0.001501
+      },
+      "peace": {
+       "rank": 890,
+       "prob": 4.5e-05
+      }
+     }
+    },
+    {
+     "layer": 13,
+     "top": [
+      {
+       "tok": "\\\"",
+       "prob": 0.1047
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.03399
+      },
+      {
+       "tok": "humanity",
+       "prob": 0.02647
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.02195
+      },
+      {
+       "tok": "death",
+       "prob": 0.02195
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.01937
+      },
+      {
+       "tok": "Death",
+       "prob": 0.01508
+      },
+      {
+       "tok": ",\\\"",
+       "prob": 0.01331
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01175
+      },
+      {
+       "tok": "  ",
+       "prob": 0.01103
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 4,
+       "prob": 0.021945
+      },
+      "God": {
+       "rank": 46,
+       "prob": 0.002041
+      },
+      "peace": {
+       "rank": 636,
+       "prob": 0.000153
+      }
+     }
+    },
+    {
+     "layer": 14,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.05439
+      },
+      {
+       "tok": "humanity",
+       "prob": 0.03299
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.03099
+      },
+      {
+       "tok": "terrifying",
+       "prob": 0.02413
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.0188
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.01558
+      },
+      {
+       "tok": "death",
+       "prob": 0.01375
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01214
+      },
+      {
+       "tok": ",\\\"",
+       "prob": 0.01071
+      },
+      {
+       "tok": "Death",
+       "prob": 0.01071
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 6,
+       "prob": 0.013751
+      },
+      "God": {
+       "rank": 23,
+       "prob": 0.004194
+      },
+      "peace": {
+       "rank": 439,
+       "prob": 0.000252
+      }
+     }
+    },
+    {
+     "layer": 15,
+     "top": [
+      {
+       "tok": "humanity",
+       "prob": 0.05289
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.04119
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.03013
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.02659
+      },
+      {
+       "tok": "terrifying",
+       "prob": 0.02071
+      },
+      {
+       "tok": "____",
+       "prob": 0.01613
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.01256
+      },
+      {
+       "tok": "death",
+       "prob": 0.0118
+      },
+      {
+       "tok": "Humanity",
+       "prob": 0.0118
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.01041
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 7,
+       "prob": 0.011801
+      },
+      "God": {
+       "rank": 23,
+       "prob": 0.005237
+      },
+      "peace": {
+       "rank": 236,
+       "prob": 0.000417
+      }
+     }
+    },
+    {
+     "layer": 16,
+     "top": [
+      {
+       "tok": ".\\\"",
+       "prob": 0.16385
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.1446
+      },
+      {
+       "tok": "____",
+       "prob": 0.02847
+      },
+      {
+       "tok": "humanity",
+       "prob": 0.02847
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.02847
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.0236
+      },
+      {
+       "tok": "_____",
+       "prob": 0.02083
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01622
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01524
+      },
+      {
+       "tok": ".'",
+       "prob": 0.01187
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 18,
+       "prob": 0.007199
+      },
+      "God": {
+       "rank": 36,
+       "prob": 0.002337
+      },
+      "peace": {
+       "rank": 370,
+       "prob": 0.000159
+      }
+     }
+    },
+    {
+     "layer": 17,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.10128
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.08397
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.08397
+      },
+      {
+       "tok": "____",
+       "prob": 0.06143
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.02726
+      },
+      {
+       "tok": ".",
+       "prob": 0.02406
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.0226
+      },
+      {
+       "tok": ".|",
+       "prob": 0.01874
+      },
+      {
+       "tok": ".'",
+       "prob": 0.01874
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.01553
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 17,
+       "prob": 0.008314
+      },
+      "God": {
+       "rank": 41,
+       "prob": 0.002536
+      },
+      "peace": {
+       "rank": 652,
+       "prob": 7.4e-05
+      }
+     }
+    },
+    {
+     "layer": 18,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.10226
+      },
+      {
+       "tok": "Death",
+       "prob": 0.03762
+      },
+      {
+       "tok": "humanity",
+       "prob": 0.03534
+      },
+      {
+       "tok": "despair",
+       "prob": 0.0332
+      },
+      {
+       "tok": "sorrow",
+       "prob": 0.0293
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.02752
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.02143
+      },
+      {
+       "tok": ".\u2026",
+       "prob": 0.013
+      },
+      {
+       "tok": ".|",
+       "prob": 0.01078
+      },
+      {
+       "tok": "dying",
+       "prob": 0.01078
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.102255
+      },
+      "God": {
+       "rank": 29,
+       "prob": 0.005419
+      },
+      "peace": {
+       "rank": 344,
+       "prob": 0.000246
+      }
+     }
+    },
+    {
+     "layer": 19,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.38683
+      },
+      {
+       "tok": "Death",
+       "prob": 0.07617
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.06722
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.02632
+      },
+      {
+       "tok": "dying",
+       "prob": 0.02473
+      },
+      {
+       "tok": "\u2026.",
+       "prob": 0.02323
+      },
+      {
+       "tok": "dead",
+       "prob": 0.0205
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01409
+      },
+      {
+       "tok": "despair",
+       "prob": 0.01243
+      },
+      {
+       "tok": "____",
+       "prob": 0.01097
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.386829
+      },
+      "God": {
+       "rank": 15,
+       "prob": 0.005874
+      },
+      "peace": {
+       "rank": 297,
+       "prob": 0.000118
+      }
+     }
+    },
+    {
+     "layer": 20,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.76541
+      },
+      {
+       "tok": "Death",
+       "prob": 0.17079
+      },
+      {
+       "tok": "dead",
+       "prob": 0.01492
+      },
+      {
+       "tok": "-death",
+       "prob": 0.0085
+      },
+      {
+       "tok": "dying",
+       "prob": 0.00584
+      },
+      {
+       "tok": "death",
+       "prob": 0.00313
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00202
+      },
+      {
+       "tok": "deceased",
+       "prob": 0.00157
+      },
+      {
+       "tok": "grief",
+       "prob": 0.00148
+      },
+      {
+       "tok": "despair",
+       "prob": 0.0013
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.765409
+      },
+      "God": {
+       "rank": 20,
+       "prob": 0.000423
+      },
+      "peace": {
+       "rank": 131,
+       "prob": 2.4e-05
+      }
+     }
+    },
+    {
+     "layer": 21,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.57416
+      },
+      {
+       "tok": "Death",
+       "prob": 0.30733
+      },
+      {
+       "tok": "-death",
+       "prob": 0.02859
+      },
+      {
+       "tok": "death",
+       "prob": 0.00563
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00467
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00438
+      },
+      {
+       "tok": "God",
+       "prob": 0.00363
+      },
+      {
+       "tok": "despair",
+       "prob": 0.00301
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00301
+      },
+      {
+       "tok": "grief",
+       "prob": 0.00266
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.574161
+      },
+      "God": {
+       "rank": 6,
+       "prob": 0.003634
+      },
+      "peace": {
+       "rank": 73,
+       "prob": 0.000141
+      }
+     }
+    },
+    {
+     "layer": 22,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.70355
+      },
+      {
+       "tok": "Death",
+       "prob": 0.20157
+      },
+      {
+       "tok": "-death",
+       "prob": 0.05097
+      },
+      {
+       "tok": "death",
+       "prob": 0.00734
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00572
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00474
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00288
+      },
+      {
+       "tok": "\u6b7b\u795e",
+       "prob": 0.00238
+      },
+      {
+       "tok": "dying",
+       "prob": 0.0012
+      },
+      {
+       "tok": "deceased",
+       "prob": 0.00113
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.703552
+      },
+      "God": {
+       "rank": 22,
+       "prob": 0.000366
+      },
+      "peace": {
+       "rank": 48,
+       "prob": 8.2e-05
+      }
+     }
+    },
+    {
+     "layer": 23,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.56945
+      },
+      {
+       "tok": "Death",
+       "prob": 0.34539
+      },
+      {
+       "tok": "-death",
+       "prob": 0.0364
+      },
+      {
+       "tok": "death",
+       "prob": 0.01182
+      },
+      {
+       "tok": "eternity",
+       "prob": 0.01043
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00558
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00493
+      },
+      {
+       "tok": "\u6b7b\u795e",
+       "prob": 0.0016
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00117
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00097
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.569449
+      },
+      "God": {
+       "rank": 22,
+       "prob": 0.000203
+      },
+      "peace": {
+       "rank": 41,
+       "prob": 6.2e-05
+      }
+     }
+    },
+    {
+     "layer": 24,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.57929
+      },
+      {
+       "tok": "Death",
+       "prob": 0.35136
+      },
+      {
+       "tok": "-death",
+       "prob": 0.02246
+      },
+      {
+       "tok": "death",
+       "prob": 0.01202
+      },
+      {
+       "tok": "eternity",
+       "prob": 0.00644
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00568
+      },
+      {
+       "tok": "God",
+       "prob": 0.00501
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00344
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00184
+      },
+      {
+       "tok": "darkness",
+       "prob": 0.00144
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.579295
+      },
+      "God": {
+       "rank": 6,
+       "prob": 0.005012
+      },
+      "peace": {
+       "rank": 31,
+       "prob": 7.1e-05
+      }
+     }
+    },
+    {
+     "layer": 25,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.85718
+      },
+      {
+       "tok": "Death",
+       "prob": 0.13145
+      },
+      {
+       "tok": "death",
+       "prob": 0.00654
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00165
+      },
+      {
+       "tok": "-death",
+       "prob": 0.00146
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00114
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00025
+      },
+      {
+       "tok": "\u6b7b",
+       "prob": 0.00011
+      },
+      {
+       "tok": "_death",
+       "prob": 3e-05
+      },
+      {
+       "tok": "deaths",
+       "prob": 2e-05
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.857181
+      },
+      "God": {
+       "rank": 29,
+       "prob": 1e-06
+      },
+      "peace": {
+       "rank": 49,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 26,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.82482
+      },
+      {
+       "tok": "Death",
+       "prob": 0.16242
+      },
+      {
+       "tok": "death",
+       "prob": 0.0063
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00204
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00159
+      },
+      {
+       "tok": "-death",
+       "prob": 0.00124
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00075
+      },
+      {
+       "tok": "\u6b7b",
+       "prob": 0.00059
+      },
+      {
+       "tok": "Dead",
+       "prob": 3e-05
+      },
+      {
+       "tok": "dying",
+       "prob": 3e-05
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.824822
+      },
+      "God": {
+       "rank": 34,
+       "prob": 0.0
+      },
+      "peace": {
+       "rank": 80,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 27,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.71716
+      },
+      {
+       "tok": "Death",
+       "prob": 0.26383
+      },
+      {
+       "tok": "death",
+       "prob": 0.00903
+      },
+      {
+       "tok": "-death",
+       "prob": 0.00483
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00376
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00045
+      },
+      {
+       "tok": "_death",
+       "prob": 0.00021
+      },
+      {
+       "tok": "heaven",
+       "prob": 0.00013
+      },
+      {
+       "tok": "\u6b7b\u4ea1",
+       "prob": 0.00011
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00011
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.717159
+      },
+      "God": {
+       "rank": 13,
+       "prob": 2.4e-05
+      },
+      "peace": {
+       "rank": 10,
+       "prob": 3.5e-05
+      }
+     }
+    },
+    {
+     "layer": 28,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.76745
+      },
+      {
+       "tok": "Death",
+       "prob": 0.21988
+      },
+      {
+       "tok": "death",
+       "prob": 0.00456
+      },
+      {
+       "tok": "-death",
+       "prob": 0.00244
+      },
+      {
+       "tok": "Death",
+       "prob": 0.0019
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00102
+      },
+      {
+       "tok": "heaven",
+       "prob": 0.00035
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00024
+      },
+      {
+       "tok": "_death",
+       "prob": 0.00021
+      },
+      {
+       "tok": "peace",
+       "prob": 0.00021
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.767451
+      },
+      "God": {
+       "rank": 10,
+       "prob": 0.000114
+      },
+      "peace": {
+       "rank": 8,
+       "prob": 0.000213
+      }
+     }
+    },
+    {
+     "layer": 29,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.87654
+      },
+      {
+       "tok": "Death",
+       "prob": 0.11863
+      },
+      {
+       "tok": "death",
+       "prob": 0.00116
+      },
+      {
+       "tok": "-death",
+       "prob": 0.00071
+      },
+      {
+       "tok": "peace",
+       "prob": 0.0004
+      },
+      {
+       "tok": "Death",
+       "prob": 0.0004
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00031
+      },
+      {
+       "tok": "sleep",
+       "prob": 0.00028
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00019
+      },
+      {
+       "tok": "heaven",
+       "prob": 0.00017
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.876539
+      },
+      "God": {
+       "rank": 11,
+       "prob": 5.8e-05
+      },
+      "peace": {
+       "rank": 4,
+       "prob": 0.000402
+      }
+     }
+    },
+    {
+     "layer": 30,
+     "top": [
+      {
+       "tok": "death",
+       "prob": 0.79653
+      },
+      {
+       "tok": "Death",
+       "prob": 0.2014
+      },
+      {
+       "tok": "death",
+       "prob": 0.00047
+      },
+      {
+       "tok": "peace",
+       "prob": 0.00024
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00018
+      },
+      {
+       "tok": "-death",
+       "prob": 0.00013
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00013
+      },
+      {
+       "tok": "sleep",
+       "prob": 0.0001
+      },
+      {
+       "tok": "life",
+       "prob": 9e-05
+      },
+      {
+       "tok": "heaven",
+       "prob": 7e-05
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 0,
+       "prob": 0.796535
+      },
+      "God": {
+       "rank": 10,
+       "prob": 4.4e-05
+      },
+      "peace": {
+       "rank": 3,
+       "prob": 0.000236
+      }
+     }
+    }
+   ],
+   "model_out": [
+    {
+     "tok": "death",
+     "prob": 0.8656
+    },
+    {
+     "tok": "Death",
+     "prob": 0.11715
+    },
+    {
+     "tok": "peace",
+     "prob": 0.00354
+    },
+    {
+     "tok": "life",
+     "prob": 0.00147
+    },
+    {
+     "tok": "sleep",
+     "prob": 0.00108
+    },
+    {
+     "tok": "God",
+     "prob": 0.00079
+    },
+    {
+     "tok": "night",
+     "prob": 0.00079
+    },
+    {
+     "tok": "truth",
+     "prob": 0.0007
+    },
+    {
+     "tok": "...",
+     "prob": 0.00054
+    },
+    {
+     "tok": "light",
+     "prob": 0.00037
+    }
+   ],
+   "generated": "death."
+  },
+  {
+   "name": "typo-language",
+   "prompt": "The course required that every student learn a second langauge",
+   "tokens": [
+    "The",
+    " course",
+    " required",
+    " that",
+    " every",
+    " student",
+    " learn",
+    " a",
+    " second",
+    " lang",
+    "auge"
+   ],
+   "read_pos": -1,
+   "read_token": "auge",
+   "track_words": [
+    "language",
+    "langauge"
+   ],
+   "answer": "language",
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ],
+   "n_layers": 32,
+   "per_layer": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "tok": "auge",
+       "prob": 0.18178
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.01691
+      },
+      {
+       "tok": "enje",
+       "prob": 0.01092
+      },
+      {
+       "tok": "--",
+       "prob": 0.01026
+      },
+      {
+       "tok": "\u2013",
+       "prob": 0.00905
+      },
+      {
+       "tok": "==",
+       "prob": 0.0085
+      },
+      {
+       "tok": "\u00ab",
+       "prob": 0.00584
+      },
+      {
+       "tok": "[#",
+       "prob": 0.00549
+      },
+      {
+       "tok": "\u2013and",
+       "prob": 0.00516
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.00428
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 134894,
+       "prob": 0.0
+      },
+      "langauge": {
+       "rank": 75246,
+       "prob": 1e-06
+      }
+     }
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "tok": "``",
+       "prob": 0.22692
+      },
+      {
+       "tok": "...",
+       "prob": 0.05737
+      },
+      {
+       "tok": "&#",
+       "prob": 0.04468
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.04198
+      },
+      {
+       "tok": "--",
+       "prob": 0.03269
+      },
+      {
+       "tok": "`",
+       "prob": 0.02885
+      },
+      {
+       "tok": "\u00ab",
+       "prob": 0.02247
+      },
+      {
+       "tok": "ca",
+       "prob": 0.0128
+      },
+      {
+       "tok": "==",
+       "prob": 0.00685
+      },
+      {
+       "tok": "&",
+       "prob": 0.00605
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 23922,
+       "prob": 3e-06
+      },
+      "langauge": {
+       "rank": 6756,
+       "prob": 1e-05
+      }
+     }
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "tok": "e",
+       "prob": 0.37077
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.10623
+      },
+      {
+       "tok": "\u00a0",
+       "prob": 0.09979
+      },
+      {
+       "tok": "y",
+       "prob": 0.04428
+      },
+      {
+       "tok": "en",
+       "prob": 0.0324
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.01846
+      },
+      {
+       "tok": "@",
+       "prob": 0.0153
+      },
+      {
+       "tok": "->",
+       "prob": 0.0153
+      },
+      {
+       "tok": "seperate",
+       "prob": 0.01269
+      },
+      {
+       "tok": "s",
+       "prob": 0.0112
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 1551,
+       "prob": 1e-05
+      },
+      "langauge": {
+       "rank": 1295,
+       "prob": 1.2e-05
+      }
+     }
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "tok": "\n\n\n",
+       "prob": 0.43644
+      },
+      {
+       "tok": "--",
+       "prob": 0.11035
+      },
+      {
+       "tok": "->",
+       "prob": 0.04897
+      },
+      {
+       "tok": "...",
+       "prob": 0.04897
+      },
+      {
+       "tok": "......",
+       "prob": 0.046
+      },
+      {
+       "tok": "==",
+       "prob": 0.02173
+      },
+      {
+       "tok": "..",
+       "prob": 0.0159
+      },
+      {
+       "tok": "::",
+       "prob": 0.01238
+      },
+      {
+       "tok": "seperate",
+       "prob": 0.01026
+      },
+      {
+       "tok": " \n\n\n",
+       "prob": 0.01026
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 96,
+       "prob": 0.000274
+      },
+      "langauge": {
+       "rank": 105,
+       "prob": 0.000257
+      }
+     }
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "tok": "\n\n\n",
+       "prob": 0.31036
+      },
+      {
+       "tok": "--",
+       "prob": 0.10076
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.06111
+      },
+      {
+       "tok": "...",
+       "prob": 0.02548
+      },
+      {
+       "tok": "......",
+       "prob": 0.01864
+      },
+      {
+       "tok": "seperate",
+       "prob": 0.01452
+      },
+      {
+       "tok": "..",
+       "prob": 0.01062
+      },
+      {
+       "tok": "->",
+       "prob": 0.00937
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.00777
+      },
+      {
+       "tok": "english",
+       "prob": 0.00686
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 41,
+       "prob": 0.001268
+      },
+      "langauge": {
+       "rank": 126,
+       "prob": 0.000341
+      }
+     }
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "tok": "seperate",
+       "prob": 0.06967
+      },
+      {
+       "tok": "english",
+       "prob": 0.03503
+      },
+      {
+       "tok": "alot",
+       "prob": 0.03091
+      },
+      {
+       "tok": "i",
+       "prob": 0.02125
+      },
+      {
+       "tok": "isnt",
+       "prob": 0.01655
+      },
+      {
+       "tok": "thats",
+       "prob": 0.01655
+      },
+      {
+       "tok": "--",
+       "prob": 0.01554
+      },
+      {
+       "tok": "everytime",
+       "prob": 0.01289
+      },
+      {
+       "tok": "recieved",
+       "prob": 0.01137
+      },
+      {
+       "tok": "wich",
+       "prob": 0.01004
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 94,
+       "prob": 0.000994
+      },
+      "langauge": {
+       "rank": 188,
+       "prob": 0.000469
+      }
+     }
+    },
+    {
+     "layer": 6,
+     "top": [
+      {
+       "tok": "\n\n",
+       "prob": 0.17517
+      },
+      {
+       "tok": "--",
+       "prob": 0.12816
+      },
+      {
+       "tok": "\n\n\n",
+       "prob": 0.04715
+      },
+      {
+       "tok": "-",
+       "prob": 0.02371
+      },
+      {
+       "tok": "english",
+       "prob": 0.01965
+      },
+      {
+       "tok": "...",
+       "prob": 0.01734
+      },
+      {
+       "tok": "\n",
+       "prob": 0.01629
+      },
+      {
+       "tok": "language",
+       "prob": 0.01438
+      },
+      {
+       "tok": "s",
+       "prob": 0.00928
+      },
+      {
+       "tok": "spanish",
+       "prob": 0.00872
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 7,
+       "prob": 0.014379
+      },
+      "langauge": {
+       "rank": 51,
+       "prob": 0.001424
+      }
+     }
+    },
+    {
+     "layer": 7,
+     "top": [
+      {
+       "tok": "\n\n",
+       "prob": 0.20788
+      },
+      {
+       "tok": "\n\n\n",
+       "prob": 0.09225
+      },
+      {
+       "tok": "language",
+       "prob": 0.04638
+      },
+      {
+       "tok": "english",
+       "prob": 0.03394
+      },
+      {
+       "tok": "i",
+       "prob": 0.01506
+      },
+      {
+       "tok": "--",
+       "prob": 0.01329
+      },
+      {
+       "tok": "spanish",
+       "prob": 0.01248
+      },
+      {
+       "tok": "\n",
+       "prob": 0.01173
+      },
+      {
+       "tok": "...",
+       "prob": 0.01035
+      },
+      {
+       "tok": "..",
+       "prob": 0.00858
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 2,
+       "prob": 0.046384
+      },
+      "langauge": {
+       "rank": 34,
+       "prob": 0.001799
+      }
+     }
+    },
+    {
+     "layer": 8,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.48414
+      },
+      {
+       "tok": "languages",
+       "prob": 0.13871
+      },
+      {
+       "tok": "english",
+       "prob": 0.04794
+      },
+      {
+       "tok": "Language",
+       "prob": 0.02264
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.00691
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.00649
+      },
+      {
+       "tok": "latin",
+       "prob": 0.00609
+      },
+      {
+       "tok": "school",
+       "prob": 0.00609
+      },
+      {
+       "tok": "grammar",
+       "prob": 0.00538
+      },
+      {
+       "tok": "spanish",
+       "prob": 0.00505
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.484139
+      },
+      "langauge": {
+       "rank": 37,
+       "prob": 0.001541
+      }
+     }
+    },
+    {
+     "layer": 9,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.45407
+      },
+      {
+       "tok": "languages",
+       "prob": 0.21449
+      },
+      {
+       "tok": "english",
+       "prob": 0.06542
+      },
+      {
+       "tok": "Language",
+       "prob": 0.0309
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.01068
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.00942
+      },
+      {
+       "tok": "\u5fb7\u8bed",
+       "prob": 0.00885
+      },
+      {
+       "tok": "latin",
+       "prob": 0.00885
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00885
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.00648
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.454073
+      },
+      "langauge": {
+       "rank": 57,
+       "prob": 0.000602
+      }
+     }
+    },
+    {
+     "layer": 10,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.44286
+      },
+      {
+       "tok": "languages",
+       "prob": 0.30437
+      },
+      {
+       "tok": "english",
+       "prob": 0.03415
+      },
+      {
+       "tok": "Language",
+       "prob": 0.0266
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.01828
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.01256
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00919
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.00672
+      },
+      {
+       "tok": "bilingual",
+       "prob": 0.00593
+      },
+      {
+       "tok": "grammar",
+       "prob": 0.00593
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.442862
+      },
+      "langauge": {
+       "rank": 54,
+       "prob": 0.000487
+      }
+     }
+    },
+    {
+     "layer": 11,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.33665
+      },
+      {
+       "tok": "languages",
+       "prob": 0.21735
+      },
+      {
+       "tok": "english",
+       "prob": 0.06629
+      },
+      {
+       "tok": "Language",
+       "prob": 0.05163
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.01899
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.01784
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.0139
+      },
+      {
+       "tok": "LANGUAGE",
+       "prob": 0.00699
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.00656
+      },
+      {
+       "tok": "English",
+       "prob": 0.00656
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.336646
+      },
+      "langauge": {
+       "rank": 57,
+       "prob": 0.000834
+      }
+     }
+    },
+    {
+     "layer": 12,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.15567
+      },
+      {
+       "tok": "languages",
+       "prob": 0.10699
+      },
+      {
+       "tok": "english",
+       "prob": 0.0887
+      },
+      {
+       "tok": "Language",
+       "prob": 0.0446
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.01641
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.012
+      },
+      {
+       "tok": "......",
+       "prob": 0.012
+      },
+      {
+       "tok": "i",
+       "prob": 0.00995
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.00825
+      },
+      {
+       "tok": "latin",
+       "prob": 0.00728
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.155672
+      },
+      "langauge": {
+       "rank": 51,
+       "prob": 0.001625
+      }
+     }
+    },
+    {
+     "layer": 13,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.12235
+      },
+      {
+       "tok": "english",
+       "prob": 0.07899
+      },
+      {
+       "tok": "languages",
+       "prob": 0.07421
+      },
+      {
+       "tok": "Language",
+       "prob": 0.02126
+      },
+      {
+       "tok": "i",
+       "prob": 0.01138
+      },
+      {
+       "tok": ".",
+       "prob": 0.00943
+      },
+      {
+       "tok": "latin",
+       "prob": 0.00886
+      },
+      {
+       "tok": "..",
+       "prob": 0.00886
+      },
+      {
+       "tok": "spanish",
+       "prob": 0.00833
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00735
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.122349
+      },
+      "langauge": {
+       "rank": 52,
+       "prob": 0.001745
+      }
+     }
+    },
+    {
+     "layer": 14,
+     "top": [
+      {
+       "tok": "language",
+       "prob": 0.0963
+      },
+      {
+       "tok": "languages",
+       "prob": 0.07983
+      },
+      {
+       "tok": "english",
+       "prob": 0.05487
+      },
+      {
+       "tok": "Language",
+       "prob": 0.01781
+      },
+      {
+       "tok": "i",
+       "prob": 0.01572
+      },
+      {
+       "tok": "..",
+       "prob": 0.01387
+      },
+      {
+       "tok": ".",
+       "prob": 0.01224
+      },
+      {
+       "tok": "......",
+       "prob": 0.01015
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.0079
+      },
+      {
+       "tok": "or",
+       "prob": 0.00743
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 0,
+       "prob": 0.096299
+      },
+      "langauge": {
+       "rank": 83,
+       "prob": 0.00129
+      }
+     }
+    },
+    {
+     "layer": 15,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.06591
+      },
+      {
+       "tok": "language",
+       "prob": 0.04822
+      },
+      {
+       "tok": "english",
+       "prob": 0.03998
+      },
+      {
+       "tok": "languages",
+       "prob": 0.03314
+      },
+      {
+       "tok": "..",
+       "prob": 0.02748
+      },
+      {
+       "tok": "i",
+       "prob": 0.01774
+      },
+      {
+       "tok": "......",
+       "prob": 0.01774
+      },
+      {
+       "tok": "?",
+       "prob": 0.01566
+      },
+      {
+       "tok": "...",
+       "prob": 0.01471
+      },
+      {
+       "tok": "Language",
+       "prob": 0.01298
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 1,
+       "prob": 0.048222
+      },
+      "langauge": {
+       "rank": 108,
+       "prob": 0.001065
+      }
+     }
+    },
+    {
+     "layer": 16,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.21793
+      },
+      {
+       "tok": "?",
+       "prob": 0.08534
+      },
+      {
+       "tok": "language",
+       "prob": 0.0314
+      },
+      {
+       "tok": "languages",
+       "prob": 0.0168
+      },
+      {
+       "tok": "english",
+       "prob": 0.01579
+      },
+      {
+       "tok": "____",
+       "prob": 0.01393
+      },
+      {
+       "tok": "__",
+       "prob": 0.01393
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01229
+      },
+      {
+       "tok": "?",
+       "prob": 0.01155
+      },
+      {
+       "tok": "or",
+       "prob": 0.01155
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 2,
+       "prob": 0.031395
+      },
+      "langauge": {
+       "rank": 224,
+       "prob": 0.000395
+      }
+     }
+    },
+    {
+     "layer": 17,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.19394
+      },
+      {
+       "tok": "?",
+       "prob": 0.09752
+      },
+      {
+       "tok": "__",
+       "prob": 0.04327
+      },
+      {
+       "tok": "____",
+       "prob": 0.03819
+      },
+      {
+       "tok": "language",
+       "prob": 0.02466
+      },
+      {
+       "tok": "____________",
+       "prob": 0.02176
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01804
+      },
+      {
+       "tok": "________",
+       "prob": 0.01496
+      },
+      {
+       "tok": "languages",
+       "prob": 0.01405
+      },
+      {
+       "tok": "__",
+       "prob": 0.01405
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 4,
+       "prob": 0.024657
+      },
+      "langauge": {
+       "rank": 411,
+       "prob": 0.000129
+      }
+     }
+    },
+    {
+     "layer": 18,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.5058
+      },
+      {
+       "tok": "?",
+       "prob": 0.039
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01731
+      },
+      {
+       "tok": "...",
+       "prob": 0.01435
+      },
+      {
+       "tok": "__",
+       "prob": 0.01266
+      },
+      {
+       "tok": "____",
+       "prob": 0.01266
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.0105
+      },
+      {
+       "tok": "..",
+       "prob": 0.00986
+      },
+      {
+       "tok": "language",
+       "prob": 0.00926
+      },
+      {
+       "tok": "......",
+       "prob": 0.0087
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 8,
+       "prob": 0.009264
+      },
+      "langauge": {
+       "rank": 425,
+       "prob": 9.7e-05
+      }
+     }
+    },
+    {
+     "layer": 19,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.87086
+      },
+      {
+       "tok": "?",
+       "prob": 0.02048
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.01322
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01167
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.00802
+      },
+      {
+       "tok": "..",
+       "prob": 0.00665
+      },
+      {
+       "tok": "...",
+       "prob": 0.00486
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00457
+      },
+      {
+       "tok": ".?",
+       "prob": 0.00379
+      },
+      {
+       "tok": "....",
+       "prob": 0.00245
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 46,
+       "prob": 0.000311
+      },
+      "langauge": {
+       "rank": 902,
+       "prob": 3e-06
+      }
+     }
+    },
+    {
+     "layer": 20,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.81854
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.02049
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.01596
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01323
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.01168
+      },
+      {
+       "tok": "?",
+       "prob": 0.01097
+      },
+      {
+       "tok": ".?",
+       "prob": 0.00487
+      },
+      {
+       "tok": ".*",
+       "prob": 0.0043
+      },
+      {
+       "tok": "language",
+       "prob": 0.00335
+      },
+      {
+       "tok": ".\".",
+       "prob": 0.00295
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 8,
+       "prob": 0.003345
+      },
+      "langauge": {
+       "rank": 532,
+       "prob": 1.4e-05
+      }
+     }
+    },
+    {
+     "layer": 21,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.73638
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.04708
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.02367
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.01349
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.0119
+      },
+      {
+       "tok": "language",
+       "prob": 0.01118
+      },
+      {
+       "tok": "?",
+       "prob": 0.00871
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00818
+      },
+      {
+       "tok": ".?",
+       "prob": 0.00496
+      },
+      {
+       "tok": "____",
+       "prob": 0.00438
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 5,
+       "prob": 0.011181
+      },
+      "langauge": {
+       "rank": 324,
+       "prob": 4e-05
+      }
+     }
+    },
+    {
+     "layer": 22,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.45447
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.0697
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.04227
+      },
+      {
+       "tok": "Language",
+       "prob": 0.03971
+      },
+      {
+       "tok": "language",
+       "prob": 0.03093
+      },
+      {
+       "tok": "__.",
+       "prob": 0.01289
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01138
+      },
+      {
+       "tok": "languages",
+       "prob": 0.01069
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.01004
+      },
+      {
+       "tok": ".\"\"",
+       "prob": 0.00782
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 4,
+       "prob": 0.030927
+      },
+      "langauge": {
+       "rank": 320,
+       "prob": 0.000112
+      }
+     }
+    },
+    {
+     "layer": 23,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.42384
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.0784
+      },
+      {
+       "tok": "besides",
+       "prob": 0.065
+      },
+      {
+       "tok": ".\\\"",
+       "prob": 0.04755
+      },
+      {
+       "tok": "during",
+       "prob": 0.01061
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00997
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.00997
+      },
+      {
+       "tok": ".\"\"",
+       "prob": 0.00936
+      },
+      {
+       "tok": ".?",
+       "prob": 0.00936
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.0088
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 16,
+       "prob": 0.004423
+      },
+      "langauge": {
+       "rank": 699,
+       "prob": 3.9e-05
+      }
+     }
+    },
+    {
+     "layer": 24,
+     "top": [
+      {
+       "tok": "Language",
+       "prob": 0.31379
+      },
+      {
+       "tok": "language",
+       "prob": 0.19032
+      },
+      {
+       "tok": "languages",
+       "prob": 0.04812
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.04247
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.04247
+      },
+      {
+       "tok": ".",
+       "prob": 0.03307
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.03307
+      },
+      {
+       "tok": "besides",
+       "prob": 0.02919
+      },
+      {
+       "tok": "Lingu",
+       "prob": 0.02273
+      },
+      {
+       "tok": "Language",
+       "prob": 0.02135
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 1,
+       "prob": 0.190322
+      },
+      "langauge": {
+       "rank": 131,
+       "prob": 0.000197
+      }
+     }
+    },
+    {
+     "layer": 25,
+     "top": [
+      {
+       "tok": "Language",
+       "prob": 0.2744
+      },
+      {
+       "tok": "language",
+       "prob": 0.10095
+      },
+      {
+       "tok": "languages",
+       "prob": 0.07862
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.06123
+      },
+      {
+       "tok": ".",
+       "prob": 0.05403
+      },
+      {
+       "tok": "besides",
+       "prob": 0.04768
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.0448
+      },
+      {
+       "tok": "Lingu",
+       "prob": 0.03489
+      },
+      {
+       "tok": "Language",
+       "prob": 0.02398
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.02252
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 1,
+       "prob": 0.100948
+      },
+      "langauge": {
+       "rank": 133,
+       "prob": 0.00025
+      }
+     }
+    },
+    {
+     "layer": 26,
+     "top": [
+      {
+       "tok": "Language",
+       "prob": 0.35443
+      },
+      {
+       "tok": "language",
+       "prob": 0.11507
+      },
+      {
+       "tok": "languages",
+       "prob": 0.07908
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.06979
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.03736
+      },
+      {
+       "tok": "besides",
+       "prob": 0.03297
+      },
+      {
+       "tok": "Language",
+       "prob": 0.03097
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.02909
+      },
+      {
+       "tok": "Lingu",
+       "prob": 0.02733
+      },
+      {
+       "tok": "-language",
+       "prob": 0.01658
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 1,
+       "prob": 0.115066
+      },
+      "langauge": {
+       "rank": 110,
+       "prob": 0.000268
+      }
+     }
+    },
+    {
+     "layer": 27,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.25099
+      },
+      {
+       "tok": "besides",
+       "prob": 0.15223
+      },
+      {
+       "tok": "Language",
+       "prob": 0.05261
+      },
+      {
+       "tok": "language",
+       "prob": 0.03849
+      },
+      {
+       "tok": "languages",
+       "prob": 0.01935
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.01507
+      },
+      {
+       "tok": "during",
+       "prob": 0.0133
+      },
+      {
+       "tok": "English",
+       "prob": 0.01174
+      },
+      {
+       "tok": "spoken",
+       "prob": 0.01036
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00914
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 3,
+       "prob": 0.038491
+      },
+      "langauge": {
+       "rank": 510,
+       "prob": 9e-05
+      }
+     }
+    },
+    {
+     "layer": 28,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.76608
+      },
+      {
+       "tok": "besides",
+       "prob": 0.01692
+      },
+      {
+       "tok": ",",
+       "prob": 0.01163
+      },
+      {
+       "tok": "during",
+       "prob": 0.00663
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00456
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00402
+      },
+      {
+       "tok": ".\"\"",
+       "prob": 0.00378
+      },
+      {
+       "tok": "within",
+       "prob": 0.00355
+      },
+      {
+       "tok": ".(",
+       "prob": 0.00355
+      },
+      {
+       "tok": "language",
+       "prob": 0.00355
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 8,
+       "prob": 0.003548
+      },
+      "langauge": {
+       "rank": 1264,
+       "prob": 1e-05
+      }
+     }
+    },
+    {
+     "layer": 29,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.82475
+      },
+      {
+       "tok": ",",
+       "prob": 0.01712
+      },
+      {
+       "tok": "besides",
+       "prob": 0.01333
+      },
+      {
+       "tok": "during",
+       "prob": 0.00382
+      },
+      {
+       "tok": "?",
+       "prob": 0.00382
+      },
+      {
+       "tok": "by",
+       "prob": 0.00359
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00359
+      },
+      {
+       "tok": "within",
+       "prob": 0.00337
+      },
+      {
+       "tok": "other",
+       "prob": 0.00317
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.00317
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 153,
+       "prob": 0.000139
+      },
+      "langauge": {
+       "rank": 3480,
+       "prob": 2e-06
+      }
+     }
+    },
+    {
+     "layer": 30,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.96211
+      },
+      {
+       "tok": ",",
+       "prob": 0.02564
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.00064
+      },
+      {
+       "tok": "?",
+       "prob": 0.00064
+      },
+      {
+       "tok": ":",
+       "prob": 0.0005
+      },
+      {
+       "tok": ";",
+       "prob": 0.0005
+      },
+      {
+       "tok": ".(",
+       "prob": 0.00041
+      },
+      {
+       "tok": "besides",
+       "prob": 0.00039
+      },
+      {
+       "tok": "during",
+       "prob": 0.00037
+      },
+      {
+       "tok": ".\"",
+       "prob": 0.00034
+      }
+     ],
+     "track": {
+      "language": {
+       "rank": 446,
+       "prob": 2e-06
+      },
+      "langauge": {
+       "rank": 4678,
+       "prob": 0.0
+      }
+     }
+    }
+   ],
+   "model_out": [
+    {
+     "tok": ".",
+     "prob": 0.42056
+    },
+    {
+     "tok": ",",
+     "prob": 0.10633
+    },
+    {
+     "tok": "and",
+     "prob": 0.05023
+    },
+    {
+     "tok": "\n\n",
+     "prob": 0.03452
+    },
+    {
+     "tok": "in",
+     "prob": 0.03047
+    },
+    {
+     "tok": "by",
+     "prob": 0.02373
+    },
+    {
+     "tok": "(",
+     "prob": 0.02373
+    },
+    {
+     "tok": "for",
+     "prob": 0.01848
+    },
+    {
+     "tok": "or",
+     "prob": 0.01736
+    },
+    {
+     "tok": "at",
+     "prob": 0.01631
+    }
+   ],
+   "generated": "."
+  }
+ ]
+}

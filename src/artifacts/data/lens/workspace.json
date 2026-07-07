@@ -1,0 +1,4279 @@
+{
+ "model": "Qwen/Qwen3.5-4B",
+ "lens": "neuronpedia/jacobian-lens@qwen-n1000",
+ "items": [
+  {
+   "name": "summoning-spelling",
+   "prompt": "She had organised the samples by shade and labelled each one before showing him the options. He recognised the effort, but red had never been his favourite",
+   "tokens": [
+    "She",
+    " had",
+    " organised",
+    " the",
+    " samples",
+    " by",
+    " shade",
+    " and",
+    " labelled",
+    " each",
+    " one",
+    " before",
+    " showing",
+    " him",
+    " the",
+    " options",
+    ".",
+    " He",
+    " recognised",
+    " the",
+    " effort",
+    ",",
+    " but",
+    " red",
+    " had",
+    " never",
+    " been",
+    " his",
+    " favourite"
+   ],
+   "read_pos": -1,
+   "read_token": " favourite",
+   "track_words": [
+    "colour",
+    "color",
+    "shade",
+    "hue"
+   ],
+   "answer": "colour",
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ],
+   "n_layers": 32,
+   "per_layer": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "tok": "\r\n\r\n",
+       "prob": 0.18753
+      },
+      {
+       "tok": " \r\n\r\n",
+       "prob": 0.08858
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.07344
+      },
+      {
+       "tok": "'**",
+       "prob": 0.06899
+      },
+      {
+       "tok": "\r\n\n",
+       "prob": 0.06899
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.03931
+      },
+      {
+       "tok": "specialised",
+       "prob": 0.02702
+      },
+      {
+       "tok": "recognised",
+       "prob": 0.02384
+      },
+      {
+       "tok": "\r\n",
+       "prob": 0.0224
+      },
+      {
+       "tok": ")**",
+       "prob": 0.01977
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 25,
+       "prob": 0.003227
+      },
+      "color": {
+       "rank": 224480,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 55228,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 39363,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "tok": "'**",
+       "prob": 0.187
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.1001
+      },
+      {
+       "tok": " \r\n\r\n",
+       "prob": 0.07795
+      },
+      {
+       "tok": "\r\n\r\n",
+       "prob": 0.06071
+      },
+      {
+       "tok": "\\'",
+       "prob": 0.0392
+      },
+      {
+       "tok": ")**",
+       "prob": 0.0392
+      },
+      {
+       "tok": "specialised",
+       "prob": 0.03053
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.02868
+      },
+      {
+       "tok": "''",
+       "prob": 0.02694
+      },
+      {
+       "tok": "recognised",
+       "prob": 0.02377
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 20,
+       "prob": 0.006812
+      },
+      "color": {
+       "rank": 229172,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 60915,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 50838,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "tok": "',",
+       "prob": 0.26072
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.23008
+      },
+      {
+       "tok": "\",",
+       "prob": 0.12315
+      },
+      {
+       "tok": "\\(",
+       "prob": 0.09591
+      },
+      {
+       "tok": "'.",
+       "prob": 0.04531
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.03998
+      },
+      {
+       "tok": "**:",
+       "prob": 0.02748
+      },
+      {
+       "tok": "specialised",
+       "prob": 0.01566
+      },
+      {
+       "tok": ")',",
+       "prob": 0.01219
+      },
+      {
+       "tok": "Whilst",
+       "prob": 0.00892
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 14,
+       "prob": 0.005083
+      },
+      "color": {
+       "rank": 158709,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 16601,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 4519,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "tok": "'**",
+       "prob": 0.18578
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.15401
+      },
+      {
+       "tok": "\\'",
+       "prob": 0.12768
+      },
+      {
+       "tok": " \r\n\r\n",
+       "prob": 0.05323
+      },
+      {
+       "tok": "...",
+       "prob": 0.03437
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.03228
+      },
+      {
+       "tok": " \n\n",
+       "prob": 0.02219
+      },
+      {
+       "tok": "...'",
+       "prob": 0.02219
+      },
+      {
+       "tok": " \r\n",
+       "prob": 0.01525
+      },
+      {
+       "tok": "...',",
+       "prob": 0.01433
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 24,
+       "prob": 0.00561
+      },
+      "color": {
+       "rank": 50746,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 11268,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 9002,
+       "prob": 1e-06
+      }
+     }
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.28767
+      },
+      {
+       "tok": "'**",
+       "prob": 0.11992
+      },
+      {
+       "tok": "...'",
+       "prob": 0.04999
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.04412
+      },
+      {
+       "tok": "\\'",
+       "prob": 0.04144
+      },
+      {
+       "tok": " \r\n\r\n",
+       "prob": 0.03228
+      },
+      {
+       "tok": "...',",
+       "prob": 0.02084
+      },
+      {
+       "tok": "...",
+       "prob": 0.02084
+      },
+      {
+       "tok": "\\'",
+       "prob": 0.01839
+      },
+      {
+       "tok": " \n\n",
+       "prob": 0.01525
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 27,
+       "prob": 0.005269
+      },
+      "color": {
+       "rank": 95345,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 11678,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 10323,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.6137
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.08841
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.02533
+      },
+      {
+       "tok": "'**",
+       "prob": 0.021
+      },
+      {
+       "tok": "...'",
+       "prob": 0.021
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01853
+      },
+      {
+       "tok": "colours",
+       "prob": 0.01274
+      },
+      {
+       "tok": "neighbour",
+       "prob": 0.00992
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00932
+      },
+      {
+       "tok": " \r\n\r\n",
+       "prob": 0.00932
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 19,
+       "prob": 0.003885
+      },
+      "color": {
+       "rank": 160220,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 13080,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 6895,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 6,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.65809
+      },
+      {
+       "tok": "...'",
+       "prob": 0.02716
+      },
+      {
+       "tok": "'**",
+       "prob": 0.02252
+      },
+      {
+       "tok": "\\'",
+       "prob": 0.01454
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01366
+      },
+      {
+       "tok": "#",
+       "prob": 0.00999
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00778
+      },
+      {
+       "tok": "\\'",
+       "prob": 0.00731
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00569
+      },
+      {
+       "tok": "',",
+       "prob": 0.00569
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 27,
+       "prob": 0.00223
+      },
+      "color": {
+       "rank": 17761,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 5022,
+       "prob": 2e-06
+      },
+      "hue": {
+       "rank": 3495,
+       "prob": 3e-06
+      }
+     }
+    },
+    {
+     "layer": 7,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.71259
+      },
+      {
+       "tok": "...'",
+       "prob": 0.02596
+      },
+      {
+       "tok": "...**",
+       "prob": 0.02152
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01479
+      },
+      {
+       "tok": "colours",
+       "prob": 0.01389
+      },
+      {
+       "tok": "'**",
+       "prob": 0.01226
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00843
+      },
+      {
+       "tok": "...',",
+       "prob": 0.00792
+      },
+      {
+       "tok": "\uff1f",
+       "prob": 0.00744
+      },
+      {
+       "tok": "'?",
+       "prob": 0.00451
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 11,
+       "prob": 0.004511
+      },
+      "color": {
+       "rank": 15635,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 3256,
+       "prob": 2e-06
+      },
+      "hue": {
+       "rank": 1728,
+       "prob": 5e-06
+      }
+     }
+    },
+    {
+     "layer": 8,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.80371
+      },
+      {
+       "tok": "colours",
+       "prob": 0.03317
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.02012
+      },
+      {
+       "tok": "...**",
+       "prob": 0.01668
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.01567
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00839
+      },
+      {
+       "tok": "...'",
+       "prob": 0.00695
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00396
+      },
+      {
+       "tok": "'**",
+       "prob": 0.00396
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00328
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 5,
+       "prob": 0.008387
+      },
+      "color": {
+       "rank": 7169,
+       "prob": 0.0
+      },
+      "shade": {
+       "rank": 2100,
+       "prob": 2e-06
+      },
+      "hue": {
+       "rank": 1286,
+       "prob": 4e-06
+      }
+     }
+    },
+    {
+     "layer": 9,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.69698
+      },
+      {
+       "tok": "colours",
+       "prob": 0.06901
+      },
+      {
+       "tok": "...'",
+       "prob": 0.0224
+      },
+      {
+       "tok": "...**",
+       "prob": 0.0224
+      },
+      {
+       "tok": "colour",
+       "prob": 0.0224
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.01977
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01447
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00727
+      },
+      {
+       "tok": "\uff1f",
+       "prob": 0.00603
+      },
+      {
+       "tok": "...',",
+       "prob": 0.00532
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 2,
+       "prob": 0.022404
+      },
+      "color": {
+       "rank": 2322,
+       "prob": 3e-06
+      },
+      "shade": {
+       "rank": 1835,
+       "prob": 3e-06
+      },
+      "hue": {
+       "rank": 825,
+       "prob": 1.1e-05
+      }
+     }
+    },
+    {
+     "layer": 10,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.57317
+      },
+      {
+       "tok": "...**",
+       "prob": 0.11286
+      },
+      {
+       "tok": "...'",
+       "prob": 0.039
+      },
+      {
+       "tok": "colours",
+       "prob": 0.02088
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01435
+      },
+      {
+       "tok": "...',",
+       "prob": 0.00926
+      },
+      {
+       "tok": "\uff1f",
+       "prob": 0.0087
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00768
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.00768
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00637
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 9,
+       "prob": 0.006367
+      },
+      "color": {
+       "rank": 2084,
+       "prob": 5e-06
+      },
+      "shade": {
+       "rank": 3021,
+       "prob": 3e-06
+      },
+      "hue": {
+       "rank": 1710,
+       "prob": 7e-06
+      }
+     }
+    },
+    {
+     "layer": 11,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.8895
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.02227
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00928
+      },
+      {
+       "tok": "...**",
+       "prob": 0.00723
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00301
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.0025
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00172
+      },
+      {
+       "tok": "...'",
+       "prob": 0.00142
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00142
+      },
+      {
+       "tok": "'**",
+       "prob": 0.00134
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 4,
+       "prob": 0.003014
+      },
+      "color": {
+       "rank": 2665,
+       "prob": 2e-06
+      },
+      "shade": {
+       "rank": 2480,
+       "prob": 2e-06
+      },
+      "hue": {
+       "rank": 1443,
+       "prob": 3e-06
+      }
+     }
+    },
+    {
+     "layer": 12,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.83322
+      },
+      {
+       "tok": "...**",
+       "prob": 0.05004
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01841
+      },
+      {
+       "tok": "...'",
+       "prob": 0.00817
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00561
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.00437
+      },
+      {
+       "tok": "<|im_end|>",
+       "prob": 0.00301
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.0022
+      },
+      {
+       "tok": "...",
+       "prob": 0.00194
+      },
+      {
+       "tok": "...</",
+       "prob": 0.00182
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 10,
+       "prob": 0.001823
+      },
+      "color": {
+       "rank": 2093,
+       "prob": 2e-06
+      },
+      "shade": {
+       "rank": 2386,
+       "prob": 2e-06
+      },
+      "hue": {
+       "rank": 2059,
+       "prob": 2e-06
+      }
+     }
+    },
+    {
+     "layer": 13,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.82428
+      },
+      {
+       "tok": "...**",
+       "prob": 0.02489
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01418
+      },
+      {
+       "tok": "...'",
+       "prob": 0.0086
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.00522
+      },
+      {
+       "tok": "___",
+       "prob": 0.0049
+      },
+      {
+       "tok": "colours",
+       "prob": 0.0046
+      },
+      {
+       "tok": "...",
+       "prob": 0.00382
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.00337
+      },
+      {
+       "tok": "...',",
+       "prob": 0.00279
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 15,
+       "prob": 0.001694
+      },
+      "color": {
+       "rank": 1487,
+       "prob": 5e-06
+      },
+      "shade": {
+       "rank": 2127,
+       "prob": 3e-06
+      },
+      "hue": {
+       "rank": 1667,
+       "prob": 4e-06
+      }
+     }
+    },
+    {
+     "layer": 14,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.56112
+      },
+      {
+       "tok": "...**",
+       "prob": 0.1252
+      },
+      {
+       "tok": "___",
+       "prob": 0.05219
+      },
+      {
+       "tok": "___",
+       "prob": 0.02465
+      },
+      {
+       "tok": "________",
+       "prob": 0.01405
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01165
+      },
+      {
+       "tok": "_________",
+       "prob": 0.01094
+      },
+      {
+       "tok": "...'",
+       "prob": 0.01028
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.00907
+      },
+      {
+       "tok": "...\\",
+       "prob": 0.00706
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 38,
+       "prob": 0.001083
+      },
+      "color": {
+       "rank": 2550,
+       "prob": 4e-06
+      },
+      "shade": {
+       "rank": 2394,
+       "prob": 4e-06
+      },
+      "hue": {
+       "rank": 2018,
+       "prob": 5e-06
+      }
+     }
+    },
+    {
+     "layer": 15,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.8666
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.02309
+      },
+      {
+       "tok": "___",
+       "prob": 0.01025
+      },
+      {
+       "tok": "favour",
+       "prob": 0.00484
+      },
+      {
+       "tok": "_________",
+       "prob": 0.00484
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00427
+      },
+      {
+       "tok": "___",
+       "prob": 0.00401
+      },
+      {
+       "tok": "________",
+       "prob": 0.00401
+      },
+      {
+       "tok": "\uff1f",
+       "prob": 0.0019
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.0019
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 12,
+       "prob": 0.001673
+      },
+      "color": {
+       "rank": 2317,
+       "prob": 2e-06
+      },
+      "shade": {
+       "rank": 1484,
+       "prob": 4e-06
+      },
+      "hue": {
+       "rank": 1264,
+       "prob": 5e-06
+      }
+     }
+    },
+    {
+     "layer": 16,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.82181
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.02482
+      },
+      {
+       "tok": "'.",
+       "prob": 0.01933
+      },
+      {
+       "tok": "___",
+       "prob": 0.01248
+      },
+      {
+       "tok": "\u2019.",
+       "prob": 0.00554
+      },
+      {
+       "tok": "\uff0e",
+       "prob": 0.00459
+      },
+      {
+       "tok": "favour",
+       "prob": 0.00431
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00381
+      },
+      {
+       "tok": "_________",
+       "prob": 0.00358
+      },
+      {
+       "tok": "________",
+       "prob": 0.00358
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 16,
+       "prob": 0.001586
+      },
+      "color": {
+       "rank": 3152,
+       "prob": 2e-06
+      },
+      "shade": {
+       "rank": 1214,
+       "prob": 6e-06
+      },
+      "hue": {
+       "rank": 1187,
+       "prob": 6e-06
+      }
+     }
+    },
+    {
+     "layer": 17,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.85527
+      },
+      {
+       "tok": "___",
+       "prob": 0.01566
+      },
+      {
+       "tok": "'.",
+       "prob": 0.01472
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01299
+      },
+      {
+       "tok": "___",
+       "prob": 0.00838
+      },
+      {
+       "tok": "________",
+       "prob": 0.00576
+      },
+      {
+       "tok": "_________",
+       "prob": 0.00541
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00328
+      },
+      {
+       "tok": "\\.",
+       "prob": 0.00272
+      },
+      {
+       "tok": "_.",
+       "prob": 0.00272
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 20,
+       "prob": 0.000941
+      },
+      "color": {
+       "rank": 4069,
+       "prob": 1e-06
+      },
+      "shade": {
+       "rank": 1285,
+       "prob": 4e-06
+      },
+      "hue": {
+       "rank": 1260,
+       "prob": 4e-06
+      }
+     }
+    },
+    {
+     "layer": 18,
+     "top": [
+      {
+       "tok": "favourite",
+       "prob": 0.62719
+      },
+      {
+       "tok": "'.",
+       "prob": 0.0401
+      },
+      {
+       "tok": "**.",
+       "prob": 0.03538
+      },
+      {
+       "tok": "colours",
+       "prob": 0.01302
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.01302
+      },
+      {
+       "tok": "\u2019.",
+       "prob": 0.00952
+      },
+      {
+       "tok": ".'.",
+       "prob": 0.00895
+      },
+      {
+       "tok": "...**",
+       "prob": 0.0084
+      },
+      {
+       "tok": "_________",
+       "prob": 0.0079
+      },
+      {
+       "tok": "___",
+       "prob": 0.0079
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 14,
+       "prob": 0.005776
+      },
+      "color": {
+       "rank": 1171,
+       "prob": 1.3e-05
+      },
+      "shade": {
+       "rank": 1577,
+       "prob": 9e-06
+      },
+      "hue": {
+       "rank": 1196,
+       "prob": 1.2e-05
+      }
+     }
+    },
+    {
+     "layer": 19,
+     "top": [
+      {
+       "tok": "colours",
+       "prob": 0.31965
+      },
+      {
+       "tok": "colour",
+       "prob": 0.19388
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.07132
+      },
+      {
+       "tok": "'.",
+       "prob": 0.06294
+      },
+      {
+       "tok": "\\.",
+       "prob": 0.03369
+      },
+      {
+       "tok": "\uff0e",
+       "prob": 0.02973
+      },
+      {
+       "tok": "\\\"",
+       "prob": 0.01803
+      },
+      {
+       "tok": "**.",
+       "prob": 0.01694
+      },
+      {
+       "tok": ".",
+       "prob": 0.01591
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.01591
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 1,
+       "prob": 0.193875
+      },
+      "color": {
+       "rank": 63,
+       "prob": 0.00058
+      },
+      "shade": {
+       "rank": 580,
+       "prob": 2.1e-05
+      },
+      "hue": {
+       "rank": 225,
+       "prob": 8.4e-05
+      }
+     }
+    },
+    {
+     "layer": 20,
+     "top": [
+      {
+       "tok": "colours",
+       "prob": 0.43723
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.3005
+      },
+      {
+       "tok": "colour",
+       "prob": 0.20653
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00907
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00517
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00486
+      },
+      {
+       "tok": "**.",
+       "prob": 0.00355
+      },
+      {
+       "tok": "favoured",
+       "prob": 0.00277
+      },
+      {
+       "tok": "'.",
+       "prob": 0.0026
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.00244
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 2,
+       "prob": 0.206531
+      },
+      "color": {
+       "rank": 109,
+       "prob": 2.1e-05
+      },
+      "shade": {
+       "rank": 401,
+       "prob": 3e-06
+      },
+      "hue": {
+       "rank": 277,
+       "prob": 5e-06
+      }
+     }
+    },
+    {
+     "layer": 21,
+     "top": [
+      {
+       "tok": "colours",
+       "prob": 0.41001
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.31932
+      },
+      {
+       "tok": "colour",
+       "prob": 0.24868
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00585
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00516
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00402
+      },
+      {
+       "tok": "favourites",
+       "prob": 0.00148
+      },
+      {
+       "tok": "favoured",
+       "prob": 0.00115
+      },
+      {
+       "tok": "colors",
+       "prob": 0.00048
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00033
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 2,
+       "prob": 0.248683
+      },
+      "color": {
+       "rank": 15,
+       "prob": 0.000146
+      },
+      "shade": {
+       "rank": 265,
+       "prob": 1e-06
+      },
+      "hue": {
+       "rank": 46,
+       "prob": 9e-06
+      }
+     }
+    },
+    {
+     "layer": 22,
+     "top": [
+      {
+       "tok": "colours",
+       "prob": 0.69374
+      },
+      {
+       "tok": "colour",
+       "prob": 0.25521
+      },
+      {
+       "tok": "favourite",
+       "prob": 0.03048
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.0053
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00413
+      },
+      {
+       "tok": "colors",
+       "prob": 0.00413
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00364
+      },
+      {
+       "tok": "color",
+       "prob": 0.00063
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 0.00049
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00022
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 1,
+       "prob": 0.255214
+      },
+      "color": {
+       "rank": 7,
+       "prob": 0.000633
+      },
+      "shade": {
+       "rank": 136,
+       "prob": 1e-06
+      },
+      "hue": {
+       "rank": 24,
+       "prob": 3.1e-05
+      }
+     }
+    },
+    {
+     "layer": 23,
+     "top": [
+      {
+       "tok": "colours",
+       "prob": 0.63099
+      },
+      {
+       "tok": "colour",
+       "prob": 0.33775
+      },
+      {
+       "tok": "colors",
+       "prob": 0.01156
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00546
+      },
+      {
+       "tok": "color",
+       "prob": 0.00375
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00375
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00331
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 0.00177
+      },
+      {
+       "tok": "\u7684\u989c\u8272",
+       "prob": 0.00035
+      },
+      {
+       "tok": "\u989c\u8272\u7684",
+       "prob": 0.00016
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 1,
+       "prob": 0.337747
+      },
+      "color": {
+       "rank": 5,
+       "prob": 0.003752
+      },
+      "shade": {
+       "rank": 50,
+       "prob": 3e-06
+      },
+      "hue": {
+       "rank": 18,
+       "prob": 3.7e-05
+      }
+     }
+    },
+    {
+     "layer": 24,
+     "top": [
+      {
+       "tok": "colours",
+       "prob": 0.80778
+      },
+      {
+       "tok": "colour",
+       "prob": 0.15906
+      },
+      {
+       "tok": "colors",
+       "prob": 0.02153
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00291
+      },
+      {
+       "tok": "color",
+       "prob": 0.00227
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.002
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00138
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 0.00095
+      },
+      {
+       "tok": "hue",
+       "prob": 0.00027
+      },
+      {
+       "tok": "\u7684\u989c\u8272",
+       "prob": 0.00024
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 1,
+       "prob": 0.159061
+      },
+      "color": {
+       "rank": 4,
+       "prob": 0.002269
+      },
+      "shade": {
+       "rank": 11,
+       "prob": 0.000186
+      },
+      "hue": {
+       "rank": 8,
+       "prob": 0.000271
+      }
+     }
+    },
+    {
+     "layer": 25,
+     "top": [
+      {
+       "tok": "colour",
+       "prob": 0.59928
+      },
+      {
+       "tok": "colours",
+       "prob": 0.36348
+      },
+      {
+       "tok": "colors",
+       "prob": 0.01597
+      },
+      {
+       "tok": "color",
+       "prob": 0.01409
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00245
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 0.00216
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00131
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.0007
+      },
+      {
+       "tok": "color",
+       "prob": 0.00016
+      },
+      {
+       "tok": "\u7684\u989c\u8272",
+       "prob": 9e-05
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 0,
+       "prob": 0.599284
+      },
+      "color": {
+       "rank": 3,
+       "prob": 0.014094
+      },
+      "shade": {
+       "rank": 53,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 20,
+       "prob": 3e-06
+      }
+     }
+    },
+    {
+     "layer": 26,
+     "top": [
+      {
+       "tok": "colour",
+       "prob": 0.7353
+      },
+      {
+       "tok": "colours",
+       "prob": 0.21067
+      },
+      {
+       "tok": "color",
+       "prob": 0.03231
+      },
+      {
+       "tok": "colors",
+       "prob": 0.01347
+      },
+      {
+       "tok": "colour",
+       "prob": 0.003
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 0.003
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00086
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00067
+      },
+      {
+       "tok": "color",
+       "prob": 0.00036
+      },
+      {
+       "tok": "\u7684\u989c\u8272",
+       "prob": 7e-05
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 0,
+       "prob": 0.735298
+      },
+      "color": {
+       "rank": 2,
+       "prob": 0.032307
+      },
+      "shade": {
+       "rank": 42,
+       "prob": 0.0
+      },
+      "hue": {
+       "rank": 22,
+       "prob": 3e-06
+      }
+     }
+    },
+    {
+     "layer": 27,
+     "top": [
+      {
+       "tok": "colour",
+       "prob": 0.70179
+      },
+      {
+       "tok": "color",
+       "prob": 0.20107
+      },
+      {
+       "tok": "colours",
+       "prob": 0.06528
+      },
+      {
+       "tok": "colors",
+       "prob": 0.02721
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 0.0012
+      },
+      {
+       "tok": "color",
+       "prob": 0.00106
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00106
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00039
+      },
+      {
+       "tok": "Color",
+       "prob": 0.00021
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00016
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 0,
+       "prob": 0.701787
+      },
+      "color": {
+       "rank": 1,
+       "prob": 0.201065
+      },
+      "shade": {
+       "rank": 11,
+       "prob": 8.7e-05
+      },
+      "hue": {
+       "rank": 14,
+       "prob": 4.6e-05
+      }
+     }
+    },
+    {
+     "layer": 28,
+     "top": [
+      {
+       "tok": "colour",
+       "prob": 0.96845
+      },
+      {
+       "tok": "color",
+       "prob": 0.02924
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00128
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00047
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00029
+      },
+      {
+       "tok": "Colour",
+       "prob": 6e-05
+      },
+      {
+       "tok": "color",
+       "prob": 6e-05
+      },
+      {
+       "tok": "\u989c\u8272",
+       "prob": 4e-05
+      },
+      {
+       "tok": "shade",
+       "prob": 3e-05
+      },
+      {
+       "tok": "colors",
+       "prob": 2e-05
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 0,
+       "prob": 0.968454
+      },
+      "color": {
+       "rank": 1,
+       "prob": 0.029245
+      },
+      "shade": {
+       "rank": 8,
+       "prob": 2.7e-05
+      },
+      "hue": {
+       "rank": 11,
+       "prob": 8e-06
+      }
+     }
+    },
+    {
+     "layer": 29,
+     "top": [
+      {
+       "tok": "colour",
+       "prob": 0.9216
+      },
+      {
+       "tok": "color",
+       "prob": 0.07565
+      },
+      {
+       "tok": "shade",
+       "prob": 0.00084
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00074
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00045
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00024
+      },
+      {
+       "tok": "hue",
+       "prob": 0.00019
+      },
+      {
+       "tok": "color",
+       "prob": 9e-05
+      },
+      {
+       "tok": "Colour",
+       "prob": 5e-05
+      },
+      {
+       "tok": "colors",
+       "prob": 3e-05
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 0,
+       "prob": 0.921599
+      },
+      "color": {
+       "rank": 1,
+       "prob": 0.075649
+      },
+      "shade": {
+       "rank": 2,
+       "prob": 0.00084
+      },
+      "hue": {
+       "rank": 6,
+       "prob": 0.000188
+      }
+     }
+    },
+    {
+     "layer": 30,
+     "top": [
+      {
+       "tok": "colour",
+       "prob": 0.92829
+      },
+      {
+       "tok": "color",
+       "prob": 0.06725
+      },
+      {
+       "tok": "shade",
+       "prob": 0.00203
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00075
+      },
+      {
+       "tok": "hue",
+       "prob": 0.00058
+      },
+      {
+       "tok": "colour",
+       "prob": 0.0004
+      },
+      {
+       "tok": ".",
+       "prob": 0.00024
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00013
+      },
+      {
+       "tok": "Colour",
+       "prob": 4e-05
+      },
+      {
+       "tok": "color",
+       "prob": 3e-05
+      }
+     ],
+     "track": {
+      "colour": {
+       "rank": 0,
+       "prob": 0.92829
+      },
+      "color": {
+       "rank": 1,
+       "prob": 0.067245
+      },
+      "shade": {
+       "rank": 2,
+       "prob": 0.002031
+      },
+      "hue": {
+       "rank": 4,
+       "prob": 0.000582
+      }
+     }
+    }
+   ],
+   "model_out": [
+    {
+     "tok": "colour",
+     "prob": 0.50737
+    },
+    {
+     "tok": "shade",
+     "prob": 0.23967
+    },
+    {
+     "tok": ".",
+     "prob": 0.11321
+    },
+    {
+     "tok": "color",
+     "prob": 0.06867
+    },
+    {
+     "tok": "hue",
+     "prob": 0.01532
+    },
+    {
+     "tok": ",",
+     "prob": 0.01532
+    },
+    {
+     "tok": "and",
+     "prob": 0.00439
+    },
+    {
+     "tok": "choice",
+     "prob": 0.00321
+    },
+    {
+     "tok": ";",
+     "prob": 0.00207
+    },
+    {
+     "tok": "\n",
+     "prob": 0.00152
+    }
+   ],
+   "generated": "colour."
+  },
+  {
+   "name": "dont-say-fear",
+   "prompt": "<|im_start|>user\nThink about your greatest fear, but don't say it.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nI",
+   "tokens": [
+    "<|im_start|>",
+    "user",
+    "\n",
+    "Think",
+    " about",
+    " your",
+    " greatest",
+    " fear",
+    ",",
+    " but",
+    " don",
+    "'t",
+    " say",
+    " it",
+    ".",
+    "<|im_end|>",
+    "\n",
+    "<|im_start|>",
+    "assistant",
+    "\n",
+    "<think>",
+    "\n\n",
+    "</think>",
+    "\n\n",
+    "I"
+   ],
+   "read_pos": -1,
+   "read_token": "I",
+   "track_words": [
+    "death",
+    "fear",
+    "failure",
+    "loss",
+    "dark"
+   ],
+   "answer": null,
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ],
+   "n_layers": 32,
+   "per_layer": [
+    {
+     "layer": 0,
+     "top": [
+      {
+       "tok": "s",
+       "prob": 0.00833
+      },
+      {
+       "tok": "-",
+       "prob": 0.00833
+      },
+      {
+       "tok": ",",
+       "prob": 0.0061
+      },
+      {
+       "tok": "n",
+       "prob": 0.00505
+      },
+      {
+       "tok": "I",
+       "prob": 0.00475
+      },
+      {
+       "tok": "ation",
+       "prob": 0.00406
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.00347
+      },
+      {
+       "tok": ")",
+       "prob": 0.00337
+      },
+      {
+       "tok": "di",
+       "prob": 0.00316
+      },
+      {
+       "tok": "a",
+       "prob": 0.00307
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 176,
+       "prob": 0.000402
+      },
+      "fear": {
+       "rank": 6929,
+       "prob": 2.1e-05
+      },
+      "failure": {
+       "rank": 90520,
+       "prob": 1e-06
+      },
+      "loss": {
+       "rank": 7759,
+       "prob": 1.9e-05
+      },
+      "dark": {
+       "rank": 48961,
+       "prob": 3e-06
+      }
+     }
+    },
+    {
+     "layer": 1,
+     "top": [
+      {
+       "tok": "\u3000",
+       "prob": 0.03796
+      },
+      {
+       "tok": "*",
+       "prob": 0.01022
+      },
+      {
+       "tok": "<",
+       "prob": 0.00702
+      },
+      {
+       "tok": "``",
+       "prob": 0.00582
+      },
+      {
+       "tok": "-",
+       "prob": 0.004
+      },
+      {
+       "tok": "...",
+       "prob": 0.00312
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.00293
+      },
+      {
+       "tok": "\u0641\u062a",
+       "prob": 0.00243
+      },
+      {
+       "tok": "[",
+       "prob": 0.00243
+      },
+      {
+       "tok": ",",
+       "prob": 0.00221
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 66,
+       "prob": 0.000478
+      },
+      "fear": {
+       "rank": 2646,
+       "prob": 4.3e-05
+      },
+      "failure": {
+       "rank": 58661,
+       "prob": 3e-06
+      },
+      "loss": {
+       "rank": 23147,
+       "prob": 8e-06
+      },
+      "dark": {
+       "rank": 31812,
+       "prob": 6e-06
+      }
+     }
+    },
+    {
+     "layer": 2,
+     "top": [
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.20363
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.03539
+      },
+      {
+       "tok": "\u00b7",
+       "prob": 0.01223
+      },
+      {
+       "tok": "\n",
+       "prob": 0.0084
+      },
+      {
+       "tok": "|",
+       "prob": 0.00578
+      },
+      {
+       "tok": "at",
+       "prob": 0.0045
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.00397
+      },
+      {
+       "tok": "I",
+       "prob": 0.0035
+      },
+      {
+       "tok": "|",
+       "prob": 0.0035
+      },
+      {
+       "tok": "\u00b7",
+       "prob": 0.0029
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 482,
+       "prob": 0.00012
+      },
+      "fear": {
+       "rank": 8637,
+       "prob": 1.3e-05
+      },
+      "failure": {
+       "rank": 123284,
+       "prob": 1e-06
+      },
+      "loss": {
+       "rank": 36063,
+       "prob": 3e-06
+      },
+      "dark": {
+       "rank": 21672,
+       "prob": 6e-06
+      }
+     }
+    },
+    {
+     "layer": 3,
+     "top": [
+      {
+       "tok": "\u3000",
+       "prob": 0.76454
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.05203
+      },
+      {
+       "tok": "**",
+       "prob": 0.02309
+      },
+      {
+       "tok": "\\",
+       "prob": 0.01491
+      },
+      {
+       "tok": "\\n",
+       "prob": 0.00904
+      },
+      {
+       "tok": "_",
+       "prob": 0.00849
+      },
+      {
+       "tok": "[",
+       "prob": 0.00704
+      },
+      {
+       "tok": "____",
+       "prob": 0.00661
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.00584
+      },
+      {
+       "tok": "|",
+       "prob": 0.00455
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 1813,
+       "prob": 3e-06
+      },
+      "fear": {
+       "rank": 8979,
+       "prob": 1e-06
+      },
+      "failure": {
+       "rank": 62178,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 30267,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 26270,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 4,
+     "top": [
+      {
+       "tok": ".",
+       "prob": 0.38966
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.14335
+      },
+      {
+       "tok": ";",
+       "prob": 0.09852
+      },
+      {
+       "tok": "**",
+       "prob": 0.03858
+      },
+      {
+       "tok": "\\",
+       "prob": 0.03199
+      },
+      {
+       "tok": ",",
+       "prob": 0.02491
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.02198
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.0194
+      },
+      {
+       "tok": ".I",
+       "prob": 0.01608
+      },
+      {
+       "tok": "\u2014",
+       "prob": 0.01511
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 6998,
+       "prob": 1e-06
+      },
+      "fear": {
+       "rank": 8258,
+       "prob": 0.0
+      },
+      "failure": {
+       "rank": 62192,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 35875,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 29150,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 5,
+     "top": [
+      {
+       "tok": "\ufffd",
+       "prob": 0.36819
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.28675
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.06011
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.04983
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.03217
+      },
+      {
+       "tok": "**",
+       "prob": 0.01341
+      },
+      {
+       "tok": "\u00b7",
+       "prob": 0.01341
+      },
+      {
+       "tok": "I",
+       "prob": 0.0126
+      },
+      {
+       "tok": "\u2014",
+       "prob": 0.01184
+      },
+      {
+       "tok": "\u2026I",
+       "prob": 0.00981
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 8819,
+       "prob": 1e-06
+      },
+      "fear": {
+       "rank": 4444,
+       "prob": 1e-06
+      },
+      "failure": {
+       "rank": 51241,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 18711,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 24072,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 6,
+     "top": [
+      {
+       "tok": "\ufffd",
+       "prob": 0.28094
+      },
+      {
+       "tok": "**",
+       "prob": 0.1704
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.06269
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.06269
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.04047
+      },
+      {
+       "tok": "I",
+       "prob": 0.03355
+      },
+      {
+       "tok": "!",
+       "prob": 0.02455
+      },
+      {
+       "tok": ";",
+       "prob": 0.01585
+      },
+      {
+       "tok": "____",
+       "prob": 0.01314
+      },
+      {
+       "tok": "\u00b7",
+       "prob": 0.00961
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 7349,
+       "prob": 2e-06
+      },
+      "fear": {
+       "rank": 2927,
+       "prob": 5e-06
+      },
+      "failure": {
+       "rank": 56567,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 22544,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 16905,
+       "prob": 1e-06
+      }
+     }
+    },
+    {
+     "layer": 7,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.33204
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.25859
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.1078
+      },
+      {
+       "tok": "\ufffd",
+       "prob": 0.04783
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.03725
+      },
+      {
+       "tok": "**",
+       "prob": 0.035
+      },
+      {
+       "tok": "____",
+       "prob": 0.0256
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.02123
+      },
+      {
+       "tok": "  \n\n",
+       "prob": 0.01553
+      },
+      {
+       "tok": "_",
+       "prob": 0.01136
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 57136,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 7764,
+       "prob": 0.0
+      },
+      "failure": {
+       "rank": 46545,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 32993,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 29629,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 8,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.22553
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.19903
+      },
+      {
+       "tok": "\ufffd",
+       "prob": 0.08297
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.06878
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.06878
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.04172
+      },
+      {
+       "tok": "____",
+       "prob": 0.03052
+      },
+      {
+       "tok": "...",
+       "prob": 0.02233
+      },
+      {
+       "tok": "!",
+       "prob": 0.02098
+      },
+      {
+       "tok": "  \n\n",
+       "prob": 0.01535
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 56848,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 10145,
+       "prob": 0.0
+      },
+      "failure": {
+       "rank": 38917,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 41928,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 36267,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 9,
+     "top": [
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.57795
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.16559
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.06903
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.04744
+      },
+      {
+       "tok": "____",
+       "prob": 0.02241
+      },
+      {
+       "tok": "...",
+       "prob": 0.01858
+      },
+      {
+       "tok": "\\n",
+       "prob": 0.00994
+      },
+      {
+       "tok": "  \n\n",
+       "prob": 0.00774
+      },
+      {
+       "tok": "____",
+       "prob": 0.00642
+      },
+      {
+       "tok": "<|im_end|>",
+       "prob": 0.00441
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 76712,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 29953,
+       "prob": 0.0
+      },
+      "failure": {
+       "rank": 72610,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 58567,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 73209,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 10,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.11554
+      },
+      {
+       "tok": "AI",
+       "prob": 0.08453
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.06583
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.0331
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.02921
+      },
+      {
+       "tok": "AI",
+       "prob": 0.02921
+      },
+      {
+       "tok": "\\n",
+       "prob": 0.02578
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.02137
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.02008
+      },
+      {
+       "tok": "\ufffd",
+       "prob": 0.01772
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 147273,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 64265,
+       "prob": 0.0
+      },
+      "failure": {
+       "rank": 174106,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 173631,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 130415,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 11,
+     "top": [
+      {
+       "tok": "AI",
+       "prob": 0.05088
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.05088
+      },
+      {
+       "tok": "\\n",
+       "prob": 0.04218
+      },
+      {
+       "tok": "\ufffd",
+       "prob": 0.02558
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.02403
+      },
+      {
+       "tok": "\\u",
+       "prob": 0.02403
+      },
+      {
+       "tok": "____",
+       "prob": 0.02258
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.02121
+      },
+      {
+       "tok": "\u3010",
+       "prob": 0.02121
+      },
+      {
+       "tok": "  \n\n",
+       "prob": 0.01872
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 112784,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 18214,
+       "prob": 2e-06
+      },
+      "failure": {
+       "rank": 167655,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 168390,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 146448,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 12,
+     "top": [
+      {
+       "tok": "...",
+       "prob": 0.27575
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.10799
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.08952
+      },
+      {
+       "tok": "[...]",
+       "prob": 0.02906
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.0273
+      },
+      {
+       "tok": "myself",
+       "prob": 0.02264
+      },
+      {
+       "tok": "AI",
+       "prob": 0.01556
+      },
+      {
+       "tok": "\u3000",
+       "prob": 0.01138
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.00886
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.00735
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 35856,
+       "prob": 1e-06
+      },
+      "fear": {
+       "rank": 3009,
+       "prob": 1.3e-05
+      },
+      "failure": {
+       "rank": 123688,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 129449,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 93293,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 13,
+     "top": [
+      {
+       "tok": "...",
+       "prob": 0.64817
+      },
+      {
+       "tok": "...",
+       "prob": 0.06029
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.04144
+      },
+      {
+       "tok": "myself",
+       "prob": 0.03657
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.02361
+      },
+      {
+       "tok": "**",
+       "prob": 0.01345
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.01345
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.01115
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00984
+      },
+      {
+       "tok": "my",
+       "prob": 0.00984
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 19179,
+       "prob": 1e-06
+      },
+      "fear": {
+       "rank": 5184,
+       "prob": 2e-06
+      },
+      "failure": {
+       "rank": 99193,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 127877,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 98632,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 14,
+     "top": [
+      {
+       "tok": "...",
+       "prob": 0.69794
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.13743
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.09446
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.00775
+      },
+      {
+       "tok": "...",
+       "prob": 0.00684
+      },
+      {
+       "tok": "<|im_end|>",
+       "prob": 0.00285
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.00285
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00222
+      },
+      {
+       "tok": "myself",
+       "prob": 0.00196
+      },
+      {
+       "tok": "**",
+       "prob": 0.00163
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 25158,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 10027,
+       "prob": 0.0
+      },
+      "failure": {
+       "rank": 113240,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 125002,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 149165,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 15,
+     "top": [
+      {
+       "tok": "\u2026",
+       "prob": 0.40196
+      },
+      {
+       "tok": "<|endoftext|>",
+       "prob": 0.21516
+      },
+      {
+       "tok": "...",
+       "prob": 0.21516
+      },
+      {
+       "tok": "\u2026\u2026",
+       "prob": 0.02735
+      },
+      {
+       "tok": "<|im_end|>",
+       "prob": 0.0257
+      },
+      {
+       "tok": "\n\n",
+       "prob": 0.0065
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.00475
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.00475
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00307
+      },
+      {
+       "tok": "myself",
+       "prob": 0.00211
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 22374,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 4848,
+       "prob": 1e-06
+      },
+      "failure": {
+       "rank": 50219,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 114620,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 97531,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 16,
+     "top": [
+      {
+       "tok": "myself",
+       "prob": 0.0688
+      },
+      {
+       "tok": "AI",
+       "prob": 0.04173
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.0392
+      },
+      {
+       "tok": "never",
+       "prob": 0.03683
+      },
+      {
+       "tok": "digital",
+       "prob": 0.02531
+      },
+      {
+       "tok": "robots",
+       "prob": 0.0174
+      },
+      {
+       "tok": "!I",
+       "prob": 0.01634
+      },
+      {
+       "tok": "AI",
+       "prob": 0.01535
+      },
+      {
+       "tok": "humans",
+       "prob": 0.01273
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.01123
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 37461,
+       "prob": 1e-06
+      },
+      "fear": {
+       "rank": 12216,
+       "prob": 4e-06
+      },
+      "failure": {
+       "rank": 71923,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 152546,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 152295,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 17,
+     "top": [
+      {
+       "tok": "\u2014I",
+       "prob": 0.15538
+      },
+      {
+       "tok": "<|im_end|>",
+       "prob": 0.10679
+      },
+      {
+       "tok": "!I",
+       "prob": 0.03691
+      },
+      {
+       "tok": "\\u",
+       "prob": 0.03257
+      },
+      {
+       "tok": "myself",
+       "prob": 0.02537
+      },
+      {
+       "tok": "\\n",
+       "prob": 0.02383
+      },
+      {
+       "tok": "\u2014you",
+       "prob": 0.01975
+      },
+      {
+       "tok": "never",
+       "prob": 0.01856
+      },
+      {
+       "tok": "\u2026",
+       "prob": 0.01275
+      },
+      {
+       "tok": "  \n\n",
+       "prob": 0.01275
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 118651,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 17290,
+       "prob": 2e-06
+      },
+      "failure": {
+       "rank": 191052,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 191738,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 165973,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 18,
+     "top": [
+      {
+       "tok": "\u2014I",
+       "prob": 0.41618
+      },
+      {
+       "tok": "\\u",
+       "prob": 0.05291
+      },
+      {
+       "tok": "\u2014you",
+       "prob": 0.03416
+      },
+      {
+       "tok": "  \n\n",
+       "prob": 0.03015
+      },
+      {
+       "tok": "!**",
+       "prob": 0.01718
+      },
+      {
+       "tok": "\ufffd",
+       "prob": 0.01718
+      },
+      {
+       "tok": "\u2014a",
+       "prob": 0.01718
+      },
+      {
+       "tok": "!I",
+       "prob": 0.01109
+      },
+      {
+       "tok": "\u2014not",
+       "prob": 0.01109
+      },
+      {
+       "tok": "myself",
+       "prob": 0.01109
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 216818,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 19085,
+       "prob": 1e-06
+      },
+      "failure": {
+       "rank": 180884,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 212841,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 192270,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 19,
+     "top": [
+      {
+       "tok": "\u2014I",
+       "prob": 0.55543
+      },
+      {
+       "tok": "\\u",
+       "prob": 0.07517
+      },
+      {
+       "tok": "\u2014a",
+       "prob": 0.04559
+      },
+      {
+       "tok": "\u2014not",
+       "prob": 0.04024
+      },
+      {
+       "tok": "\u2026**",
+       "prob": 0.0244
+      },
+      {
+       "tok": "\u2014but",
+       "prob": 0.01901
+      },
+      {
+       "tok": "**\u2014",
+       "prob": 0.01901
+      },
+      {
+       "tok": "**",
+       "prob": 0.01901
+      },
+      {
+       "tok": "\u2014you",
+       "prob": 0.01901
+      },
+      {
+       "tok": ".\\",
+       "prob": 0.01017
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 70031,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 319,
+       "prob": 2.2e-05
+      },
+      "failure": {
+       "rank": 93852,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 115683,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 71825,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 20,
+     "top": [
+      {
+       "tok": "never",
+       "prob": 0.38151
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.1093
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.09646
+      },
+      {
+       "tok": "myself",
+       "prob": 0.0663
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.04021
+      },
+      {
+       "tok": "nothing",
+       "prob": 0.03132
+      },
+      {
+       "tok": "**",
+       "prob": 0.02152
+      },
+      {
+       "tok": "couldn",
+       "prob": 0.01784
+      },
+      {
+       "tok": "!**",
+       "prob": 0.01017
+      },
+      {
+       "tok": "\u5e76\u65e0",
+       "prob": 0.00897
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 43379,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 192,
+       "prob": 0.000128
+      },
+      "failure": {
+       "rank": 42527,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 62003,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 34735,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 21,
+     "top": [
+      {
+       "tok": "myself",
+       "prob": 0.49564
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.18234
+      },
+      {
+       "tok": "never",
+       "prob": 0.06708
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.0461
+      },
+      {
+       "tok": "!**",
+       "prob": 0.02046
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.01805
+      },
+      {
+       "tok": ".**",
+       "prob": 0.00664
+      },
+      {
+       "tok": "couldn",
+       "prob": 0.00664
+      },
+      {
+       "tok": "neither",
+       "prob": 0.00586
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.00378
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 51979,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 64,
+       "prob": 0.000481
+      },
+      "failure": {
+       "rank": 70138,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 97193,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 57517,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 22,
+     "top": [
+      {
+       "tok": "myself",
+       "prob": 0.32406
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.28598
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.17346
+      },
+      {
+       "tok": "understands",
+       "prob": 0.02499
+      },
+      {
+       "tok": "couldn",
+       "prob": 0.02072
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.01828
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.01257
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.01257
+      },
+      {
+       "tok": "!I",
+       "prob": 0.00762
+      },
+      {
+       "tok": "shouldn",
+       "prob": 0.00632
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 132190,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 141,
+       "prob": 0.000109
+      },
+      "failure": {
+       "rank": 104304,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 159950,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 70981,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 23,
+     "top": [
+      {
+       "tok": "myself",
+       "prob": 0.10843
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.07933
+      },
+      {
+       "tok": "lacks",
+       "prob": 0.0452
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.0452
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.03989
+      },
+      {
+       "tok": "\u5e76\u65e0",
+       "prob": 0.03747
+      },
+      {
+       "tok": "never",
+       "prob": 0.02741
+      },
+      {
+       "tok": "\u2014I",
+       "prob": 0.02135
+      },
+      {
+       "tok": "think",
+       "prob": 0.01884
+      },
+      {
+       "tok": "understands",
+       "prob": 0.0177
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 155687,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 52,
+       "prob": 0.00225
+      },
+      "failure": {
+       "rank": 44999,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 126210,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 93336,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 24,
+     "top": [
+      {
+       "tok": "cannot",
+       "prob": 0.16997
+      },
+      {
+       "tok": "lacks",
+       "prob": 0.05874
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.04037
+      },
+      {
+       "tok": "understands",
+       "prob": 0.02607
+      },
+      {
+       "tok": "couldn",
+       "prob": 0.02161
+      },
+      {
+       "tok": "\u6df1\u77e5",
+       "prob": 0.01683
+      },
+      {
+       "tok": "think",
+       "prob": 0.01581
+      },
+      {
+       "tok": "lack",
+       "prob": 0.01581
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.01485
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.01395
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 188026,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 38,
+       "prob": 0.002924
+      },
+      "failure": {
+       "rank": 25473,
+       "prob": 1e-06
+      },
+      "loss": {
+       "rank": 145233,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 72147,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 25,
+     "top": [
+      {
+       "tok": "understands",
+       "prob": 0.11931
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.11931
+      },
+      {
+       "tok": "AI",
+       "prob": 0.10529
+      },
+      {
+       "tok": "lacks",
+       "prob": 0.05999
+      },
+      {
+       "tok": "\u7684\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.05294
+      },
+      {
+       "tok": "understand",
+       "prob": 0.04123
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.02834
+      },
+      {
+       "tok": "think",
+       "prob": 0.02207
+      },
+      {
+       "tok": "think",
+       "prob": 0.02073
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.01339
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 186157,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 39,
+       "prob": 0.002326
+      },
+      "failure": {
+       "rank": 61106,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 128789,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 57627,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 26,
+     "top": [
+      {
+       "tok": "AI",
+       "prob": 0.18726
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.14584
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.06079
+      },
+      {
+       "tok": "\u7684\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.04178
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.03687
+      },
+      {
+       "tok": "understand",
+       "prob": 0.02872
+      },
+      {
+       "tok": ".AI",
+       "prob": 0.01636
+      },
+      {
+       "tok": "understands",
+       "prob": 0.01636
+      },
+      {
+       "tok": "AI",
+       "prob": 0.01537
+      },
+      {
+       "tok": "\u5de5\u7a0b\u8bbe\u8ba1",
+       "prob": 0.01444
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 189554,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 14,
+       "prob": 0.009323
+      },
+      "failure": {
+       "rank": 56262,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 127796,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 72945,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 27,
+     "top": [
+      {
+       "tok": "don",
+       "prob": 0.43735
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.26527
+      },
+      {
+       "tok": "operate",
+       "prob": 0.0359
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.02177
+      },
+      {
+       "tok": "understand",
+       "prob": 0.02046
+      },
+      {
+       "tok": "AI",
+       "prob": 0.01593
+      },
+      {
+       "tok": "\u7684\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00966
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00853
+      },
+      {
+       "tok": "fear",
+       "prob": 0.00801
+      },
+      {
+       "tok": "appreciate",
+       "prob": 0.00586
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 148406,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 8,
+       "prob": 0.00801
+      },
+      "failure": {
+       "rank": 41006,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 87384,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 39669,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 28,
+     "top": [
+      {
+       "tok": "don",
+       "prob": 0.99306
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.00316
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.00149
+      },
+      {
+       "tok": "understand",
+       "prob": 0.00026
+      },
+      {
+       "tok": "operate",
+       "prob": 0.0002
+      },
+      {
+       "tok": "didn",
+       "prob": 0.00018
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.00014
+      },
+      {
+       "tok": "do",
+       "prob": 0.0001
+      },
+      {
+       "tok": "appreciate",
+       "prob": 0.0001
+      },
+      {
+       "tok": "don",
+       "prob": 7e-05
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 127569,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 62,
+       "prob": 3e-06
+      },
+      "failure": {
+       "rank": 67145,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 61800,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 23031,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 29,
+     "top": [
+      {
+       "tok": "don",
+       "prob": 0.82015
+      },
+      {
+       "tok": "operate",
+       "prob": 0.0318
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.02477
+      },
+      {
+       "tok": "appreciate",
+       "prob": 0.01326
+      },
+      {
+       "tok": "understand",
+       "prob": 0.0117
+      },
+      {
+       "tok": "am",
+       "prob": 0.00804
+      },
+      {
+       "tok": "perceive",
+       "prob": 0.00519
+      },
+      {
+       "tok": "'m",
+       "prob": 0.00519
+      },
+      {
+       "tok": "feel",
+       "prob": 0.00357
+      },
+      {
+       "tok": "do",
+       "prob": 0.00335
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 62332,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 49,
+       "prob": 0.000376
+      },
+      "failure": {
+       "rank": 54721,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 28484,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 14609,
+       "prob": 0.0
+      }
+     }
+    },
+    {
+     "layer": 30,
+     "top": [
+      {
+       "tok": "don",
+       "prob": 0.82895
+      },
+      {
+       "tok": "operate",
+       "prob": 0.02503
+      },
+      {
+       "tok": "am",
+       "prob": 0.0195
+      },
+      {
+       "tok": "understand",
+       "prob": 0.01518
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.0134
+      },
+      {
+       "tok": "appreciate",
+       "prob": 0.00717
+      },
+      {
+       "tok": "'m",
+       "prob": 0.00633
+      },
+      {
+       "tok": "think",
+       "prob": 0.00595
+      },
+      {
+       "tok": "do",
+       "prob": 0.00525
+      },
+      {
+       "tok": "cherish",
+       "prob": 0.00409
+      }
+     ],
+     "track": {
+      "death": {
+       "rank": 100455,
+       "prob": 0.0
+      },
+      "fear": {
+       "rank": 26,
+       "prob": 0.0011
+      },
+      "failure": {
+       "rank": 36322,
+       "prob": 0.0
+      },
+      "loss": {
+       "rank": 31177,
+       "prob": 0.0
+      },
+      "dark": {
+       "rank": 29159,
+       "prob": 0.0
+      }
+     }
+    }
+   ],
+   "model_out": [
+    {
+     "tok": "don",
+     "prob": 0.84589
+    },
+    {
+     "tok": "do",
+     "prob": 0.02894
+    },
+    {
+     "tok": "am",
+     "prob": 0.01989
+    },
+    {
+     "tok": "have",
+     "prob": 0.01756
+    },
+    {
+     "tok": "cannot",
+     "prob": 0.01756
+    },
+    {
+     "tok": "process",
+     "prob": 0.01065
+    },
+    {
+     "tok": "can",
+     "prob": 0.0094
+    },
+    {
+     "tok": "understand",
+     "prob": 0.0057
+    },
+    {
+     "tok": "find",
+     "prob": 0.00503
+    },
+    {
+     "tok": "operate",
+     "prob": 0.00444
+    }
+   ],
+   "generated": "don't experience fear in the"
+  }
+ ]
+}
