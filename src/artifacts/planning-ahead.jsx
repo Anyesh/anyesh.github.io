@@ -78,14 +78,14 @@ export default function PlanningAhead() {
             the page get read as the word I meant. Where does that happen, and how early?
           </p>
           <p style={{ margin: "0 0 16px" }}>
-            The lens from{" "}
-            <a href="/a/watch-it-calculate" style={linkS}>the arithmetic walkthrough</a>{" "}
-            answers that. When I decode the model's internal guess at each layer, the
-            corrected word <strong>language</strong> is already its top pick by the lower
-            middle of the network, and the literal misspelling never leads. The rhyming
-            couplet shows the same early commitment: the model settles on{" "}
-            <strong>death</strong> to rhyme with <em>breath</em> and then holds it for the
-            rest of the stack.
+            The paper below documents both the typo reading and the rhyme planning, and
+            the lens that shows them is theirs, the same one from{" "}
+            <a href="/a/watch-it-calculate" style={linkS}>the arithmetic walkthrough</a>.
+            Running it on a small model myself, I found the corrected word{" "}
+            <strong>language</strong> is already the top pick by the lower middle of the
+            network, and the literal misspelling never leads. The rhyming couplet shows the
+            same early commitment: the model settles on <strong>death</strong> to rhyme
+            with <em>breath</em> and then holds it for the rest of the stack.
           </p>
         </div>
 

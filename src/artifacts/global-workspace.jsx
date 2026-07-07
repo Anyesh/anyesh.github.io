@@ -69,7 +69,8 @@ export default function GlobalWorkspace() {
             choice further down the line.
           </p>
           <p style={{ margin: "0 0 16px" }}>
-            The same lens catches that inference forming. When I run it, the British
+            The lens, and the whole framework on this page, are from Anthropic's paper. I
+            reran their colour example on a small model I could poke at, and the British
             spelling pulls clear of both the American one and plain synonyms and climbs to
             the top of the vocabulary. This is what the paper is about, and not just in
             this one example. The model works something out, keeps it active while it keeps

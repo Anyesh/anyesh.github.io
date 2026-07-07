@@ -119,11 +119,13 @@ export default function WatchItCalculate() {
             guess the next word in a sentence. So where does the 20 come from?
           </p>
           <p style={{ margin: "0 0 16px" }}>
-            So I looked. A transformer builds its answer in stages, one per layer, and the
-            paper below comes with a <em>lens</em> that decodes the half-formed guess
-            sitting in the model at any layer into plain words, a bit like clipping a probe
-            onto a chip and reading the bus while it computes. I ran that lens on every
-            layer. Drag the slider and you see what I saw: the guess reaches the inner sum{" "}
+            This is one of the things Anthropic works out in the paper linked below. A
+            transformer builds its answer in stages, one per layer, and they built a{" "}
+            <em>lens</em> (the Jacobian lens) that decodes the half-formed guess sitting in
+            the model at any layer into plain words, a bit like clipping a probe onto a
+            chip and reading the bus while it computes. None of that is mine. What I did was
+            run their lens on a small model I could host myself and wire it to a slider, so
+            you can scrub through the same thing: the guess reaches the inner sum{" "}
             <strong>5</strong> partway up, then <strong>twenty</strong> near the top,
             before it writes a single digit.
           </p>

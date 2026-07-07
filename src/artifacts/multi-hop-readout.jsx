@@ -82,13 +82,13 @@ export default function MultiHopReadout() {
             riddle to the currency, so from the outside the middle step is invisible.
           </p>
           <p style={{ margin: "0 0 16px" }}>
-            The same lens from{" "}
-            <a href="/a/watch-it-calculate" style={linkS}>the arithmetic walkthrough</a>{" "}
-            makes it visible. It decodes what the model is leaning toward saying at each
-            layer, and when I ran it here I could watch <strong>Italy</strong> rise out of
-            the noise in the middle of the network, hold near the top for a while, then
-            hand off to <strong>euro</strong> near the end. The model needed that thought
-            and never said it.
+            The paper below is where this hidden step was found, and the lens that reveals
+            it is theirs, the same one from{" "}
+            <a href="/a/watch-it-calculate" style={linkS}>the arithmetic walkthrough</a>. I
+            ran it on the boot-currency example on a small model of my own, and could watch{" "}
+            <strong>Italy</strong> rise out of the noise in the middle of the network, hold
+            near the top for a while, then hand off to <strong>euro</strong> near the end.
+            The model needed that thought and never said it.
           </p>
         </div>
 
