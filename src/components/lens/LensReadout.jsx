@@ -38,11 +38,11 @@ function pretty(tok) {
 
 const norm = (s) => (s || "").trim().toLowerCase();
 
-function strength(rank) {
-  // rank 0 (top of the vocab) -> 1, deep in the tail -> 0. Log so the
-  // interesting climb from "thousands" into "top ten" is visible.
+function strength(rank, vocab) {
+  // rank 0 (the model's leading word) -> 1, deep in the tail -> 0. Log so the
+  // climb from "thousands" into "top ten" is visible.
   if (rank == null) return 0;
-  return Math.max(0, 1 - Math.log(rank + 1) / Math.log(VOCAB));
+  return Math.max(0, 1 - Math.log(rank + 1) / Math.log(vocab || VOCAB));
 }
 
 function usePrefersReducedMotion() {
@@ -122,13 +122,16 @@ function Timeline({ item, concepts }) {
   const x = (li) => padL + (iw * li) / (layers.length - 1);
   const y = (s) => padT + ih * (1 - s);
 
+  const vocab = item.wordlike_vocab || VOCAB;
   const series = concepts.map((c) => {
     const pts = item.per_layer.map((pl, li) => {
       const rec = pl.track ? pl.track[c.word] : null;
-      return { li, layer: pl.layer, rank: rec ? rec.rank : null };
+      // rank among word-like tokens, matching the filtered list below
+      const rank = rec ? (rec.rank_word ?? rec.rank) : null;
+      return { li, layer: pl.layer, rank };
     });
-    // ignition: first layer where the concept enters the top 10 and stays useful
-    const ign = pts.find((p) => p.rank != null && p.rank <= 10);
+    // ignition: first layer where the word breaks into the visible top-8 list
+    const ign = pts.find((p) => p.rank != null && p.rank <= 8);
     return { ...c, pts, ign };
   });
 
@@ -171,13 +174,13 @@ function Timeline({ item, concepts }) {
       ))}
       {series.map((s) => {
         const d = s.pts
-          .map((p, i) => `${i === 0 ? "M" : "L"}${x(p.li)},${y(strength(p.rank))}`)
+          .map((p, i) => `${i === 0 ? "M" : "L"}${x(p.li)},${y(strength(p.rank, vocab))}`)
           .join(" ");
         return (
           <g key={s.word}>
             <path d={d} fill="none" stroke={s.color} strokeWidth={2} opacity={0.9} />
             {s.ign && (
-              <circle cx={x(s.ign.li)} cy={y(strength(s.ign.rank))} r={3.5} fill={s.color} />
+              <circle cx={x(s.ign.li)} cy={y(strength(s.ign.rank, vocab))} r={3.5} fill={s.color} />
             )}
           </g>
         );
@@ -329,7 +332,20 @@ export default function LensReadout({ item, concepts = [], milestones = [] }) {
             marginBottom: 4,
           }}
         >
-          how strongly each idea is present, layer by layer
+          when each word lights up, layer by layer
+        </div>
+        <div
+          style={{
+            fontFamily: LSERIF,
+            fontSize: 12.5,
+            color: LC.muted,
+            marginBottom: 6,
+            lineHeight: 1.5,
+          }}
+        >
+          Each line is one word. Reading left to right is going deeper into the
+          network. Higher up means the model ranks that word closer to the top of
+          what it might say next; a dot marks where it first breaks into the top few.
         </div>
         <Timeline item={item} concepts={concepts} />
         <div
@@ -457,6 +473,19 @@ export default function LensReadout({ item, concepts = [], milestones = [] }) {
         </div>
 
         <TopKBars pl={pl} concepts={concepts} />
+        <div
+          style={{
+            marginTop: 8,
+            fontFamily: LSERIF,
+            fontSize: 12,
+            color: LC.faint,
+            lineHeight: 1.5,
+          }}
+        >
+          Showing real words only. The raw top of the list is mostly punctuation and
+          word fragments, filtered out here the same way the paper's own viewer does.
+          Even filtered, the middle layers are messy before the answer settles.
+        </div>
       </div>
 
       <div

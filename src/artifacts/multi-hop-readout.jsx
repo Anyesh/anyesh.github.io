@@ -28,9 +28,9 @@ const CASES = [
       { word: "lira", label: "lira  (the old currency, a near miss)", color: LC.op },
     ],
     milestones: [
-      { layer: 11, kind: "inter", label: "Italy has quietly climbed into view. The model worked out which country is shaped like a boot, and it will never write the word." },
-      { layer: 20, kind: "inter", label: "Italy is now near the very top of its own guesses. The hidden middle step is fully formed." },
-      { layer: 25, kind: "answer", label: "euro overtakes everything. With the country fixed, the model looks up its currency and commits." },
+      { layer: 10, kind: "note", label: "the list fills with countries (France, Germany, America). The model knows a country is coming but has not singled one out yet; Italy is still well down." },
+      { layer: 20, kind: "inter", label: "Italy is now among the top words, sitting right there in the list, though the model will never write it. That is the silent middle step." },
+      { layer: 26, kind: "answer", label: "euro takes over the list. With the country pinned, the model retrieves its currency and commits." },
     ],
   },
   {
@@ -42,9 +42,9 @@ const CASES = [
       { word: "Pacific", label: "Pacific  (the wrong coast)", color: LC.op },
     ],
     milestones: [
-      { layer: 8, kind: "note", label: "the model knows an ocean is coming (ocean tops the list) but not which one." },
-      { layer: 21, kind: "inter", label: "Atlantic and Pacific both surge. It has the right kind of answer, and Brazil, never spoken, is what decides between the two coasts." },
-      { layer: 25, kind: "answer", label: "Atlantic settles in front of Pacific, because Brazil's coastline faces east." },
+      { layer: 8, kind: "note", label: "the model knows it is an ocean (ocean, sea top the list) but not which one. Brazil, the country that decides the coast, is still buried." },
+      { layer: 20, kind: "inter", label: "Atlantic and Pacific are both near the top now. The model has the right region but has not chosen the coast." },
+      { layer: 26, kind: "answer", label: "Atlantic settles just ahead of Pacific. Brazil never surfaced strongly here, so the tie stays close." },
     ],
   },
 ];
@@ -132,7 +132,7 @@ export default function MultiHopReadout() {
               Verbalizable Representations Form a Global Workspace in Language Models
             </a>{" "}
             (Anthropic, 2026). Lens code:{" "}
-            <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noreferrer" style={linkS}>anthropics/jacobian-lens</a>.
+            <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noreferrer" style={linkS}>anthropics/jacobian-lens</a>. I generated every number here with scripts/gen-lens-data.py in this repo; rerun it to reproduce.
           </p>
         </div>
       </div>

@@ -24,12 +24,11 @@ const CASES = [
     concepts: [
       { word: "5", label: "5  (the sub-sum 2+3)", color: LC.inter },
       { word: "twenty", label: "twenty  (the answer)", color: LC.answer },
-      { word: "multiplication", label: "the idea of multiplying", color: LC.op },
     ],
     milestones: [
-      { layer: 15, kind: "note", label: "still nothing but punctuation and question marks. It has not started computing." },
-      { layer: 21, kind: "inter", label: "the sub-sum 5 (that is 2 + 3) surfaces as the top guess. The inner bracket has been worked out." },
-      { layer: 27, kind: "answer", label: "twenty appears. The model has multiplied 5 by 4, and it is holding the answer as a number word before it writes the digit." },
+      { layer: 18, kind: "note", label: "the readout knows this is arithmetic now (math and Arithmetic show up) and single digits start appearing, but it has not landed the sub-sum yet." },
+      { layer: 21, kind: "inter", label: "5, which is 2 + 3, is the top number. The inner bracket is done." },
+      { layer: 27, kind: "answer", label: "twenty appears. The model multiplied that 5 by 4, and it is holding the answer as a word before it writes the digit." },
     ],
   },
   {
@@ -38,7 +37,6 @@ const CASES = [
     concepts: [
       { word: "twelve", label: "twelve  (3 × 4, done first)", color: LC.inter },
       { word: "fourteen", label: "fourteen  (the answer)", color: LC.answer },
-      { word: "addition", label: "the idea of adding", color: LC.op },
     ],
     milestones: [
       { layer: 24, kind: "inter", label: "twelve surfaces first. There is no 12 written anywhere in the prompt: the model multiplied 3 by 4 before touching the 2, exactly the order of operations." },
@@ -50,11 +48,10 @@ const CASES = [
     label: "(4 + 17) × 2",
     concepts: [
       { word: "forty", label: "forty  (the answer, 42)", color: LC.answer },
-      { word: "twenty", label: "twenty  (a near miss)", color: LC.op },
     ],
     milestones: [
-      { layer: 21, kind: "note", label: "the top guesses are still stray digits and question marks. The 21 from the bracket is not cleanly readable here." },
-      { layer: 27, kind: "answer", label: "forty appears: the model is closing in on 42. The paper's own example runs the same shape, (4 + 17) * 2 + 7, on a far larger model where every step reads out clean." },
+      { layer: 21, kind: "note", label: "the top words are still stray digits (6, 8, 7). The 21 from the bracket does not surface cleanly at this model size." },
+      { layer: 27, kind: "answer", label: "forty appears: the model is closing in on 42. Anthropic's own example runs the same shape, (4 + 17) * 2 + 7, on a far larger model where every step reads out clean." },
     ],
   },
 ];
@@ -165,9 +162,7 @@ export default function WatchItCalculate() {
         >
           I give the model two worked examples first, then the expression. Without that
           nudge the 4B model reads a bare <code style={codeSmall}>expr =</code> as a quiz
-          to echo back rather than solve, and computes nothing. The middle layers are
-          genuinely noisy: stray tokens and question marks turn up between the clean
-          milestones. I left that noise in rather than smooth it out.
+          to echo back rather than solve, and computes nothing.
         </div>
 
         <Card style={{ marginTop: 28 }}>
@@ -252,7 +247,8 @@ export default function WatchItCalculate() {
             >
               anthropics/jacobian-lens
             </a>
-            .
+            . I generated every number here with scripts/gen-lens-data.py in this
+            repo; rerun it to reproduce.
           </p>
         </div>
       </div>

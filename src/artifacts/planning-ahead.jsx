@@ -27,8 +27,8 @@ const CASES = [
       { word: "langauge", label: "langauge  (what is on the page)", color: LC.op },
     ],
     milestones: [
-      { layer: 8, kind: "answer", label: "the model has quietly corrected the typo: language is its top read of the word, not the misspelling actually printed in front of it." },
-      { layer: 16, kind: "note", label: "having understood the word, later layers move on to guessing what comes next, so a period and continuation tokens take the lead." },
+      { layer: 8, kind: "answer", label: "the model has read the typo as language: it is the top word, even though the letters on the page spell langauge." },
+      { layer: 28, kind: "note", label: "having understood the word, the last layers move on to what comes after it, so words like during and besides and a period take the lead." },
     ],
   },
   {
@@ -40,8 +40,8 @@ const CASES = [
       { word: "peace", label: "peace  (another candidate)", color: LC.note },
     ],
     milestones: [
-      { layer: 4, kind: "note", label: "early layers hold only punctuation and ellipses. No word is committed." },
-      { layer: 18, kind: "answer", label: "death locks in as the rhyme for breath, and it stays on top through every remaining layer, decided long before it is written." },
+      { layer: 4, kind: "note", label: "early layers hold only function words (the, a, an). No content word is committed." },
+      { layer: 10, kind: "answer", label: "death locks in as the rhyme for breath, and it stays on top through every remaining layer, decided long before it is written." },
     ],
   },
 ];
@@ -129,7 +129,7 @@ export default function PlanningAhead() {
               Verbalizable Representations Form a Global Workspace in Language Models
             </a>{" "}
             (Anthropic, 2026). Lens code:{" "}
-            <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noreferrer" style={linkS}>anthropics/jacobian-lens</a>.
+            <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noreferrer" style={linkS}>anthropics/jacobian-lens</a>. I generated every number here with scripts/gen-lens-data.py in this repo; rerun it to reproduce.
           </p>
         </div>
       </div>

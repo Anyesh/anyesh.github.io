@@ -23,8 +23,9 @@ const concepts = [
   { word: "shade", label: "shade  (a plain synonym)", color: LC.note },
 ];
 const milestones = [
-  { layer: 8, kind: "note", label: "colour is already the model's preferred continuation. The British spellings earlier in the passage (organised, labelled, favourite) have quietly set its sense of the author." },
-  { layer: 19, kind: "answer", label: "colour jumps to the top of the entire vocabulary while American color, which means exactly the same thing, stays far behind. The model settled on a British writer and now spells like one, though nobody said so." },
+  { layer: 8, kind: "note", label: "the list is already full of British spellings (favourite, colours, colourful). The model has taken the writer to be British." },
+  { layer: 20, kind: "inter", label: "colour is near the top of the words while the American color sits far below, around fiftieth. Same meaning, but the model spells British." },
+  { layer: 26, kind: "answer", label: "colour is the single top word. The model settled on a British writer and spells to match, with nobody having said so." },
 ];
 
 function Card({ children, style }) {
@@ -72,7 +73,7 @@ export default function GlobalWorkspace() {
             The lens, and the whole framework on this page, are from Anthropic's paper. I
             reran their colour example on a small model I could poke at, and the British
             spelling pulls clear of both the American one and plain synonyms and climbs to
-            the top of the vocabulary. This is what the paper is about, and not just in
+            the top of the list. This is what the paper is about, and not just in
             this one example. The model works something out, keeps it active while it keeps
             writing, and holds it in a form I can read back out.
           </p>
@@ -138,7 +139,7 @@ export default function GlobalWorkspace() {
               Verbalizable Representations Form a Global Workspace in Language Models
             </a>{" "}
             (Anthropic, 2026). Lens code:{" "}
-            <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noreferrer" style={linkS}>anthropics/jacobian-lens</a>.
+            <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noreferrer" style={linkS}>anthropics/jacobian-lens</a>. I generated every number here with scripts/gen-lens-data.py in this repo; rerun it to reproduce.
           </p>
         </div>
       </div>
