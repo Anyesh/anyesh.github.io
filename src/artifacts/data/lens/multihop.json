@@ -1,6 +1,7 @@
 {
  "model": "Qwen/Qwen3.5-4B",
  "lens": "neuronpedia/jacobian-lens@qwen-n1000",
+ "display": "top-k restricted to word-like tokens (paper mask); ranks full-vocab",
  "items": [
   {
    "name": "boot-currency",
@@ -22,13 +23,14 @@
    ],
    "read_pos": -1,
    "read_token": " is",
+   "answer": "euro",
+   "generated": "the Euro.",
    "track_words": [
     "Italy",
     "euro",
     "lira",
     "Rome"
    ],
-   "answer": "euro",
    "layers": [
     0,
     1,
@@ -63,41 +65,14 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": "'",
-       "prob": 0.06409
-      },
-      {
-       "tok": "...",
-       "prob": 0.04991
-      },
-      {
-       "tok": "--",
-       "prob": 0.03652
-      },
-      {
-       "tok": "-",
-       "prob": 0.02215
-      },
-      {
        "tok": "however",
        "prob": 0.02215
-      },
-      {
-       "tok": ";",
-       "prob": 0.01725
-      },
-      {
-       "tok": ",",
-       "prob": 0.01725
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.01046
       },
       {
        "tok": "the",
@@ -106,23 +81,55 @@
       {
        "tok": "a",
        "prob": 0.00867
+      },
+      {
+       "tok": "an",
+       "prob": 0.00526
+      },
+      {
+       "tok": "in",
+       "prob": 0.00526
+      },
+      {
+       "tok": "one",
+       "prob": 0.00526
+      },
+      {
+       "tok": "at",
+       "prob": 0.00464
+      },
+      {
+       "tok": "there",
+       "prob": 0.0041
+      },
+      {
+       "tok": "otope",
+       "prob": 0.00362
+      },
+      {
+       "tok": "much",
+       "prob": 0.0034
       }
      ],
      "track": {
       "Italy": {
        "rank": 21785,
+       "rank_word": 20638,
        "prob": 5e-06
       },
       "euro": {
        "rank": 124779,
+       "rank_word": 113484,
        "prob": 0.0
       },
       "lira": {
        "rank": 219318,
+       "rank_word": 196068,
        "prob": 0.0
       },
       "Rome": {
        "rank": 46730,
+       "rank_word": 43482,
        "prob": 2e-06
       }
      }
@@ -131,61 +138,65 @@
      "layer": 1,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.99038
+       "tok": "however",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.0052
+       "tok": "the",
+       "prob": 0.0
       },
       {
-       "tok": "--",
-       "prob": 0.00405
+       "tok": "one",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00013
+       "tok": "a",
+       "prob": 0.0
       },
       {
-       "tok": ";",
-       "prob": 5e-05
+       "tok": "also",
+       "prob": 0.0
       },
       {
-       "tok": ",",
-       "prob": 2e-05
+       "tok": "to",
+       "prob": 0.0
       },
       {
-       "tok": ".",
-       "prob": 2e-05
+       "tok": "said",
+       "prob": 0.0
       },
       {
-       "tok": "-",
-       "prob": 2e-05
+       "tok": "in",
+       "prob": 0.0
       },
       {
-       "tok": ":",
-       "prob": 1e-05
+       "tok": "and",
+       "prob": 0.0
       },
       {
-       "tok": "'",
-       "prob": 1e-05
+       "tok": "that",
+       "prob": 0.0
       }
      ],
      "track": {
       "Italy": {
        "rank": 27030,
+       "rank_word": 25534,
        "prob": 0.0
       },
       "euro": {
        "rank": 123101,
+       "rank_word": 112121,
        "prob": 0.0
       },
       "lira": {
        "rank": 235767,
+       "rank_word": 209847,
        "prob": 0.0
       },
       "Rome": {
        "rank": 49123,
+       "rank_word": 45659,
        "prob": 0.0
       }
      }
@@ -193,34 +204,6 @@
     {
      "layer": 2,
      "top": [
-      {
-       "tok": ",",
-       "prob": 0.40484
-      },
-      {
-       "tok": ".",
-       "prob": 0.24555
-      },
-      {
-       "tok": "\n",
-       "prob": 0.03323
-      },
-      {
-       "tok": "\u00b7",
-       "prob": 0.02755
-      },
-      {
-       "tok": "\",",
-       "prob": 0.02431
-      },
-      {
-       "tok": ";",
-       "prob": 0.02284
-      },
-      {
-       "tok": "|",
-       "prob": 0.01893
-      },
       {
        "tok": "however",
        "prob": 0.00952
@@ -230,25 +213,57 @@
        "prob": 0.00952
       },
       {
-       "tok": "\".",
-       "prob": 0.00894
+       "tok": "a",
+       "prob": 0.00789
+      },
+      {
+       "tok": "at",
+       "prob": 0.00741
+      },
+      {
+       "tok": "one",
+       "prob": 0.00741
+      },
+      {
+       "tok": "in",
+       "prob": 0.00615
+      },
+      {
+       "tok": "to",
+       "prob": 0.0035
+      },
+      {
+       "tok": "on",
+       "prob": 0.00226
+      },
+      {
+       "tok": "for",
+       "prob": 0.00226
+      },
+      {
+       "tok": "from",
+       "prob": 0.00212
       }
      ],
      "track": {
       "Italy": {
        "rank": 30353,
+       "rank_word": 27720,
        "prob": 0.0
       },
       "euro": {
        "rank": 33109,
+       "rank_word": 30128,
        "prob": 0.0
       },
       "lira": {
        "rank": 211203,
+       "rank_word": 186645,
        "prob": 0.0
       },
       "Rome": {
        "rank": 36339,
+       "rank_word": 32922,
        "prob": 0.0
       }
      }
@@ -257,61 +272,65 @@
      "layer": 3,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.86272
-      },
-      {
-       "tok": "--",
-       "prob": 0.05515
-      },
-      {
-       "tok": " \n",
-       "prob": 0.05515
-      },
-      {
-       "tok": "...",
-       "prob": 0.00958
-      },
-      {
-       "tok": ";",
-       "prob": 0.00353
-      },
-      {
-       "tok": " \n\n\n",
-       "prob": 0.00147
-      },
-      {
-       "tok": ",",
-       "prob": 0.00069
-      },
-      {
-       "tok": ".",
-       "prob": 0.00065
-      },
-      {
        "tok": "however",
        "prob": 0.00051
       },
       {
        "tok": "a",
        "prob": 0.00045
+      },
+      {
+       "tok": "one",
+       "prob": 0.00045
+      },
+      {
+       "tok": "what",
+       "prob": 0.00026
+      },
+      {
+       "tok": "the",
+       "prob": 0.00026
+      },
+      {
+       "tok": "to",
+       "prob": 0.00019
+      },
+      {
+       "tok": "not",
+       "prob": 0.00015
+      },
+      {
+       "tok": "an",
+       "prob": 0.00014
+      },
+      {
+       "tok": "out",
+       "prob": 0.00011
+      },
+      {
+       "tok": "n",
+       "prob": 0.0001
       }
      ],
      "track": {
       "Italy": {
        "rank": 46483,
+       "rank_word": 42994,
        "prob": 0.0
       },
       "euro": {
        "rank": 69688,
+       "rank_word": 63768,
        "prob": 0.0
       },
       "lira": {
        "rank": 230744,
+       "rank_word": 204141,
        "prob": 0.0
       },
       "Rome": {
        "rank": 48265,
+       "rank_word": 44635,
        "prob": 0.0
       }
      }
@@ -320,61 +339,65 @@
      "layer": 4,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.56046
+       "tok": "however",
+       "prob": 0.00131
       },
       {
-       "tok": "...",
-       "prob": 0.23363
+       "tok": "the",
+       "prob": 0.00058
       },
       {
-       "tok": "...",
-       "prob": 0.14171
+       "tok": "to",
+       "prob": 0.00058
       },
       {
-       "tok": ",",
-       "prob": 0.01692
+       "tok": "a",
+       "prob": 0.00054
       },
       {
-       "tok": ".\\",
-       "prob": 0.00623
+       "tok": "what",
+       "prob": 0.0004
       },
       {
-       "tok": "'",
-       "prob": 0.00623
+       "tok": "one",
+       "prob": 0.00031
       },
       {
-       "tok": ";",
-       "prob": 0.00355
+       "tok": "for",
+       "prob": 0.00021
       },
       {
-       "tok": "......",
-       "prob": 0.00294
+       "tok": "which",
+       "prob": 0.00018
       },
       {
-       "tok": "[...]",
-       "prob": 0.00229
+       "tok": "an",
+       "prob": 0.00015
       },
       {
-       "tok": ".[",
-       "prob": 0.00202
+       "tok": "in",
+       "prob": 0.00012
       }
      ],
      "track": {
       "Italy": {
        "rank": 54185,
+       "rank_word": 48145,
        "prob": 0.0
       },
       "euro": {
        "rank": 99764,
+       "rank_word": 88143,
        "prob": 0.0
       },
       "lira": {
        "rank": 232283,
+       "rank_word": 203982,
        "prob": 0.0
       },
       "Rome": {
        "rank": 55655,
+       "rank_word": 49430,
        "prob": 0.0
       }
      }
@@ -383,61 +406,65 @@
      "layer": 5,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.80101
+       "tok": "however",
+       "prob": 0.00037
       },
       {
-       "tok": ".",
-       "prob": 0.09567
+       "tok": "the",
+       "prob": 0.00029
       },
       {
-       "tok": "...",
-       "prob": 0.08443
+       "tok": "a",
+       "prob": 0.00021
       },
       {
-       "tok": "[...]",
-       "prob": 0.00225
+       "tok": "what",
+       "prob": 0.00014
       },
       {
-       "tok": ".\\",
-       "prob": 0.00175
+       "tok": "one",
+       "prob": 0.00011
       },
       {
-       "tok": "'",
-       "prob": 0.00175
+       "tok": "very",
+       "prob": 9e-05
       },
       {
-       "tok": "......",
-       "prob": 0.00165
+       "tok": "even",
+       "prob": 7e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.0012
+       "tok": "also",
+       "prob": 7e-05
       },
       {
-       "tok": ",",
-       "prob": 0.00113
+       "tok": "only",
+       "prob": 7e-05
       },
       {
-       "tok": ".",
-       "prob": 0.001
+       "tok": "not",
+       "prob": 7e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 29149,
+       "rank_word": 25961,
        "prob": 0.0
       },
       "euro": {
        "rank": 57980,
+       "rank_word": 51692,
        "prob": 0.0
       },
       "lira": {
        "rank": 221658,
+       "rank_word": 194781,
        "prob": 0.0
       },
       "Rome": {
        "rank": 32859,
+       "rank_word": 29320,
        "prob": 0.0
       }
      }
@@ -446,61 +473,65 @@
      "layer": 6,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.32605
+       "tok": "what",
+       "prob": 0.00527
       },
       {
-       "tok": "...",
-       "prob": 0.25393
+       "tok": "even",
+       "prob": 0.0032
       },
       {
-       "tok": " \n",
-       "prob": 0.22409
+       "tok": "only",
+       "prob": 0.00282
       },
       {
-       "tok": "____",
-       "prob": 0.02219
+       "tok": "a",
+       "prob": 0.0022
       },
       {
-       "tok": "\\",
-       "prob": 0.01346
+       "tok": "also",
+       "prob": 0.00161
       },
       {
-       "tok": "'",
-       "prob": 0.01116
+       "tok": "however",
+       "prob": 0.00161
       },
       {
-       "tok": "[...]",
-       "prob": 0.00985
+       "tok": "something",
+       "prob": 0.00151
       },
       {
-       "tok": ".",
-       "prob": 0.00925
+       "tok": "not",
+       "prob": 0.00151
       },
       {
-       "tok": "--",
-       "prob": 0.00869
+       "tok": "one",
+       "prob": 0.00142
       },
       {
-       "tok": ".\\",
-       "prob": 0.00597
+       "tok": "the",
+       "prob": 0.00142
       }
      ],
      "track": {
       "Italy": {
        "rank": 8494,
+       "rank_word": 7422,
        "prob": 0.0
       },
       "euro": {
        "rank": 16402,
+       "rank_word": 14679,
        "prob": 0.0
       },
       "lira": {
        "rank": 125592,
+       "rank_word": 110647,
        "prob": 0.0
       },
       "Rome": {
        "rank": 28921,
+       "rank_word": 25662,
        "prob": 0.0
       }
      }
@@ -509,61 +540,65 @@
      "layer": 7,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.23613
+       "tok": "what",
+       "prob": 0.00975
       },
       {
-       "tok": "\\",
-       "prob": 0.14322
+       "tok": "only",
+       "prob": 0.00231
       },
       {
-       "tok": " \n",
-       "prob": 0.11873
+       "tok": "even",
+       "prob": 0.00204
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.05269
+       "tok": "a",
+       "prob": 0.00149
       },
       {
-       "tok": "...",
-       "prob": 0.0495
+       "tok": "what",
+       "prob": 0.00124
       },
       {
-       "tok": "[...]",
-       "prob": 0.03402
+       "tok": "why",
+       "prob": 0.00103
       },
       {
-       "tok": "____",
-       "prob": 0.03196
+       "tok": "c",
+       "prob": 0.00103
       },
       {
-       "tok": "\\\"",
-       "prob": 0.02338
+       "tok": "something",
+       "prob": 0.00097
       },
       {
-       "tok": ".\\",
-       "prob": 0.02338
+       "tok": "how",
+       "prob": 0.00097
       },
       {
-       "tok": "\\n",
-       "prob": 0.02063
+       "tok": "not",
+       "prob": 0.0008
       }
      ],
      "track": {
       "Italy": {
        "rank": 7246,
+       "rank_word": 6251,
        "prob": 1e-06
       },
       "euro": {
        "rank": 13574,
+       "rank_word": 11888,
        "prob": 0.0
       },
       "lira": {
        "rank": 76514,
+       "rank_word": 67946,
        "prob": 0.0
       },
       "Rome": {
        "rank": 30622,
+       "rank_word": 27433,
        "prob": 0.0
       }
      }
@@ -572,61 +607,65 @@
      "layer": 8,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.6347
+       "tok": "what",
+       "prob": 0.00123
       },
       {
-       "tok": "...",
-       "prob": 0.14162
+       "tok": "only",
+       "prob": 0.00035
       },
       {
-       "tok": " \n",
-       "prob": 0.09733
+       "tok": "a",
+       "prob": 0.00026
       },
       {
-       "tok": "[...]",
-       "prob": 0.04319
+       "tok": "however",
+       "prob": 0.00018
       },
       {
-       "tok": "\\",
-       "prob": 0.01589
+       "tok": "even",
+       "prob": 0.00017
       },
       {
-       "tok": "____",
-       "prob": 0.00662
+       "tok": "the",
+       "prob": 0.00017
       },
       {
-       "tok": "\uff0e",
-       "prob": 0.00549
+       "tok": "c",
+       "prob": 0.00016
       },
       {
-       "tok": "\uff1b",
-       "prob": 0.00313
+       "tok": "something",
+       "prob": 0.00016
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.00294
+       "tok": "that",
+       "prob": 0.00012
       },
       {
-       "tok": "________",
-       "prob": 0.00244
+       "tok": "l",
+       "prob": 0.00012
       }
      ],
      "track": {
       "Italy": {
        "rank": 3003,
+       "rank_word": 2416,
        "prob": 1e-06
       },
       "euro": {
        "rank": 9650,
+       "rank_word": 8385,
        "prob": 0.0
       },
       "lira": {
        "rank": 80382,
+       "rank_word": 70928,
        "prob": 0.0
       },
       "Rome": {
        "rank": 26086,
+       "rank_word": 23152,
        "prob": 0.0
       }
      }
@@ -635,61 +674,65 @@
      "layer": 9,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.28614
+       "tok": "what",
+       "prob": 5e-05
       },
       {
-       "tok": "____",
-       "prob": 0.25252
+       "tok": "\u4ec0\u4e48",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.15316
+       "tok": "what",
+       "prob": 1e-05
       },
       {
-       "tok": "[...]",
-       "prob": 0.04972
+       "tok": "\u00e9",
+       "prob": 1e-05
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.03872
+       "tok": "uh",
+       "prob": 1e-05
       },
       {
-       "tok": "________",
-       "prob": 0.03872
+       "tok": "america",
+       "prob": 1e-05
       },
       {
-       "tok": "______",
-       "prob": 0.02661
+       "tok": "i",
+       "prob": 1e-05
       },
       {
-       "tok": "____",
-       "prob": 0.02073
+       "tok": "c",
+       "prob": 1e-05
       },
       {
-       "tok": "________",
-       "prob": 0.01614
+       "tok": "something",
+       "prob": 1e-05
       },
       {
-       "tok": "\uff0e",
-       "prob": 0.01257
+       "tok": "maybe",
+       "prob": 1e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 743,
+       "rank_word": 177,
        "prob": 1e-06
       },
       "euro": {
        "rank": 4175,
+       "rank_word": 2669,
        "prob": 0.0
       },
       "lira": {
        "rank": 48759,
+       "rank_word": 41891,
        "prob": 0.0
       },
       "Rome": {
        "rank": 8349,
+       "rank_word": 6229,
        "prob": 0.0
       }
      }
@@ -698,61 +741,65 @@
      "layer": 10,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.58806
+       "tok": "countries",
+       "prob": 2e-05
       },
       {
-       "tok": "...",
-       "prob": 0.21634
+       "tok": "america",
+       "prob": 2e-05
       },
       {
-       "tok": "[...]",
-       "prob": 0.10219
+       "tok": "France",
+       "prob": 2e-05
       },
       {
-       "tok": "...\\",
-       "prob": 0.0228
+       "tok": "Germany",
+       "prob": 1e-05
       },
       {
-       "tok": "____",
-       "prob": 0.01299
+       "tok": "france",
+       "prob": 1e-05
       },
       {
-       "tok": "...\\",
-       "prob": 0.01077
+       "tok": "China",
+       "prob": 1e-05
       },
       {
-       "tok": "...\"",
-       "prob": 0.00396
+       "tok": "country",
+       "prob": 1e-05
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.00372
+       "tok": "Russia",
+       "prob": 1e-05
       },
       {
-       "tok": "...\"",
-       "prob": 0.0035
+       "tok": "Arabic",
+       "prob": 1e-05
       },
       {
-       "tok": "\\",
-       "prob": 0.0035
+       "tok": "\u00e9",
+       "prob": 1e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 267,
+       "rank_word": 40,
        "prob": 3e-06
       },
       "euro": {
        "rank": 2211,
+       "rank_word": 1263,
        "prob": 0.0
       },
       "lira": {
        "rank": 51422,
+       "rank_word": 44677,
        "prob": 0.0
       },
       "Rome": {
        "rank": 5231,
+       "rank_word": 3753,
        "prob": 0.0
       }
      }
@@ -761,61 +808,65 @@
      "layer": 11,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.79046
+       "tok": "america",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.17637
+       "tok": "countries",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.01128
+       "tok": "france",
+       "prob": 0.0
       },
       {
-       "tok": "...\\",
-       "prob": 0.00878
+       "tok": "France",
+       "prob": 0.0
       },
       {
-       "tok": "...\"",
-       "prob": 0.00285
+       "tok": "America",
+       "prob": 0.0
       },
       {
-       "tok": "...\"",
-       "prob": 0.00173
+       "tok": "Germany",
+       "prob": 0.0
       },
       {
-       "tok": "...\\",
-       "prob": 0.00173
+       "tok": "country",
+       "prob": 0.0
       },
       {
-       "tok": "____",
-       "prob": 0.00135
+       "tok": "american",
+       "prob": 0.0
       },
       {
-       "tok": "...'",
-       "prob": 0.00082
+       "tok": "American",
+       "prob": 0.0
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.00077
+       "tok": "Britain",
+       "prob": 0.0
       }
      ],
      "track": {
       "Italy": {
        "rank": 204,
+       "rank_word": 17,
        "prob": 0.0
       },
       "euro": {
        "rank": 3721,
+       "rank_word": 2533,
        "prob": 0.0
       },
       "lira": {
        "rank": 63296,
+       "rank_word": 55290,
        "prob": 0.0
       },
       "Rome": {
        "rank": 3456,
+       "rank_word": 2313,
        "prob": 0.0
       }
      }
@@ -824,61 +875,65 @@
      "layer": 12,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.47699
+       "tok": "america",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.32783
+       "tok": "i",
+       "prob": 1e-05
       },
       {
-       "tok": "...\\",
-       "prob": 0.05027
+       "tok": "maybe",
+       "prob": 0.0
       },
       {
-       "tok": "____",
-       "prob": 0.04437
+       "tok": "what",
+       "prob": 0.0
       },
       {
-       "tok": "...\\",
-       "prob": 0.03049
+       "tok": "france",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.01122
+       "tok": "famous",
+       "prob": 0.0
       },
       {
-       "tok": "...\"",
-       "prob": 0.00771
+       "tok": "n",
+       "prob": 0.0
       },
       {
-       "tok": "\\n",
-       "prob": 0.006
+       "tok": "America",
+       "prob": 0.0
       },
       {
-       "tok": "______",
-       "prob": 0.006
+       "tok": "american",
+       "prob": 0.0
       },
       {
-       "tok": "____",
-       "prob": 0.0053
+       "tok": "countries",
+       "prob": 0.0
       }
      ],
      "track": {
       "Italy": {
        "rank": 670,
+       "rank_word": 159,
        "prob": 0.0
       },
       "euro": {
        "rank": 9649,
+       "rank_word": 7382,
        "prob": 0.0
       },
       "lira": {
        "rank": 74299,
+       "rank_word": 64455,
        "prob": 0.0
       },
       "Rome": {
        "rank": 9430,
+       "rank_word": 7195,
        "prob": 0.0
       }
      }
@@ -887,61 +942,65 @@
      "layer": 13,
      "top": [
       {
-       "tok": "____",
-       "prob": 0.5432
+       "tok": "famous",
+       "prob": 3e-05
       },
       {
-       "tok": "____",
-       "prob": 0.06488
+       "tok": "known",
+       "prob": 2e-05
       },
       {
-       "tok": "______",
-       "prob": 0.05725
+       "tok": "america",
+       "prob": 2e-05
       },
       {
-       "tok": "...",
-       "prob": 0.05725
+       "tok": "i",
+       "prob": 2e-05
       },
       {
-       "tok": "________",
-       "prob": 0.03935
+       "tok": "what",
+       "prob": 1e-05
       },
       {
-       "tok": "___",
-       "prob": 0.03935
+       "tok": "ONLY",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.03935
+       "tok": "countries",
+       "prob": 1e-05
       },
       {
-       "tok": "________",
-       "prob": 0.03065
+       "tok": "maybe",
+       "prob": 1e-05
       },
       {
-       "tok": "_____",
-       "prob": 0.01859
+       "tok": "called",
+       "prob": 1e-05
       },
       {
-       "tok": "\\n",
-       "prob": 0.01859
+       "tok": "n",
+       "prob": 1e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 628,
+       "rank_word": 158,
        "prob": 1e-06
       },
       "euro": {
        "rank": 7570,
+       "rank_word": 5757,
        "prob": 0.0
       },
       "lira": {
        "rank": 52984,
+       "rank_word": 46094,
        "prob": 0.0
       },
       "Rome": {
        "rank": 11512,
+       "rank_word": 9299,
        "prob": 0.0
       }
      }
@@ -950,61 +1009,65 @@
      "layer": 14,
      "top": [
       {
-       "tok": "____",
-       "prob": 0.75012
+       "tok": "famous",
+       "prob": 2e-05
       },
       {
-       "tok": "____",
-       "prob": 0.04795
+       "tok": "known",
+       "prob": 1e-05
       },
       {
-       "tok": "________",
-       "prob": 0.04232
+       "tok": "america",
+       "prob": 0.0
       },
       {
-       "tok": "___",
-       "prob": 0.02909
+       "tok": "America",
+       "prob": 0.0
       },
       {
-       "tok": "______",
-       "prob": 0.02567
+       "tok": "called",
+       "prob": 0.0
       },
       {
-       "tok": "_____",
-       "prob": 0.01764
+       "tok": "countries",
+       "prob": 0.0
       },
       {
-       "tok": "___",
-       "prob": 0.01557
+       "tok": "France",
+       "prob": 0.0
       },
       {
-       "tok": "________",
-       "prob": 0.01374
+       "tok": "what",
+       "prob": 0.0
       },
       {
-       "tok": "?\\",
-       "prob": 0.01374
+       "tok": "\u53eb\u4ec0\u4e48",
+       "prob": 0.0
       },
       {
-       "tok": "_____",
-       "prob": 0.00833
+       "tok": "name",
+       "prob": 0.0
       }
      ],
      "track": {
       "Italy": {
        "rank": 481,
+       "rank_word": 55,
        "prob": 0.0
       },
       "euro": {
        "rank": 5922,
+       "rank_word": 3791,
        "prob": 0.0
       },
       "lira": {
        "rank": 58528,
+       "rank_word": 49941,
        "prob": 0.0
       },
       "Rome": {
        "rank": 5495,
+       "rank_word": 3438,
        "prob": 0.0
       }
      }
@@ -1013,61 +1076,65 @@
      "layer": 15,
      "top": [
       {
-       "tok": "____",
-       "prob": 0.64885
+       "tok": "famous",
+       "prob": 0.0
       },
       {
-       "tok": "?\\",
-       "prob": 0.06839
+       "tok": "known",
+       "prob": 0.0
       },
       {
-       "tok": "\\n",
-       "prob": 0.047
+       "tok": "America",
+       "prob": 0.0
       },
       {
-       "tok": "________",
-       "prob": 0.04148
+       "tok": "\u5417",
+       "prob": 0.0
       },
       {
-       "tok": "\\\"",
-       "prob": 0.03661
+       "tok": "located",
+       "prob": 0.0
       },
       {
-       "tok": ".\\",
-       "prob": 0.02516
+       "tok": "France",
+       "prob": 0.0
       },
       {
-       "tok": "___",
-       "prob": 0.0222
+       "tok": "name",
+       "prob": 0.0
       },
       {
-       "tok": "______",
-       "prob": 0.01959
+       "tok": "what",
+       "prob": 0.0
       },
       {
-       "tok": "____",
-       "prob": 0.01959
+       "tok": "countries",
+       "prob": 0.0
       },
       {
-       "tok": "___",
-       "prob": 0.01729
+       "tok": "known",
+       "prob": 0.0
       }
      ],
      "track": {
       "Italy": {
        "rank": 648,
+       "rank_word": 67,
        "prob": 0.0
       },
       "euro": {
        "rank": 6716,
+       "rank_word": 4037,
        "prob": 0.0
       },
       "lira": {
        "rank": 98139,
+       "rank_word": 83908,
        "prob": 0.0
       },
       "Rome": {
        "rank": 5793,
+       "rank_word": 3287,
        "prob": 0.0
       }
      }
@@ -1076,61 +1143,65 @@
      "layer": 16,
      "top": [
       {
-       "tok": "\\n",
-       "prob": 0.41539
+       "tok": "known",
+       "prob": 0.0001
       },
       {
-       "tok": ".\\",
-       "prob": 0.19622
+       "tok": "famous",
+       "prob": 7e-05
       },
       {
-       "tok": "____",
-       "prob": 0.17316
+       "tok": "America",
+       "prob": 3e-05
       },
       {
-       "tok": "\\\"",
-       "prob": 0.04961
+       "tok": "name",
+       "prob": 2e-05
       },
       {
-       "tok": "?\\",
-       "prob": 0.01825
+       "tok": "called",
+       "prob": 2e-05
       },
       {
-       "tok": "___",
-       "prob": 0.01825
+       "tok": "France",
+       "prob": 2e-05
       },
       {
-       "tok": "___",
-       "prob": 0.01254
+       "tok": "america",
+       "prob": 2e-05
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.01254
+       "tok": "that",
+       "prob": 2e-05
       },
       {
-       "tok": "________",
-       "prob": 0.01107
+       "tok": "named",
+       "prob": 1e-05
       },
       {
-       "tok": "____",
-       "prob": 0.01107
+       "tok": "located",
+       "prob": 1e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 369,
+       "rank_word": 57,
        "prob": 3e-06
       },
       "euro": {
        "rank": 3156,
+       "rank_word": 1946,
        "prob": 0.0
       },
       "lira": {
        "rank": 66498,
+       "rank_word": 57585,
        "prob": 0.0
       },
       "Rome": {
        "rank": 4272,
+       "rank_word": 2837,
        "prob": 0.0
       }
      }
@@ -1139,61 +1210,65 @@
      "layer": 17,
      "top": [
       {
-       "tok": ".\\",
-       "prob": 0.46233
+       "tok": "known",
+       "prob": 0.0002
       },
       {
-       "tok": "____",
-       "prob": 0.17008
+       "tok": "famous",
+       "prob": 0.0001
       },
       {
-       "tok": "\\n",
-       "prob": 0.10316
+       "tok": "France",
+       "prob": 9e-05
       },
       {
-       "tok": "\\\"",
-       "prob": 0.03795
+       "tok": "named",
+       "prob": 6e-05
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.02956
+       "tok": "United",
+       "prob": 5e-05
       },
       {
-       "tok": ".",
-       "prob": 0.02956
+       "tok": "called",
+       "prob": 5e-05
       },
       {
-       "tok": "________",
-       "prob": 0.02608
+       "tok": "name",
+       "prob": 5e-05
       },
       {
-       "tok": "?\\",
-       "prob": 0.01582
+       "tok": "America",
+       "prob": 5e-05
       },
       {
-       "tok": "\u3002\\",
-       "prob": 0.01232
+       "tok": "Britain",
+       "prob": 3e-05
       },
       {
-       "tok": "___",
-       "prob": 0.01021
+       "tok": "British",
+       "prob": 3e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 245,
+       "rank_word": 36,
        "prob": 1.2e-05
       },
       "euro": {
        "rank": 1263,
+       "rank_word": 531,
        "prob": 1e-06
       },
       "lira": {
        "rank": 47511,
+       "rank_word": 39983,
        "prob": 0.0
       },
       "Rome": {
        "rank": 2615,
+       "rank_word": 1447,
        "prob": 0.0
       }
      }
@@ -1202,61 +1277,65 @@
      "layer": 18,
      "top": [
       {
-       "tok": ".\\",
-       "prob": 0.48161
+       "tok": "called",
+       "prob": 0.00044
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.15635
+       "tok": "known",
+       "prob": 0.00025
       },
       {
-       "tok": "\\\"",
-       "prob": 0.10746
+       "tok": "is",
+       "prob": 0.00019
       },
       {
-       "tok": "\\n",
-       "prob": 0.09483
+       "tok": "named",
+       "prob": 0.0001
       },
       {
-       "tok": "____",
-       "prob": 0.05076
+       "tok": "France",
+       "prob": 0.0001
       },
       {
-       "tok": "\u3002\\",
-       "prob": 0.01
+       "tok": "British",
+       "prob": 6e-05
       },
       {
-       "tok": "?\\",
-       "prob": 0.00778
+       "tok": "United",
+       "prob": 6e-05
       },
       {
-       "tok": "________",
-       "prob": 0.00606
+       "tok": "refers",
+       "prob": 5e-05
       },
       {
-       "tok": "\\\"\\",
-       "prob": 0.00503
+       "tok": "referred",
+       "prob": 5e-05
       },
       {
-       "tok": "\\u",
-       "prob": 0.00472
+       "tok": "American",
+       "prob": 5e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 200,
+       "rank_word": 35,
        "prob": 1.9e-05
       },
       "euro": {
        "rank": 932,
+       "rank_word": 409,
        "prob": 2e-06
       },
       "lira": {
        "rank": 36315,
+       "rank_word": 30591,
        "prob": 0.0
       },
       "Rome": {
        "rank": 3029,
+       "rank_word": 1907,
        "prob": 0.0
       }
      }
@@ -1265,61 +1344,65 @@
      "layer": 19,
      "top": [
       {
-       "tok": ".\\",
-       "prob": 0.56368
+       "tok": "currency",
+       "prob": 0.00116
       },
       {
-       "tok": "\\\"",
-       "prob": 0.11099
+       "tok": "Currency",
+       "prob": 0.00033
       },
       {
-       "tok": "\\n",
-       "prob": 0.07629
+       "tok": "called",
+       "prob": 0.00018
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.05941
+       "tok": "Dollar",
+       "prob": 0.0001
       },
       {
-       "tok": "\\.",
-       "prob": 0.05243
+       "tok": "Currency",
+       "prob": 6e-05
       },
       {
-       "tok": "\u3002\\",
-       "prob": 0.0318
+       "tok": "currency",
+       "prob": 6e-05
       },
       {
-       "tok": "____",
-       "prob": 0.01502
+       "tok": "France",
+       "prob": 5e-05
       },
       {
-       "tok": "\\u",
-       "prob": 0.01032
+       "tok": "Bitcoin",
+       "prob": 4e-05
       },
       {
-       "tok": ".",
-       "prob": 0.00519
+       "tok": "Gold",
+       "prob": 4e-05
       },
       {
-       "tok": "_.",
-       "prob": 0.00519
+       "tok": "Money",
+       "prob": 4e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 295,
+       "rank_word": 53,
        "prob": 8e-06
       },
       "euro": {
        "rank": 579,
+       "rank_word": 177,
        "prob": 2e-06
       },
       "lira": {
        "rank": 6867,
+       "rank_word": 4790,
        "prob": 0.0
       },
       "Rome": {
        "rank": 2577,
+       "rank_word": 1420,
        "prob": 0.0
       }
      }
@@ -1328,61 +1411,65 @@
      "layer": 20,
      "top": [
       {
-       "tok": ".\\",
-       "prob": 0.21777
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.09078
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.08011
-      },
-      {
        "tok": "currency",
        "prob": 0.07526
       },
       {
-       "tok": "____",
-       "prob": 0.06239
+       "tok": "called",
+       "prob": 0.01308
       },
       {
-       "tok": "________",
-       "prob": 0.03137
+       "tok": "Currency",
+       "prob": 0.00957
       },
       {
-       "tok": ".**",
-       "prob": 0.02156
+       "tok": "Italy",
+       "prob": 0.00793
       },
       {
-       "tok": "\u3002\\",
-       "prob": 0.01903
+       "tok": "France",
+       "prob": 0.00425
       },
       {
-       "tok": "_____",
-       "prob": 0.01903
+       "tok": "\u8d27\u5e01",
+       "prob": 0.00292
       },
       {
-       "tok": "\\u",
-       "prob": 0.01392
+       "tok": "Italian",
+       "prob": 0.00274
+      },
+      {
+       "tok": "currency",
+       "prob": 0.00274
+      },
+      {
+       "tok": "Currency",
+       "prob": 0.00258
+      },
+      {
+       "tok": "currencies",
+       "prob": 0.00242
       }
      ],
      "track": {
       "Italy": {
        "rank": 19,
+       "rank_word": 3,
        "prob": 0.007932
       },
       "euro": {
        "rank": 68,
+       "rank_word": 20,
        "prob": 0.000947
       },
       "lira": {
        "rank": 778,
+       "rank_word": 395,
        "prob": 2.7e-05
       },
       "Rome": {
        "rank": 444,
+       "rank_word": 211,
        "prob": 6.1e-05
       }
      }
@@ -1434,18 +1521,22 @@
      "track": {
       "Italy": {
        "rank": 44,
+       "rank_word": 37,
        "prob": 0.000361
       },
       "euro": {
        "rank": 28,
+       "rank_word": 25,
        "prob": 0.000923
       },
       "lira": {
        "rank": 319,
+       "rank_word": 212,
        "prob": 1.7e-05
       },
       "Rome": {
        "rank": 1019,
+       "rank_word": 706,
        "prob": 3e-06
       }
      }
@@ -1490,25 +1581,29 @@
        "prob": 0.0099
       },
       {
-       "tok": "dollars",
+       "tok": "euros",
        "prob": 0.0099
       }
      ],
      "track": {
       "Italy": {
        "rank": 33,
+       "rank_word": 31,
        "prob": 0.000717
       },
       "euro": {
        "rank": 17,
+       "rank_word": 18,
        "prob": 0.00172
       },
       "lira": {
        "rank": 252,
+       "rank_word": 182,
        "prob": 3e-05
       },
       "Rome": {
        "rank": 776,
+       "rank_word": 579,
        "prob": 5e-06
       }
      }
@@ -1525,11 +1620,11 @@
        "prob": 0.08247
       },
       {
-       "tok": "dollars",
+       "tok": "Dollars",
        "prob": 0.07278
       },
       {
-       "tok": "Dollars",
+       "tok": "dollars",
        "prob": 0.07278
       },
       {
@@ -1560,18 +1655,22 @@
      "track": {
       "Italy": {
        "rank": 17,
+       "rank_word": 18,
        "prob": 0.005612
       },
       "euro": {
        "rank": 8,
+       "rank_word": 8,
        "prob": 0.026776
       },
       "lira": {
        "rank": 104,
+       "rank_word": 86,
        "prob": 0.000192
       },
       "Rome": {
        "rank": 598,
+       "rank_word": 492,
        "prob": 1.1e-05
       }
      }
@@ -1584,11 +1683,11 @@
        "prob": 0.46662
       },
       {
-       "tok": "dollars",
+       "tok": "euros",
        "prob": 0.11798
       },
       {
-       "tok": "euros",
+       "tok": "dollars",
        "prob": 0.11798
       },
       {
@@ -1608,11 +1707,11 @@
        "prob": 0.02632
       },
       {
-       "tok": "USD",
+       "tok": "Currency",
        "prob": 0.0205
       },
       {
-       "tok": "Currency",
+       "tok": "USD",
        "prob": 0.0205
       },
       {
@@ -1623,18 +1722,22 @@
      "track": {
       "Italy": {
        "rank": 66,
+       "rank_word": 60,
        "prob": 4.5e-05
       },
       "euro": {
        "rank": 9,
+       "rank_word": 9,
        "prob": 0.015967
       },
       "lira": {
        "rank": 60,
+       "rank_word": 54,
        "prob": 6.1e-05
       },
       "Rome": {
        "rank": 854,
+       "rank_word": 753,
        "prob": 0.0
       }
      }
@@ -1643,11 +1746,11 @@
      "layer": 25,
      "top": [
       {
-       "tok": "euro",
+       "tok": "euros",
        "prob": 0.36235
       },
       {
-       "tok": "euros",
+       "tok": "euro",
        "prob": 0.36235
       },
       {
@@ -1655,11 +1758,11 @@
        "prob": 0.15105
       },
       {
-       "tok": "Euros",
+       "tok": "\u6b27\u5143",
        "prob": 0.04904
       },
       {
-       "tok": "\u6b27\u5143",
+       "tok": "Euros",
        "prob": 0.04904
       },
       {
@@ -1675,29 +1778,33 @@
        "prob": 0.00277
       },
       {
-       "tok": "**\u20ac",
+       "tok": "USD",
        "prob": 0.0019
       },
       {
-       "tok": "USD",
-       "prob": 0.0019
+       "tok": "Dollar",
+       "prob": 0.00131
       }
      ],
      "track": {
       "Italy": {
        "rank": 27,
+       "rank_word": 23,
        "prob": 0.000101
       },
       "euro": {
        "rank": 0,
+       "rank_word": 1,
        "prob": 0.362352
       },
       "lira": {
        "rank": 53,
+       "rank_word": 44,
        "prob": 1.9e-05
       },
       "Rome": {
        "rank": 972,
+       "rank_word": 849,
        "prob": 0.0
       }
      }
@@ -1734,33 +1841,37 @@
        "prob": 0.00311
       },
       {
-       "tok": "**\u20ac",
-       "prob": 0.00242
-      },
-      {
-       "tok": "\u20ac",
-       "prob": 0.00167
+       "tok": "Italian",
+       "prob": 0.00147
       },
       {
        "tok": "Italy",
        "prob": 0.00147
+      },
+      {
+       "tok": "euros",
+       "prob": 0.0013
       }
      ],
      "track": {
       "Italy": {
        "rank": 9,
+       "rank_word": 8,
        "prob": 0.00147
       },
       "euro": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.317396
       },
       "lira": {
        "rank": 35,
+       "rank_word": 29,
        "prob": 0.000128
       },
       "Rome": {
        "rank": 1122,
+       "rank_word": 1025,
        "prob": 0.0
       }
      }
@@ -1801,29 +1912,33 @@
        "prob": 0.00098
       },
       {
-       "tok": "\u20ac",
-       "prob": 0.00053
-      },
-      {
        "tok": "euro",
        "prob": 0.00025
+      },
+      {
+       "tok": "European",
+       "prob": 6e-05
       }
      ],
      "track": {
       "Italy": {
        "rank": 39,
+       "rank_word": 33,
        "prob": 4e-06
       },
       "euro": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.508385
       },
       "lira": {
        "rank": 49,
+       "rank_word": 41,
        "prob": 2e-06
       },
       "Rome": {
        "rank": 996,
+       "rank_word": 886,
        "prob": 0.0
       }
      }
@@ -1864,29 +1979,33 @@
        "prob": 0.0028
       },
       {
-       "tok": "\u20ac",
-       "prob": 0.00132
+       "tok": "euro",
+       "prob": 0.00033
       },
       {
-       "tok": "**\u20ac",
-       "prob": 0.00049
+       "tok": "European",
+       "prob": 0.00033
       }
      ],
      "track": {
       "Italy": {
        "rank": 18,
+       "rank_word": 14,
        "prob": 0.000102
       },
       "euro": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.415615
       },
       "lira": {
        "rank": 35,
+       "rank_word": 29,
        "prob": 2.3e-05
       },
       "Rome": {
        "rank": 1234,
+       "rank_word": 1115,
        "prob": 0.0
       }
      }
@@ -1938,18 +2057,22 @@
      "track": {
       "Italy": {
        "rank": 19,
+       "rank_word": 15,
        "prob": 0.000635
       },
       "euro": {
        "rank": 2,
+       "rank_word": 1,
        "prob": 0.155315
       },
       "lira": {
        "rank": 32,
+       "rank_word": 25,
        "prob": 0.000282
       },
       "Rome": {
        "rank": 1868,
+       "rank_word": 1607,
        "prob": 1e-06
       }
      }
@@ -1986,33 +2109,37 @@
        "prob": 0.01432
       },
       {
-       "tok": "\u20ac",
-       "prob": 0.00495
-      },
-      {
        "tok": "EURO",
        "prob": 0.00465
       },
       {
        "tok": "known",
        "prob": 0.0041
+      },
+      {
+       "tok": "Italian",
+       "prob": 0.00362
       }
      ],
      "track": {
       "Italy": {
        "rank": 12,
+       "rank_word": 11,
        "prob": 0.003401
       },
       "euro": {
        "rank": 4,
+       "rank_word": 4,
        "prob": 0.044099
       },
       "lira": {
        "rank": 38,
+       "rank_word": 32,
        "prob": 0.00046
       },
       "Rome": {
        "rank": 1212,
+       "rank_word": 1121,
        "prob": 5e-06
       }
      }
@@ -2040,10 +2167,6 @@
      "prob": 0.00974
     },
     {
-     "tok": " ",
-     "prob": 0.00859
-    },
-    {
      "tok": "known",
      "prob": 0.0046
     },
@@ -2058,9 +2181,12 @@
     {
      "tok": "Italy",
      "prob": 0.00316
+    },
+    {
+     "tok": "in",
+     "prob": 0.00279
     }
-   ],
-   "generated": "the Euro."
+   ]
   },
   {
    "name": "carnival-ocean",
@@ -2087,12 +2213,13 @@
    ],
    "read_pos": -1,
    "read_token": " the",
+   "answer": "Atlantic",
+   "generated": "Atlantic Ocean.",
    "track_words": [
     "Brazil",
     "Atlantic",
     "Pacific"
    ],
-   "answer": "Atlantic",
    "layers": [
     0,
     1,
@@ -2127,62 +2254,66 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.39475
+       "tok": "later",
+       "prob": 0.00266
       },
       {
-       "tok": "\\(",
-       "prob": 0.08808
+       "tok": "the",
+       "prob": 0.00183
       },
       {
-       "tok": ";",
-       "prob": 0.03672
+       "tok": "in",
+       "prob": 0.00161
       },
       {
-       "tok": ".",
-       "prob": 0.02524
+       "tok": "part",
+       "prob": 0.00138
       },
       {
-       "tok": "\u00a0",
-       "prob": 0.02092
+       "tok": "at",
+       "prob": 0.00101
       },
       {
-       "tok": "${",
-       "prob": 0.01965
+       "tok": "however",
+       "prob": 0.00079
       },
       {
-       "tok": ").",
-       "prob": 0.01269
+       "tok": "of",
+       "prob": 0.00079
       },
       {
-       "tok": "\".",
-       "prob": 0.00563
+       "tok": "first",
+       "prob": 0.00079
       },
       {
-       "tok": "\u2013",
-       "prob": 0.00412
+       "tok": "as",
+       "prob": 0.00056
       },
       {
-       "tok": "\",",
-       "prob": 0.00364
+       "tok": "to",
+       "prob": 0.00056
       }
      ],
      "track": {
       "Brazil": {
        "rank": 49880,
+       "rank_word": 46117,
        "prob": 1e-06
       },
       "Atlantic": {
        "rank": 36256,
+       "rank_word": 33902,
        "prob": 2e-06
       },
       "Pacific": {
        "rank": 30355,
+       "rank_word": 28321,
        "prob": 2e-06
       }
      }
@@ -2191,57 +2322,60 @@
      "layer": 1,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.07469
-      },
-      {
-       "tok": "\u00a0",
-       "prob": 0.03756
-      },
-      {
-       "tok": "\ufffd",
-       "prob": 0.03314
-      },
-      {
        "tok": "the",
        "prob": 0.01382
       },
       {
-       "tok": "\\(",
-       "prob": 0.0095
+       "tok": "part",
+       "prob": 0.00408
       },
       {
-       "tok": ".",
-       "prob": 0.00695
+       "tok": "in",
+       "prob": 0.00396
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.00653
+       "tok": "United",
+       "prob": 0.00384
       },
       {
-       "tok": "${",
-       "prob": 0.00613
+       "tok": "of",
+       "prob": 0.00384
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00576
+       "tok": "one",
+       "prob": 0.00308
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00477
+       "tok": "however",
+       "prob": 0.00299
+      },
+      {
+       "tok": "later",
+       "prob": 0.00264
+      },
+      {
+       "tok": "more",
+       "prob": 0.00248
+      },
+      {
+       "tok": "being",
+       "prob": 0.00233
       }
      ],
      "track": {
       "Brazil": {
        "rank": 16206,
+       "rank_word": 15360,
        "prob": 7e-06
       },
       "Atlantic": {
        "rank": 5591,
+       "rank_word": 5380,
        "prob": 1.8e-05
       },
       "Pacific": {
        "rank": 4296,
+       "rank_word": 4076,
        "prob": 2.3e-05
       }
      }
@@ -2250,57 +2384,60 @@
      "layer": 2,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.82467
+       "tok": "\u00b2",
+       "prob": 0.00028
       },
       {
-       "tok": "\",",
-       "prob": 0.02822
+       "tok": "\u00b3",
+       "prob": 6e-05
       },
       {
-       "tok": ".",
-       "prob": 0.02822
+       "tok": "\u00b9",
+       "prob": 5e-05
       },
       {
-       "tok": "\".",
-       "prob": 0.0249
+       "tok": "the",
+       "prob": 3e-05
       },
       {
-       "tok": "\u201d.",
-       "prob": 0.01939
+       "tok": "e",
+       "prob": 2e-05
       },
       {
-       "tok": "\u00a0",
-       "prob": 0.01712
+       "tok": "in",
+       "prob": 1e-05
       },
       {
-       "tok": "\u201d,",
-       "prob": 0.01333
+       "tok": "a",
+       "prob": 1e-05
       },
       {
-       "tok": "\u00b7",
-       "prob": 0.01333
+       "tok": "1",
+       "prob": 1e-05
       },
       {
-       "tok": ").",
-       "prob": 0.01038
+       "tok": "at",
+       "prob": 1e-05
       },
       {
-       "tok": ";",
-       "prob": 0.00522
+       "tok": "a",
+       "prob": 1e-05
       }
      ],
      "track": {
       "Brazil": {
        "rank": 22568,
+       "rank_word": 20385,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 9561,
+       "rank_word": 8467,
        "prob": 0.0
       },
       "Pacific": {
        "rank": 5995,
+       "rank_word": 5215,
        "prob": 0.0
       }
      }
@@ -2309,28 +2446,8 @@
      "layer": 3,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.21715
-      },
-      {
-       "tok": ".",
-       "prob": 0.09052
-      },
-      {
-       "tok": "\u2014",
-       "prob": 0.05158
-      },
-      {
        "tok": "the",
        "prob": 0.0333
-      },
-      {
-       "tok": "\u00a0",
-       "prob": 0.02939
-      },
-      {
-       "tok": " ",
-       "prob": 0.01388
       },
       {
        "tok": "part",
@@ -2347,19 +2464,42 @@
       {
        "tok": "of",
        "prob": 0.00954
+      },
+      {
+       "tok": "in",
+       "prob": 0.00842
+      },
+      {
+       "tok": "however",
+       "prob": 0.00743
+      },
+      {
+       "tok": "centre",
+       "prob": 0.00743
+      },
+      {
+       "tok": "more",
+       "prob": 0.00616
+      },
+      {
+       "tok": "much",
+       "prob": 0.00579
       }
      ],
      "track": {
       "Brazil": {
        "rank": 12893,
+       "rank_word": 12400,
        "prob": 2e-06
       },
       "Atlantic": {
        "rank": 4171,
+       "rank_word": 4005,
        "prob": 9e-06
       },
       "Pacific": {
        "rank": 3471,
+       "rank_word": 3331,
        "prob": 1.2e-05
       }
      }
@@ -2368,57 +2508,60 @@
      "layer": 4,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.60467
-      },
-      {
-       "tok": ".",
-       "prob": 0.32366
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.01826
-      },
-      {
-       "tok": ";",
-       "prob": 0.00672
-      },
-      {
-       "tok": "\u2014",
-       "prob": 0.00407
-      },
-      {
-       "tok": ".[",
-       "prob": 0.00298
-      },
-      {
-       "tok": ").",
-       "prob": 0.00263
-      },
-      {
        "tok": "the",
        "prob": 0.00218
       },
       {
-       "tok": ":",
-       "prob": 0.00192
+       "tok": "of",
+       "prob": 0.00067
       },
       {
-       "tok": "\u00b7",
-       "prob": 0.0017
+       "tok": "a",
+       "prob": 0.00046
+      },
+      {
+       "tok": "one",
+       "prob": 0.00043
+      },
+      {
+       "tok": "part",
+       "prob": 0.00043
+      },
+      {
+       "tok": "centre",
+       "prob": 0.00038
+      },
+      {
+       "tok": "in",
+       "prob": 0.00033
+      },
+      {
+       "tok": "it",
+       "prob": 0.0003
+      },
+      {
+       "tok": "however",
+       "prob": 0.00028
+      },
+      {
+       "tok": "way",
+       "prob": 0.0002
       }
      ],
      "track": {
       "Brazil": {
        "rank": 10600,
+       "rank_word": 9659,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 6258,
+       "rank_word": 5621,
        "prob": 0.0
       },
       "Pacific": {
        "rank": 5186,
+       "rank_word": 4678,
        "prob": 0.0
       }
      }
@@ -2427,57 +2570,60 @@
      "layer": 5,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.29645
-      },
-      {
-       "tok": "...",
-       "prob": 0.23088
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.08494
-      },
-      {
-       "tok": ",",
-       "prob": 0.08494
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.06615
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.05152
-      },
-      {
-       "tok": "..",
-       "prob": 0.02935
-      },
-      {
-       "tok": "\n",
-       "prob": 0.01895
-      },
-      {
-       "tok": ".",
-       "prob": 0.0178
-      },
-      {
        "tok": "the",
        "prob": 0.01224
+      },
+      {
+       "tok": "a",
+       "prob": 0.00309
+      },
+      {
+       "tok": "one",
+       "prob": 0.00309
+      },
+      {
+       "tok": "of",
+       "prob": 0.00291
+      },
+      {
+       "tok": "part",
+       "prob": 0.00188
+      },
+      {
+       "tok": "it",
+       "prob": 0.00156
+      },
+      {
+       "tok": "being",
+       "prob": 0.00107
+      },
+      {
+       "tok": "way",
+       "prob": 0.001
+      },
+      {
+       "tok": "centre",
+       "prob": 0.00057
+      },
+      {
+       "tok": "to",
+       "prob": 0.00057
       }
      ],
      "track": {
       "Brazil": {
        "rank": 9274,
+       "rank_word": 8535,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 7447,
+       "rank_word": 6874,
        "prob": 0.0
       },
       "Pacific": {
        "rank": 6227,
+       "rank_word": 5628,
        "prob": 0.0
       }
      }
@@ -2490,14 +2636,6 @@
        "prob": 0.2751
       },
       {
-       "tok": "\n\n",
-       "prob": 0.24278
-      },
-      {
-       "tok": ".",
-       "prob": 0.12995
-      },
-      {
        "tok": "ocean",
        "prob": 0.12208
       },
@@ -2506,37 +2644,48 @@
        "prob": 0.02559
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.0137
-      },
-      {
        "tok": "Sea",
        "prob": 0.01209
       },
       {
-       "tok": "\n",
-       "prob": 0.01135
+       "tok": "the",
+       "prob": 0.00445
       },
       {
-       "tok": " ",
-       "prob": 0.00689
+       "tok": "island",
+       "prob": 0.00418
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00647
+       "tok": "coast",
+       "prob": 0.00346
+      },
+      {
+       "tok": "marine",
+       "prob": 0.0027
+      },
+      {
+       "tok": "oceans",
+       "prob": 0.00253
+      },
+      {
+       "tok": "a",
+       "prob": 0.00253
       }
      ],
      "track": {
       "Brazil": {
        "rank": 4234,
+       "rank_word": 3925,
        "prob": 1e-06
       },
       "Atlantic": {
        "rank": 96,
+       "rank_word": 56,
        "prob": 0.000251
       },
       "Pacific": {
        "rank": 61,
+       "rank_word": 33,
        "prob": 0.000499
       }
      }
@@ -2553,49 +2702,52 @@
        "prob": 0.30905
       },
       {
-       "tok": ".",
-       "prob": 0.07814
-      },
-      {
        "tok": "Ocean",
        "prob": 0.04739
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.04183
       },
       {
        "tok": "Sea",
        "prob": 0.02103
       },
       {
-       "tok": "\u2026",
-       "prob": 0.01445
-      },
-      {
        "tok": "marine",
        "prob": 0.01126
+      },
+      {
+       "tok": "seas",
+       "prob": 0.00824
       },
       {
        "tok": "oceans",
        "prob": 0.00824
       },
       {
-       "tok": "seas",
-       "prob": 0.00824
+       "tok": "Ocean",
+       "prob": 0.00303
+      },
+      {
+       "tok": "coast",
+       "prob": 0.00267
+      },
+      {
+       "tok": "coastal",
+       "prob": 0.00267
       }
      ],
      "track": {
       "Brazil": {
        "rank": 2585,
+       "rank_word": 2151,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 118,
+       "rank_word": 74,
        "prob": 6.7e-05
       },
       "Pacific": {
        "rank": 73,
+       "rank_word": 46,
        "prob": 0.000182
       }
      }
@@ -2636,25 +2788,28 @@
        "prob": 0.00638
       },
       {
-       "tok": "\u2026",
+       "tok": "coastal",
        "prob": 0.00301
       },
       {
-       "tok": "coastal",
-       "prob": 0.00301
+       "tok": "\u6d77\u6d0b",
+       "prob": 0.00266
       }
      ],
      "track": {
       "Brazil": {
        "rank": 2081,
+       "rank_word": 1671,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 85,
+       "rank_word": 76,
        "prob": 3.6e-05
       },
       "Pacific": {
        "rank": 55,
+       "rank_word": 46,
        "prob": 9.1e-05
       }
      }
@@ -2675,11 +2830,11 @@
        "prob": 0.05632
       },
       {
-       "tok": "marine",
+       "tok": "Sea",
        "prob": 0.01614
       },
       {
-       "tok": "Sea",
+       "tok": "marine",
        "prob": 0.01614
       },
       {
@@ -2706,14 +2861,17 @@
      "track": {
       "Brazil": {
        "rank": 563,
+       "rank_word": 499,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 48,
+       "rank_word": 46,
        "prob": 0.000102
       },
       "Pacific": {
        "rank": 22,
+       "rank_word": 21,
        "prob": 0.000404
       }
      }
@@ -2746,11 +2904,11 @@
        "prob": 0.01557
       },
       {
-       "tok": "oceans",
+       "tok": "Sea",
        "prob": 0.01374
       },
       {
-       "tok": "Sea",
+       "tok": "oceans",
        "prob": 0.01374
       },
       {
@@ -2765,14 +2923,17 @@
      "track": {
       "Brazil": {
        "rank": 472,
+       "rank_word": 441,
        "prob": 1e-06
       },
       "Atlantic": {
        "rank": 29,
+       "rank_word": 29,
        "prob": 0.00047
       },
       "Pacific": {
        "rank": 20,
+       "rank_word": 20,
        "prob": 0.000878
       }
      }
@@ -2801,11 +2962,11 @@
        "prob": 0.01974
       },
       {
-       "tok": "marine",
+       "tok": "coastal",
        "prob": 0.01742
       },
       {
-       "tok": "coastal",
+       "tok": "marine",
        "prob": 0.01742
       },
       {
@@ -2824,14 +2985,17 @@
      "track": {
       "Brazil": {
        "rank": 484,
+       "rank_word": 472,
        "prob": 2e-06
       },
       "Atlantic": {
        "rank": 31,
+       "rank_word": 32,
        "prob": 0.000494
       },
       "Pacific": {
        "rank": 26,
+       "rank_word": 24,
        "prob": 0.000815
       }
      }
@@ -2852,11 +3016,11 @@
        "prob": 0.0268
       },
       {
-       "tok": "Sea",
+       "tok": "oceans",
        "prob": 0.02088
       },
       {
-       "tok": "oceans",
+       "tok": "Sea",
        "prob": 0.02088
       },
       {
@@ -2883,14 +3047,17 @@
      "track": {
       "Brazil": {
        "rank": 493,
+       "rank_word": 426,
        "prob": 4e-06
       },
       "Atlantic": {
        "rank": 30,
+       "rank_word": 28,
        "prob": 0.00076
       },
       "Pacific": {
        "rank": 27,
+       "rank_word": 29,
        "prob": 0.00076
       }
      }
@@ -2907,23 +3074,15 @@
        "prob": 0.18236
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.06709
-      },
-      {
-       "tok": "____",
-       "prob": 0.03591
-      },
-      {
        "tok": "Sea",
        "prob": 0.02046
       },
       {
-       "tok": "maritime",
+       "tok": "marine",
        "prob": 0.01806
       },
       {
-       "tok": "marine",
+       "tok": "maritime",
        "prob": 0.01806
       },
       {
@@ -2937,19 +3096,30 @@
       {
        "tok": "sea",
        "prob": 0.01406
+      },
+      {
+       "tok": "coastal",
+       "prob": 0.01321
+      },
+      {
+       "tok": "Ocean",
+       "prob": 0.01095
       }
      ],
      "track": {
       "Brazil": {
        "rank": 703,
+       "rank_word": 526,
        "prob": 8e-06
       },
       "Atlantic": {
        "rank": 25,
+       "rank_word": 18,
        "prob": 0.002026
       },
       "Pacific": {
        "rank": 28,
+       "rank_word": 19,
        "prob": 0.001788
       }
      }
@@ -2962,53 +3132,56 @@
        "prob": 0.24067
       },
       {
-       "tok": "____",
-       "prob": 0.12882
-      },
-      {
        "tok": "Ocean",
        "prob": 0.12882
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.11369
-      },
-      {
-       "tok": "___",
-       "prob": 0.04182
       },
       {
        "tok": "coastal",
        "prob": 0.01856
       },
       {
-       "tok": "________",
-       "prob": 0.01856
-      },
-      {
-       "tok": "___",
-       "prob": 0.01856
-      },
-      {
-       "tok": "__",
-       "prob": 0.01743
-      },
-      {
        "tok": "Coastal",
        "prob": 0.01638
+      },
+      {
+       "tok": "Sea",
+       "prob": 0.01445
+      },
+      {
+       "tok": "maritime",
+       "prob": 0.01358
+      },
+      {
+       "tok": "Ocean",
+       "prob": 0.01126
+      },
+      {
+       "tok": "oceans",
+       "prob": 0.00933
+      },
+      {
+       "tok": "marine",
+       "prob": 0.00877
+      },
+      {
+       "tok": "coastline",
+       "prob": 0.00774
       }
      ],
      "track": {
       "Brazil": {
        "rank": 631,
+       "rank_word": 472,
        "prob": 1e-05
       },
       "Atlantic": {
        "rank": 38,
+       "rank_word": 18,
        "prob": 0.001838
       },
       "Pacific": {
        "rank": 42,
+       "rank_word": 22,
        "prob": 0.001523
       }
      }
@@ -3016,10 +3189,6 @@
     {
      "layer": 15,
      "top": [
-      {
-       "tok": "____",
-       "prob": 0.20692
-      },
       {
        "tok": "Ocean",
        "prob": 0.09774
@@ -3029,45 +3198,52 @@
        "prob": 0.08626
       },
       {
-       "tok": "________",
-       "prob": 0.07612
+       "tok": "Coastal",
+       "prob": 0.00909
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.06718
+       "tok": "Ocean",
+       "prob": 0.00802
       },
       {
-       "tok": "___",
-       "prob": 0.04915
+       "tok": "coastal",
+       "prob": 0.00754
       },
       {
-       "tok": "___",
-       "prob": 0.03378
+       "tok": "maritime",
+       "prob": 0.00587
       },
       {
-       "tok": "__",
-       "prob": 0.02631
+       "tok": "Sea",
+       "prob": 0.00518
       },
       {
-       "tok": "\uff1f**",
-       "prob": 0.02471
+       "tok": "Maritime",
+       "prob": 0.00487
       },
       {
-       "tok": "_____",
-       "prob": 0.02471
+       "tok": "oceans",
+       "prob": 0.00403
+      },
+      {
+       "tok": "marine",
+       "prob": 0.00277
       }
      ],
      "track": {
       "Brazil": {
        "rank": 637,
+       "rank_word": 435,
        "prob": 9e-06
       },
       "Atlantic": {
        "rank": 41,
+       "rank_word": 16,
        "prob": 0.001394
       },
       "Pacific": {
        "rank": 36,
+       "rank_word": 12,
        "prob": 0.002159
       }
      }
@@ -3119,14 +3295,17 @@
      "track": {
       "Brazil": {
        "rank": 412,
+       "rank_word": 339,
        "prob": 3.8e-05
       },
       "Atlantic": {
        "rank": 19,
+       "rank_word": 18,
        "prob": 0.003859
       },
       "Pacific": {
        "rank": 13,
+       "rank_word": 12,
        "prob": 0.007674
       }
      }
@@ -3143,49 +3322,52 @@
        "prob": 0.12331
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.062
-      },
-      {
-       "tok": "__.",
-       "prob": 0.05825
-      },
-      {
-       "tok": "?",
-       "prob": 0.03761
-      },
-      {
-       "tok": "____",
-       "prob": 0.03118
-      },
-      {
-       "tok": "**.",
-       "prob": 0.02585
-      },
-      {
        "tok": "Coastal",
        "prob": 0.02281
       },
       {
-       "tok": "?\\",
-       "prob": 0.02281
+       "tok": "Marine",
+       "prob": 0.01891
       },
       {
-       "tok": "\uff1f**",
-       "prob": 0.02013
+       "tok": "Ocean",
+       "prob": 0.01384
+      },
+      {
+       "tok": "Sea",
+       "prob": 0.01221
+      },
+      {
+       "tok": "Maritime",
+       "prob": 0.01221
+      },
+      {
+       "tok": "oceans",
+       "prob": 0.00951
+      },
+      {
+       "tok": "coastal",
+       "prob": 0.00893
+      },
+      {
+       "tok": "maritime",
+       "prob": 0.00839
       }
      ],
      "track": {
       "Brazil": {
        "rank": 608,
+       "rank_word": 388,
        "prob": 2.8e-05
       },
       "Atlantic": {
        "rank": 38,
+       "rank_word": 16,
        "prob": 0.003087
       },
       "Pacific": {
        "rank": 27,
+       "rank_word": 10,
        "prob": 0.006957
       }
      }
@@ -3194,57 +3376,60 @@
      "layer": 18,
      "top": [
       {
-       "tok": "____",
-       "prob": 0.11348
-      },
-      {
-       "tok": "__.",
-       "prob": 0.09408
-      },
-      {
        "tok": "Ocean",
        "prob": 0.08838
-      },
-      {
-       "tok": "?\\",
-       "prob": 0.08838
-      },
-      {
-       "tok": "\uff1f**",
-       "prob": 0.08838
-      },
-      {
-       "tok": "___",
-       "prob": 0.06074
-      },
-      {
-       "tok": ".**",
-       "prob": 0.03251
-      },
-      {
-       "tok": "\u3002\\",
-       "prob": 0.02869
       },
       {
        "tok": "ocean",
        "prob": 0.02869
       },
       {
-       "tok": "________",
-       "prob": 0.02696
+       "tok": "Marine",
+       "prob": 0.00725
+      },
+      {
+       "tok": "Ocean",
+       "prob": 0.00682
+      },
+      {
+       "tok": "Coastal",
+       "prob": 0.0064
+      },
+      {
+       "tok": "Pacific",
+       "prob": 0.00468
+      },
+      {
+       "tok": "Sea",
+       "prob": 0.00365
+      },
+      {
+       "tok": "Maritime",
+       "prob": 0.00343
+      },
+      {
+       "tok": "Gulf",
+       "prob": 0.00284
+      },
+      {
+       "tok": "Atlantic",
+       "prob": 0.00267
       }
      ],
      "track": {
       "Brazil": {
        "rank": 439,
+       "rank_word": 240,
        "prob": 3.7e-05
       },
       "Atlantic": {
        "rank": 38,
+       "rank_word": 9,
        "prob": 0.002669
       },
       "Pacific": {
        "rank": 24,
+       "rank_word": 5,
        "prob": 0.004684
       }
      }
@@ -3253,57 +3438,60 @@
      "layer": 19,
      "top": [
       {
-       "tok": "?\\",
-       "prob": 0.12534
-      },
-      {
-       "tok": "\u3002\\",
-       "prob": 0.09761
-      },
-      {
-       "tok": "__.",
-       "prob": 0.09761
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.07602
-      },
-      {
-       "tok": "____",
-       "prob": 0.07602
-      },
-      {
-       "tok": "___",
-       "prob": 0.04908
-      },
-      {
-       "tok": "________",
-       "prob": 0.04611
-      },
-      {
        "tok": "Ocean",
        "prob": 0.04332
       },
       {
-       "tok": "\\.",
-       "prob": 0.04069
+       "tok": "ocean",
+       "prob": 0.01593
       },
       {
-       "tok": "_____",
-       "prob": 0.03373
+       "tok": "Ocean",
+       "prob": 0.00378
+      },
+      {
+       "tok": "Atlantic",
+       "prob": 0.00216
+      },
+      {
+       "tok": "Marine",
+       "prob": 0.00216
+      },
+      {
+       "tok": "Sea",
+       "prob": 0.00216
+      },
+      {
+       "tok": "Caribbean",
+       "prob": 0.00203
+      },
+      {
+       "tok": "Coastal",
+       "prob": 0.0019
+      },
+      {
+       "tok": "Pacific",
+       "prob": 0.0019
+      },
+      {
+       "tok": "Gulf",
+       "prob": 0.00168
       }
      ],
      "track": {
       "Brazil": {
        "rank": 793,
+       "rank_word": 356,
        "prob": 7e-06
       },
       "Atlantic": {
        "rank": 37,
+       "rank_word": 3,
        "prob": 0.002157
       },
       "Pacific": {
        "rank": 44,
+       "rank_word": 7,
        "prob": 0.001903
       }
      }
@@ -3320,26 +3508,6 @@
        "prob": 0.17463
       },
       {
-       "tok": "___",
-       "prob": 0.04415
-      },
-      {
-       "tok": "____",
-       "prob": 0.04415
-      },
-      {
-       "tok": "__.",
-       "prob": 0.02678
-      },
-      {
-       "tok": "________",
-       "prob": 0.02678
-      },
-      {
-       "tok": "_____",
-       "prob": 0.02516
-      },
-      {
        "tok": "Ocean",
        "prob": 0.01959
       },
@@ -3350,19 +3518,42 @@
       {
        "tok": "Caribbean",
        "prob": 0.01116
+      },
+      {
+       "tok": "Atlantic",
+       "prob": 0.01116
+      },
+      {
+       "tok": "Sea",
+       "prob": 0.00925
+      },
+      {
+       "tok": "Pacific",
+       "prob": 0.00869
+      },
+      {
+       "tok": "Gulf",
+       "prob": 0.00869
+      },
+      {
+       "tok": "Oce",
+       "prob": 0.00362
       }
      ],
      "track": {
       "Brazil": {
        "rank": 363,
+       "rank_word": 208,
        "prob": 2.6e-05
       },
       "Atlantic": {
        "rank": 10,
+       "rank_word": 5,
        "prob": 0.011164
       },
       "Pacific": {
        "rank": 12,
+       "rank_word": 7,
        "prob": 0.008694
       }
      }
@@ -3407,21 +3598,24 @@
        "prob": 0.00654
       },
       {
-       "tok": "___",
-       "prob": 0.00654
+       "tok": "Coastal",
+       "prob": 0.00329
       }
      ],
      "track": {
       "Brazil": {
        "rank": 423,
+       "rank_word": 292,
        "prob": 1e-05
       },
       "Atlantic": {
        "rank": 3,
+       "rank_word": 3,
        "prob": 0.013856
       },
       "Pacific": {
        "rank": 6,
+       "rank_word": 6,
        "prob": 0.008404
       }
      }
@@ -3438,19 +3632,19 @@
        "prob": 0.08951
       },
       {
-       "tok": "Ocean",
-       "prob": 0.00943
-      },
-      {
        "tok": "Gulf",
        "prob": 0.00943
       },
       {
-       "tok": "Atlantic",
-       "prob": 0.00505
+       "tok": "Ocean",
+       "prob": 0.00943
       },
       {
        "tok": "Sea",
+       "prob": 0.00505
+      },
+      {
+       "tok": "Atlantic",
        "prob": 0.00505
       },
       {
@@ -3473,14 +3667,17 @@
      "track": {
       "Brazil": {
        "rank": 385,
+       "rank_word": 332,
        "prob": 3e-06
       },
       "Atlantic": {
        "rank": 5,
+       "rank_word": 5,
        "prob": 0.00505
       },
       "Pacific": {
        "rank": 6,
+       "rank_word": 6,
        "prob": 0.004744
       }
      }
@@ -3532,14 +3729,17 @@
      "track": {
       "Brazil": {
        "rank": 383,
+       "rank_word": 336,
        "prob": 4e-06
       },
       "Atlantic": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.038472
       },
       "Pacific": {
        "rank": 4,
+       "rank_word": 4,
        "prob": 0.016038
       }
      }
@@ -3591,14 +3791,17 @@
      "track": {
       "Brazil": {
        "rank": 227,
+       "rank_word": 224,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.023154
       },
       "Pacific": {
        "rank": 6,
+       "rank_word": 7,
        "prob": 0.003134
       }
      }
@@ -3623,11 +3826,11 @@
        "prob": 0.04424
       },
       {
-       "tok": "Mediterranean",
+       "tok": "Gulf",
        "prob": 0.01844
       },
       {
-       "tok": "Gulf",
+       "tok": "Mediterranean",
        "prob": 0.01844
       },
       {
@@ -3650,14 +3853,17 @@
      "track": {
       "Brazil": {
        "rank": 407,
+       "rank_word": 371,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.47564
       },
       "Pacific": {
        "rank": 7,
+       "rank_word": 7,
        "prob": 0.005987
       }
      }
@@ -3698,25 +3904,28 @@
        "prob": 0.00088
       },
       {
-       "tok": "oceans",
+       "tok": "Caribbean",
        "prob": 0.00032
       },
       {
-       "tok": "Caribbean",
+       "tok": "oceans",
        "prob": 0.00032
       }
      ],
      "track": {
       "Brazil": {
        "rank": 522,
+       "rank_word": 490,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.664557
       },
       "Pacific": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.07937
       }
      }
@@ -3768,14 +3977,17 @@
      "track": {
       "Brazil": {
        "rank": 283,
+       "rank_word": 252,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.908779
       },
       "Pacific": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.074597
       }
      }
@@ -3827,14 +4039,17 @@
      "track": {
       "Brazil": {
        "rank": 347,
+       "rank_word": 320,
        "prob": 0.0
       },
       "Atlantic": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.704609
       },
       "Pacific": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.201874
       }
      }
@@ -3867,33 +4082,36 @@
        "prob": 0.00151
       },
       {
-       "tok": "___",
-       "prob": 0.00133
-      },
-      {
        "tok": "ocean",
        "prob": 0.00125
       },
       {
-       "tok": "______",
-       "prob": 0.00118
+       "tok": "Atlantic",
+       "prob": 0.00104
       },
       {
-       "tok": "________",
-       "prob": 0.0011
+       "tok": "Atl",
+       "prob": 0.00076
+      },
+      {
+       "tok": "Pac",
+       "prob": 0.00049
       }
      ],
      "track": {
       "Brazil": {
        "rank": 566,
+       "rank_word": 503,
        "prob": 1e-06
       },
       "Atlantic": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.782104
       },
       "Pacific": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.174511
       }
      }
@@ -3930,29 +4148,32 @@
        "prob": 0.00709
       },
       {
-       "tok": "North",
-       "prob": 0.00335
-      },
-      {
        "tok": "Arabian",
        "prob": 0.00335
       },
       {
-       "tok": "______",
-       "prob": 0.00315
+       "tok": "North",
+       "prob": 0.00335
+      },
+      {
+       "tok": "Ocean",
+       "prob": 0.00245
       }
      ],
      "track": {
       "Brazil": {
        "rank": 454,
+       "rank_word": 426,
        "prob": 1e-05
       },
       "Atlantic": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.363639
       },
       "Pacific": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.363639
       }
      }
@@ -3988,19 +4209,18 @@
      "prob": 0.00834
     },
     {
-     "tok": "______",
-     "prob": 0.00736
-    },
-    {
-     "tok": "___",
-     "prob": 0.00611
-    },
-    {
      "tok": "Gulf",
      "prob": 0.00574
+    },
+    {
+     "tok": "ocean",
+     "prob": 0.00475
+    },
+    {
+     "tok": "most",
+     "prob": 0.0037
     }
-   ],
-   "generated": "Atlantic Ocean."
+   ]
   }
  ]
 }

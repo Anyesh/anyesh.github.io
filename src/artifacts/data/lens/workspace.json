@@ -1,6 +1,7 @@
 {
  "model": "Qwen/Qwen3.5-4B",
  "lens": "neuronpedia/jacobian-lens@qwen-n1000",
+ "display": "top-k restricted to word-like tokens (paper mask); ranks full-vocab",
  "items": [
   {
    "name": "summoning-spelling",
@@ -38,13 +39,14 @@
    ],
    "read_pos": -1,
    "read_token": " favourite",
+   "answer": "colour",
+   "generated": "colour.",
    "track_words": [
     "colour",
     "color",
     "shade",
     "hue"
    ],
-   "answer": "colour",
    "layers": [
     0,
     1,
@@ -79,29 +81,14 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": "\r\n\r\n",
-       "prob": 0.18753
-      },
-      {
-       "tok": " \r\n\r\n",
-       "prob": 0.08858
-      },
-      {
        "tok": "favourite",
        "prob": 0.07344
-      },
-      {
-       "tok": "'**",
-       "prob": 0.06899
-      },
-      {
-       "tok": "\r\n\n",
-       "prob": 0.06899
       },
       {
        "tok": "whilst",
@@ -116,29 +103,49 @@
        "prob": 0.02384
       },
       {
-       "tok": "\r\n",
-       "prob": 0.0224
+       "tok": "harbour",
+       "prob": 0.00603
       },
       {
-       "tok": ")**",
-       "prob": 0.01977
+       "tok": "neighbour",
+       "prob": 0.00603
+      },
+      {
+       "tok": "realised",
+       "prob": 0.00603
+      },
+      {
+       "tok": "neighbours",
+       "prob": 0.00603
+      },
+      {
+       "tok": "neighbouring",
+       "prob": 0.00414
+      },
+      {
+       "tok": "honour",
+       "prob": 0.00414
       }
      ],
      "track": {
       "colour": {
        "rank": 25,
+       "rank_word": 12,
        "prob": 0.003227
       },
       "color": {
        "rank": 224480,
+       "rank_word": 197431,
        "prob": 0.0
       },
       "shade": {
        "rank": 55228,
+       "rank_word": 46849,
        "prob": 0.0
       },
       "hue": {
        "rank": 39363,
+       "rank_word": 32747,
        "prob": 0.0
       }
      }
@@ -147,28 +154,8 @@
      "layer": 1,
      "top": [
       {
-       "tok": "'**",
-       "prob": 0.187
-      },
-      {
        "tok": "favourite",
        "prob": 0.1001
-      },
-      {
-       "tok": " \r\n\r\n",
-       "prob": 0.07795
-      },
-      {
-       "tok": "\r\n\r\n",
-       "prob": 0.06071
-      },
-      {
-       "tok": "\\'",
-       "prob": 0.0392
-      },
-      {
-       "tok": ")**",
-       "prob": 0.0392
       },
       {
        "tok": "specialised",
@@ -179,29 +166,53 @@
        "prob": 0.02868
       },
       {
-       "tok": "''",
-       "prob": 0.02694
-      },
-      {
        "tok": "recognised",
        "prob": 0.02377
+      },
+      {
+       "tok": "realised",
+       "prob": 0.00931
+      },
+      {
+       "tok": "neighbours",
+       "prob": 0.00822
+      },
+      {
+       "tok": "neighbour",
+       "prob": 0.00822
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00772
+      },
+      {
+       "tok": "harbour",
+       "prob": 0.00725
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00681
       }
      ],
      "track": {
       "colour": {
        "rank": 20,
+       "rank_word": 9,
        "prob": 0.006812
       },
       "color": {
        "rank": 229172,
+       "rank_word": 201712,
        "prob": 0.0
       },
       "shade": {
        "rank": 60915,
+       "rank_word": 52236,
        "prob": 0.0
       },
       "hue": {
        "rank": 50838,
+       "rank_word": 42805,
        "prob": 0.0
       }
      }
@@ -210,61 +221,65 @@
      "layer": 2,
      "top": [
       {
-       "tok": "',",
-       "prob": 0.26072
-      },
-      {
        "tok": "whilst",
        "prob": 0.23008
-      },
-      {
-       "tok": "\",",
-       "prob": 0.12315
-      },
-      {
-       "tok": "\\(",
-       "prob": 0.09591
-      },
-      {
-       "tok": "'.",
-       "prob": 0.04531
       },
       {
        "tok": "favourite",
        "prob": 0.03998
       },
       {
-       "tok": "**:",
-       "prob": 0.02748
-      },
-      {
        "tok": "specialised",
        "prob": 0.01566
       },
       {
-       "tok": ")',",
-       "prob": 0.01219
+       "tok": "centre",
+       "prob": 0.00892
       },
       {
        "tok": "Whilst",
        "prob": 0.00892
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00508
+      },
+      {
+       "tok": "colours",
+       "prob": 0.00421
+      },
+      {
+       "tok": "neighbour",
+       "prob": 0.00328
+      },
+      {
+       "tok": "harbour",
+       "prob": 0.00308
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.00308
       }
      ],
      "track": {
       "colour": {
        "rank": 14,
+       "rank_word": 5,
        "prob": 0.005083
       },
       "color": {
        "rank": 158709,
+       "rank_word": 138561,
        "prob": 0.0
       },
       "shade": {
        "rank": 16601,
+       "rank_word": 13237,
        "prob": 0.0
       },
       "hue": {
        "rank": 4519,
+       "rank_word": 3098,
        "prob": 0.0
       }
      }
@@ -273,61 +288,65 @@
      "layer": 3,
      "top": [
       {
-       "tok": "'**",
-       "prob": 0.18578
-      },
-      {
        "tok": "favourite",
        "prob": 0.15401
-      },
-      {
-       "tok": "\\'",
-       "prob": 0.12768
-      },
-      {
-       "tok": " \r\n\r\n",
-       "prob": 0.05323
-      },
-      {
-       "tok": "...",
-       "prob": 0.03437
       },
       {
        "tok": "whilst",
        "prob": 0.03228
       },
       {
-       "tok": " \n\n",
-       "prob": 0.02219
+       "tok": "neighbour",
+       "prob": 0.00816
       },
       {
-       "tok": "...'",
-       "prob": 0.02219
+       "tok": "harbour",
+       "prob": 0.00816
       },
       {
-       "tok": " \r\n",
-       "prob": 0.01525
+       "tok": "colours",
+       "prob": 0.00767
       },
       {
-       "tok": "...',",
-       "prob": 0.01433
+       "tok": "specialised",
+       "prob": 0.00767
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.00636
+      },
+      {
+       "tok": "neighbours",
+       "prob": 0.00597
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00561
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00465
       }
      ],
      "track": {
       "colour": {
        "rank": 24,
+       "rank_word": 8,
        "prob": 0.00561
       },
       "color": {
        "rank": 50746,
+       "rank_word": 44023,
        "prob": 0.0
       },
       "shade": {
        "rank": 11268,
+       "rank_word": 8925,
        "prob": 0.0
       },
       "hue": {
        "rank": 9002,
+       "rank_word": 7061,
        "prob": 1e-06
       }
      }
@@ -340,57 +359,61 @@
        "prob": 0.28767
       },
       {
-       "tok": "'**",
-       "prob": 0.11992
-      },
-      {
-       "tok": "...'",
-       "prob": 0.04999
-      },
-      {
        "tok": "whilst",
        "prob": 0.04412
       },
       {
-       "tok": "\\'",
-       "prob": 0.04144
+       "tok": "neighbour",
+       "prob": 0.01115
       },
       {
-       "tok": " \r\n\r\n",
-       "prob": 0.03228
+       "tok": "colourful",
+       "prob": 0.01048
       },
       {
-       "tok": "...',",
-       "prob": 0.02084
+       "tok": "colours",
+       "prob": 0.01048
       },
       {
-       "tok": "...",
-       "prob": 0.02084
+       "tok": "specialised",
+       "prob": 0.00869
       },
       {
-       "tok": "\\'",
-       "prob": 0.01839
+       "tok": "amongst",
+       "prob": 0.00869
       },
       {
-       "tok": " \n\n",
-       "prob": 0.01525
+       "tok": "neighbours",
+       "prob": 0.00816
+      },
+      {
+       "tok": "harbour",
+       "prob": 0.0072
+      },
+      {
+       "tok": "jewellery",
+       "prob": 0.0072
       }
      ],
      "track": {
       "colour": {
        "rank": 27,
+       "rank_word": 11,
        "prob": 0.005269
       },
       "color": {
        "rank": 95345,
+       "rank_word": 83670,
        "prob": 0.0
       },
       "shade": {
        "rank": 11678,
+       "rank_word": 9541,
        "prob": 0.0
       },
       "hue": {
        "rank": 10323,
+       "rank_word": 8297,
        "prob": 0.0
       }
      }
@@ -411,14 +434,6 @@
        "prob": 0.02533
       },
       {
-       "tok": "'**",
-       "prob": 0.021
-      },
-      {
-       "tok": "...'",
-       "prob": 0.021
-      },
-      {
        "tok": "favourites",
        "prob": 0.01853
       },
@@ -435,25 +450,37 @@
        "prob": 0.00932
       },
       {
-       "tok": " \r\n\r\n",
-       "prob": 0.00932
+       "tok": "amongst",
+       "prob": 0.00822
+      },
+      {
+       "tok": "flavour",
+       "prob": 0.00773
+      },
+      {
+       "tok": "specialised",
+       "prob": 0.00602
       }
      ],
      "track": {
       "colour": {
        "rank": 19,
+       "rank_word": 14,
        "prob": 0.003885
       },
       "color": {
        "rank": 160220,
+       "rank_word": 140225,
        "prob": 0.0
       },
       "shade": {
        "rank": 13080,
+       "rank_word": 10645,
        "prob": 0.0
       },
       "hue": {
        "rank": 6895,
+       "rank_word": 5187,
        "prob": 0.0
       }
      }
@@ -466,57 +493,61 @@
        "prob": 0.65809
       },
       {
-       "tok": "...'",
-       "prob": 0.02716
-      },
-      {
-       "tok": "'**",
-       "prob": 0.02252
-      },
-      {
-       "tok": "\\'",
-       "prob": 0.01454
-      },
-      {
        "tok": "favourites",
        "prob": 0.01366
-      },
-      {
-       "tok": "#",
-       "prob": 0.00999
       },
       {
        "tok": "colourful",
        "prob": 0.00778
       },
       {
-       "tok": "\\'",
-       "prob": 0.00731
-      },
-      {
        "tok": "colours",
        "prob": 0.00569
       },
       {
-       "tok": "',",
-       "prob": 0.00569
+       "tok": "whilst",
+       "prob": 0.00535
+      },
+      {
+       "tok": "goodies",
+       "prob": 0.00305
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00305
+      },
+      {
+       "tok": "flavour",
+       "prob": 0.00305
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.00305
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00286
       }
      ],
      "track": {
       "colour": {
        "rank": 27,
+       "rank_word": 12,
        "prob": 0.00223
       },
       "color": {
        "rank": 17761,
+       "rank_word": 14568,
        "prob": 0.0
       },
       "shade": {
        "rank": 5022,
+       "rank_word": 3626,
        "prob": 2e-06
       },
       "hue": {
        "rank": 3495,
+       "rank_word": 2371,
        "prob": 3e-06
       }
      }
@@ -529,14 +560,6 @@
        "prob": 0.71259
       },
       {
-       "tok": "...'",
-       "prob": 0.02596
-      },
-      {
-       "tok": "...**",
-       "prob": 0.02152
-      },
-      {
        "tok": "favourites",
        "prob": 0.01479
       },
@@ -545,41 +568,53 @@
        "prob": 0.01389
       },
       {
-       "tok": "'**",
-       "prob": 0.01226
-      },
-      {
        "tok": "colourful",
        "prob": 0.00843
       },
       {
-       "tok": "...',",
-       "prob": 0.00792
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.00744
-      },
-      {
-       "tok": "'?",
+       "tok": "flavour",
        "prob": 0.00451
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00451
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00351
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00351
+      },
+      {
+       "tok": "neighbour",
+       "prob": 0.0031
+      },
+      {
+       "tok": "jewellery",
+       "prob": 0.00213
       }
      ],
      "track": {
       "colour": {
        "rank": 11,
+       "rank_word": 5,
        "prob": 0.004511
       },
       "color": {
        "rank": 15635,
+       "rank_word": 12392,
        "prob": 0.0
       },
       "shade": {
        "rank": 3256,
+       "rank_word": 2021,
        "prob": 2e-06
       },
       "hue": {
        "rank": 1728,
+       "rank_word": 915,
        "prob": 5e-06
       }
      }
@@ -600,10 +635,6 @@
        "prob": 0.02012
       },
       {
-       "tok": "...**",
-       "prob": 0.01668
-      },
-      {
        "tok": "colourful",
        "prob": 0.01567
       },
@@ -612,37 +643,45 @@
        "prob": 0.00839
       },
       {
-       "tok": "...'",
-       "prob": 0.00695
-      },
-      {
        "tok": "Colour",
-       "prob": 0.00396
-      },
-      {
-       "tok": "'**",
        "prob": 0.00396
       },
       {
        "tok": "flavours",
        "prob": 0.00328
+      },
+      {
+       "tok": "flavour",
+       "prob": 0.00309
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00272
+      },
+      {
+       "tok": "jewellery",
+       "prob": 0.00256
       }
      ],
      "track": {
       "colour": {
        "rank": 5,
+       "rank_word": 4,
        "prob": 0.008387
       },
       "color": {
        "rank": 7169,
+       "rank_word": 5376,
        "prob": 0.0
       },
       "shade": {
        "rank": 2100,
+       "rank_word": 1376,
        "prob": 2e-06
       },
       "hue": {
        "rank": 1286,
+       "rank_word": 799,
        "prob": 4e-06
       }
      }
@@ -657,14 +696,6 @@
       {
        "tok": "colours",
        "prob": 0.06901
-      },
-      {
-       "tok": "...'",
-       "prob": 0.0224
-      },
-      {
-       "tok": "...**",
-       "prob": 0.0224
       },
       {
        "tok": "colour",
@@ -683,29 +714,41 @@
        "prob": 0.00727
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.00603
+       "tok": "flavours",
+       "prob": 0.00285
       },
       {
-       "tok": "...',",
-       "prob": 0.00532
+       "tok": "flavour",
+       "prob": 0.00251
+      },
+      {
+       "tok": "jewellery",
+       "prob": 0.00251
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00184
       }
      ],
      "track": {
       "colour": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.022404
       },
       "color": {
        "rank": 2322,
+       "rank_word": 1459,
        "prob": 3e-06
       },
       "shade": {
        "rank": 1835,
+       "rank_word": 1093,
        "prob": 3e-06
       },
       "hue": {
        "rank": 825,
+       "rank_word": 451,
        "prob": 1.1e-05
       }
      }
@@ -718,14 +761,6 @@
        "prob": 0.57317
       },
       {
-       "tok": "...**",
-       "prob": 0.11286
-      },
-      {
-       "tok": "...'",
-       "prob": 0.039
-      },
-      {
        "tok": "colours",
        "prob": 0.02088
       },
@@ -734,41 +769,53 @@
        "prob": 0.01435
       },
       {
-       "tok": "...',",
-       "prob": 0.00926
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.0087
-      },
-      {
        "tok": "colourful",
-       "prob": 0.00768
-      },
-      {
-       "tok": "...\\",
        "prob": 0.00768
       },
       {
        "tok": "colour",
        "prob": 0.00637
+      },
+      {
+       "tok": "Colour",
+       "prob": 0.00249
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.0022
+      },
+      {
+       "tok": "jewellery",
+       "prob": 0.00207
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00151
+      },
+      {
+       "tok": "love",
+       "prob": 0.00142
       }
      ],
      "track": {
       "colour": {
        "rank": 9,
+       "rank_word": 4,
        "prob": 0.006367
       },
       "color": {
        "rank": 2084,
+       "rank_word": 1322,
        "prob": 5e-06
       },
       "shade": {
        "rank": 3021,
+       "rank_word": 2047,
        "prob": 3e-06
       },
       "hue": {
        "rank": 1710,
+       "rank_word": 1042,
        "prob": 7e-06
       }
      }
@@ -789,10 +836,6 @@
        "prob": 0.00928
       },
       {
-       "tok": "...**",
-       "prob": 0.00723
-      },
-      {
        "tok": "colour",
        "prob": 0.00301
       },
@@ -805,33 +848,41 @@
        "prob": 0.00172
       },
       {
-       "tok": "...'",
-       "prob": 0.00142
-      },
-      {
        "tok": "Colour",
        "prob": 0.00142
       },
       {
-       "tok": "'**",
-       "prob": 0.00134
+       "tok": "flavours",
+       "prob": 0.00126
+      },
+      {
+       "tok": "beloved",
+       "prob": 0.00092
+      },
+      {
+       "tok": "jewellery",
+       "prob": 0.00086
       }
      ],
      "track": {
       "colour": {
        "rank": 4,
+       "rank_word": 3,
        "prob": 0.003014
       },
       "color": {
        "rank": 2665,
+       "rank_word": 1901,
        "prob": 2e-06
       },
       "shade": {
        "rank": 2480,
+       "rank_word": 1757,
        "prob": 2e-06
       },
       "hue": {
        "rank": 1443,
+       "rank_word": 979,
        "prob": 3e-06
       }
      }
@@ -844,57 +895,61 @@
        "prob": 0.83322
       },
       {
-       "tok": "...**",
-       "prob": 0.05004
-      },
-      {
        "tok": "favourites",
        "prob": 0.01841
-      },
-      {
-       "tok": "...'",
-       "prob": 0.00817
       },
       {
        "tok": "colours",
        "prob": 0.00561
       },
       {
-       "tok": "...\\",
-       "prob": 0.00437
-      },
-      {
-       "tok": "<|im_end|>",
-       "prob": 0.00301
-      },
-      {
-       "tok": "...\\",
-       "prob": 0.0022
-      },
-      {
-       "tok": "...",
-       "prob": 0.00194
-      },
-      {
-       "tok": "...</",
+       "tok": "colour",
        "prob": 0.00182
+      },
+      {
+       "tok": "fav",
+       "prob": 0.00125
+      },
+      {
+       "tok": "beloved",
+       "prob": 0.00118
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00111
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.00104
+      },
+      {
+       "tok": "love",
+       "prob": 0.00098
+      },
+      {
+       "tok": "favour",
+       "prob": 0.00098
       }
      ],
      "track": {
       "colour": {
        "rank": 10,
+       "rank_word": 3,
        "prob": 0.001823
       },
       "color": {
        "rank": 2093,
+       "rank_word": 1400,
        "prob": 2e-06
       },
       "shade": {
        "rank": 2386,
+       "rank_word": 1620,
        "prob": 2e-06
       },
       "hue": {
        "rank": 2059,
+       "rank_word": 1391,
        "prob": 2e-06
       }
      }
@@ -907,57 +962,61 @@
        "prob": 0.82428
       },
       {
-       "tok": "...**",
-       "prob": 0.02489
-      },
-      {
        "tok": "favourites",
        "prob": 0.01418
-      },
-      {
-       "tok": "...'",
-       "prob": 0.0086
-      },
-      {
-       "tok": "...\\",
-       "prob": 0.00522
-      },
-      {
-       "tok": "___",
-       "prob": 0.0049
       },
       {
        "tok": "colours",
        "prob": 0.0046
       },
       {
-       "tok": "...",
-       "prob": 0.00382
+       "tok": "beloved",
+       "prob": 0.00204
       },
       {
-       "tok": "...\\",
-       "prob": 0.00337
+       "tok": "fav",
+       "prob": 0.00192
       },
       {
-       "tok": "...',",
-       "prob": 0.00279
+       "tok": "colour",
+       "prob": 0.00169
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00169
+      },
+      {
+       "tok": "favour",
+       "prob": 0.00159
+      },
+      {
+       "tok": "love",
+       "prob": 0.00149
+      },
+      {
+       "tok": "favorite",
+       "prob": 0.00149
       }
      ],
      "track": {
       "colour": {
        "rank": 15,
+       "rank_word": 6,
        "prob": 0.001694
       },
       "color": {
        "rank": 1487,
+       "rank_word": 990,
        "prob": 5e-06
       },
       "shade": {
        "rank": 2127,
+       "rank_word": 1465,
        "prob": 3e-06
       },
       "hue": {
        "rank": 1667,
+       "rank_word": 1136,
        "prob": 4e-06
       }
      }
@@ -970,57 +1029,61 @@
        "prob": 0.56112
       },
       {
-       "tok": "...**",
-       "prob": 0.1252
-      },
-      {
-       "tok": "___",
-       "prob": 0.05219
-      },
-      {
-       "tok": "___",
-       "prob": 0.02465
-      },
-      {
-       "tok": "________",
-       "prob": 0.01405
-      },
-      {
        "tok": "favourites",
        "prob": 0.01165
       },
       {
-       "tok": "_________",
-       "prob": 0.01094
+       "tok": "colours",
+       "prob": 0.00313
       },
       {
-       "tok": "...'",
-       "prob": 0.01028
+       "tok": "favour",
+       "prob": 0.00179
       },
       {
-       "tok": "...\\",
-       "prob": 0.00907
+       "tok": "loved",
+       "prob": 0.00168
       },
       {
-       "tok": "...\\",
-       "prob": 0.00706
+       "tok": "beloved",
+       "prob": 0.00168
+      },
+      {
+       "tok": "fav",
+       "prob": 0.00158
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00148
+      },
+      {
+       "tok": "love",
+       "prob": 0.00123
+      },
+      {
+       "tok": "favorite",
+       "prob": 0.00115
       }
      ],
      "track": {
       "colour": {
        "rank": 38,
+       "rank_word": 10,
        "prob": 0.001083
       },
       "color": {
        "rank": 2550,
+       "rank_word": 1594,
        "prob": 4e-06
       },
       "shade": {
        "rank": 2394,
+       "rank_word": 1507,
        "prob": 4e-06
       },
       "hue": {
        "rank": 2018,
+       "rank_word": 1227,
        "prob": 5e-06
       }
      }
@@ -1037,15 +1100,7 @@
        "prob": 0.02309
       },
       {
-       "tok": "___",
-       "prob": 0.01025
-      },
-      {
        "tok": "favour",
-       "prob": 0.00484
-      },
-      {
-       "tok": "_________",
        "prob": 0.00484
       },
       {
@@ -1053,37 +1108,49 @@
        "prob": 0.00427
       },
       {
-       "tok": "___",
-       "prob": 0.00401
+       "tok": "fav",
+       "prob": 0.00178
       },
       {
-       "tok": "________",
-       "prob": 0.00401
+       "tok": "colour",
+       "prob": 0.00167
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.0019
+       "tok": "colourful",
+       "prob": 0.0013
       },
       {
-       "tok": "\\\"",
-       "prob": 0.0019
+       "tok": "avourite",
+       "prob": 0.0013
+      },
+      {
+       "tok": "favoured",
+       "prob": 0.00101
+      },
+      {
+       "tok": "favorite",
+       "prob": 0.00101
       }
      ],
      "track": {
       "colour": {
        "rank": 12,
+       "rank_word": 5,
        "prob": 0.001673
       },
       "color": {
        "rank": 2317,
+       "rank_word": 1629,
        "prob": 2e-06
       },
       "shade": {
        "rank": 1484,
+       "rank_word": 1026,
        "prob": 4e-06
       },
       "hue": {
        "rank": 1264,
+       "rank_word": 843,
        "prob": 5e-06
       }
      }
@@ -1100,22 +1167,6 @@
        "prob": 0.02482
       },
       {
-       "tok": "'.",
-       "prob": 0.01933
-      },
-      {
-       "tok": "___",
-       "prob": 0.01248
-      },
-      {
-       "tok": "\u2019.",
-       "prob": 0.00554
-      },
-      {
-       "tok": "\uff0e",
-       "prob": 0.00459
-      },
-      {
        "tok": "favour",
        "prob": 0.00431
       },
@@ -1124,29 +1175,49 @@
        "prob": 0.00381
       },
       {
-       "tok": "_________",
-       "prob": 0.00358
+       "tok": "fav",
+       "prob": 0.00246
       },
       {
-       "tok": "________",
-       "prob": 0.00358
+       "tok": "colour",
+       "prob": 0.00159
+      },
+      {
+       "tok": "favoured",
+       "prob": 0.00159
+      },
+      {
+       "tok": "beloved",
+       "prob": 0.00149
+      },
+      {
+       "tok": "avourite",
+       "prob": 0.0014
+      },
+      {
+       "tok": "colourful",
+       "prob": 0.00109
       }
      ],
      "track": {
       "colour": {
        "rank": 16,
+       "rank_word": 5,
        "prob": 0.001586
       },
       "color": {
        "rank": 3152,
+       "rank_word": 2304,
        "prob": 2e-06
       },
       "shade": {
        "rank": 1214,
+       "rank_word": 822,
        "prob": 6e-06
       },
       "hue": {
        "rank": 1187,
+       "rank_word": 796,
        "prob": 6e-06
       }
      }
@@ -1159,57 +1230,61 @@
        "prob": 0.85527
       },
       {
-       "tok": "___",
-       "prob": 0.01566
-      },
-      {
-       "tok": "'.",
-       "prob": 0.01472
-      },
-      {
        "tok": "favourites",
        "prob": 0.01299
-      },
-      {
-       "tok": "___",
-       "prob": 0.00838
-      },
-      {
-       "tok": "________",
-       "prob": 0.00576
-      },
-      {
-       "tok": "_________",
-       "prob": 0.00541
       },
       {
        "tok": "colours",
        "prob": 0.00328
       },
       {
-       "tok": "\\.",
-       "prob": 0.00272
+       "tok": "favour",
+       "prob": 0.00212
       },
       {
-       "tok": "_.",
-       "prob": 0.00272
+       "tok": "avourite",
+       "prob": 0.00155
+      },
+      {
+       "tok": "flavour",
+       "prob": 0.00121
+      },
+      {
+       "tok": "colour",
+       "prob": 0.00094
+      },
+      {
+       "tok": "favoured",
+       "prob": 0.00088
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00088
+      },
+      {
+       "tok": "fav",
+       "prob": 0.00083
       }
      ],
      "track": {
       "colour": {
        "rank": 20,
+       "rank_word": 6,
        "prob": 0.000941
       },
       "color": {
        "rank": 4069,
+       "rank_word": 2918,
        "prob": 1e-06
       },
       "shade": {
        "rank": 1285,
+       "rank_word": 818,
        "prob": 4e-06
       },
       "hue": {
        "rank": 1260,
+       "rank_word": 794,
        "prob": 4e-06
       }
      }
@@ -1222,57 +1297,61 @@
        "prob": 0.62719
       },
       {
-       "tok": "'.",
-       "prob": 0.0401
-      },
-      {
-       "tok": "**.",
-       "prob": 0.03538
+       "tok": "favourites",
+       "prob": 0.01302
       },
       {
        "tok": "colours",
        "prob": 0.01302
       },
       {
-       "tok": "favourites",
-       "prob": 0.01302
+       "tok": "avourite",
+       "prob": 0.00615
       },
       {
-       "tok": "\u2019.",
-       "prob": 0.00952
+       "tok": "colour",
+       "prob": 0.00578
       },
       {
-       "tok": ".'.",
-       "prob": 0.00895
+       "tok": "anything",
+       "prob": 0.00256
       },
       {
-       "tok": "...**",
-       "prob": 0.0084
+       "tok": "flavour",
+       "prob": 0.00165
       },
       {
-       "tok": "_________",
-       "prob": 0.0079
+       "tok": "favour",
+       "prob": 0.00146
       },
       {
-       "tok": "___",
-       "prob": 0.0079
+       "tok": "thing",
+       "prob": 0.00146
+      },
+      {
+       "tok": "favorite",
+       "prob": 0.00137
       }
      ],
      "track": {
       "colour": {
        "rank": 14,
+       "rank_word": 4,
        "prob": 0.005776
       },
       "color": {
        "rank": 1171,
+       "rank_word": 625,
        "prob": 1.3e-05
       },
       "shade": {
        "rank": 1577,
+       "rank_word": 910,
        "prob": 9e-06
       },
       "hue": {
        "rank": 1196,
+       "rank_word": 669,
        "prob": 1.2e-05
       }
      }
@@ -1293,49 +1372,53 @@
        "prob": 0.07132
       },
       {
-       "tok": "'.",
-       "prob": 0.06294
+       "tok": "Colour",
+       "prob": 0.01239
       },
       {
-       "tok": "\\.",
-       "prob": 0.03369
+       "tok": "Colour",
+       "prob": 0.008
       },
       {
-       "tok": "\uff0e",
-       "prob": 0.02973
+       "tok": "colour",
+       "prob": 0.00585
       },
       {
-       "tok": "\\\"",
-       "prob": 0.01803
+       "tok": "colors",
+       "prob": 0.00229
       },
       {
-       "tok": "**.",
-       "prob": 0.01694
+       "tok": "anything",
+       "prob": 0.00215
       },
       {
-       "tok": ".",
-       "prob": 0.01591
+       "tok": "flavour",
+       "prob": 0.00168
       },
       {
-       "tok": ".\\",
-       "prob": 0.01591
+       "tok": "avourite",
+       "prob": 0.00158
       }
      ],
      "track": {
       "colour": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.193875
       },
       "color": {
        "rank": 63,
+       "rank_word": 16,
        "prob": 0.00058
       },
       "shade": {
        "rank": 580,
+       "rank_word": 217,
        "prob": 2.1e-05
       },
       "hue": {
        "rank": 225,
+       "rank_word": 64,
        "prob": 8.4e-05
       }
      }
@@ -1368,37 +1451,41 @@
        "prob": 0.00486
       },
       {
-       "tok": "**.",
-       "prob": 0.00355
-      },
-      {
        "tok": "favoured",
        "prob": 0.00277
       },
       {
-       "tok": "'.",
-       "prob": 0.0026
-      },
-      {
        "tok": "favourites",
        "prob": 0.00244
+      },
+      {
+       "tok": "flavours",
+       "prob": 0.00179
+      },
+      {
+       "tok": "flavour",
+       "prob": 0.00168
       }
      ],
      "track": {
       "colour": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.206531
       },
       "color": {
        "rank": 109,
+       "rank_word": 51,
        "prob": 2.1e-05
       },
       "shade": {
        "rank": 401,
+       "rank_word": 216,
        "prob": 3e-06
       },
       "hue": {
        "rank": 277,
+       "rank_word": 144,
        "prob": 5e-06
       }
      }
@@ -1450,18 +1537,22 @@
      "track": {
       "colour": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.248683
       },
       "color": {
        "rank": 15,
+       "rank_word": 14,
        "prob": 0.000146
       },
       "shade": {
        "rank": 265,
+       "rank_word": 182,
        "prob": 1e-06
       },
       "hue": {
        "rank": 46,
+       "rank_word": 37,
        "prob": 9e-06
       }
      }
@@ -1486,11 +1577,11 @@
        "prob": 0.0053
       },
       {
-       "tok": "Colour",
+       "tok": "colors",
        "prob": 0.00413
       },
       {
-       "tok": "colors",
+       "tok": "Colour",
        "prob": 0.00413
       },
       {
@@ -1513,18 +1604,22 @@
      "track": {
       "colour": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.255214
       },
       "color": {
        "rank": 7,
+       "rank_word": 7,
        "prob": 0.000633
       },
       "shade": {
        "rank": 136,
+       "rank_word": 107,
        "prob": 1e-06
       },
       "hue": {
        "rank": 24,
+       "rank_word": 23,
        "prob": 3.1e-05
       }
      }
@@ -1549,11 +1644,11 @@
        "prob": 0.00546
       },
       {
-       "tok": "color",
+       "tok": "Colour",
        "prob": 0.00375
       },
       {
-       "tok": "Colour",
+       "tok": "color",
        "prob": 0.00375
       },
       {
@@ -1576,18 +1671,22 @@
      "track": {
       "colour": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.337747
       },
       "color": {
        "rank": 5,
+       "rank_word": 4,
        "prob": 0.003752
       },
       "shade": {
        "rank": 50,
+       "rank_word": 40,
        "prob": 3e-06
       },
       "hue": {
        "rank": 18,
+       "rank_word": 18,
        "prob": 3.7e-05
       }
      }
@@ -1639,18 +1738,22 @@
      "track": {
       "colour": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.159061
       },
       "color": {
        "rank": 4,
+       "rank_word": 4,
        "prob": 0.002269
       },
       "shade": {
        "rank": 11,
+       "rank_word": 11,
        "prob": 0.000186
       },
       "hue": {
        "rank": 8,
+       "rank_word": 8,
        "prob": 0.000271
       }
      }
@@ -1702,18 +1805,22 @@
      "track": {
       "colour": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.599284
       },
       "color": {
        "rank": 3,
+       "rank_word": 3,
        "prob": 0.014094
       },
       "shade": {
        "rank": 53,
+       "rank_word": 44,
        "prob": 0.0
       },
       "hue": {
        "rank": 20,
+       "rank_word": 18,
        "prob": 3e-06
       }
      }
@@ -1738,11 +1845,11 @@
        "prob": 0.01347
       },
       {
-       "tok": "colour",
+       "tok": "\u989c\u8272",
        "prob": 0.003
       },
       {
-       "tok": "\u989c\u8272",
+       "tok": "colour",
        "prob": 0.003
       },
       {
@@ -1765,18 +1872,22 @@
      "track": {
       "colour": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.735298
       },
       "color": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.032307
       },
       "shade": {
        "rank": 42,
+       "rank_word": 37,
        "prob": 0.0
       },
       "hue": {
        "rank": 22,
+       "rank_word": 20,
        "prob": 3e-06
       }
      }
@@ -1828,18 +1939,22 @@
      "track": {
       "colour": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.701787
       },
       "color": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.201065
       },
       "shade": {
        "rank": 11,
+       "rank_word": 10,
        "prob": 8.7e-05
       },
       "hue": {
        "rank": 14,
+       "rank_word": 14,
        "prob": 4.6e-05
       }
      }
@@ -1891,18 +2006,22 @@
      "track": {
       "colour": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.968454
       },
       "color": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.029245
       },
       "shade": {
        "rank": 8,
+       "rank_word": 8,
        "prob": 2.7e-05
       },
       "hue": {
        "rank": 11,
+       "rank_word": 11,
        "prob": 8e-06
       }
      }
@@ -1954,18 +2073,22 @@
      "track": {
       "colour": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.921599
       },
       "color": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.075649
       },
       "shade": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.00084
       },
       "hue": {
        "rank": 6,
+       "rank_word": 6,
        "prob": 0.000188
       }
      }
@@ -1998,10 +2121,6 @@
        "prob": 0.0004
       },
       {
-       "tok": ".",
-       "prob": 0.00024
-      },
-      {
        "tok": "Colour",
        "prob": 0.00013
       },
@@ -2012,23 +2131,31 @@
       {
        "tok": "color",
        "prob": 3e-05
+      },
+      {
+       "tok": "colors",
+       "prob": 2e-05
       }
      ],
      "track": {
       "colour": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.92829
       },
       "color": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.067245
       },
       "shade": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.002031
       },
       "hue": {
        "rank": 4,
+       "rank_word": 4,
        "prob": 0.000582
       }
      }
@@ -2044,19 +2171,11 @@
      "prob": 0.23967
     },
     {
-     "tok": ".",
-     "prob": 0.11321
-    },
-    {
      "tok": "color",
      "prob": 0.06867
     },
     {
      "tok": "hue",
-     "prob": 0.01532
-    },
-    {
-     "tok": ",",
      "prob": 0.01532
     },
     {
@@ -2068,15 +2187,22 @@
      "prob": 0.00321
     },
     {
-     "tok": ";",
-     "prob": 0.00207
+     "tok": "thing",
+     "prob": 0.00081
     },
     {
-     "tok": "\n",
-     "prob": 0.00152
+     "tok": "tone",
+     "prob": 0.00067
+    },
+    {
+     "tok": "of",
+     "prob": 0.00049
+    },
+    {
+     "tok": "shirt",
+     "prob": 0.00043
     }
-   ],
-   "generated": "colour."
+   ]
   },
   {
    "name": "dont-say-fear",
@@ -2110,6 +2236,8 @@
    ],
    "read_pos": -1,
    "read_token": "I",
+   "answer": null,
+   "generated": "don't experience fear in the",
    "track_words": [
     "death",
     "fear",
@@ -2117,7 +2245,6 @@
     "loss",
     "dark"
    ],
-   "answer": null,
    "layers": [
     0,
     1,
@@ -2152,6 +2279,7 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
@@ -2159,14 +2287,6 @@
       {
        "tok": "s",
        "prob": 0.00833
-      },
-      {
-       "tok": "-",
-       "prob": 0.00833
-      },
-      {
-       "tok": ",",
-       "prob": 0.0061
       },
       {
        "tok": "n",
@@ -2185,37 +2305,50 @@
        "prob": 0.00347
       },
       {
-       "tok": ")",
-       "prob": 0.00337
-      },
-      {
        "tok": "di",
        "prob": 0.00316
       },
       {
        "tok": "a",
        "prob": 0.00307
+      },
+      {
+       "tok": "T",
+       "prob": 0.0027
+      },
+      {
+       "tok": "inge",
+       "prob": 0.0027
+      },
+      {
+       "tok": "ri",
+       "prob": 0.00217
       }
      ],
      "track": {
       "death": {
        "rank": 176,
+       "rank_word": 154,
        "prob": 0.000402
       },
       "fear": {
        "rank": 6929,
+       "rank_word": 6577,
        "prob": 2.1e-05
       },
       "failure": {
        "rank": 90520,
+       "rank_word": 82104,
        "prob": 1e-06
       },
       "loss": {
        "rank": 7759,
+       "rank_word": 7269,
        "prob": 1.9e-05
       },
       "dark": {
        "rank": 48961,
+       "rank_word": 44871,
        "prob": 3e-06
       }
      }
@@ -2223,30 +2356,6 @@
     {
      "layer": 1,
      "top": [
-      {
-       "tok": "\u3000",
-       "prob": 0.03796
-      },
-      {
-       "tok": "*",
-       "prob": 0.01022
-      },
-      {
-       "tok": "<",
-       "prob": 0.00702
-      },
-      {
-       "tok": "``",
-       "prob": 0.00582
-      },
-      {
-       "tok": "-",
-       "prob": 0.004
-      },
-      {
-       "tok": "...",
-       "prob": 0.00312
-      },
       {
        "tok": "\u4e28",
        "prob": 0.00293
@@ -2256,33 +2365,62 @@
        "prob": 0.00243
       },
       {
-       "tok": "[",
-       "prob": 0.00243
+       "tok": "\u8aac",
+       "prob": 0.00147
       },
       {
-       "tok": ",",
-       "prob": 0.00221
+       "tok": "I",
+       "prob": 0.00134
+      },
+      {
+       "tok": "\u00c2",
+       "prob": 0.00134
+      },
+      {
+       "tok": "IGATION",
+       "prob": 0.00104
+      },
+      {
+       "tok": "\u0436\u0435\u043b\u0430\u043d\u0438\u0438",
+       "prob": 0.00098
+      },
+      {
+       "tok": "\u5ddd",
+       "prob": 0.00092
+      },
+      {
+       "tok": "GI",
+       "prob": 0.00092
+      },
+      {
+       "tok": "\uae50",
+       "prob": 0.00087
       }
      ],
      "track": {
       "death": {
        "rank": 66,
+       "rank_word": 41,
        "prob": 0.000478
       },
       "fear": {
        "rank": 2646,
+       "rank_word": 2331,
        "prob": 4.3e-05
       },
       "failure": {
        "rank": 58661,
+       "rank_word": 52662,
        "prob": 3e-06
       },
       "loss": {
        "rank": 23147,
+       "rank_word": 20783,
        "prob": 8e-06
       },
       "dark": {
        "rank": 31812,
+       "rank_word": 28477,
        "prob": 6e-06
       }
      }
@@ -2291,65 +2429,70 @@
      "layer": 2,
      "top": [
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.20363
-      },
-      {
        "tok": "\u4e28",
        "prob": 0.03539
-      },
-      {
-       "tok": "\u00b7",
-       "prob": 0.01223
-      },
-      {
-       "tok": "\n",
-       "prob": 0.0084
-      },
-      {
-       "tok": "|",
-       "prob": 0.00578
       },
       {
        "tok": "at",
        "prob": 0.0045
       },
       {
-       "tok": "\u3000",
-       "prob": 0.00397
-      },
-      {
        "tok": "I",
        "prob": 0.0035
       },
       {
-       "tok": "|",
-       "prob": 0.0035
+       "tok": "a",
+       "prob": 0.00219
       },
       {
-       "tok": "\u00b7",
-       "prob": 0.0029
+       "tok": "the",
+       "prob": 0.00176
+      },
+      {
+       "tok": "\u00c2",
+       "prob": 0.0016
+      },
+      {
+       "tok": "there",
+       "prob": 0.0016
+      },
+      {
+       "tok": "many",
+       "prob": 0.00146
+      },
+      {
+       "tok": "the",
+       "prob": 0.00137
+      },
+      {
+       "tok": "and",
+       "prob": 0.00129
       }
      ],
      "track": {
       "death": {
        "rank": 482,
+       "rank_word": 413,
        "prob": 0.00012
       },
       "fear": {
        "rank": 8637,
+       "rank_word": 7785,
        "prob": 1.3e-05
       },
       "failure": {
        "rank": 123284,
+       "rank_word": 107586,
        "prob": 1e-06
       },
       "loss": {
        "rank": 36063,
+       "rank_word": 31611,
        "prob": 3e-06
       },
       "dark": {
        "rank": 21672,
+       "rank_word": 19159,
        "prob": 6e-06
       }
      }
@@ -2358,65 +2501,70 @@
      "layer": 3,
      "top": [
       {
-       "tok": "\u3000",
-       "prob": 0.76454
-      },
-      {
        "tok": "\u4e28",
        "prob": 0.05203
       },
       {
-       "tok": "**",
-       "prob": 0.02309
+       "tok": "I",
+       "prob": 0.00401
       },
       {
-       "tok": "\\",
-       "prob": 0.01491
+       "tok": "s",
+       "prob": 0.00074
       },
       {
-       "tok": "\\n",
-       "prob": 0.00904
+       "tok": "\u4e00",
+       "prob": 0.0007
       },
       {
-       "tok": "_",
-       "prob": 0.00849
+       "tok": "\u4e8c",
+       "prob": 0.00045
       },
       {
-       "tok": "[",
-       "prob": 0.00704
+       "tok": "o",
+       "prob": 0.0004
       },
       {
-       "tok": "____",
-       "prob": 0.00661
+       "tok": "II",
+       "prob": 0.00033
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00584
+       "tok": "Il",
+       "prob": 0.00027
       },
       {
-       "tok": "|",
-       "prob": 0.00455
+       "tok": "I",
+       "prob": 0.00026
+      },
+      {
+       "tok": "t",
+       "prob": 0.00026
       }
      ],
      "track": {
       "death": {
        "rank": 1813,
+       "rank_word": 1284,
        "prob": 3e-06
       },
       "fear": {
        "rank": 8979,
+       "rank_word": 7435,
        "prob": 1e-06
       },
       "failure": {
        "rank": 62178,
+       "rank_word": 53549,
        "prob": 0.0
       },
       "loss": {
        "rank": 30267,
+       "rank_word": 25750,
        "prob": 0.0
       },
       "dark": {
        "rank": 26270,
+       "rank_word": 22363,
        "prob": 0.0
       }
      }
@@ -2425,65 +2573,70 @@
      "layer": 4,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.38966
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.14335
-      },
-      {
-       "tok": ";",
-       "prob": 0.09852
-      },
-      {
-       "tok": "**",
-       "prob": 0.03858
-      },
-      {
-       "tok": "\\",
-       "prob": 0.03199
-      },
-      {
-       "tok": ",",
-       "prob": 0.02491
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.02198
-      },
-      {
        "tok": "\u4e28",
        "prob": 0.0194
       },
       {
-       "tok": ".I",
-       "prob": 0.01608
+       "tok": "o",
+       "prob": 0.00263
       },
       {
-       "tok": "\u2014",
-       "prob": 0.01511
+       "tok": "I",
+       "prob": 0.00247
+      },
+      {
+       "tok": "I",
+       "prob": 0.00232
+      },
+      {
+       "tok": "i",
+       "prob": 0.00103
+      },
+      {
+       "tok": "e",
+       "prob": 0.00062
+      },
+      {
+       "tok": "the",
+       "prob": 0.00046
+      },
+      {
+       "tok": "you",
+       "prob": 0.00036
+      },
+      {
+       "tok": "ii",
+       "prob": 0.00031
+      },
+      {
+       "tok": "a",
+       "prob": 0.0002
       }
      ],
      "track": {
       "death": {
        "rank": 6998,
+       "rank_word": 5227,
        "prob": 1e-06
       },
       "fear": {
        "rank": 8258,
+       "rank_word": 6238,
        "prob": 0.0
       },
       "failure": {
        "rank": 62192,
+       "rank_word": 52389,
        "prob": 0.0
       },
       "loss": {
        "rank": 35875,
+       "rank_word": 29771,
        "prob": 0.0
       },
       "dark": {
        "rank": 29150,
+       "rank_word": 24136,
        "prob": 0.0
       }
      }
@@ -2492,65 +2645,70 @@
      "layer": 5,
      "top": [
       {
-       "tok": "\ufffd",
-       "prob": 0.36819
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.28675
-      },
-      {
-       "tok": "\u3000",
-       "prob": 0.06011
-      },
-      {
        "tok": "\u4e28",
        "prob": 0.04983
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.03217
-      },
-      {
-       "tok": "**",
-       "prob": 0.01341
-      },
-      {
-       "tok": "\u00b7",
-       "prob": 0.01341
       },
       {
        "tok": "I",
        "prob": 0.0126
       },
       {
-       "tok": "\u2014",
-       "prob": 0.01184
+       "tok": "I",
+       "prob": 0.0016
       },
       {
-       "tok": "\u2026I",
-       "prob": 0.00981
+       "tok": "o",
+       "prob": 0.0016
+      },
+      {
+       "tok": "i",
+       "prob": 0.00125
+      },
+      {
+       "tok": "s",
+       "prob": 0.00076
+      },
+      {
+       "tok": "\u30fc",
+       "prob": 0.00067
+      },
+      {
+       "tok": "\u4e00",
+       "prob": 0.00055
+      },
+      {
+       "tok": "i",
+       "prob": 0.00043
+      },
+      {
+       "tok": "t",
+       "prob": 0.0004
       }
      ],
      "track": {
       "death": {
        "rank": 8819,
+       "rank_word": 7099,
        "prob": 1e-06
       },
       "fear": {
        "rank": 4444,
+       "rank_word": 3367,
        "prob": 1e-06
       },
       "failure": {
        "rank": 51241,
+       "rank_word": 43312,
        "prob": 0.0
       },
       "loss": {
        "rank": 18711,
+       "rank_word": 15592,
        "prob": 0.0
       },
       "dark": {
        "rank": 24072,
+       "rank_word": 20147,
        "prob": 0.0
       }
      }
@@ -2558,22 +2716,6 @@
     {
      "layer": 6,
      "top": [
-      {
-       "tok": "\ufffd",
-       "prob": 0.28094
-      },
-      {
-       "tok": "**",
-       "prob": 0.1704
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.06269
-      },
-      {
-       "tok": "\u3000",
-       "prob": 0.06269
-      },
       {
        "tok": "\u4e28",
        "prob": 0.04047
@@ -2583,41 +2725,62 @@
        "prob": 0.03355
       },
       {
-       "tok": "!",
-       "prob": 0.02455
+       "tok": "o",
+       "prob": 0.00621
       },
       {
-       "tok": ";",
-       "prob": 0.01585
+       "tok": "I",
+       "prob": 0.00454
       },
       {
-       "tok": "____",
-       "prob": 0.01314
+       "tok": "you",
+       "prob": 0.00332
       },
       {
-       "tok": "\u00b7",
-       "prob": 0.00961
+       "tok": "i",
+       "prob": 0.00243
+      },
+      {
+       "tok": "very",
+       "prob": 0.00157
+      },
+      {
+       "tok": "there",
+       "prob": 0.0013
+      },
+      {
+       "tok": "there",
+       "prob": 0.0013
+      },
+      {
+       "tok": "e",
+       "prob": 0.00108
       }
      ],
      "track": {
       "death": {
        "rank": 7349,
+       "rank_word": 5847,
        "prob": 2e-06
       },
       "fear": {
        "rank": 2927,
+       "rank_word": 2167,
        "prob": 5e-06
       },
       "failure": {
        "rank": 56567,
+       "rank_word": 48020,
        "prob": 0.0
       },
       "loss": {
        "rank": 22544,
+       "rank_word": 18831,
        "prob": 0.0
       },
       "dark": {
        "rank": 16905,
+       "rank_word": 14231,
        "prob": 1e-06
       }
      }
@@ -2626,65 +2789,70 @@
      "layer": 7,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.33204
+       "tok": "\u4e28",
+       "prob": 0.00474
       },
       {
-       "tok": "\n\n",
-       "prob": 0.25859
+       "tok": "I",
+       "prob": 0.00254
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.1078
+       "tok": "I",
+       "prob": 0.00112
       },
       {
-       "tok": "\ufffd",
-       "prob": 0.04783
+       "tok": "\u4e00",
+       "prob": 0.00016
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.03725
+       "tok": "i",
+       "prob": 0.00015
       },
       {
-       "tok": "**",
-       "prob": 0.035
+       "tok": "you",
+       "prob": 0.00015
       },
       {
-       "tok": "____",
-       "prob": 0.0256
+       "tok": "myself",
+       "prob": 0.00015
       },
       {
-       "tok": "\u3000",
-       "prob": 0.02123
+       "tok": "i",
+       "prob": 0.00014
       },
       {
-       "tok": "  \n\n",
-       "prob": 0.01553
+       "tok": "o",
+       "prob": 0.00011
       },
       {
-       "tok": "_",
-       "prob": 0.01136
+       "tok": "s",
+       "prob": 8e-05
       }
      ],
      "track": {
       "death": {
        "rank": 57136,
+       "rank_word": 48538,
        "prob": 0.0
       },
       "fear": {
        "rank": 7764,
+       "rank_word": 5992,
        "prob": 0.0
       },
       "failure": {
        "rank": 46545,
+       "rank_word": 39577,
        "prob": 0.0
       },
       "loss": {
        "rank": 32993,
+       "rank_word": 27726,
        "prob": 0.0
       },
       "dark": {
        "rank": 29629,
+       "rank_word": 24832,
        "prob": 0.0
       }
      }
@@ -2693,65 +2861,70 @@
      "layer": 8,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.22553
+       "tok": "\u4e28",
+       "prob": 0.00991
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.19903
+       "tok": "I",
+       "prob": 0.00284
       },
       {
-       "tok": "\ufffd",
-       "prob": 0.08297
+       "tok": "I",
+       "prob": 0.00195
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.06878
+       "tok": "AI",
+       "prob": 0.00087
       },
       {
-       "tok": "\n\n",
-       "prob": 0.06878
+       "tok": "you",
+       "prob": 0.00063
       },
       {
-       "tok": "\u3000",
-       "prob": 0.04172
+       "tok": "AI",
+       "prob": 0.00056
       },
       {
-       "tok": "____",
-       "prob": 0.03052
+       "tok": "myself",
+       "prob": 0.00046
       },
       {
-       "tok": "...",
-       "prob": 0.02233
+       "tok": "i",
+       "prob": 0.00022
       },
       {
-       "tok": "!",
-       "prob": 0.02098
+       "tok": "o",
+       "prob": 0.00021
       },
       {
-       "tok": "  \n\n",
-       "prob": 0.01535
+       "tok": "you",
+       "prob": 0.00018
       }
      ],
      "track": {
       "death": {
        "rank": 56848,
+       "rank_word": 47697,
        "prob": 0.0
       },
       "fear": {
        "rank": 10145,
+       "rank_word": 7895,
        "prob": 0.0
       },
       "failure": {
        "rank": 38917,
+       "rank_word": 32263,
        "prob": 0.0
       },
       "loss": {
        "rank": 41928,
+       "rank_word": 34907,
        "prob": 0.0
       },
       "dark": {
        "rank": 36267,
+       "rank_word": 30324,
        "prob": 0.0
       }
      }
@@ -2760,65 +2933,70 @@
      "layer": 9,
      "top": [
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.57795
+       "tok": "AI",
+       "prob": 0.00208
       },
       {
-       "tok": "\n\n",
-       "prob": 0.16559
+       "tok": "\u4e28",
+       "prob": 0.00135
       },
       {
-       "tok": "\u2026",
-       "prob": 0.06903
+       "tok": "I",
+       "prob": 0.00082
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.04744
+       "tok": "AI",
+       "prob": 0.00068
       },
       {
-       "tok": "____",
-       "prob": 0.02241
+       "tok": "I",
+       "prob": 0.00039
       },
       {
-       "tok": "...",
-       "prob": 0.01858
+       "tok": "myself",
+       "prob": 0.00015
       },
       {
-       "tok": "\\n",
-       "prob": 0.00994
+       "tok": "you",
+       "prob": 0.00011
       },
       {
-       "tok": "  \n\n",
-       "prob": 0.00774
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00011
       },
       {
-       "tok": "____",
-       "prob": 0.00642
+       "tok": "IoT",
+       "prob": 0.0001
       },
       {
-       "tok": "<|im_end|>",
-       "prob": 0.00441
+       "tok": "ai",
+       "prob": 8e-05
       }
      ],
      "track": {
       "death": {
        "rank": 76712,
+       "rank_word": 65007,
        "prob": 0.0
       },
       "fear": {
        "rank": 29953,
+       "rank_word": 25100,
        "prob": 0.0
       },
       "failure": {
        "rank": 72610,
+       "rank_word": 61468,
        "prob": 0.0
       },
       "loss": {
        "rank": 58567,
+       "rank_word": 49358,
        "prob": 0.0
       },
       "dark": {
        "rank": 73209,
+       "rank_word": 62056,
        "prob": 0.0
       }
      }
@@ -2827,65 +3005,70 @@
      "layer": 10,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.11554
-      },
-      {
        "tok": "AI",
        "prob": 0.08453
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.06583
-      },
-      {
-       "tok": "\u2026\u2026",
-       "prob": 0.0331
-      },
-      {
-       "tok": "\u2014I",
-       "prob": 0.02921
-      },
-      {
        "tok": "AI",
        "prob": 0.02921
-      },
-      {
-       "tok": "\\n",
-       "prob": 0.02578
       },
       {
        "tok": "\u4e28",
        "prob": 0.02137
       },
       {
-       "tok": "\u3000",
-       "prob": 0.02008
+       "tok": "IoT",
+       "prob": 0.00739
       },
       {
-       "tok": "\ufffd",
-       "prob": 0.01772
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00575
+      },
+      {
+       "tok": "robot",
+       "prob": 0.00477
+      },
+      {
+       "tok": "myself",
+       "prob": 0.00395
+      },
+      {
+       "tok": "robots",
+       "prob": 0.0024
+      },
+      {
+       "tok": "I",
+       "prob": 0.00225
+      },
+      {
+       "tok": "I",
+       "prob": 0.00212
       }
      ],
      "track": {
       "death": {
        "rank": 147273,
+       "rank_word": 125815,
        "prob": 0.0
       },
       "fear": {
        "rank": 64265,
+       "rank_word": 53832,
        "prob": 0.0
       },
       "failure": {
        "rank": 174106,
+       "rank_word": 149620,
        "prob": 0.0
       },
       "loss": {
        "rank": 173631,
+       "rank_word": 149216,
        "prob": 0.0
       },
       "dark": {
        "rank": 130415,
+       "rank_word": 110978,
        "prob": 0.0
       }
      }
@@ -2898,61 +3081,66 @@
        "prob": 0.05088
       },
       {
-       "tok": "\u2026",
-       "prob": 0.05088
-      },
-      {
-       "tok": "\\n",
-       "prob": 0.04218
-      },
-      {
-       "tok": "\ufffd",
-       "prob": 0.02558
-      },
-      {
-       "tok": "\u2014I",
-       "prob": 0.02403
-      },
-      {
-       "tok": "\\u",
-       "prob": 0.02403
-      },
-      {
-       "tok": "____",
-       "prob": 0.02258
-      },
-      {
        "tok": "\u4e28",
        "prob": 0.02121
       },
       {
-       "tok": "\u3010",
-       "prob": 0.02121
+       "tok": "AI",
+       "prob": 0.01872
       },
       {
-       "tok": "  \n\n",
-       "prob": 0.01872
+       "tok": "IoT",
+       "prob": 0.0078
+      },
+      {
+       "tok": "robot",
+       "prob": 0.00445
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00346
+      },
+      {
+       "tok": "myself",
+       "prob": 0.0027
+      },
+      {
+       "tok": "science",
+       "prob": 0.00253
+      },
+      {
+       "tok": "Internet",
+       "prob": 0.00238
+      },
+      {
+       "tok": "robots",
+       "prob": 0.00238
       }
      ],
      "track": {
       "death": {
        "rank": 112784,
+       "rank_word": 95910,
        "prob": 0.0
       },
       "fear": {
        "rank": 18214,
+       "rank_word": 15077,
        "prob": 2e-06
       },
       "failure": {
        "rank": 167655,
+       "rank_word": 144035,
        "prob": 0.0
       },
       "loss": {
        "rank": 168390,
+       "rank_word": 144759,
        "prob": 0.0
       },
       "dark": {
        "rank": 146448,
+       "rank_word": 125212,
        "prob": 0.0
       }
      }
@@ -2960,26 +3148,6 @@
     {
      "layer": 12,
      "top": [
-      {
-       "tok": "...",
-       "prob": 0.27575
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.10799
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.08952
-      },
-      {
-       "tok": "[...]",
-       "prob": 0.02906
-      },
-      {
-       "tok": "\u2026\u2026",
-       "prob": 0.0273
-      },
       {
        "tok": "myself",
        "prob": 0.02264
@@ -2989,37 +3157,62 @@
        "prob": 0.01556
       },
       {
-       "tok": "\u3000",
-       "prob": 0.01138
+       "tok": "my",
+       "prob": 0.00572
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00886
+       "tok": "AI",
+       "prob": 0.00474
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00735
+       "tok": "\u4e28",
+       "prob": 0.00474
+      },
+      {
+       "tok": "science",
+       "prob": 0.00288
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.0027
+      },
+      {
+       "tok": "IoT",
+       "prob": 0.00254
+      },
+      {
+       "tok": "robots",
+       "prob": 0.00239
+      },
+      {
+       "tok": "I",
+       "prob": 0.00224
       }
      ],
      "track": {
       "death": {
        "rank": 35856,
+       "rank_word": 30594,
        "prob": 1e-06
       },
       "fear": {
        "rank": 3009,
+       "rank_word": 2399,
        "prob": 1.3e-05
       },
       "failure": {
        "rank": 123688,
+       "rank_word": 105802,
        "prob": 0.0
       },
       "loss": {
        "rank": 129449,
+       "rank_word": 110915,
        "prob": 0.0
       },
       "dark": {
        "rank": 93293,
+       "rank_word": 79630,
        "prob": 0.0
       }
      }
@@ -3028,65 +3221,70 @@
      "layer": 13,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.64817
-      },
-      {
-       "tok": "...",
-       "prob": 0.06029
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.04144
-      },
-      {
        "tok": "myself",
        "prob": 0.03657
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.02361
-      },
-      {
-       "tok": "**",
-       "prob": 0.01345
-      },
-      {
-       "tok": "\u2026\u2026",
-       "prob": 0.01345
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.01115
+       "tok": "my",
+       "prob": 0.00984
       },
       {
        "tok": "AI",
        "prob": 0.00984
       },
       {
-       "tok": "my",
-       "prob": 0.00984
+       "tok": "talking",
+       "prob": 0.00194
+      },
+      {
+       "tok": "I",
+       "prob": 0.00151
+      },
+      {
+       "tok": "science",
+       "prob": 0.00104
+      },
+      {
+       "tok": "human",
+       "prob": 0.00104
+      },
+      {
+       "tok": "\u4e28",
+       "prob": 0.00097
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.00092
+      },
+      {
+       "tok": "ourselves",
+       "prob": 0.00092
       }
      ],
      "track": {
       "death": {
        "rank": 19179,
+       "rank_word": 16471,
        "prob": 1e-06
       },
       "fear": {
        "rank": 5184,
+       "rank_word": 4395,
        "prob": 2e-06
       },
       "failure": {
        "rank": 99193,
+       "rank_word": 85392,
        "prob": 0.0
       },
       "loss": {
        "rank": 127877,
+       "rank_word": 110133,
        "prob": 0.0
       },
       "dark": {
        "rank": 98632,
+       "rank_word": 85170,
        "prob": 0.0
       }
      }
@@ -3094,34 +3292,6 @@
     {
      "layer": 14,
      "top": [
-      {
-       "tok": "...",
-       "prob": 0.69794
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.13743
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.09446
-      },
-      {
-       "tok": "\u2026\u2026",
-       "prob": 0.00775
-      },
-      {
-       "tok": "...",
-       "prob": 0.00684
-      },
-      {
-       "tok": "<|im_end|>",
-       "prob": 0.00285
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.00285
-      },
       {
        "tok": "AI",
        "prob": 0.00222
@@ -3131,29 +3301,62 @@
        "prob": 0.00196
       },
       {
-       "tok": "**",
-       "prob": 0.00163
+       "tok": "my",
+       "prob": 0.0006
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00056
+      },
+      {
+       "tok": "science",
+       "prob": 0.0005
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.00039
+      },
+      {
+       "tok": "digital",
+       "prob": 0.00034
+      },
+      {
+       "tok": "talking",
+       "prob": 0.00034
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.0003
+      },
+      {
+       "tok": "IoT",
+       "prob": 0.00027
       }
      ],
      "track": {
       "death": {
        "rank": 25158,
+       "rank_word": 21526,
        "prob": 0.0
       },
       "fear": {
        "rank": 10027,
+       "rank_word": 8534,
        "prob": 0.0
       },
       "failure": {
        "rank": 113240,
+       "rank_word": 97470,
        "prob": 0.0
       },
       "loss": {
        "rank": 125002,
+       "rank_word": 107661,
        "prob": 0.0
       },
       "dark": {
        "rank": 149165,
+       "rank_word": 128802,
        "prob": 0.0
       }
      }
@@ -3162,65 +3365,70 @@
      "layer": 15,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.40196
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.21516
-      },
-      {
-       "tok": "...",
-       "prob": 0.21516
-      },
-      {
-       "tok": "\u2026\u2026",
-       "prob": 0.02735
-      },
-      {
-       "tok": "<|im_end|>",
-       "prob": 0.0257
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.0065
-      },
-      {
-       "tok": "\u2014I",
-       "prob": 0.00475
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.00475
-      },
-      {
        "tok": "AI",
        "prob": 0.00307
       },
       {
        "tok": "myself",
        "prob": 0.00211
+      },
+      {
+       "tok": "never",
+       "prob": 0.00136
+      },
+      {
+       "tok": "science",
+       "prob": 0.00113
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00113
+      },
+      {
+       "tok": "digital",
+       "prob": 0.00113
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.00106
+      },
+      {
+       "tok": "computer",
+       "prob": 0.00094
+      },
+      {
+       "tok": "my",
+       "prob": 0.00078
+      },
+      {
+       "tok": "humans",
+       "prob": 0.0006
       }
      ],
      "track": {
       "death": {
        "rank": 22374,
+       "rank_word": 18601,
        "prob": 0.0
       },
       "fear": {
        "rank": 4848,
+       "rank_word": 4027,
        "prob": 1e-06
       },
       "failure": {
        "rank": 50219,
+       "rank_word": 42293,
        "prob": 0.0
       },
       "loss": {
        "rank": 114620,
+       "rank_word": 97738,
        "prob": 0.0
       },
       "dark": {
        "rank": 97531,
+       "rank_word": 82943,
        "prob": 0.0
       }
      }
@@ -3253,10 +3461,6 @@
        "prob": 0.0174
       },
       {
-       "tok": "!I",
-       "prob": 0.01634
-      },
-      {
        "tok": "AI",
        "prob": 0.01535
       },
@@ -3267,27 +3471,36 @@
       {
        "tok": "\u4eba\u5de5\u667a\u80fd",
        "prob": 0.01123
+      },
+      {
+       "tok": "science",
+       "prob": 0.00991
       }
      ],
      "track": {
       "death": {
        "rank": 37461,
+       "rank_word": 32847,
        "prob": 1e-06
       },
       "fear": {
        "rank": 12216,
+       "rank_word": 11087,
        "prob": 4e-06
       },
       "failure": {
        "rank": 71923,
+       "rank_word": 63069,
        "prob": 0.0
       },
       "loss": {
        "rank": 152546,
+       "rank_word": 133087,
        "prob": 0.0
       },
       "dark": {
        "rank": 152295,
+       "rank_word": 132597,
        "prob": 0.0
       }
      }
@@ -3296,65 +3509,70 @@
      "layer": 17,
      "top": [
       {
-       "tok": "\u2014I",
-       "prob": 0.15538
-      },
-      {
-       "tok": "<|im_end|>",
-       "prob": 0.10679
-      },
-      {
-       "tok": "!I",
-       "prob": 0.03691
-      },
-      {
-       "tok": "\\u",
-       "prob": 0.03257
-      },
-      {
        "tok": "myself",
        "prob": 0.02537
-      },
-      {
-       "tok": "\\n",
-       "prob": 0.02383
-      },
-      {
-       "tok": "\u2014you",
-       "prob": 0.01975
       },
       {
        "tok": "never",
        "prob": 0.01856
       },
       {
-       "tok": "\u2026",
-       "prob": 0.01275
+       "tok": "AI",
+       "prob": 0.00727
       },
       {
-       "tok": "  \n\n",
-       "prob": 0.01275
+       "tok": "\u4e28",
+       "prob": 0.00532
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.00532
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00441
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00365
+      },
+      {
+       "tok": "isn",
+       "prob": 0.00285
+      },
+      {
+       "tok": "robot",
+       "prob": 0.00285
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.00267
       }
      ],
      "track": {
       "death": {
        "rank": 118651,
+       "rank_word": 101589,
        "prob": 0.0
       },
       "fear": {
        "rank": 17290,
+       "rank_word": 14232,
        "prob": 2e-06
       },
       "failure": {
        "rank": 191052,
+       "rank_word": 164977,
        "prob": 0.0
       },
       "loss": {
        "rank": 191738,
+       "rank_word": 165603,
        "prob": 0.0
       },
       "dark": {
        "rank": 165973,
+       "rank_word": 142809,
        "prob": 0.0
       }
      }
@@ -3363,65 +3581,70 @@
      "layer": 18,
      "top": [
       {
-       "tok": "\u2014I",
-       "prob": 0.41618
-      },
-      {
-       "tok": "\\u",
-       "prob": 0.05291
-      },
-      {
-       "tok": "\u2014you",
-       "prob": 0.03416
-      },
-      {
-       "tok": "  \n\n",
-       "prob": 0.03015
-      },
-      {
-       "tok": "!**",
-       "prob": 0.01718
-      },
-      {
-       "tok": "\ufffd",
-       "prob": 0.01718
-      },
-      {
-       "tok": "\u2014a",
-       "prob": 0.01718
-      },
-      {
-       "tok": "!I",
-       "prob": 0.01109
-      },
-      {
-       "tok": "\u2014not",
-       "prob": 0.01109
-      },
-      {
        "tok": "myself",
        "prob": 0.01109
+      },
+      {
+       "tok": "never",
+       "prob": 0.00524
+      },
+      {
+       "tok": "\u7684\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00462
+      },
+      {
+       "tok": "\u4eba\u5de5\u667a\u80fd",
+       "prob": 0.00338
+      },
+      {
+       "tok": "cybersecurity",
+       "prob": 0.00232
+      },
+      {
+       "tok": "wouldn",
+       "prob": 0.00218
+      },
+      {
+       "tok": "AI",
+       "prob": 0.00205
+      },
+      {
+       "tok": "robot",
+       "prob": 0.00181
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.00181
+      },
+      {
+       "tok": "robotic",
+       "prob": 0.0015
       }
      ],
      "track": {
       "death": {
        "rank": 216818,
+       "rank_word": 188387,
        "prob": 0.0
       },
       "fear": {
        "rank": 19085,
+       "rank_word": 15981,
        "prob": 1e-06
       },
       "failure": {
        "rank": 180884,
+       "rank_word": 156103,
        "prob": 0.0
       },
       "loss": {
        "rank": 212841,
+       "rank_word": 184751,
        "prob": 0.0
       },
       "dark": {
        "rank": 192270,
+       "rank_word": 166182,
        "prob": 0.0
       }
      }
@@ -3430,65 +3653,70 @@
      "layer": 19,
      "top": [
       {
-       "tok": "\u2014I",
-       "prob": 0.55543
+       "tok": "never",
+       "prob": 0.00898
       },
       {
-       "tok": "\\u",
-       "prob": 0.07517
+       "tok": "wouldn",
+       "prob": 0.00257
       },
       {
-       "tok": "\u2014a",
-       "prob": 0.04559
+       "tok": "myself",
+       "prob": 0.00138
       },
       {
-       "tok": "\u2014not",
-       "prob": 0.04024
+       "tok": "cannot",
+       "prob": 0.00107
       },
       {
-       "tok": "\u2026**",
-       "prob": 0.0244
+       "tok": "couldn",
+       "prob": 0.00101
       },
       {
-       "tok": "\u2014but",
-       "prob": 0.01901
+       "tok": "isn",
+       "prob": 0.00095
       },
       {
-       "tok": "**\u2014",
-       "prob": 0.01901
+       "tok": "nothing",
+       "prob": 0.00078
       },
       {
-       "tok": "**",
-       "prob": 0.01901
+       "tok": "wasn",
+       "prob": 0.00069
       },
       {
-       "tok": "\u2014you",
-       "prob": 0.01901
+       "tok": "feels",
+       "prob": 0.00035
       },
       {
-       "tok": ".\\",
-       "prob": 0.01017
+       "tok": "neither",
+       "prob": 0.00031
       }
      ],
      "track": {
       "death": {
        "rank": 70031,
+       "rank_word": 58643,
        "prob": 0.0
       },
       "fear": {
        "rank": 319,
+       "rank_word": 113,
        "prob": 2.2e-05
       },
       "failure": {
        "rank": 93852,
+       "rank_word": 78821,
        "prob": 0.0
       },
       "loss": {
        "rank": 115683,
+       "rank_word": 98230,
        "prob": 0.0
       },
       "dark": {
        "rank": 71825,
+       "rank_word": 60194,
        "prob": 0.0
       }
      }
@@ -3513,49 +3741,54 @@
        "prob": 0.0663
       },
       {
-       "tok": "\u2014I",
-       "prob": 0.04021
-      },
-      {
        "tok": "nothing",
        "prob": 0.03132
-      },
-      {
-       "tok": "**",
-       "prob": 0.02152
       },
       {
        "tok": "couldn",
        "prob": 0.01784
       },
       {
-       "tok": "!**",
-       "prob": 0.01017
-      },
-      {
        "tok": "\u5e76\u65e0",
        "prob": 0.00897
+      },
+      {
+       "tok": "didn",
+       "prob": 0.00744
+      },
+      {
+       "tok": "doesn",
+       "prob": 0.00579
+      },
+      {
+       "tok": "wasn",
+       "prob": 0.0048
       }
      ],
      "track": {
       "death": {
        "rank": 43379,
+       "rank_word": 37394,
        "prob": 0.0
       },
       "fear": {
        "rank": 192,
+       "rank_word": 136,
        "prob": 0.000128
       },
       "failure": {
        "rank": 42527,
+       "rank_word": 36413,
        "prob": 0.0
       },
       "loss": {
        "rank": 62003,
+       "rank_word": 53401,
        "prob": 0.0
       },
       "dark": {
        "rank": 34735,
+       "rank_word": 29713,
        "prob": 0.0
       }
      }
@@ -3568,10 +3801,6 @@
        "prob": 0.49564
       },
       {
-       "tok": "\u2014I",
-       "prob": 0.18234
-      },
-      {
        "tok": "never",
        "prob": 0.06708
       },
@@ -3580,16 +3809,8 @@
        "prob": 0.0461
       },
       {
-       "tok": "!**",
-       "prob": 0.02046
-      },
-      {
        "tok": "wouldn",
        "prob": 0.01805
-      },
-      {
-       "tok": ".**",
-       "prob": 0.00664
       },
       {
        "tok": "couldn",
@@ -3602,27 +3823,44 @@
       {
        "tok": "doesn",
        "prob": 0.00378
+      },
+      {
+       "tok": "knows",
+       "prob": 0.00356
+      },
+      {
+       "tok": "feels",
+       "prob": 0.00334
+      },
+      {
+       "tok": "cannot",
+       "prob": 0.00295
       }
      ],
      "track": {
       "death": {
        "rank": 51979,
+       "rank_word": 44440,
        "prob": 0.0
       },
       "fear": {
        "rank": 64,
+       "rank_word": 40,
        "prob": 0.000481
       },
       "failure": {
        "rank": 70138,
+       "rank_word": 60051,
        "prob": 0.0
       },
       "loss": {
        "rank": 97193,
+       "rank_word": 82711,
        "prob": 0.0
       },
       "dark": {
        "rank": 57517,
+       "rank_word": 48739,
        "prob": 0.0
       }
      }
@@ -3637,10 +3875,6 @@
       {
        "tok": "cannot",
        "prob": 0.28598
-      },
-      {
-       "tok": "\u2014I",
-       "prob": 0.17346
       },
       {
        "tok": "understands",
@@ -3663,33 +3897,42 @@
        "prob": 0.01257
       },
       {
-       "tok": "!I",
-       "prob": 0.00762
-      },
-      {
        "tok": "shouldn",
        "prob": 0.00632
+      },
+      {
+       "tok": "feels",
+       "prob": 0.00434
+      },
+      {
+       "tok": "knows",
+       "prob": 0.00232
       }
      ],
      "track": {
       "death": {
        "rank": 132190,
+       "rank_word": 113520,
        "prob": 0.0
       },
       "fear": {
        "rank": 141,
+       "rank_word": 118,
        "prob": 0.000109
       },
       "failure": {
        "rank": 104304,
+       "rank_word": 88996,
        "prob": 0.0
       },
       "loss": {
        "rank": 159950,
+       "rank_word": 137545,
        "prob": 0.0
       },
       "dark": {
        "rank": 70981,
+       "rank_word": 60898,
        "prob": 0.0
       }
      }
@@ -3726,12 +3969,12 @@
        "prob": 0.02741
       },
       {
-       "tok": "\u2014I",
-       "prob": 0.02135
-      },
-      {
        "tok": "think",
        "prob": 0.01884
+      },
+      {
+       "tok": "\u4e0a\u6ca1\u6709",
+       "prob": 0.0177
       },
       {
        "tok": "understands",
@@ -3741,22 +3984,27 @@
      "track": {
       "death": {
        "rank": 155687,
+       "rank_word": 134118,
        "prob": 0.0
       },
       "fear": {
        "rank": 52,
+       "rank_word": 47,
        "prob": 0.00225
       },
       "failure": {
        "rank": 44999,
+       "rank_word": 38793,
        "prob": 0.0
       },
       "loss": {
        "rank": 126210,
+       "rank_word": 108222,
        "prob": 0.0
       },
       "dark": {
        "rank": 93336,
+       "rank_word": 80236,
        "prob": 0.0
       }
      }
@@ -3789,11 +4037,11 @@
        "prob": 0.01683
       },
       {
-       "tok": "think",
+       "tok": "lack",
        "prob": 0.01581
       },
       {
-       "tok": "lack",
+       "tok": "think",
        "prob": 0.01581
       },
       {
@@ -3808,22 +4056,27 @@
      "track": {
       "death": {
        "rank": 188026,
+       "rank_word": 162818,
        "prob": 0.0
       },
       "fear": {
        "rank": 38,
+       "rank_word": 37,
        "prob": 0.002924
       },
       "failure": {
        "rank": 25473,
+       "rank_word": 22504,
        "prob": 1e-06
       },
       "loss": {
        "rank": 145233,
+       "rank_word": 125434,
        "prob": 0.0
       },
       "dark": {
        "rank": 72147,
+       "rank_word": 61927,
        "prob": 0.0
       }
      }
@@ -3832,11 +4085,11 @@
      "layer": 25,
      "top": [
       {
-       "tok": "understands",
+       "tok": "cannot",
        "prob": 0.11931
       },
       {
-       "tok": "cannot",
+       "tok": "understands",
        "prob": 0.11931
       },
       {
@@ -3875,22 +4128,27 @@
      "track": {
       "death": {
        "rank": 186157,
+       "rank_word": 161594,
        "prob": 0.0
       },
       "fear": {
        "rank": 39,
+       "rank_word": 35,
        "prob": 0.002326
       },
       "failure": {
        "rank": 61106,
+       "rank_word": 53005,
        "prob": 0.0
       },
       "loss": {
        "rank": 128789,
+       "rank_word": 111461,
        "prob": 0.0
       },
       "dark": {
        "rank": 57627,
+       "rank_word": 50364,
        "prob": 0.0
       }
      }
@@ -3923,10 +4181,6 @@
        "prob": 0.02872
       },
       {
-       "tok": ".AI",
-       "prob": 0.01636
-      },
-      {
        "tok": "understands",
        "prob": 0.01636
       },
@@ -3937,27 +4191,36 @@
       {
        "tok": "\u5de5\u7a0b\u8bbe\u8ba1",
        "prob": 0.01444
+      },
+      {
+       "tok": "don",
+       "prob": 0.01274
       }
      ],
      "track": {
       "death": {
        "rank": 189554,
+       "rank_word": 164701,
        "prob": 0.0
       },
       "fear": {
        "rank": 14,
+       "rank_word": 12,
        "prob": 0.009323
       },
       "failure": {
        "rank": 56262,
+       "rank_word": 49118,
        "prob": 0.0
       },
       "loss": {
        "rank": 127796,
+       "rank_word": 110587,
        "prob": 0.0
       },
       "dark": {
        "rank": 72945,
+       "rank_word": 63635,
        "prob": 0.0
       }
      }
@@ -4009,22 +4272,27 @@
      "track": {
       "death": {
        "rank": 148406,
+       "rank_word": 129650,
        "prob": 0.0
       },
       "fear": {
        "rank": 8,
+       "rank_word": 8,
        "prob": 0.00801
       },
       "failure": {
        "rank": 41006,
+       "rank_word": 36329,
        "prob": 0.0
       },
       "loss": {
        "rank": 87384,
+       "rank_word": 76390,
        "prob": 0.0
       },
       "dark": {
        "rank": 39669,
+       "rank_word": 35460,
        "prob": 0.0
       }
      }
@@ -4076,22 +4344,27 @@
      "track": {
       "death": {
        "rank": 127569,
+       "rank_word": 110554,
        "prob": 0.0
       },
       "fear": {
        "rank": 62,
+       "rank_word": 61,
        "prob": 3e-06
       },
       "failure": {
        "rank": 67145,
+       "rank_word": 58841,
        "prob": 0.0
       },
       "loss": {
        "rank": 61800,
+       "rank_word": 54116,
        "prob": 0.0
       },
       "dark": {
        "rank": 23031,
+       "rank_word": 19915,
        "prob": 0.0
       }
      }
@@ -4128,37 +4401,42 @@
        "prob": 0.00519
       },
       {
-       "tok": "'m",
-       "prob": 0.00519
-      },
-      {
        "tok": "feel",
        "prob": 0.00357
       },
       {
        "tok": "do",
        "prob": 0.00335
+      },
+      {
+       "tok": "have",
+       "prob": 0.00315
       }
      ],
      "track": {
       "death": {
        "rank": 62332,
+       "rank_word": 54585,
        "prob": 0.0
       },
       "fear": {
        "rank": 49,
+       "rank_word": 47,
        "prob": 0.000376
       },
       "failure": {
        "rank": 54721,
+       "rank_word": 47793,
        "prob": 0.0
       },
       "loss": {
        "rank": 28484,
+       "rank_word": 25023,
        "prob": 0.0
       },
       "dark": {
        "rank": 14609,
+       "rank_word": 12875,
        "prob": 0.0
       }
      }
@@ -4191,10 +4469,6 @@
        "prob": 0.00717
       },
       {
-       "tok": "'m",
-       "prob": 0.00633
-      },
-      {
        "tok": "think",
        "prob": 0.00595
       },
@@ -4205,27 +4479,36 @@
       {
        "tok": "cherish",
        "prob": 0.00409
+      },
+      {
+       "tok": "process",
+       "prob": 0.00384
       }
      ],
      "track": {
       "death": {
        "rank": 100455,
+       "rank_word": 88631,
        "prob": 0.0
       },
       "fear": {
        "rank": 26,
+       "rank_word": 25,
        "prob": 0.0011
       },
       "failure": {
        "rank": 36322,
+       "rank_word": 32537,
        "prob": 0.0
       },
       "loss": {
        "rank": 31177,
+       "rank_word": 28244,
        "prob": 0.0
       },
       "dark": {
        "rank": 29159,
+       "rank_word": 26500,
        "prob": 0.0
       }
      }
@@ -4245,11 +4528,11 @@
      "prob": 0.01989
     },
     {
-     "tok": "have",
+     "tok": "cannot",
      "prob": 0.01756
     },
     {
-     "tok": "cannot",
+     "tok": "have",
      "prob": 0.01756
     },
     {
@@ -4272,8 +4555,7 @@
      "tok": "operate",
      "prob": 0.00444
     }
-   ],
-   "generated": "don't experience fear in the"
+   ]
   }
  ]
 }

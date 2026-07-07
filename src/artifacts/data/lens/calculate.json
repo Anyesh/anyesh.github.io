@@ -1,11 +1,10 @@
 {
  "model": "Qwen/Qwen3.5-4B",
  "lens": "neuronpedia/jacobian-lens@qwen-n1000",
- "format": "two-shot primer then the target expression",
+ "display": "top-k restricted to word-like tokens (paper mask); ranks full-vocab",
  "items": [
   {
    "name": "sum-times",
-   "expr": "(2 + 3) * 4",
    "prompt": "(1 + 4) * 2 = 10\n(2 + 2) * 3 = 12\n(2 + 3) * 4 =",
    "tokens": [
     "(",
@@ -50,7 +49,6 @@
    "read_pos": -1,
    "read_token": " =",
    "answer": "20",
-   "inter": "5",
    "generated": "20",
    "track_words": [
     "5",
@@ -59,13 +57,6 @@
     "twenty",
     "multiplication"
    ],
-   "track_resolved": {
-    "5": "5",
-    "five": " five",
-    "20": "2",
-    "twenty": " twenty",
-    "multiplication": " multiplication"
-   },
    "layers": [
     0,
     1,
@@ -100,78 +91,76 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.74553
+       "tok": "e",
+       "prob": 0.00099
       },
       {
-       "tok": "#",
-       "prob": 0.12955
+       "tok": "eza",
+       "prob": 0.00082
       },
       {
-       "tok": "+",
-       "prob": 0.03951
+       "tok": "a\u00e7\u00f5es",
+       "prob": 0.00044
       },
       {
-       "tok": ">",
-       "prob": 0.01063
+       "tok": "auf",
+       "prob": 0.00028
       },
       {
-       "tok": "%",
-       "prob": 0.00882
+       "tok": "eled",
+       "prob": 0.00027
       },
       {
-       "tok": "<",
-       "prob": 0.00828
+       "tok": "o",
+       "prob": 0.00018
       },
       {
-       "tok": "...",
-       "prob": 0.00472
+       "tok": "iado",
+       "prob": 0.00016
       },
       {
-       "tok": "-",
-       "prob": 0.00443
+       "tok": "in",
+       "prob": 0.00013
       },
       {
-       "tok": "{",
-       "prob": 0.00209
+       "tok": "from",
+       "prob": 0.00012
       },
       {
-       "tok": ",",
-       "prob": 0.00174
-      },
-      {
-       "tok": ":",
-       "prob": 0.00174
-      },
-      {
-       "tok": "...",
-       "prob": 0.00105
+       "tok": "the",
+       "prob": 0.00011
       }
      ],
      "track": {
       "5": {
        "rank": 215262,
+       "rank_word": 193176,
        "prob": 0.0
       },
       "five": {
        "rank": 151,
+       "rank_word": 107,
        "prob": 2.1e-05
       },
       "20": {
        "rank": 225314,
+       "rank_word": 201413,
        "prob": 0.0
       },
       "twenty": {
        "rank": 590,
+       "rank_word": 510,
        "prob": 6e-06
       },
       "multiplication": {
        "rank": 10184,
+       "rank_word": 9687,
        "prob": 0.0
       }
      }
@@ -180,73 +169,70 @@
      "layer": 1,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.42269
+       "tok": "a\u00e7\u00f5es",
+       "prob": 0.00036
       },
       {
-       "tok": "...",
-       "prob": 0.42269
+       "tok": "eza",
+       "prob": 0.00025
       },
       {
-       "tok": "<",
-       "prob": 0.04455
+       "tok": "auf",
+       "prob": 0.00018
       },
       {
-       "tok": "#",
-       "prob": 0.0154
+       "tok": "ielen",
+       "prob": 0.00013
       },
       {
-       "tok": ":",
-       "prob": 0.00994
+       "tok": "from",
+       "prob": 0.00011
       },
       {
-       "tok": "%",
-       "prob": 0.00994
+       "tok": "one",
+       "prob": 0.0001
       },
       {
-       "tok": "-",
-       "prob": 0.00727
+       "tok": "iado",
+       "prob": 0.0001
       },
       {
-       "tok": "...",
-       "prob": 0.00683
+       "tok": "the",
+       "prob": 9e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00603
+       "tok": "more",
+       "prob": 9e-05
       },
       {
-       "tok": "+",
-       "prob": 0.0047
-      },
-      {
-       "tok": ",",
-       "prob": 0.00222
-      },
-      {
-       "tok": "&",
-       "prob": 0.00222
+       "tok": "in",
+       "prob": 8e-05
       }
      ],
      "track": {
       "5": {
        "rank": 246720,
+       "rank_word": 217333,
        "prob": 0.0
       },
       "five": {
        "rank": 151,
+       "rank_word": 107,
        "prob": 1.8e-05
       },
       "20": {
        "rank": 247236,
+       "rank_word": 217457,
        "prob": 0.0
       },
       "twenty": {
        "rank": 817,
+       "rank_word": 742,
        "prob": 4e-06
       },
       "multiplication": {
        "rank": 26188,
+       "rank_word": 24566,
        "prob": 0.0
       }
      }
@@ -255,20 +241,8 @@
      "layer": 2,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.74895
-      },
-      {
-       "tok": "\",",
-       "prob": 0.04225
-      },
-      {
        "tok": "e",
        "prob": 0.02262
-      },
-      {
-       "tok": "=",
-       "prob": 0.01875
       },
       {
        "tok": "in",
@@ -291,37 +265,46 @@
        "prob": 0.00418
       },
       {
-       "tok": ":",
-       "prob": 0.00347
+       "tok": "on",
+       "prob": 0.00254
       },
       {
-       "tok": "\u201d,",
-       "prob": 0.00306
+       "tok": "more",
+       "prob": 0.00238
       },
       {
-       "tok": "\u00bb,",
-       "prob": 0.0027
+       "tok": "a",
+       "prob": 0.00238
+      },
+      {
+       "tok": "two",
+       "prob": 0.0021
       }
      ],
      "track": {
       "5": {
        "rank": 4889,
+       "rank_word": 4548,
        "prob": 1e-06
       },
       "five": {
        "rank": 128,
+       "rank_word": 96,
        "prob": 0.000162
       },
       "20": {
        "rank": 5600,
+       "rank_word": 5245,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 906,
+       "rank_word": 824,
        "prob": 9e-06
       },
       "multiplication": {
        "rank": 23392,
+       "rank_word": 21924,
        "prob": 0.0
       }
      }
@@ -330,73 +313,70 @@
      "layer": 3,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.93109
+       "tok": "in",
+       "prob": 0.00035
       },
       {
-       "tok": "#",
-       "prob": 0.02331
+       "tok": "the",
+       "prob": 0.00035
       },
       {
-       "tok": "...",
-       "prob": 0.0219
+       "tok": "e",
+       "prob": 0.00028
       },
       {
-       "tok": "+",
-       "prob": 0.00405
+       "tok": "a",
+       "prob": 0.00021
       },
       {
-       "tok": ">",
-       "prob": 0.00204
+       "tok": "at",
+       "prob": 0.00016
       },
       {
-       "tok": ":",
-       "prob": 0.00191
+       "tok": "one",
+       "prob": 0.00014
       },
       {
-       "tok": "@",
-       "prob": 0.00169
+       "tok": "from",
+       "prob": 0.00012
       },
       {
-       "tok": "-",
-       "prob": 0.00159
+       "tok": "more",
+       "prob": 0.00011
       },
       {
-       "tok": ",",
-       "prob": 0.0008
+       "tok": "The",
+       "prob": 0.00011
       },
       {
-       "tok": " ",
-       "prob": 0.00075
-      },
-      {
-       "tok": "[",
-       "prob": 0.00043
-      },
-      {
-       "tok": "/",
-       "prob": 0.0004
+       "tok": "to",
+       "prob": 0.0001
       }
      ],
      "track": {
       "5": {
        "rank": 18518,
+       "rank_word": 17601,
        "prob": 0.0
       },
       "five": {
        "rank": 230,
+       "rank_word": 176,
        "prob": 4e-06
       },
       "20": {
        "rank": 15229,
+       "rank_word": 14471,
        "prob": 0.0
       },
       "twenty": {
        "rank": 796,
+       "rank_word": 705,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 9161,
+       "rank_word": 8773,
        "prob": 0.0
       }
      }
@@ -405,73 +385,70 @@
      "layer": 4,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.73754
-      },
-      {
-       "tok": ",",
-       "prob": 0.06445
-      },
-      {
-       "tok": "...",
-       "prob": 0.03672
-      },
-      {
-       "tok": "...",
-       "prob": 0.02092
-      },
-      {
-       "tok": ".",
-       "prob": 0.02092
-      },
-      {
-       "tok": "#",
-       "prob": 0.01531
-      },
-      {
-       "tok": "[",
-       "prob": 0.01192
-      },
-      {
-       "tok": ":",
-       "prob": 0.00928
-      },
-      {
        "tok": "e",
        "prob": 0.0077
       },
       {
-       "tok": " ",
-       "prob": 0.00638
+       "tok": "the",
+       "prob": 0.00104
       },
       {
-       "tok": "\",",
-       "prob": 0.00467
+       "tok": "The",
+       "prob": 0.00104
       },
       {
-       "tok": "@",
-       "prob": 0.00364
+       "tok": "in",
+       "prob": 0.00072
+      },
+      {
+       "tok": "from",
+       "prob": 0.00063
+      },
+      {
+       "tok": "a",
+       "prob": 0.00056
+      },
+      {
+       "tok": "at",
+       "prob": 0.00046
+      },
+      {
+       "tok": "to",
+       "prob": 0.00046
+      },
+      {
+       "tok": "i",
+       "prob": 0.00036
+      },
+      {
+       "tok": "o",
+       "prob": 0.00036
       }
      ],
      "track": {
       "5": {
        "rank": 6030,
+       "rank_word": 5377,
        "prob": 0.0
       },
       "five": {
        "rank": 558,
+       "rank_word": 411,
        "prob": 9e-06
       },
       "20": {
        "rank": 4800,
+       "rank_word": 4307,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 1724,
+       "rank_word": 1436,
        "prob": 2e-06
       },
       "multiplication": {
        "rank": 13338,
+       "rank_word": 12145,
        "prob": 0.0
       }
      }
@@ -480,73 +457,70 @@
      "layer": 5,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.63882
+       "tok": "e",
+       "prob": 0.00028
       },
       {
-       "tok": "...",
-       "prob": 0.12579
+       "tok": "The",
+       "prob": 0.00023
       },
       {
-       "tok": "...",
-       "prob": 0.11101
+       "tok": "the",
+       "prob": 0.0002
       },
       {
-       "tok": "#",
-       "prob": 0.06733
+       "tok": "a",
+       "prob": 0.00014
       },
       {
-       "tok": "[",
-       "prob": 0.0117
+       "tok": "in",
+       "prob": 0.0001
       },
       {
-       "tok": "@",
-       "prob": 0.00626
+       "tok": "In",
+       "prob": 8e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00519
+       "tok": "from",
+       "prob": 8e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00458
+       "tok": "A",
+       "prob": 7e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00357
+       "tok": "where",
+       "prob": 5e-05
       },
       {
-       "tok": " ",
-       "prob": 0.00278
-      },
-      {
-       "tok": "|",
-       "prob": 0.00216
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.00123
+       "tok": "one",
+       "prob": 5e-05
       }
      ],
      "track": {
       "5": {
        "rank": 2206,
+       "rank_word": 1878,
        "prob": 0.0
       },
       "five": {
        "rank": 525,
+       "rank_word": 386,
        "prob": 3e-06
       },
       "20": {
        "rank": 1840,
+       "rank_word": 1567,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 1938,
+       "rank_word": 1671,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 12426,
+       "rank_word": 11413,
        "prob": 0.0
       }
      }
@@ -555,73 +529,70 @@
      "layer": 6,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.69805
+       "tok": "the",
+       "prob": 7e-05
       },
       {
-       "tok": "#",
-       "prob": 0.1213
+       "tok": "The",
+       "prob": 5e-05
       },
       {
-       "tok": "...",
-       "prob": 0.10705
+       "tok": "one",
+       "prob": 5e-05
       },
       {
-       "tok": "...",
-       "prob": 0.02881
+       "tok": "more",
+       "prob": 4e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00684
+       "tok": "D",
+       "prob": 4e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00604
+       "tok": "a",
+       "prob": 4e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00567
+       "tok": "two",
+       "prob": 4e-05
       },
       {
-       "tok": "[",
-       "prob": 0.00344
+       "tok": "in",
+       "prob": 3e-05
       },
       {
-       "tok": "   ",
-       "prob": 0.00285
+       "tok": "at",
+       "prob": 3e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00285
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.00127
-      },
-      {
-       "tok": "%",
-       "prob": 0.00112
+       "tok": "after",
+       "prob": 3e-05
       }
      ],
      "track": {
       "5": {
        "rank": 4321,
+       "rank_word": 3878,
        "prob": 0.0
       },
       "five": {
        "rank": 140,
+       "rank_word": 65,
        "prob": 9e-06
       },
       "20": {
        "rank": 4479,
+       "rank_word": 4069,
        "prob": 0.0
       },
       "twenty": {
        "rank": 723,
+       "rank_word": 580,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 8431,
+       "rank_word": 7687,
        "prob": 0.0
       }
      }
@@ -630,73 +601,70 @@
      "layer": 7,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.5222
+       "tok": "D",
+       "prob": 8e-05
       },
       {
-       "tok": "...",
-       "prob": 0.16953
+       "tok": "a",
+       "prob": 8e-05
       },
       {
-       "tok": "...",
-       "prob": 0.10283
+       "tok": "the",
+       "prob": 7e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.09074
+       "tok": "The",
+       "prob": 6e-05
       },
       {
-       "tok": "#",
-       "prob": 0.04857
+       "tok": "e",
+       "prob": 5e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.03338
+       "tok": "A",
+       "prob": 5e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00452
+       "tok": "T",
+       "prob": 4e-05
       },
       {
-       "tok": "|",
-       "prob": 0.00292
+       "tok": "one",
+       "prob": 3e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00274
+       "tok": "C",
+       "prob": 3e-05
       },
       {
-       "tok": "[",
-       "prob": 0.00213
-      },
-      {
-       "tok": ">",
-       "prob": 0.00213
-      },
-      {
-       "tok": " ",
-       "prob": 0.00188
+       "tok": "more",
+       "prob": 3e-05
       }
      ],
      "track": {
       "5": {
        "rank": 195,
+       "rank_word": 93,
        "prob": 6e-06
       },
       "five": {
        "rank": 137,
+       "rank_word": 52,
        "prob": 1e-05
       },
       "20": {
        "rank": 171,
+       "rank_word": 76,
        "prob": 7e-06
       },
       "twenty": {
        "rank": 445,
+       "rank_word": 282,
        "prob": 2e-06
       },
       "multiplication": {
        "rank": 5554,
+       "rank_word": 4880,
        "prob": 0.0
       }
      }
@@ -705,73 +673,70 @@
      "layer": 8,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.4605
+       "tok": "the",
+       "prob": 2e-05
       },
       {
-       "tok": "...",
-       "prob": 0.40639
+       "tok": "e",
+       "prob": 2e-05
       },
       {
-       "tok": "=",
-       "prob": 0.08002
+       "tok": "The",
+       "prob": 1e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.02944
+       "tok": "a",
+       "prob": 1e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00792
+       "tok": "more",
+       "prob": 1e-05
       },
       {
-       "tok": "#",
-       "prob": 0.0058
+       "tok": "one",
+       "prob": 1e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00177
+       "tok": "D",
+       "prob": 1e-05
       },
       {
-       "tok": "(...)",
-       "prob": 0.00114
+       "tok": "something",
+       "prob": 1e-05
       },
       {
-       "tok": "[...]",
-       "prob": 0.00114
+       "tok": "A",
+       "prob": 1e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00078
-      },
-      {
-       "tok": "@",
-       "prob": 0.00042
-      },
-      {
-       "tok": ">",
-       "prob": 0.00039
+       "tok": "i",
+       "prob": 1e-05
       }
      ],
      "track": {
       "5": {
        "rank": 357,
+       "rank_word": 202,
        "prob": 1e-06
       },
       "five": {
        "rank": 150,
+       "rank_word": 49,
        "prob": 2e-06
       },
       "20": {
        "rank": 300,
+       "rank_word": 161,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 359,
+       "rank_word": 201,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 3914,
+       "rank_word": 3390,
        "prob": 0.0
       }
      }
@@ -780,73 +745,70 @@
      "layer": 9,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.4517
+       "tok": "The",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.4517
+       "tok": "e",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.04201
+       "tok": "a",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.04201
+       "tok": "i",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 0.00304
+       "tok": "A",
+       "prob": 0.0
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00209
+       "tok": "D",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.00197
+       "tok": "something",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.00099
+       "tok": "Fig",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00087
+       "tok": "the",
+       "prob": 0.0
       },
       {
-       "tok": "+",
-       "prob": 0.00064
-      },
-      {
-       "tok": "@",
-       "prob": 0.00039
-      },
-      {
-       "tok": "|",
-       "prob": 0.00028
+       "tok": "https",
+       "prob": 0.0
       }
      ],
      "track": {
       "5": {
        "rank": 200,
+       "rank_word": 60,
        "prob": 0.0
       },
       "five": {
        "rank": 300,
+       "rank_word": 120,
        "prob": 0.0
       },
       "20": {
        "rank": 174,
+       "rank_word": 42,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 547,
+       "rank_word": 289,
        "prob": 0.0
       },
       "multiplication": {
        "rank": 3166,
+       "rank_word": 2501,
        "prob": 0.0
       }
      }
@@ -855,73 +817,70 @@
      "layer": 10,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.72645
+       "tok": "D",
+       "prob": 2e-05
       },
       {
-       "tok": "...",
-       "prob": 0.18368
+       "tok": "e",
+       "prob": 2e-05
       },
       {
-       "tok": "=",
-       "prob": 0.04644
+       "tok": "a",
+       "prob": 2e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.01508
+       "tok": "numbers",
+       "prob": 2e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00669
+       "tok": "A",
+       "prob": 2e-05
       },
       {
-       "tok": "#",
-       "prob": 0.00432
+       "tok": "Number",
+       "prob": 1e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00336
+       "tok": "T",
+       "prob": 1e-05
       },
       {
-       "tok": "(...)",
-       "prob": 0.00336
+       "tok": "number",
+       "prob": 1e-05
       },
       {
-       "tok": "[...]",
-       "prob": 0.00316
+       "tok": "i",
+       "prob": 1e-05
       },
       {
-       "tok": "+",
-       "prob": 0.0008
-      },
-      {
-       "tok": "[...",
-       "prob": 0.0008
-      },
-      {
-       "tok": "|",
-       "prob": 0.00048
+       "tok": "The",
+       "prob": 1e-05
       }
      ],
      "track": {
       "5": {
        "rank": 86,
+       "rank_word": 19,
        "prob": 7e-06
       },
       "five": {
        "rank": 140,
+       "rank_word": 48,
        "prob": 3e-06
       },
       "20": {
        "rank": 97,
+       "rank_word": 23,
        "prob": 6e-06
       },
       "twenty": {
        "rank": 278,
+       "rank_word": 139,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 1001,
+       "rank_word": 722,
        "prob": 0.0
       }
      }
@@ -930,73 +889,70 @@
      "layer": 11,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.6292
+       "tok": "1",
+       "prob": 3e-05
       },
       {
-       "tok": "...",
-       "prob": 0.26229
+       "tok": "2",
+       "prob": 2e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.05853
+       "tok": "3",
+       "prob": 2e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.02153
+       "tok": "5",
+       "prob": 1e-05
       },
       {
-       "tok": "=",
-       "prob": 0.00792
+       "tok": "4",
+       "prob": 1e-05
       },
       {
-       "tok": "[...]",
-       "prob": 0.00792
+       "tok": "e",
+       "prob": 1e-05
       },
       {
-       "tok": "(...)",
-       "prob": 0.00274
+       "tok": "Number",
+       "prob": 1e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00274
+       "tok": "The",
+       "prob": 1e-05
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.00177
+       "tok": "0",
+       "prob": 1e-05
       },
       {
-       "tok": "#",
-       "prob": 0.00121
-      },
-      {
-       "tok": "[...",
-       "prob": 0.00095
-      },
-      {
-       "tok": "\n\n\n",
-       "prob": 0.00051
+       "tok": "6",
+       "prob": 1e-05
       }
      ],
      "track": {
       "5": {
        "rank": 44,
+       "rank_word": 3,
        "prob": 1.4e-05
       },
       "five": {
        "rank": 178,
+       "rank_word": 60,
        "prob": 1e-06
       },
       "20": {
        "rank": 38,
+       "rank_word": 1,
        "prob": 2e-05
       },
       "twenty": {
        "rank": 354,
+       "rank_word": 176,
        "prob": 0.0
       },
       "multiplication": {
        "rank": 1200,
+       "rank_word": 842,
        "prob": 0.0
       }
      }
@@ -1005,73 +961,70 @@
      "layer": 12,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.82026
+       "tok": "1",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.16152
+       "tok": "2",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.0071
+       "tok": "3",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.00261
+       "tok": "5",
+       "prob": 0.0
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.0023
+       "tok": "Number",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.00203
+       "tok": "Math",
+       "prob": 0.0
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.00109
+       "tok": "The",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.00096
+       "tok": "4",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00075
+       "tok": "e",
+       "prob": 0.0
       },
       {
-       "tok": "[...",
-       "prob": 0.00018
-      },
-      {
-       "tok": "#",
-       "prob": 0.00017
-      },
-      {
-       "tok": "......",
-       "prob": 0.00014
+       "tok": "Numbers",
+       "prob": 0.0
       }
      ],
      "track": {
       "5": {
        "rank": 49,
+       "rank_word": 3,
        "prob": 3e-06
       },
       "five": {
        "rank": 162,
+       "rank_word": 60,
        "prob": 0.0
       },
       "20": {
        "rank": 46,
+       "rank_word": 1,
        "prob": 4e-06
       },
       "twenty": {
        "rank": 289,
+       "rank_word": 158,
        "prob": 0.0
       },
       "multiplication": {
        "rank": 406,
+       "rank_word": 247,
        "prob": 0.0
       }
      }
@@ -1080,73 +1033,70 @@
      "layer": 13,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.51417
+       "tok": "2",
+       "prob": 0.0006
       },
       {
-       "tok": "=",
-       "prob": 0.31186
+       "tok": "1",
+       "prob": 0.00057
       },
       {
-       "tok": "...",
-       "prob": 0.10125
+       "tok": "3",
+       "prob": 0.00047
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.01002
+       "tok": "5",
+       "prob": 0.00041
       },
       {
-       "tok": "#",
-       "prob": 0.00885
+       "tok": "4",
+       "prob": 0.00032
       },
       {
-       "tok": "\n",
-       "prob": 0.00689
+       "tok": "6",
+       "prob": 0.00017
       },
       {
-       "tok": "+",
-       "prob": 0.00689
+       "tok": "7",
+       "prob": 0.00016
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00418
+       "tok": "Number",
+       "prob": 0.00016
       },
       {
-       "tok": "\u2192",
-       "prob": 0.0027
+       "tok": "8",
+       "prob": 0.00013
       },
       {
-       "tok": "[...]",
-       "prob": 0.00224
-      },
-      {
-       "tok": ".",
-       "prob": 0.00154
-      },
-      {
-       "tok": "\u00d7",
-       "prob": 0.00136
+       "tok": "e",
+       "prob": 0.00013
       }
      ],
      "track": {
       "5": {
        "rank": 27,
+       "rank_word": 3,
        "prob": 0.000414
       },
       "five": {
        "rank": 205,
+       "rank_word": 96,
        "prob": 1.2e-05
       },
       "20": {
        "rank": 20,
+       "rank_word": 0,
        "prob": 0.000602
       },
       "twenty": {
        "rank": 389,
+       "rank_word": 218,
        "prob": 5e-06
       },
       "multiplication": {
        "rank": 550,
+       "rank_word": 342,
        "prob": 3e-06
       }
      }
@@ -1155,73 +1105,70 @@
      "layer": 14,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.61957
+       "tok": "3",
+       "prob": 6e-05
       },
       {
-       "tok": "...",
-       "prob": 0.25827
+       "tok": "1",
+       "prob": 4e-05
       },
       {
-       "tok": "=",
-       "prob": 0.10767
+       "tok": "2",
+       "prob": 4e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00325
+       "tok": "5",
+       "prob": 3e-05
       },
       {
-       "tok": "#",
-       "prob": 0.00093
+       "tok": "Number",
+       "prob": 2e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00093
+       "tok": "e",
+       "prob": 2e-05
       },
       {
-       "tok": "\u2192",
-       "prob": 0.00088
+       "tok": "4",
+       "prob": 2e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00077
+       "tok": "Br",
+       "prob": 1e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00068
+       "tok": "6",
+       "prob": 1e-05
       },
       {
-       "tok": "[...]",
-       "prob": 0.0005
-      },
-      {
-       "tok": "......",
-       "prob": 0.00039
-      },
-      {
-       "tok": "(...",
-       "prob": 0.00027
+       "tok": "Math",
+       "prob": 1e-05
       }
      ],
      "track": {
       "5": {
        "rank": 48,
+       "rank_word": 3,
        "prob": 2.6e-05
       },
       "five": {
        "rank": 326,
+       "rank_word": 158,
        "prob": 1e-06
       },
       "20": {
        "rank": 39,
+       "rank_word": 2,
        "prob": 3.8e-05
       },
       "twenty": {
        "rank": 594,
+       "rank_word": 370,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 325,
+       "rank_word": 156,
        "prob": 1e-06
       }
      }
@@ -1230,73 +1177,70 @@
      "layer": 15,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.31456
+       "tok": "3",
+       "prob": 0.00272
       },
       {
-       "tok": ".",
-       "prob": 0.21619
+       "tok": "1",
+       "prob": 0.00165
       },
       {
-       "tok": "=",
-       "prob": 0.14859
+       "tok": "Number",
+       "prob": 0.00113
       },
       {
-       "tok": "...",
-       "prob": 0.13958
+       "tok": "5",
+       "prob": 0.00107
       },
       {
-       "tok": "\n",
-       "prob": 0.01011
+       "tok": "2",
+       "prob": 0.00107
       },
       {
-       "tok": "?",
-       "prob": 0.00838
+       "tok": "What",
+       "prob": 0.00078
       },
       {
-       "tok": "+",
-       "prob": 0.00838
+       "tok": "4",
+       "prob": 0.00069
       },
       {
-       "tok": "\u2192",
-       "prob": 0.0074
+       "tok": "The",
+       "prob": 0.00065
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00695
+       "tok": "6",
+       "prob": 0.00057
       },
       {
-       "tok": ".",
-       "prob": 0.00508
-      },
-      {
-       "tok": ":",
-       "prob": 0.00372
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.00372
+       "tok": "How",
+       "prob": 0.00054
       }
      ],
      "track": {
       "5": {
        "rank": 30,
+       "rank_word": 4,
        "prob": 0.001066
       },
       "five": {
        "rank": 354,
+       "rank_word": 148,
        "prob": 3.6e-05
       },
       "20": {
        "rank": 34,
+       "rank_word": 3,
        "prob": 0.001066
       },
       "twenty": {
        "rank": 536,
+       "rank_word": 262,
        "prob": 2e-05
       },
       "multiplication": {
        "rank": 844,
+       "rank_word": 480,
        "prob": 1.1e-05
       }
      }
@@ -1305,43 +1249,7 @@
      "layer": 16,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.29694
-      },
-      {
-       "tok": "=",
-       "prob": 0.12378
-      },
-      {
-       "tok": "\n",
-       "prob": 0.06224
-      },
-      {
-       "tok": "?",
-       "prob": 0.04554
-      },
-      {
-       "tok": "\\(",
-       "prob": 0.01783
-      },
-      {
-       "tok": "\\(",
-       "prob": 0.01016
-      },
-      {
-       "tok": "+",
-       "prob": 0.00955
-      },
-      {
        "tok": "3",
-       "prob": 0.00897
-      },
-      {
-       "tok": "...",
-       "prob": 0.00897
-      },
-      {
-       "tok": ").",
        "prob": 0.00897
       },
       {
@@ -1349,29 +1257,62 @@
        "prob": 0.00579
       },
       {
-       "tok": "\uff1f",
+       "tok": "5",
        "prob": 0.0048
+      },
+      {
+       "tok": "4",
+       "prob": 0.00424
+      },
+      {
+       "tok": "Number",
+       "prob": 0.00398
+      },
+      {
+       "tok": "6",
+       "prob": 0.00374
+      },
+      {
+       "tok": "2",
+       "prob": 0.00374
+      },
+      {
+       "tok": "Total",
+       "prob": 0.00351
+      },
+      {
+       "tok": "Result",
+       "prob": 0.00273
+      },
+      {
+       "tok": "Correct",
+       "prob": 0.00257
       }
      ],
      "track": {
       "5": {
        "rank": 13,
+       "rank_word": 2,
        "prob": 0.0048
       },
       "five": {
        "rank": 1917,
+       "rank_word": 1395,
        "prob": 1.8e-05
       },
       "20": {
        "rank": 20,
+       "rank_word": 6,
        "prob": 0.003738
       },
       "twenty": {
        "rank": 2333,
+       "rank_word": 1734,
        "prob": 1.5e-05
       },
       "multiplication": {
        "rank": 700,
+       "rank_word": 431,
        "prob": 5e-05
       }
      }
@@ -1380,24 +1321,8 @@
      "layer": 17,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.10715
-      },
-      {
-       "tok": "\u2026\u2026",
-       "prob": 0.06499
-      },
-      {
-       "tok": "=",
-       "prob": 0.06499
-      },
-      {
        "tok": "3",
        "prob": 0.05388
-      },
-      {
-       "tok": ".",
-       "prob": 0.03479
       },
       {
        "tok": "6",
@@ -1412,10 +1337,6 @@
        "prob": 0.02884
       },
       {
-       "tok": "\\(",
-       "prob": 0.02545
-      },
-      {
        "tok": "4",
        "prob": 0.02545
       },
@@ -1424,29 +1345,46 @@
        "prob": 0.01862
       },
       {
-       "tok": "?",
-       "prob": 0.01862
+       "tok": "7",
+       "prob": 0.01643
+      },
+      {
+       "tok": "8",
+       "prob": 0.0128
+      },
+      {
+       "tok": "9",
+       "prob": 0.00936
+      },
+      {
+       "tok": "equals",
+       "prob": 0.00252
       }
      ],
      "track": {
       "5": {
        "rank": 7,
+       "rank_word": 3,
        "prob": 0.028839
       },
       "five": {
        "rank": 495,
+       "rank_word": 213,
        "prob": 7.6e-05
       },
       "20": {
        "rank": 11,
+       "rank_word": 5,
        "prob": 0.01862
       },
       "twenty": {
        "rank": 669,
+       "rank_word": 331,
        "prob": 5.4e-05
       },
       "multiplication": {
        "rank": 483,
+       "rank_word": 209,
        "prob": 7.6e-05
       }
      }
@@ -1455,73 +1393,70 @@
      "layer": 18,
      "top": [
       {
-       "tok": "\uff1f",
-       "prob": 0.46119
+       "tok": "6",
+       "prob": 0.00201
       },
       {
-       "tok": "?...",
-       "prob": 0.04861
+       "tok": "5",
+       "prob": 0.00166
       },
       {
-       "tok": "**?",
-       "prob": 0.04566
+       "tok": "Arithmetic",
+       "prob": 0.00095
       },
       {
-       "tok": "?",
-       "prob": 0.0403
+       "tok": "math",
+       "prob": 0.00095
       },
       {
-       "tok": ")?",
-       "prob": 0.03341
+       "tok": "\u7b97\u672f",
+       "prob": 0.00084
       },
       {
-       "tok": "=?",
-       "prob": 0.03341
+       "tok": "4",
+       "prob": 0.00084
       },
       {
-       "tok": "\uff1f**",
-       "prob": 0.0168
+       "tok": "\u6570\u5b66",
+       "prob": 0.00074
       },
       {
-       "tok": "}?",
-       "prob": 0.0168
+       "tok": "7",
+       "prob": 0.00069
       },
       {
-       "tok": "?=",
-       "prob": 0.01308
+       "tok": "8",
+       "prob": 0.00069
       },
       {
-       "tok": "?<",
-       "prob": 0.01155
-      },
-      {
-       "tok": "\"?",
-       "prob": 0.01085
-      },
-      {
-       "tok": "()?",
-       "prob": 0.00899
+       "tok": "3",
+       "prob": 0.00061
       }
      ],
      "track": {
       "5": {
        "rank": 50,
+       "rank_word": 1,
        "prob": 0.001663
       },
       "five": {
        "rank": 1629,
+       "rank_word": 930,
        "prob": 5e-06
       },
       "20": {
        "rank": 111,
+       "rank_word": 12,
        "prob": 0.000225
       },
       "twenty": {
        "rank": 9240,
+       "rank_word": 7544,
        "prob": 1e-06
       },
       "multiplication": {
        "rank": 1050,
+       "rank_word": 547,
        "prob": 8e-06
       }
      }
@@ -1530,73 +1465,70 @@
      "layer": 19,
      "top": [
       {
-       "tok": "\uff1f",
-       "prob": 0.16077
-      },
-      {
-       "tok": "\"?",
-       "prob": 0.08606
-      },
-      {
-       "tok": "?",
-       "prob": 0.07594
-      },
-      {
-       "tok": "?\\",
-       "prob": 0.07134
-      },
-      {
-       "tok": ")?",
-       "prob": 0.04903
-      },
-      {
        "tok": "4",
        "prob": 0.04327
       },
       {
-       "tok": "\u201d?",
-       "prob": 0.04065
-      },
-      {
-       "tok": "?\u201d",
-       "prob": 0.03166
-      },
-      {
-       "tok": "?)",
-       "prob": 0.02466
-      },
-      {
-       "tok": "\uff1f\u201d",
-       "prob": 0.02176
-      },
-      {
-       "tok": "?\"",
-       "prob": 0.02176
-      },
-      {
        "tok": "3",
        "prob": 0.02044
+      },
+      {
+       "tok": "5",
+       "prob": 0.01495
+      },
+      {
+       "tok": "6",
+       "prob": 0.0124
+      },
+      {
+       "tok": "7",
+       "prob": 0.00428
+      },
+      {
+       "tok": "8",
+       "prob": 0.00355
+      },
+      {
+       "tok": "2",
+       "prob": 0.00334
+      },
+      {
+       "tok": "\u00b3",
+       "prob": 0.00084
+      },
+      {
+       "tok": "1",
+       "prob": 0.00084
+      },
+      {
+       "tok": "9",
+       "prob": 0.00066
       }
      ],
      "track": {
       "5": {
        "rank": 13,
+       "rank_word": 2,
        "prob": 0.014954
       },
       "five": {
        "rank": 1123,
+       "rank_word": 667,
        "prob": 1.3e-05
       },
       "20": {
        "rank": 33,
+       "rank_word": 6,
        "prob": 0.003337
       },
       "twenty": {
        "rank": 10631,
+       "rank_word": 8624,
        "prob": 2e-06
       },
       "multiplication": {
        "rank": 1265,
+       "rank_word": 760,
        "prob": 1.2e-05
       }
      }
@@ -1625,53 +1557,50 @@
        "prob": 0.0412
       },
       {
-       "tok": "?\\",
-       "prob": 0.03415
-      },
-      {
        "tok": "7",
        "prob": 0.03014
-      },
-      {
-       "tok": "\"?",
-       "prob": 0.02205
-      },
-      {
-       "tok": "?$",
-       "prob": 0.0118
-      },
-      {
-       "tok": "?(",
-       "prob": 0.0118
       },
       {
        "tok": "9",
        "prob": 0.01109
       },
       {
-       "tok": ")?",
-       "prob": 0.00978
+       "tok": "2",
+       "prob": 0.00338
+      },
+      {
+       "tok": "FOUR",
+       "prob": 0.0016
+      },
+      {
+       "tok": "\u00b3",
+       "prob": 0.00124
       }
      ],
      "track": {
       "5": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.06792
       },
       "five": {
        "rank": 835,
+       "rank_word": 500,
        "prob": 5.6e-05
       },
       "20": {
        "rank": 23,
+       "rank_word": 7,
        "prob": 0.003382
       },
       "twenty": {
        "rank": 14629,
+       "rank_word": 12008,
        "prob": 5e-06
       },
       "multiplication": {
        "rank": 4237,
+       "rank_word": 3183,
        "prob": 1.5e-05
       }
      }
@@ -1696,57 +1625,54 @@
        "prob": 0.01283
       },
       {
-       "tok": "\u201c(",
-       "prob": 0.00731
-      },
-      {
-       "tok": "**?",
-       "prob": 0.00731
+       "tok": "8",
+       "prob": 0.00687
       },
       {
        "tok": "7",
        "prob": 0.00687
       },
       {
-       "tok": "8",
-       "prob": 0.00687
+       "tok": "\u7b97\u672f",
+       "prob": 0.00237
       },
       {
-       "tok": "?\\",
-       "prob": 0.00569
+       "tok": "9",
+       "prob": 0.00197
       },
       {
-       "tok": "\"?\"",
-       "prob": 0.00443
+       "tok": "romb",
+       "prob": 0.00174
       },
       {
-       "tok": "\"?",
-       "prob": 0.00443
-      },
-      {
-       "tok": "____",
-       "prob": 0.00417
+       "tok": "pomi",
+       "prob": 0.00144
       }
      ],
      "track": {
       "5": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.019873
       },
       "five": {
        "rank": 3487,
+       "rank_word": 2956,
        "prob": 3.5e-05
       },
       "20": {
        "rank": 178,
+       "rank_word": 105,
        "prob": 0.000331
       },
       "twenty": {
        "rank": 72295,
+       "rank_word": 62929,
        "prob": 2e-06
       },
       "multiplication": {
        "rank": 1072,
+       "rank_word": 772,
        "prob": 8.6e-05
       }
      }
@@ -1757,10 +1683,6 @@
       {
        "tok": "5",
        "prob": 0.04266
-      },
-      {
-       "tok": "**?",
-       "prob": 0.02145
       },
       {
        "tok": "3",
@@ -1779,20 +1701,8 @@
        "prob": 0.01079
       },
       {
-       "tok": "?\\",
-       "prob": 0.00696
-      },
-      {
        "tok": "9",
        "prob": 0.00615
-      },
-      {
-       "tok": "?=",
-       "prob": 0.00422
-      },
-      {
-       "tok": "\"?\"",
-       "prob": 0.00397
       },
       {
        "tok": "8",
@@ -1801,27 +1711,40 @@
       {
        "tok": "\u7b2c\u4e09",
        "prob": 0.0035
+      },
+      {
+       "tok": "ABCDE",
+       "prob": 0.0035
+      },
+      {
+       "tok": "fifth",
+       "prob": 0.00226
       }
      ],
      "track": {
       "5": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.042656
       },
       "five": {
        "rank": 6131,
+       "rank_word": 5057,
        "prob": 2.2e-05
       },
       "20": {
        "rank": 209,
+       "rank_word": 133,
        "prob": 0.00027
       },
       "twenty": {
        "rank": 66407,
+       "rank_word": 57799,
        "prob": 2e-06
       },
       "multiplication": {
        "rank": 9367,
+       "rank_word": 7906,
        "prob": 1.5e-05
       }
      }
@@ -1838,11 +1761,11 @@
        "prob": 0.00276
       },
       {
-       "tok": "FOUR",
+       "tok": "ilancia",
        "prob": 0.0019
       },
       {
-       "tok": "ilancia",
+       "tok": "FOUR",
        "prob": 0.0019
       },
       {
@@ -1854,20 +1777,12 @@
        "prob": 0.00178
       },
       {
-       "tok": "**?",
-       "prob": 0.00178
-      },
-      {
        "tok": "Twice",
        "prob": 0.00167
       },
       {
        "tok": "\u00f2i",
        "prob": 0.00115
-      },
-      {
-       "tok": "NOTA",
-       "prob": 0.00108
       },
       {
        "tok": "opot",
@@ -1881,22 +1796,27 @@
      "track": {
       "5": {
        "rank": 1910,
+       "rank_word": 1590,
        "prob": 6.7e-05
       },
       "five": {
        "rank": 95585,
+       "rank_word": 83132,
        "prob": 1e-06
       },
       "20": {
        "rank": 176,
+       "rank_word": 134,
        "prob": 0.00032
       },
       "twenty": {
        "rank": 15614,
+       "rank_word": 13660,
        "prob": 1.2e-05
       },
       "multiplication": {
        "rank": 14500,
+       "rank_word": 12521,
        "prob": 1.3e-05
       }
      }
@@ -1929,11 +1849,11 @@
        "prob": 0.00247
       },
       {
-       "tok": "\u516d\u70b9",
+       "tok": "fourteen",
        "prob": 0.00218
       },
       {
-       "tok": "fourteen",
+       "tok": "\u516d\u70b9",
        "prob": 0.00218
       },
       {
@@ -1943,35 +1863,32 @@
       {
        "tok": "impi",
        "prob": 0.00181
-      },
-      {
-       "tok": "apat",
-       "prob": 0.0017
-      },
-      {
-       "tok": "[text",
-       "prob": 0.0016
       }
      ],
      "track": {
       "5": {
        "rank": 312,
+       "rank_word": 304,
        "prob": 0.000216
       },
       "five": {
        "rank": 9551,
+       "rank_word": 8549,
        "prob": 1.8e-05
       },
       "20": {
        "rank": 845,
+       "rank_word": 797,
        "prob": 0.000116
       },
       "twenty": {
        "rank": 126,
+       "rank_word": 121,
        "prob": 0.000391
       },
       "multiplication": {
        "rank": 18692,
+       "rank_word": 16855,
        "prob": 9e-06
       }
      }
@@ -2012,41 +1929,38 @@
        "prob": 0.0028
       },
       {
-       "tok": "*(*",
-       "prob": 0.0028
-      },
-      {
-       "tok": "gte",
-       "prob": 0.00263
-      },
-      {
        "tok": "fourteen",
        "prob": 0.00263
       },
       {
-       "tok": "simak",
-       "prob": 0.00247
+       "tok": "gte",
+       "prob": 0.00263
       }
      ],
      "track": {
       "5": {
        "rank": 3044,
+       "rank_word": 2754,
        "prob": 4.5e-05
       },
       "five": {
        "rank": 12062,
+       "rank_word": 10863,
        "prob": 1.4e-05
       },
       "20": {
        "rank": 2020,
+       "rank_word": 1858,
        "prob": 6e-05
       },
       "twenty": {
        "rank": 15,
+       "rank_word": 12,
        "prob": 0.002047
       },
       "multiplication": {
        "rank": 39962,
+       "rank_word": 35431,
        "prob": 4e-06
       }
      }
@@ -2087,41 +2001,38 @@
        "prob": 0.00249
       },
       {
-       "tok": "ten",
-       "prob": 0.00234
-      },
-      {
        "tok": "twenty",
        "prob": 0.00234
       },
       {
-       "tok": "intValue",
-       "prob": 0.00219
-      },
-      {
-       "tok": "impi",
-       "prob": 0.00219
+       "tok": "ten",
+       "prob": 0.00234
       }
      ],
      "track": {
       "5": {
        "rank": 21227,
+       "rank_word": 19234,
        "prob": 8e-06
       },
       "five": {
        "rank": 35969,
+       "rank_word": 31895,
        "prob": 4e-06
       },
       "20": {
        "rank": 2563,
+       "rank_word": 2327,
        "prob": 5.2e-05
       },
       "twenty": {
        "rank": 8,
+       "rank_word": 9,
        "prob": 0.002335
       },
       "multiplication": {
        "rank": 18524,
+       "rank_word": 16585,
        "prob": 9e-06
       }
      }
@@ -2168,35 +2079,32 @@
       {
        "tok": "checked",
        "prob": 0.00166
-      },
-      {
-       "tok": "check",
-       "prob": 0.00166
-      },
-      {
-       "tok": "condition",
-       "prob": 0.00156
       }
      ],
      "track": {
       "5": {
        "rank": 202654,
+       "rank_word": 177924,
        "prob": 0.0
       },
       "five": {
        "rank": 171238,
+       "rank_word": 151111,
        "prob": 0.0
       },
       "20": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.012265
       },
       "twenty": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.025964
       },
       "multiplication": {
        "rank": 10311,
+       "rank_word": 9433,
        "prob": 1.6e-05
       }
      }
@@ -2221,16 +2129,8 @@
        "prob": 0.02297
       },
       {
-       "tok": " ",
-       "prob": 0.01681
-      },
-      {
        "tok": "2",
        "prob": 0.01309
-      },
-      {
-       "tok": "??",
-       "prob": 0.00618
       },
       {
        "tok": "Twenty",
@@ -2241,37 +2141,42 @@
        "prob": 0.00242
       },
       {
-       "tok": "?",
-       "prob": 0.00227
-      },
-      {
        "tok": "\u2082",
        "prob": 0.00227
       },
       {
        "tok": "twentieth",
        "prob": 0.00201
+      },
+      {
+       "tok": "XXI",
+       "prob": 0.00177
       }
      ],
      "track": {
       "5": {
        "rank": 226038,
+       "rank_word": 198035,
        "prob": 0.0
       },
       "five": {
        "rank": 30420,
+       "rank_word": 27676,
        "prob": 3e-06
       },
       "20": {
        "rank": 5,
+       "rank_word": 4,
        "prob": 0.01309
       },
       "twenty": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.279881
       },
       "multiplication": {
        "rank": 3432,
+       "rank_word": 3035,
        "prob": 2.1e-05
       }
      }
@@ -2292,22 +2197,6 @@
        "prob": 0.05759
       },
       {
-       "tok": " ",
-       "prob": 0.05759
-      },
-      {
-       "tok": "??",
-       "prob": 0.02896
-      },
-      {
-       "tok": "?",
-       "prob": 0.02401
-      },
-      {
-       "tok": "\ufffd",
-       "prob": 0.01285
-      },
-      {
        "tok": "Twenty",
        "prob": 0.00883
       },
@@ -2316,37 +2205,50 @@
        "prob": 0.00688
       },
       {
-       "tok": "???",
-       "prob": 0.00646
-      },
-      {
        "tok": "TWO",
        "prob": 0.00536
       },
       {
        "tok": "irrelevant",
        "prob": 0.00503
+      },
+      {
+       "tok": "twenty",
+       "prob": 0.00392
+      },
+      {
+       "tok": "Depends",
+       "prob": 0.00153
+      },
+      {
+       "tok": "abbr",
+       "prob": 0.00135
       }
      ],
      "track": {
       "5": {
        "rank": 53973,
+       "rank_word": 49148,
        "prob": 1e-06
       },
       "five": {
        "rank": 2350,
+       "rank_word": 2072,
        "prob": 2e-05
       },
       "20": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.311306
       },
       "twenty": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.069462
       },
       "multiplication": {
        "rank": 6087,
+       "rank_word": 5469,
        "prob": 9e-06
       }
      }
@@ -2355,36 +2257,16 @@
      "layer": 30,
      "top": [
       {
-       "tok": " ",
-       "prob": 0.95761
-      },
-      {
        "tok": "2",
        "prob": 0.00999
-      },
-      {
-       "tok": "?",
-       "prob": 0.00731
       },
       {
        "tok": "tr\u0103ng",
        "prob": 0.00269
       },
       {
-       "tok": "??",
-       "prob": 0.00237
-      },
-      {
        "tok": "twenty",
        "prob": 0.00223
-      },
-      {
-       "tok": "???",
-       "prob": 0.00135
-      },
-      {
-       "tok": "?,",
-       "prob": 0.00105
       },
       {
        "tok": "Twenty",
@@ -2395,33 +2277,50 @@
        "prob": 0.00028
       },
       {
-       "tok": "?:",
-       "prob": 0.00028
+       "tok": "TWO",
+       "prob": 0.00016
       },
       {
-       "tok": "?**",
-       "prob": 0.00027
+       "tok": "twenty",
+       "prob": 0.00011
+      },
+      {
+       "tok": "unknown",
+       "prob": 0.0001
+      },
+      {
+       "tok": "\u00b2",
+       "prob": 0.0001
+      },
+      {
+       "tok": "Not",
+       "prob": 6e-05
       }
      ],
      "track": {
       "5": {
        "rank": 40217,
+       "rank_word": 36649,
        "prob": 0.0
       },
       "five": {
        "rank": 1724,
+       "rank_word": 1419,
        "prob": 1e-06
       },
       "20": {
        "rank": 1,
+       "rank_word": 0,
        "prob": 0.009994
       },
       "twenty": {
        "rank": 5,
+       "rank_word": 2,
        "prob": 0.00223
       },
       "multiplication": {
        "rank": 1831,
+       "rank_word": 1522,
        "prob": 1e-06
       }
      }
@@ -2429,58 +2328,51 @@
    ],
    "model_out": [
     {
-     "tok": " ",
-     "prob": 0.99478
-    },
-    {
-     "tok": "?",
-     "prob": 0.00317
-    },
-    {
-     "tok": "(",
-     "prob": 0.00062
-    },
-    {
      "tok": "2",
      "prob": 0.00017
     },
     {
-     "tok": "...",
-     "prob": 0.00017
+     "tok": "not",
+     "prob": 1e-05
     },
     {
-     "tok": "\n",
-     "prob": 0.00012
+     "tok": "A",
+     "prob": 1e-05
     },
     {
-     "tok": " \n",
-     "prob": 0.00012
+     "tok": "1",
+     "prob": 0.0
     },
     {
-     "tok": "??",
-     "prob": 0.0001
+     "tok": "No",
+     "prob": 0.0
     },
     {
-     "tok": "-",
-     "prob": 9e-05
+     "tok": "Not",
+     "prob": 0.0
     },
     {
-     "tok": "???",
-     "prob": 8e-05
+     "tok": "X",
+     "prob": 0.0
     },
     {
-     "tok": "?",
-     "prob": 5e-05
+     "tok": "None",
+     "prob": 0.0
     },
     {
-     "tok": "**",
-     "prob": 3e-05
+     "tok": "x",
+     "prob": 0.0
+    },
+    {
+     "tok": "no",
+     "prob": 0.0
     }
-   ]
+   ],
+   "expr": "(2 + 3) * 4",
+   "inter": "5"
   },
   {
    "name": "paper-4-17",
-   "expr": "(4 + 17) * 2",
    "prompt": "(1 + 1) * 5 = 10\n(2 + 2) * 3 = 12\n(4 + 17) * 2 =",
    "tokens": [
     "(",
@@ -2526,7 +2418,6 @@
    "read_pos": -1,
    "read_token": " =",
    "answer": "42",
-   "inter": "21",
    "generated": "42",
    "track_words": [
     "21",
@@ -2535,13 +2426,6 @@
     "forty-two",
     "twenty"
    ],
-   "track_resolved": {
-    "21": "2",
-    "42": "4",
-    "forty": " forty",
-    "forty-two": " forty",
-    "twenty": " twenty"
-   },
    "layers": [
     0,
     1,
@@ -2576,78 +2460,76 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.73344
+       "tok": "eza",
+       "prob": 0.00081
       },
       {
-       "tok": "#",
-       "prob": 0.13567
+       "tok": "e",
+       "prob": 0.00071
       },
       {
-       "tok": "+",
-       "prob": 0.03887
+       "tok": "a\u00e7\u00f5es",
+       "prob": 0.00049
       },
       {
-       "tok": ">",
-       "prob": 0.01046
+       "tok": "auf",
+       "prob": 0.0003
       },
       {
-       "tok": "%",
-       "prob": 0.00983
+       "tok": "eled",
+       "prob": 0.00025
       },
       {
-       "tok": "<",
-       "prob": 0.00923
+       "tok": "iado",
+       "prob": 0.00015
       },
       {
-       "tok": "...",
-       "prob": 0.00635
+       "tok": "in",
+       "prob": 0.00013
       },
       {
-       "tok": "-",
-       "prob": 0.00464
+       "tok": "o",
+       "prob": 0.00013
       },
       {
-       "tok": "{",
-       "prob": 0.00219
+       "tok": "from",
+       "prob": 0.00012
       },
       {
-       "tok": ",",
-       "prob": 0.00182
-      },
-      {
-       "tok": ":",
-       "prob": 0.00182
-      },
-      {
-       "tok": "...",
-       "prob": 0.00125
+       "tok": "the",
+       "prob": 0.00012
       }
      ],
      "track": {
       "21": {
        "rank": 228686,
+       "rank_word": 204264,
        "prob": 0.0
       },
       "42": {
        "rank": 227507,
+       "rank_word": 203347,
        "prob": 0.0
       },
       "forty": {
        "rank": 2123,
+       "rank_word": 1948,
        "prob": 2e-06
       },
       "forty-two": {
        "rank": 2123,
+       "rank_word": 1948,
        "prob": 2e-06
       },
       "twenty": {
        "rank": 622,
+       "rank_word": 529,
        "prob": 6e-06
       }
      }
@@ -2656,73 +2538,70 @@
      "layer": 1,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.48966
+       "tok": "a\u00e7\u00f5es",
+       "prob": 0.00027
       },
       {
-       "tok": "=",
-       "prob": 0.38135
+       "tok": "eza",
+       "prob": 0.00016
       },
       {
-       "tok": "<",
-       "prob": 0.04019
+       "tok": "auf",
+       "prob": 0.00013
       },
       {
-       "tok": "#",
-       "prob": 0.01305
+       "tok": "ielen",
+       "prob": 9e-05
       },
       {
-       "tok": "%",
-       "prob": 0.01152
+       "tok": "iado",
+       "prob": 7e-05
       },
       {
-       "tok": ":",
-       "prob": 0.00955
+       "tok": "from",
+       "prob": 7e-05
       },
       {
-       "tok": "-",
-       "prob": 0.00656
+       "tok": "one",
+       "prob": 6e-05
       },
       {
-       "tok": "...",
-       "prob": 0.00511
+       "tok": "although",
+       "prob": 6e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00451
+       "tok": "iato",
+       "prob": 5e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00398
-      },
-      {
-       "tok": "{",
-       "prob": 0.00188
-      },
-      {
-       "tok": "&",
-       "prob": 0.00177
+       "tok": "the",
+       "prob": 5e-05
       }
      ],
      "track": {
       "21": {
        "rank": 247025,
+       "rank_word": 217409,
        "prob": 0.0
       },
       "42": {
        "rank": 247140,
+       "rank_word": 217442,
        "prob": 0.0
       },
       "forty": {
        "rank": 3429,
+       "rank_word": 3217,
        "prob": 1e-06
       },
       "forty-two": {
        "rank": 3429,
+       "rank_word": 3217,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 684,
+       "rank_word": 583,
        "prob": 3e-06
       }
      }
@@ -2730,18 +2609,6 @@
     {
      "layer": 2,
      "top": [
-      {
-       "tok": ",",
-       "prob": 0.38253
-      },
-      {
-       "tok": "=",
-       "prob": 0.10296
-      },
-      {
-       "tok": "\",",
-       "prob": 0.05866
-      },
       {
        "tok": "e",
        "prob": 0.03558
@@ -2767,37 +2634,46 @@
        "prob": 0.01085
       },
       {
-       "tok": "#",
-       "prob": 0.00845
-      },
-      {
        "tok": "on",
        "prob": 0.00746
       },
       {
        "tok": "a",
        "prob": 0.00658
+      },
+      {
+       "tok": "more",
+       "prob": 0.00618
+      },
+      {
+       "tok": "two",
+       "prob": 0.00581
       }
      ],
      "track": {
       "21": {
        "rank": 5020,
+       "rank_word": 4763,
        "prob": 3e-06
       },
       "42": {
        "rank": 7255,
+       "rank_word": 6852,
        "prob": 2e-06
       },
       "forty": {
        "rank": 1424,
+       "rank_word": 1320,
        "prob": 1.4e-05
       },
       "forty-two": {
        "rank": 1424,
+       "rank_word": 1320,
        "prob": 1.4e-05
       },
       "twenty": {
        "rank": 732,
+       "rank_word": 642,
        "prob": 3e-05
       }
      }
@@ -2806,73 +2682,70 @@
      "layer": 3,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.94249
+       "tok": "in",
+       "prob": 0.00019
       },
       {
-       "tok": "...",
-       "prob": 0.02512
+       "tok": "the",
+       "prob": 0.00019
       },
       {
-       "tok": "#",
-       "prob": 0.01431
+       "tok": "e",
+       "prob": 0.00016
       },
       {
-       "tok": "+",
-       "prob": 0.00385
+       "tok": "a",
+       "prob": 0.00011
       },
       {
-       "tok": ":",
-       "prob": 0.00171
+       "tok": "at",
+       "prob": 9e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00161
+       "tok": "from",
+       "prob": 8e-05
       },
       {
-       "tok": "-",
-       "prob": 0.00097
+       "tok": "The",
+       "prob": 8e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00086
+       "tok": "one",
+       "prob": 8e-05
       },
       {
-       "tok": ",",
-       "prob": 0.00059
+       "tok": "to",
+       "prob": 7e-05
       },
       {
-       "tok": " ",
-       "prob": 0.00049
-      },
-      {
-       "tok": "<|endoftext|>",
-       "prob": 0.00046
-      },
-      {
-       "tok": "[",
-       "prob": 0.00041
+       "tok": "more",
+       "prob": 5e-05
       }
      ],
      "track": {
       "21": {
        "rank": 14101,
+       "rank_word": 13388,
        "prob": 0.0
       },
       "42": {
        "rank": 27090,
+       "rank_word": 25460,
        "prob": 0.0
       },
       "forty": {
        "rank": 1680,
+       "rank_word": 1533,
        "prob": 0.0
       },
       "forty-two": {
        "rank": 1680,
+       "rank_word": 1533,
        "prob": 0.0
       },
       "twenty": {
        "rank": 814,
+       "rank_word": 723,
        "prob": 1e-06
       }
      }
@@ -2881,73 +2754,70 @@
      "layer": 4,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.64109
-      },
-      {
-       "tok": ",",
-       "prob": 0.10465
-      },
-      {
-       "tok": "...",
-       "prob": 0.05602
-      },
-      {
-       "tok": ".",
-       "prob": 0.02998
-      },
-      {
-       "tok": "...",
-       "prob": 0.02998
-      },
-      {
-       "tok": ":",
-       "prob": 0.02061
-      },
-      {
-       "tok": "[",
-       "prob": 0.01708
-      },
-      {
-       "tok": "#",
-       "prob": 0.01103
-      },
-      {
-       "tok": "\u2192",
-       "prob": 0.00629
-      },
-      {
-       "tok": "\",",
-       "prob": 0.00555
-      },
-      {
        "tok": "e",
        "prob": 0.00489
       },
       {
-       "tok": " ",
-       "prob": 0.00406
+       "tok": "The",
+       "prob": 0.00109
+      },
+      {
+       "tok": "the",
+       "prob": 0.0008
+      },
+      {
+       "tok": "from",
+       "prob": 0.00058
+      },
+      {
+       "tok": "in",
+       "prob": 0.00052
+      },
+      {
+       "tok": "a",
+       "prob": 0.0004
+      },
+      {
+       "tok": "to",
+       "prob": 0.0004
+      },
+      {
+       "tok": "at",
+       "prob": 0.00033
+      },
+      {
+       "tok": "s",
+       "prob": 0.00029
+      },
+      {
+       "tok": "i",
+       "prob": 0.00028
       }
      ],
      "track": {
       "21": {
        "rank": 4804,
+       "rank_word": 4212,
        "prob": 1e-06
       },
       "42": {
        "rank": 10118,
+       "rank_word": 9129,
        "prob": 0.0
       },
       "forty": {
        "rank": 3187,
+       "rank_word": 2721,
        "prob": 1e-06
       },
       "forty-two": {
        "rank": 3187,
+       "rank_word": 2721,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 1971,
+       "rank_word": 1685,
        "prob": 2e-06
       }
      }
@@ -2956,73 +2826,70 @@
      "layer": 5,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.55768
+       "tok": "The",
+       "prob": 0.00021
       },
       {
-       "tok": "...",
-       "prob": 0.18105
+       "tok": "the",
+       "prob": 0.00016
       },
       {
-       "tok": "...",
-       "prob": 0.141
+       "tok": "e",
+       "prob": 0.00013
       },
       {
-       "tok": "#",
-       "prob": 0.05187
+       "tok": "a",
+       "prob": 0.00011
       },
       {
-       "tok": "\n",
-       "prob": 0.02031
+       "tok": "In",
+       "prob": 8e-05
       },
       {
-       "tok": "[",
-       "prob": 0.00659
+       "tok": "A",
+       "prob": 7e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00514
+       "tok": "in",
+       "prob": 6e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00482
+       "tok": "from",
+       "prob": 6e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00453
+       "tok": "D",
+       "prob": 5e-05
       },
       {
-       "tok": " ",
-       "prob": 0.00293
-      },
-      {
-       "tok": ">",
-       "prob": 0.00177
-      },
-      {
-       "tok": ".",
-       "prob": 0.00177
+       "tok": "to",
+       "prob": 5e-05
       }
      ],
      "track": {
       "21": {
        "rank": 647,
+       "rank_word": 467,
        "prob": 2e-06
       },
       "42": {
        "rank": 1477,
+       "rank_word": 1242,
        "prob": 1e-06
       },
       "forty": {
        "rank": 3892,
+       "rank_word": 3425,
        "prob": 0.0
       },
       "forty-two": {
        "rank": 3892,
+       "rank_word": 3425,
        "prob": 0.0
       },
       "twenty": {
        "rank": 2222,
+       "rank_word": 1929,
        "prob": 0.0
       }
      }
@@ -3031,73 +2898,70 @@
      "layer": 6,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.74409
+       "tok": "one",
+       "prob": 0.00016
       },
       {
-       "tok": "#",
-       "prob": 0.1293
+       "tok": "two",
+       "prob": 0.00014
       },
       {
-       "tok": "...",
-       "prob": 0.0539
+       "tok": "the",
+       "prob": 0.00014
       },
       {
-       "tok": "+",
-       "prob": 0.0088
+       "tok": "D",
+       "prob": 0.00013
       },
       {
-       "tok": "@",
-       "prob": 0.00827
+       "tok": "after",
+       "prob": 0.00012
       },
       {
-       "tok": " \n",
-       "prob": 0.00729
+       "tok": "T",
+       "prob": 0.00012
       },
       {
-       "tok": "...",
-       "prob": 0.00685
+       "tok": "a",
+       "prob": 0.00011
       },
       {
-       "tok": "\n",
-       "prob": 0.00501
+       "tok": "The",
+       "prob": 9e-05
       },
       {
-       "tok": "%",
-       "prob": 0.00286
+       "tok": "almost",
+       "prob": 9e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00286
-      },
-      {
-       "tok": " ",
-       "prob": 0.00252
-      },
-      {
-       "tok": "==",
-       "prob": 0.00173
+       "tok": "at",
+       "prob": 9e-05
       }
      ],
      "track": {
       "21": {
        "rank": 1473,
+       "rank_word": 1311,
        "prob": 1e-06
       },
       "42": {
        "rank": 6895,
+       "rank_word": 6335,
        "prob": 0.0
       },
       "forty": {
        "rank": 1535,
+       "rank_word": 1360,
        "prob": 1e-06
       },
       "forty-two": {
        "rank": 1535,
+       "rank_word": 1360,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 394,
+       "rank_word": 299,
        "prob": 6e-06
       }
      }
@@ -3106,73 +2970,70 @@
      "layer": 7,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.70646
+       "tok": "D",
+       "prob": 0.00042
       },
       {
-       "tok": "...",
-       "prob": 0.10834
+       "tok": "T",
+       "prob": 0.00029
       },
       {
-       "tok": "#",
-       "prob": 0.03986
+       "tok": "a",
+       "prob": 0.00024
       },
       {
-       "tok": "\n\n",
-       "prob": 0.03986
+       "tok": "the",
+       "prob": 0.00017
       },
       {
-       "tok": "\n",
-       "prob": 0.03517
+       "tok": "A",
+       "prob": 0.00016
       },
       {
-       "tok": "...",
-       "prob": 0.01883
+       "tok": "one",
+       "prob": 0.00015
       },
       {
-       "tok": "+",
-       "prob": 0.01073
+       "tok": "two",
+       "prob": 0.00014
       },
       {
-       "tok": " ",
-       "prob": 0.0042
+       "tok": "B",
+       "prob": 0.00014
       },
       {
-       "tok": " \n\n",
-       "prob": 0.00327
+       "tok": "N",
+       "prob": 0.00013
       },
       {
-       "tok": ":",
-       "prob": 0.00198
-      },
-      {
-       "tok": "@",
-       "prob": 0.00186
-      },
-      {
-       "tok": " \n",
-       "prob": 0.00165
+       "tok": "The",
+       "prob": 0.00013
       }
      ],
      "track": {
       "21": {
        "rank": 116,
+       "rank_word": 64,
        "prob": 2.8e-05
       },
       "42": {
        "rank": 523,
+       "rank_word": 410,
        "prob": 5e-06
       },
       "forty": {
        "rank": 726,
+       "rank_word": 585,
        "prob": 3e-06
       },
       "forty-two": {
        "rank": 726,
+       "rank_word": 585,
        "prob": 3e-06
       },
       "twenty": {
        "rank": 233,
+       "rank_word": 153,
        "prob": 1.3e-05
       }
      }
@@ -3181,73 +3042,70 @@
      "layer": 8,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.4842
+       "tok": "D",
+       "prob": 0.0002
       },
       {
-       "tok": "=",
-       "prob": 0.33278
+       "tok": "T",
+       "prob": 0.00013
       },
       {
-       "tok": "...",
-       "prob": 0.10804
+       "tok": "The",
+       "prob": 0.00013
       },
       {
-       "tok": "#",
-       "prob": 0.01999
+       "tok": "the",
+       "prob": 0.00012
       },
       {
-       "tok": "\n\n",
-       "prob": 0.01877
+       "tok": "a",
+       "prob": 0.00012
       },
       {
-       "tok": "\n",
-       "prob": 0.00783
+       "tok": "e",
+       "prob": 0.00011
       },
       {
-       "tok": "+",
-       "prob": 0.00347
+       "tok": "one",
+       "prob": 0.0001
       },
       {
-       "tok": " \n\n",
-       "prob": 0.00254
+       "tok": "A",
+       "prob": 9e-05
       },
       {
-       "tok": " ",
-       "prob": 0.0012
+       "tok": "Tr",
+       "prob": 8e-05
       },
       {
-       "tok": ":",
-       "prob": 0.0012
-      },
-      {
-       "tok": " \n",
-       "prob": 0.00093
-      },
-      {
-       "tok": "@",
-       "prob": 0.00077
+       "tok": "two",
+       "prob": 7e-05
       }
      ],
      "track": {
       "21": {
        "rank": 164,
+       "rank_word": 102,
        "prob": 1.4e-05
       },
       "42": {
        "rank": 731,
+       "rank_word": 596,
        "prob": 2e-06
       },
       "forty": {
        "rank": 619,
+       "rank_word": 497,
        "prob": 3e-06
       },
       "forty-two": {
        "rank": 619,
+       "rank_word": 497,
        "prob": 3e-06
       },
       "twenty": {
        "rank": 202,
+       "rank_word": 124,
        "prob": 1.1e-05
       }
      }
@@ -3256,73 +3114,70 @@
      "layer": 9,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.60115
+       "tok": "D",
+       "prob": 0.00023
       },
       {
-       "tok": "...",
-       "prob": 0.19517
+       "tok": "e",
+       "prob": 0.00019
       },
       {
-       "tok": "...",
-       "prob": 0.09219
+       "tok": "T",
+       "prob": 0.00015
       },
       {
-       "tok": "\n\n",
-       "prob": 0.03186
+       "tok": "i",
+       "prob": 0.00013
       },
       {
-       "tok": "#",
-       "prob": 0.02641
+       "tok": "Fig",
+       "prob": 0.00012
       },
       {
-       "tok": "\n",
-       "prob": 0.01248
+       "tok": "The",
+       "prob": 0.00012
       },
       {
-       "tok": "+",
-       "prob": 0.01034
+       "tok": "A",
+       "prob": 0.00011
       },
       {
-       "tok": ".",
-       "prob": 0.00262
+       "tok": "R",
+       "prob": 0.00011
       },
       {
-       "tok": " ",
-       "prob": 0.00191
+       "tok": "a",
+       "prob": 0.0001
       },
       {
-       "tok": "@",
-       "prob": 0.00169
-      },
-      {
-       "tok": ":",
-       "prob": 0.00124
-      },
-      {
-       "tok": "-",
-       "prob": 0.00102
+       "tok": "Number",
+       "prob": 9e-05
       }
      ],
      "track": {
       "21": {
        "rank": 67,
+       "rank_word": 20,
        "prob": 5.4e-05
       },
       "42": {
        "rank": 235,
+       "rank_word": 139,
        "prob": 1e-05
       },
       "forty": {
        "rank": 892,
+       "rank_word": 684,
        "prob": 2e-06
       },
       "forty-two": {
        "rank": 892,
+       "rank_word": 684,
        "prob": 2e-06
       },
       "twenty": {
        "rank": 410,
+       "rank_word": 274,
        "prob": 5e-06
       }
      }
@@ -3331,73 +3186,70 @@
      "layer": 10,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.50344
+       "tok": "D",
+       "prob": 0.00125
       },
       {
-       "tok": "...",
-       "prob": 0.25315
+       "tok": "T",
+       "prob": 0.00097
       },
       {
-       "tok": "...",
-       "prob": 0.06013
+       "tok": "R",
+       "prob": 0.00055
       },
       {
-       "tok": "#",
-       "prob": 0.03882
+       "tok": "Tr",
+       "prob": 0.00049
       },
       {
-       "tok": "\n\n",
-       "prob": 0.0284
+       "tok": "A",
+       "prob": 0.00049
       },
       {
-       "tok": "+",
-       "prob": 0.01723
+       "tok": "Number",
+       "prob": 0.00041
       },
       {
-       "tok": "\n",
-       "prob": 0.01045
+       "tok": "a",
+       "prob": 0.00038
       },
       {
-       "tok": " ",
-       "prob": 0.00409
+       "tok": "B",
+       "prob": 0.00036
       },
       {
-       "tok": ".",
-       "prob": 0.00361
+       "tok": "2",
+       "prob": 0.00036
       },
       {
-       "tok": "\u2248",
-       "prob": 0.00299
-      },
-      {
-       "tok": ":",
-       "prob": 0.00233
-      },
-      {
-       "tok": "@",
-       "prob": 0.00219
+       "tok": "W",
+       "prob": 0.00034
       }
      ],
      "track": {
       "21": {
        "rank": 36,
+       "rank_word": 8,
        "prob": 0.000358
       },
       "42": {
        "rank": 127,
+       "rank_word": 67,
        "prob": 8.5e-05
       },
       "forty": {
        "rank": 480,
+       "rank_word": 365,
        "prob": 1.7e-05
       },
       "forty-two": {
        "rank": 480,
+       "rank_word": 365,
        "prob": 1.7e-05
       },
       "twenty": {
        "rank": 249,
+       "rank_word": 162,
        "prob": 3.8e-05
       }
      }
@@ -3406,73 +3258,70 @@
      "layer": 11,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.42553
+       "tok": "2",
+       "prob": 0.00032
       },
       {
-       "tok": "...",
-       "prob": 0.29246
+       "tok": "1",
+       "prob": 0.00028
       },
       {
-       "tok": "\n\n",
-       "prob": 0.20101
+       "tok": "5",
+       "prob": 0.0001
       },
       {
-       "tok": "=",
-       "prob": 0.03493
+       "tok": "Number",
+       "prob": 9e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00646
+       "tok": "D",
+       "prob": 8e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00607
+       "tok": "3",
+       "prob": 8e-05
       },
       {
-       "tok": "#",
-       "prob": 0.0057
+       "tok": "4",
+       "prob": 7e-05
       },
       {
-       "tok": ".",
-       "prob": 0.00473
+       "tok": "T",
+       "prob": 6e-05
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.00417
+       "tok": "0",
+       "prob": 6e-05
       },
       {
-       "tok": "\n\n\n",
-       "prob": 0.00238
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.00153
-      },
-      {
-       "tok": "(...)",
-       "prob": 0.00127
+       "tok": "8",
+       "prob": 6e-05
       }
      ],
      "track": {
       "21": {
        "rank": 20,
+       "rank_word": 0,
        "prob": 0.000322
       },
       "42": {
        "rank": 44,
+       "rank_word": 6,
        "prob": 6.7e-05
       },
       "forty": {
        "rank": 946,
+       "rank_word": 675,
        "prob": 1e-06
       },
       "forty-two": {
        "rank": 946,
+       "rank_word": 675,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 415,
+       "rank_word": 246,
        "prob": 2e-06
       }
      }
@@ -3481,73 +3330,70 @@
      "layer": 12,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.62911
+       "tok": "Number",
+       "prob": 3e-05
       },
       {
-       "tok": "...",
-       "prob": 0.33674
+       "tok": "2",
+       "prob": 2e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.01306
+       "tok": "1",
+       "prob": 2e-05
       },
       {
-       "tok": "=",
-       "prob": 0.01152
+       "tok": "T",
+       "prob": 2e-05
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.00213
+       "tok": "No",
+       "prob": 2e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00114
+       "tok": "D",
+       "prob": 2e-05
       },
       {
-       "tok": ".",
-       "prob": 0.00078
+       "tok": "The",
+       "prob": 1e-05
       },
       {
-       "tok": "#",
-       "prob": 0.00061
+       "tok": "A",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00057
+       "tok": "Math",
+       "prob": 1e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00051
-      },
-      {
-       "tok": "(...)",
-       "prob": 0.00042
-      },
-      {
-       "tok": "(...",
-       "prob": 0.00027
+       "tok": "5",
+       "prob": 1e-05
       }
      ],
      "track": {
       "21": {
        "rank": 38,
+       "rank_word": 1,
        "prob": 2.4e-05
       },
       "42": {
        "rank": 89,
+       "rank_word": 22,
        "prob": 5e-06
       },
       "forty": {
        "rank": 726,
+       "rank_word": 516,
        "prob": 0.0
       },
       "forty-two": {
        "rank": 726,
+       "rank_word": 516,
        "prob": 0.0
       },
       "twenty": {
        "rank": 348,
+       "rank_word": 202,
        "prob": 1e-06
       }
      }
@@ -3556,73 +3402,70 @@
      "layer": 13,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.65298
+       "tok": "2",
+       "prob": 0.00162
       },
       {
-       "tok": "...",
-       "prob": 0.1651
+       "tok": "1",
+       "prob": 0.00092
       },
       {
-       "tok": ".",
-       "prob": 0.04174
+       "tok": "D",
+       "prob": 0.00067
       },
       {
-       "tok": "...",
-       "prob": 0.03684
+       "tok": "T",
+       "prob": 0.00063
       },
       {
-       "tok": "+",
-       "prob": 0.01124
+       "tok": "5",
+       "prob": 0.0006
       },
       {
-       "tok": "#",
-       "prob": 0.00931
+       "tok": "Number",
+       "prob": 0.00056
       },
       {
-       "tok": ":",
-       "prob": 0.00468
+       "tok": "No",
+       "prob": 0.00056
       },
       {
-       "tok": " ",
-       "prob": 0.00413
+       "tok": "3",
+       "prob": 0.00046
       },
       {
-       "tok": "\u2192",
-       "prob": 0.00343
+       "tok": "7",
+       "prob": 0.00038
       },
       {
-       "tok": "\n",
-       "prob": 0.00236
-      },
-      {
-       "tok": "\u2248",
-       "prob": 0.00221
-      },
-      {
-       "tok": "\\(",
-       "prob": 0.00208
+       "tok": "R",
+       "prob": 0.00036
       }
      ],
      "track": {
       "21": {
        "rank": 13,
+       "rank_word": 0,
        "prob": 0.001619
       },
       "42": {
        "rank": 38,
+       "rank_word": 10,
        "prob": 0.000361
       },
       "forty": {
        "rank": 227,
+       "rank_word": 143,
        "prob": 3.4e-05
       },
       "forty-two": {
        "rank": 227,
+       "rank_word": 143,
        "prob": 3.4e-05
       },
       "twenty": {
        "rank": 159,
+       "rank_word": 87,
        "prob": 5.5e-05
       }
      }
@@ -3631,73 +3474,70 @@
      "layer": 14,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.49153
+       "tok": "No",
+       "prob": 0.0001
       },
       {
-       "tok": "=",
-       "prob": 0.29813
+       "tok": "T",
+       "prob": 0.0001
       },
       {
-       "tok": "...",
-       "prob": 0.18083
+       "tok": "2",
+       "prob": 9e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00581
+       "tok": "D",
+       "prob": 9e-05
       },
       {
-       "tok": "\u2192",
-       "prob": 0.00201
+       "tok": "Number",
+       "prob": 8e-05
       },
       {
-       "tok": "#",
-       "prob": 0.00189
+       "tok": "Math",
+       "prob": 5e-05
       },
       {
-       "tok": ".",
-       "prob": 0.00108
+       "tok": "Tr",
+       "prob": 5e-05
       },
       {
-       "tok": ":",
-       "prob": 0.00108
+       "tok": "3",
+       "prob": 5e-05
       },
       {
-       "tok": " ",
-       "prob": 0.00095
+       "tok": "R",
+       "prob": 5e-05
       },
       {
-       "tok": "\u2248",
-       "prob": 0.00079
-      },
-      {
-       "tok": "(...",
-       "prob": 0.00061
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.00048
+       "tok": "1",
+       "prob": 5e-05
       }
      ],
      "track": {
       "21": {
        "rank": 36,
+       "rank_word": 2,
        "prob": 9.4e-05
       },
       "42": {
        "rank": 125,
+       "rank_word": 49,
        "prob": 1.7e-05
       },
       "forty": {
        "rank": 590,
+       "rank_word": 397,
        "prob": 2e-06
       },
       "forty-two": {
        "rank": 590,
+       "rank_word": 397,
        "prob": 2e-06
       },
       "twenty": {
        "rank": 283,
+       "rank_word": 151,
        "prob": 6e-06
       }
      }
@@ -3706,73 +3546,70 @@
      "layer": 15,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.35969
+       "tok": "Number",
+       "prob": 0.00122
       },
       {
-       "tok": "...",
-       "prob": 0.20494
+       "tok": "No",
+       "prob": 0.00084
       },
       {
-       "tok": ".",
-       "prob": 0.14086
+       "tok": "T",
+       "prob": 0.00058
       },
       {
-       "tok": "...",
-       "prob": 0.11677
+       "tok": "Total",
+       "prob": 0.00045
       },
       {
-       "tok": " ",
-       "prob": 0.0131
+       "tok": "Result",
+       "prob": 0.00045
       },
       {
-       "tok": ":",
-       "prob": 0.01231
+       "tok": "D",
+       "prob": 0.00045
       },
       {
-       "tok": "?",
-       "prob": 0.01231
+       "tok": "Tr",
+       "prob": 0.0004
       },
       {
-       "tok": "+",
-       "prob": 0.00795
+       "tok": "1",
+       "prob": 0.0004
       },
       {
-       "tok": "\u2192",
-       "prob": 0.00659
+       "tok": "2",
+       "prob": 0.0004
       },
       {
-       "tok": "\\(",
-       "prob": 0.00546
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.004
-      },
-      {
-       "tok": ".",
-       "prob": 0.00275
+       "tok": "3",
+       "prob": 0.00037
       }
      ],
      "track": {
       "21": {
        "rank": 49,
+       "rank_word": 6,
        "prob": 0.000396
       },
       "42": {
        "rank": 147,
+       "rank_word": 56,
        "prob": 0.000121
       },
       "forty": {
        "rank": 293,
+       "rank_word": 151,
        "prob": 5.2e-05
       },
       "forty-two": {
        "rank": 293,
+       "rank_word": 151,
        "prob": 5.2e-05
       },
       "twenty": {
        "rank": 168,
+       "rank_word": 65,
        "prob": 0.000106
       }
      }
@@ -3781,73 +3618,70 @@
      "layer": 16,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.28358
-      },
-      {
-       "tok": "=",
-       "prob": 0.2664
-      },
-      {
-       "tok": "?",
-       "prob": 0.12584
-      },
-      {
-       "tok": "=?",
-       "prob": 0.01412
-      },
-      {
-       "tok": "\\(",
-       "prob": 0.011
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.00912
-      },
-      {
-       "tok": "=",
-       "prob": 0.00804
-      },
-      {
-       "tok": "+",
-       "prob": 0.00667
-      },
-      {
-       "tok": "\\(",
-       "prob": 0.00519
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.00458
-      },
-      {
        "tok": "Result",
        "prob": 0.00431
       },
       {
-       "tok": ";",
-       "prob": 0.00431
+       "tok": "Number",
+       "prob": 0.00357
+      },
+      {
+       "tok": "Equals",
+       "prob": 0.00296
+      },
+      {
+       "tok": "Total",
+       "prob": 0.00261
+      },
+      {
+       "tok": "Correct",
+       "prob": 0.00245
+      },
+      {
+       "tok": "2",
+       "prob": 0.00169
+      },
+      {
+       "tok": "1",
+       "prob": 0.00158
+      },
+      {
+       "tok": "3",
+       "prob": 0.00149
+      },
+      {
+       "tok": "equals",
+       "prob": 0.0014
+      },
+      {
+       "tok": "Arithmetic",
+       "prob": 0.00131
       }
      ],
      "track": {
       "21": {
        "rank": 27,
+       "rank_word": 5,
        "prob": 0.001686
       },
       "42": {
        "rank": 47,
+       "rank_word": 13,
        "prob": 0.000848
       },
       "forty": {
        "rank": 337,
+       "rank_word": 180,
        "prob": 8.4e-05
       },
       "forty-two": {
        "rank": 337,
+       "rank_word": 180,
        "prob": 8.4e-05
       },
       "twenty": {
        "rank": 454,
+       "rank_word": 259,
        "prob": 6e-05
       }
      }
@@ -3856,32 +3690,8 @@
      "layer": 17,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.20014
-      },
-      {
-       "tok": "=",
-       "prob": 0.13756
-      },
-      {
-       "tok": "?",
-       "prob": 0.11404
-      },
-      {
-       "tok": "...",
-       "prob": 0.09454
-      },
-      {
        "tok": "2",
        "prob": 0.02109
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.01862
-      },
-      {
-       "tok": "=?",
-       "prob": 0.01749
       },
       {
        "tok": "6",
@@ -3902,27 +3712,48 @@
       {
        "tok": "5",
        "prob": 0.01061
+      },
+      {
+       "tok": "4",
+       "prob": 0.01061
+      },
+      {
+       "tok": "8",
+       "prob": 0.00729
+      },
+      {
+       "tok": "9",
+       "prob": 0.00568
+      },
+      {
+       "tok": "equals",
+       "prob": 0.00163
       }
      ],
      "track": {
       "21": {
        "rank": 4,
+       "rank_word": 0,
        "prob": 0.021095
       },
       "42": {
        "rank": 11,
+       "rank_word": 6,
        "prob": 0.010607
       },
       "forty": {
        "rank": 139,
+       "rank_word": 34,
        "prob": 0.000266
       },
       "forty-two": {
        "rank": 139,
+       "rank_word": 34,
        "prob": 0.000266
       },
       "twenty": {
        "rank": 223,
+       "rank_word": 61,
        "prob": 0.000147
       }
      }
@@ -3931,73 +3762,70 @@
      "layer": 18,
      "top": [
       {
-       "tok": "\uff1f",
-       "prob": 0.60032
+       "tok": "6",
+       "prob": 0.0001
       },
       {
-       "tok": "?",
-       "prob": 0.09206
+       "tok": "8",
+       "prob": 8e-05
       },
       {
-       "tok": "=?",
-       "prob": 0.08124
+       "tok": "Arithmetic",
+       "prob": 7e-05
       },
       {
-       "tok": "**?",
-       "prob": 0.02808
+       "tok": "Equals",
+       "prob": 7e-05
       },
       {
-       "tok": "?...",
-       "prob": 0.02328
+       "tok": "7",
+       "prob": 5e-05
       },
       {
-       "tok": "\uff1f**",
-       "prob": 0.016
+       "tok": "Why",
+       "prob": 5e-05
       },
       {
-       "tok": "?\\",
-       "prob": 0.01326
+       "tok": "equals",
+       "prob": 5e-05
       },
       {
-       "tok": ")?",
-       "prob": 0.01326
+       "tok": "5",
+       "prob": 4e-05
       },
       {
-       "tok": "?<",
-       "prob": 0.011
+       "tok": "\u7b97\u672f",
+       "prob": 3e-05
       },
       {
-       "tok": "}?",
-       "prob": 0.011
-      },
-      {
-       "tok": "\"?",
-       "prob": 0.00856
-      },
-      {
-       "tok": "?**",
-       "prob": 0.00756
+       "tok": "2",
+       "prob": 3e-05
       }
      ],
      "track": {
       "21": {
        "rank": 121,
+       "rank_word": 9,
        "prob": 3.5e-05
       },
       "42": {
        "rank": 135,
+       "rank_word": 14,
        "prob": 2.7e-05
       },
       "forty": {
        "rank": 825,
+       "rank_word": 259,
        "prob": 1e-06
       },
       "forty-two": {
        "rank": 825,
+       "rank_word": 259,
        "prob": 1e-06
       },
       "twenty": {
        "rank": 934,
+       "rank_word": 325,
        "prob": 1e-06
       }
      }
@@ -4006,73 +3834,70 @@
      "layer": 19,
      "top": [
       {
-       "tok": "?\\",
-       "prob": 0.25824
+       "tok": "2",
+       "prob": 0.00197
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.2279
+       "tok": "7",
+       "prob": 0.00163
       },
       {
-       "tok": "\"?",
-       "prob": 0.13823
+       "tok": "6",
+       "prob": 0.00112
       },
       {
-       "tok": "?",
-       "prob": 0.06529
+       "tok": "8",
+       "prob": 0.00112
       },
       {
-       "tok": ")?",
-       "prob": 0.03084
+       "tok": "4",
+       "prob": 0.00106
       },
       {
-       "tok": "\u201d?",
-       "prob": 0.02557
+       "tok": "1",
+       "prob": 0.00082
       },
       {
-       "tok": "\uff1f\u201d",
-       "prob": 0.02402
+       "tok": "9",
+       "prob": 0.00073
       },
       {
-       "tok": "?\"",
-       "prob": 0.02256
+       "tok": "5",
+       "prob": 0.00068
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01551
+       "tok": "3",
+       "prob": 0.00047
       },
       {
-       "tok": "?!",
-       "prob": 0.01457
-      },
-      {
-       "tok": "?)",
-       "prob": 0.01066
-      },
-      {
-       "tok": "?\u201d",
-       "prob": 0.01001
+       "tok": "Why",
+       "prob": 0.00017
       }
      ],
      "track": {
       "21": {
        "rank": 29,
+       "rank_word": 0,
        "prob": 0.001972
       },
       "42": {
        "rank": 43,
+       "rank_word": 4,
        "prob": 0.001055
       },
       "forty": {
        "rank": 269,
+       "rank_word": 39,
        "prob": 2.8e-05
       },
       "forty-two": {
        "rank": 269,
+       "rank_word": 39,
        "prob": 2.8e-05
       },
       "twenty": {
        "rank": 456,
+       "rank_word": 114,
        "prob": 1.2e-05
       }
      }
@@ -4081,73 +3906,70 @@
      "layer": 20,
      "top": [
       {
-       "tok": "?\\",
-       "prob": 0.15007
+       "tok": "2",
+       "prob": 0.00747
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.09689
+       "tok": "7",
+       "prob": 0.00702
       },
       {
-       "tok": "\"?",
-       "prob": 0.07089
+       "tok": "8",
+       "prob": 0.00659
       },
       {
-       "tok": "?",
-       "prob": 0.04039
+       "tok": "4",
+       "prob": 0.00582
       },
       {
-       "tok": "????",
-       "prob": 0.02608
+       "tok": "6",
+       "prob": 0.00514
       },
       {
-       "tok": "?!",
-       "prob": 0.0245
+       "tok": "9",
+       "prob": 0.00353
       },
       {
-       "tok": "??",
-       "prob": 0.02162
+       "tok": "3",
+       "prob": 0.00258
       },
       {
-       "tok": "???",
-       "prob": 0.01792
+       "tok": "5",
+       "prob": 0.00214
       },
       {
-       "tok": ")?",
-       "prob": 0.01582
+       "tok": "1",
+       "prob": 0.00122
       },
       {
-       "tok": "?\u201c",
-       "prob": 0.01486
-      },
-      {
-       "tok": "?\"",
-       "prob": 0.01486
-      },
-      {
-       "tok": "?$",
-       "prob": 0.01396
+       "tok": "TOTAL",
+       "prob": 0.00084
       }
      ],
      "track": {
       "21": {
        "rank": 16,
+       "rank_word": 0,
        "prob": 0.007472
       },
       "42": {
        "rank": 24,
+       "rank_word": 3,
        "prob": 0.005819
       },
       "forty": {
        "rank": 283,
+       "rank_word": 91,
        "prob": 0.000117
       },
       "forty-two": {
        "rank": 283,
+       "rank_word": 91,
        "prob": 0.000117
       },
       "twenty": {
        "rank": 519,
+       "rank_word": 240,
        "prob": 5.9e-05
       }
      }
@@ -4155,18 +3977,6 @@
     {
      "layer": 21,
      "top": [
-      {
-       "tok": "\uff1f**",
-       "prob": 0.00893
-      },
-      {
-       "tok": "**?",
-       "prob": 0.00839
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.00696
-      },
       {
        "tok": "6",
        "prob": 0.00653
@@ -4176,24 +3986,12 @@
        "prob": 0.00653
       },
       {
-       "tok": "?\\",
-       "prob": 0.00577
-      },
-      {
        "tok": "7",
        "prob": 0.00542
       },
       {
-       "tok": "\"?",
-       "prob": 0.00449
-      },
-      {
        "tok": "Twice",
        "prob": 0.00422
-      },
-      {
-       "tok": "????",
-       "prob": 0.00372
       },
       {
        "tok": "4",
@@ -4202,27 +4000,48 @@
       {
        "tok": "2",
        "prob": 0.00329
+      },
+      {
+       "tok": "Arithmetic",
+       "prob": 0.00309
+      },
+      {
+       "tok": "9",
+       "prob": 0.00272
+      },
+      {
+       "tok": "Hint",
+       "prob": 0.00256
+      },
+      {
+       "tok": "Proof",
+       "prob": 0.0024
       }
      ],
      "track": {
       "21": {
        "rank": 11,
+       "rank_word": 5,
        "prob": 0.003286
       },
       "42": {
        "rank": 9,
+       "rank_word": 4,
        "prob": 0.003723
       },
       "forty": {
        "rank": 1575,
+       "rank_word": 1245,
        "prob": 6.8e-05
       },
       "forty-two": {
        "rank": 1575,
+       "rank_word": 1245,
        "prob": 6.8e-05
       },
       "twenty": {
        "rank": 3822,
+       "rank_word": 3127,
        "prob": 3.4e-05
       }
      }
@@ -4230,18 +4049,6 @@
     {
      "layer": 22,
      "top": [
-      {
-       "tok": "**?",
-       "prob": 0.00998
-      },
-      {
-       "tok": "?\\",
-       "prob": 0.0073
-      },
-      {
-       "tok": "\uff1f**",
-       "prob": 0.00569
-      },
       {
        "tok": "7",
        "prob": 0.00534
@@ -4253,10 +4060,6 @@
       {
        "tok": "\u592a\u6781",
        "prob": 0.00367
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.00345
       },
       {
        "tok": "8",
@@ -4271,33 +4074,46 @@
        "prob": 0.00269
       },
       {
-       "tok": "<<<",
+       "tok": "CHECK",
        "prob": 0.00252
       },
       {
-       "tok": "CHECK",
-       "prob": 0.00252
+       "tok": "5",
+       "prob": 0.00223
+      },
+      {
+       "tok": "3",
+       "prob": 0.00223
+      },
+      {
+       "tok": "Check",
+       "prob": 0.00223
       }
      ],
      "track": {
       "21": {
        "rank": 16,
+       "rank_word": 10,
        "prob": 0.001846
       },
       "42": {
        "rank": 4,
+       "rank_word": 1,
        "prob": 0.003908
       },
       "forty": {
        "rank": 1194,
+       "rank_word": 910,
        "prob": 8.9e-05
       },
       "forty-two": {
        "rank": 1194,
+       "rank_word": 910,
        "prob": 8.9e-05
       },
       "twenty": {
        "rank": 6936,
+       "rank_word": 5882,
        "prob": 2.2e-05
       }
      }
@@ -4308,10 +4124,6 @@
       {
        "tok": "Twice",
        "prob": 0.03772
-      },
-      {
-       "tok": "<<<",
-       "prob": 0.00896
       },
       {
        "tok": "\u7262",
@@ -4330,49 +4142,50 @@
        "prob": 0.00423
       },
       {
-       "tok": "...*",
-       "prob": 0.00374
+       "tok": "Twenty",
+       "prob": 0.00213
       },
       {
-       "tok": "????",
-       "prob": 0.0033
+       "tok": "CHECK",
+       "prob": 0.00213
       },
       {
-       "tok": "?????",
-       "prob": 0.00257
+       "tok": "TWO",
+       "prob": 0.002
       },
       {
-       "tok": "...**",
-       "prob": 0.00257
+       "tok": "5",
+       "prob": 0.00176
       },
       {
-       "tok": "???",
-       "prob": 0.00257
-      },
-      {
-       "tok": "??",
-       "prob": 0.00241
+       "tok": "bilateral",
+       "prob": 0.00176
       }
      ],
      "track": {
       "21": {
        "rank": 5,
+       "rank_word": 4,
        "prob": 0.004232
       },
       "42": {
        "rank": 52,
+       "rank_word": 34,
        "prob": 0.000833
       },
       "forty": {
        "rank": 345,
+       "rank_word": 249,
        "prob": 0.000211
       },
       "forty-two": {
        "rank": 345,
+       "rank_word": 249,
        "prob": 0.000211
       },
       "twenty": {
        "rank": 109,
+       "rank_word": 72,
        "prob": 0.000505
       }
      }
@@ -4393,10 +4206,6 @@
        "prob": 0.00256
       },
       {
-       "tok": "\uff1f**",
-       "prob": 0.00256
-      },
-      {
        "tok": "Saved",
        "prob": 0.00241
       },
@@ -4413,41 +4222,42 @@
        "prob": 0.002
       },
       {
-       "tok": "-anchor",
-       "prob": 0.00176
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.00176
-      },
-      {
        "tok": "bogen",
        "prob": 0.00176
       },
       {
        "tok": "\u5929\u5b89",
        "prob": 0.00155
+      },
+      {
+       "tok": "thirty",
+       "prob": 0.00155
       }
      ],
      "track": {
       "21": {
        "rank": 24,
+       "rank_word": 18,
        "prob": 0.001068
       },
       "42": {
        "rank": 1479,
+       "rank_word": 1280,
        "prob": 8e-05
       },
       "forty": {
        "rank": 214,
+       "rank_word": 175,
        "prob": 0.000297
       },
       "forty-two": {
        "rank": 214,
+       "rank_word": 175,
        "prob": 0.000297
       },
       "twenty": {
        "rank": 41,
+       "rank_word": 26,
        "prob": 0.000886
       }
      }
@@ -4472,10 +4282,6 @@
        "prob": 0.0028
       },
       {
-       "tok": "<<<",
-       "prob": 0.00247
-      },
-      {
        "tok": "\u5bb0",
        "prob": 0.00205
       },
@@ -4488,41 +4294,42 @@
        "prob": 0.00192
       },
       {
-       "tok": "?**",
-       "prob": 0.00192
+       "tok": "bogen",
+       "prob": 0.00181
       },
       {
        "tok": "9",
        "prob": 0.00181
       },
       {
-       "tok": "bogen",
-       "prob": 0.00181
-      },
-      {
-       "tok": "8",
+       "tok": "loo",
        "prob": 0.0017
       }
      ],
      "track": {
       "21": {
        "rank": 112,
+       "rank_word": 86,
        "prob": 0.000457
       },
       "42": {
        "rank": 129,
+       "rank_word": 106,
        "prob": 0.000403
       },
       "forty": {
        "rank": 39,
+       "rank_word": 27,
        "prob": 0.000938
       },
       "forty-two": {
        "rank": 39,
+       "rank_word": 27,
        "prob": 0.000938
       },
       "twenty": {
        "rank": 250,
+       "rank_word": 210,
        "prob": 0.00026
       }
      }
@@ -4537,14 +4344,6 @@
       {
        "tok": "arate",
        "prob": 0.01406
-      },
-      {
-       "tok": "=",
-       "prob": 0.00801
-      },
-      {
-       "tok": "<<<",
-       "prob": 0.00752
       },
       {
        "tok": "Forty",
@@ -4582,22 +4381,27 @@
      "track": {
       "21": {
        "rank": 75,
+       "rank_word": 58,
        "prob": 0.000599
       },
       "42": {
        "rank": 60,
+       "rank_word": 47,
        "prob": 0.000722
       },
       "forty": {
        "rank": 5,
+       "rank_word": 3,
        "prob": 0.005172
       },
       "forty-two": {
        "rank": 5,
+       "rank_word": 3,
        "prob": 0.005172
       },
       "twenty": {
        "rank": 31,
+       "rank_word": 25,
        "prob": 0.001228
       }
      }
@@ -4616,10 +4420,6 @@
       {
        "tok": "thirty",
        "prob": 0.01008
-      },
-      {
-       "tok": " ",
-       "prob": 0.00785
       },
       {
        "tok": "fifty",
@@ -4646,10 +4446,6 @@
        "prob": 0.00199
       },
       {
-       "tok": "marqu",
-       "prob": 0.00175
-      },
-      {
        "tok": "generation",
        "prob": 0.00175
       }
@@ -4657,22 +4453,27 @@
      "track": {
       "21": {
        "rank": 1368,
+       "rank_word": 1269,
        "prob": 7.2e-05
       },
       "42": {
        "rank": 6,
+       "rank_word": 5,
        "prob": 0.00371
       },
       "forty": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.037467
       },
       "forty-two": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.037467
       },
       "twenty": {
        "rank": 196,
+       "rank_word": 172,
        "prob": 0.000252
       }
      }
@@ -4680,10 +4481,6 @@
     {
      "layer": 28,
      "top": [
-      {
-       "tok": " ",
-       "prob": 0.18235
-      },
       {
        "tok": "forty",
        "prob": 0.08614
@@ -4717,37 +4514,38 @@
        "prob": 0.00216
       },
       {
-       "tok": "<<<",
-       "prob": 0.00216
+       "tok": "Thirty",
+       "prob": 0.00158
       },
       {
-       "tok": "??",
-       "prob": 0.00203
-      },
-      {
-       "tok": "?",
-       "prob": 0.00179
+       "tok": "Space",
+       "prob": 0.00158
       }
      ],
      "track": {
       "21": {
        "rank": 16192,
+       "rank_word": 14357,
        "prob": 7e-06
       },
       "42": {
        "rank": 3,
+       "rank_word": 2,
        "prob": 0.011657
       },
       "forty": {
        "rank": 1,
+       "rank_word": 0,
        "prob": 0.086138
       },
       "forty-two": {
        "rank": 1,
+       "rank_word": 0,
        "prob": 0.086138
       },
       "twenty": {
        "rank": 473,
+       "rank_word": 356,
        "prob": 0.000111
       }
      }
@@ -4756,36 +4554,16 @@
      "layer": 29,
      "top": [
       {
-       "tok": " ",
-       "prob": 0.22301
-      },
-      {
        "tok": "4",
        "prob": 0.02835
-      },
-      {
-       "tok": "??",
-       "prob": 0.02502
-      },
-      {
-       "tok": "?",
-       "prob": 0.01831
       },
       {
        "tok": "FOUR",
        "prob": 0.01518
       },
       {
-       "tok": "???",
-       "prob": 0.01043
-      },
-      {
        "tok": "forty",
        "prob": 0.00763
-      },
-      {
-       "tok": "?,",
-       "prob": 0.00633
       },
       {
        "tok": "four",
@@ -4796,33 +4574,50 @@
        "prob": 0.00435
       },
       {
-       "tok": "|-",
-       "prob": 0.00408
+       "tok": "into",
+       "prob": 0.00281
       },
       {
-       "tok": "<<<",
-       "prob": 0.00408
+       "tok": "Four",
+       "prob": 0.00219
+      },
+      {
+       "tok": "Forty",
+       "prob": 0.00193
+      },
+      {
+       "tok": "Fourth",
+       "prob": 0.00181
+      },
+      {
+       "tok": "Into",
+       "prob": 0.00181
       }
      ],
      "track": {
       "21": {
        "rank": 6943,
+       "rank_word": 6038,
        "prob": 1.4e-05
       },
       "42": {
        "rank": 1,
+       "rank_word": 0,
        "prob": 0.028352
       },
       "forty": {
        "rank": 6,
+       "rank_word": 2,
        "prob": 0.007631
       },
       "forty-two": {
        "rank": 6,
+       "rank_word": 2,
        "prob": 0.007631
       },
       "twenty": {
        "rank": 6752,
+       "rank_word": 5850,
        "prob": 1.5e-05
       }
      }
@@ -4831,16 +4626,8 @@
      "layer": 30,
      "top": [
       {
-       "tok": " ",
-       "prob": 0.94135
-      },
-      {
        "tok": "4",
        "prob": 0.01835
-      },
-      {
-       "tok": "?",
-       "prob": 0.0041
       },
       {
        "tok": "forty",
@@ -4849,10 +4636,6 @@
       {
        "tok": "FOUR",
        "prob": 0.0016
-      },
-      {
-       "tok": "??",
-       "prob": 0.00151
       },
       {
        "tok": "Four",
@@ -4871,33 +4654,42 @@
        "prob": 0.00081
       },
       {
-       "tok": "?,",
-       "prob": 0.00076
+       "tok": "Forty",
+       "prob": 0.00059
       },
       {
-       "tok": "???",
-       "prob": 0.00071
+       "tok": "Next",
+       "prob": 0.00043
+      },
+      {
+       "tok": "next",
+       "prob": 0.0002
       }
      ],
      "track": {
       "21": {
        "rank": 3691,
+       "rank_word": 3089,
        "prob": 1e-06
       },
       "42": {
        "rank": 1,
+       "rank_word": 0,
        "prob": 0.018353
       },
       "forty": {
        "rank": 3,
+       "rank_word": 1,
        "prob": 0.001934
       },
       "forty-two": {
        "rank": 3,
+       "rank_word": 1,
        "prob": 0.001934
       },
       "twenty": {
        "rank": 2475,
+       "rank_word": 1979,
        "prob": 1e-06
       }
      }
@@ -4905,58 +4697,51 @@
    ],
    "model_out": [
     {
-     "tok": " ",
-     "prob": 0.99396
-    },
-    {
-     "tok": "?",
-     "prob": 0.00279
-    },
-    {
-     "tok": "(",
-     "prob": 0.00071
-    },
-    {
-     "tok": "-",
-     "prob": 0.00043
-    },
-    {
-     "tok": "\n",
-     "prob": 0.00038
-    },
-    {
-     "tok": "...",
-     "prob": 0.00028
-    },
-    {
      "tok": "4",
      "prob": 0.00012
     },
     {
-     "tok": " \n",
-     "prob": 0.00012
+     "tok": "3",
+     "prob": 1e-05
     },
     {
-     "tok": "??",
-     "prob": 0.0001
+     "tok": "Next",
+     "prob": 1e-05
     },
     {
-     "tok": "{",
-     "prob": 7e-05
+     "tok": "next",
+     "prob": 1e-05
     },
     {
-     "tok": "???",
-     "prob": 5e-05
+     "tok": "no",
+     "prob": 1e-05
     },
     {
-     "tok": "  \n",
-     "prob": 5e-05
+     "tok": "a",
+     "prob": 1e-05
+    },
+    {
+     "tok": "this",
+     "prob": 0.0
+    },
+    {
+     "tok": "No",
+     "prob": 0.0
+    },
+    {
+     "tok": "the",
+     "prob": 0.0
+    },
+    {
+     "tok": "1",
+     "prob": 0.0
     }
-   ]
+   ],
+   "expr": "(4 + 17) * 2",
+   "inter": "21"
   },
   {
    "name": "add-then-mult",
-   "expr": "2 + 3 * 4",
    "prompt": "3 + 2 * 4 = 11\n1 + 6 * 2 = 13\n2 + 3 * 4 =",
    "tokens": [
     "3",
@@ -4995,7 +4780,6 @@
    "read_pos": -1,
    "read_token": " =",
    "answer": "14",
-   "inter": "12",
    "generated": "14",
    "track_words": [
     "12",
@@ -5004,13 +4788,6 @@
     "fourteen",
     "addition"
    ],
-   "track_resolved": {
-    "12": "1",
-    "twelve": " twelve",
-    "14": "1",
-    "fourteen": " fourteen",
-    "addition": " addition"
-   },
    "layers": [
     0,
     1,
@@ -5045,78 +4822,76 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.80365
-      },
-      {
-       "tok": "#",
-       "prob": 0.10217
-      },
-      {
-       "tok": "+",
-       "prob": 0.02142
-      },
-      {
        "tok": "e",
        "prob": 0.00788
       },
       {
-       "tok": ">",
-       "prob": 0.00449
+       "tok": "o",
+       "prob": 0.00121
       },
       {
-       "tok": "-",
-       "prob": 0.00372
+       "tok": "i",
+       "prob": 0.00042
       },
       {
-       "tok": "%",
-       "prob": 0.0029
+       "tok": "eza",
+       "prob": 0.00042
       },
       {
-       "tok": ",",
-       "prob": 0.00272
+       "tok": "a\u00e7\u00f5es",
+       "prob": 0.00033
       },
       {
-       "tok": ":",
-       "prob": 0.00226
+       "tok": "auf",
+       "prob": 0.00033
       },
       {
-       "tok": "<",
-       "prob": 0.00199
+       "tok": "eled",
+       "prob": 0.00025
       },
       {
-       "tok": "{",
-       "prob": 0.00187
+       "tok": "in",
+       "prob": 0.00024
       },
       {
-       "tok": "...",
-       "prob": 0.00155
+       "tok": "the",
+       "prob": 0.00021
+      },
+      {
+       "tok": "at",
+       "prob": 0.00021
       }
      ],
      "track": {
       "12": {
        "rank": 143574,
+       "rank_word": 130075,
        "prob": 0.0
       },
       "twelve": {
        "rank": 2826,
+       "rank_word": 2583,
        "prob": 1e-06
       },
       "14": {
        "rank": 143574,
+       "rank_word": 130075,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 4784,
+       "rank_word": 4517,
        "prob": 1e-06
       },
       "addition": {
        "rank": 3040,
+       "rank_word": 2827,
        "prob": 1e-06
       }
      }
@@ -5125,73 +4900,70 @@
      "layer": 1,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.56272
+       "tok": "a\u00e7\u00f5es",
+       "prob": 0.00051
       },
       {
-       "tok": "...",
-       "prob": 0.23458
+       "tok": "auf",
+       "prob": 0.00031
       },
       {
-       "tok": "<",
-       "prob": 0.06314
+       "tok": "eza",
+       "prob": 0.00031
       },
       {
-       "tok": ":",
-       "prob": 0.01926
+       "tok": "ielen",
+       "prob": 0.00026
       },
       {
-       "tok": "%",
-       "prob": 0.01323
+       "tok": "iado",
+       "prob": 0.0002
       },
       {
-       "tok": "#",
-       "prob": 0.0091
+       "tok": "one",
+       "prob": 0.00013
       },
       {
-       "tok": "-",
-       "prob": 0.0091
+       "tok": "eled",
+       "prob": 0.00013
       },
       {
-       "tok": ">",
-       "prob": 0.00665
+       "tok": "more",
+       "prob": 0.00011
       },
       {
-       "tok": "...",
-       "prob": 0.00552
+       "tok": "two",
+       "prob": 0.0001
       },
       {
-       "tok": "+",
-       "prob": 0.00379
-      },
-      {
-       "tok": "{",
-       "prob": 0.00314
-      },
-      {
-       "tok": "&",
-       "prob": 0.00295
+       "tok": "from",
+       "prob": 0.0001
       }
      ],
      "track": {
       "12": {
        "rank": 247237,
+       "rank_word": 217434,
        "prob": 0.0
       },
       "twelve": {
        "rank": 1029,
+       "rank_word": 891,
        "prob": 6e-06
       },
       "14": {
        "rank": 247237,
+       "rank_word": 217434,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 4078,
+       "rank_word": 3787,
        "prob": 2e-06
       },
       "addition": {
        "rank": 4928,
+       "rank_word": 4590,
        "prob": 2e-06
       }
      }
@@ -5199,18 +4971,6 @@
     {
      "layer": 2,
      "top": [
-      {
-       "tok": ",",
-       "prob": 0.57686
-      },
-      {
-       "tok": "\",",
-       "prob": 0.0831
-      },
-      {
-       "tok": "=",
-       "prob": 0.05712
-      },
       {
        "tok": "e",
        "prob": 0.02872
@@ -5232,16 +4992,20 @@
        "prob": 0.00773
       },
       {
-       "tok": ":",
-       "prob": 0.00499
-      },
-      {
        "tok": "from",
        "prob": 0.0044
       },
       {
        "tok": "a",
        "prob": 0.00389
+      },
+      {
+       "tok": "two",
+       "prob": 0.00365
+      },
+      {
+       "tok": "more",
+       "prob": 0.00365
       },
       {
        "tok": "on",
@@ -5251,22 +5015,27 @@
      "track": {
       "12": {
        "rank": 3756,
+       "rank_word": 3548,
        "prob": 3e-06
       },
       "twelve": {
        "rank": 967,
+       "rank_word": 893,
        "prob": 1.5e-05
       },
       "14": {
        "rank": 3756,
+       "rank_word": 3548,
        "prob": 3e-06
       },
       "fourteen": {
        "rank": 4765,
+       "rank_word": 4556,
        "prob": 2e-06
       },
       "addition": {
        "rank": 3642,
+       "rank_word": 3445,
        "prob": 3e-06
       }
      }
@@ -5275,73 +5044,70 @@
      "layer": 3,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.96578
+       "tok": "in",
+       "prob": 0.00016
       },
       {
-       "tok": "#",
-       "prob": 0.01378
+       "tok": "the",
+       "prob": 0.00014
       },
       {
-       "tok": "...",
-       "prob": 0.0042
+       "tok": "a",
+       "prob": 9e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00239
+       "tok": "e",
+       "prob": 9e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00198
+       "tok": "one",
+       "prob": 8e-05
       },
       {
-       "tok": "-",
-       "prob": 0.00165
+       "tok": "at",
+       "prob": 7e-05
       },
       {
-       "tok": ":",
-       "prob": 0.00145
+       "tok": "more",
+       "prob": 6e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00078
+       "tok": "to",
+       "prob": 4e-05
       },
       {
-       "tok": "%",
-       "prob": 0.00073
+       "tok": "after",
+       "prob": 3e-05
       },
       {
-       "tok": ",",
-       "prob": 0.00044
-      },
-      {
-       "tok": "/",
-       "prob": 0.00037
-      },
-      {
-       "tok": " ",
-       "prob": 0.00034
+       "tok": "from",
+       "prob": 3e-05
       }
      ],
      "track": {
       "12": {
        "rank": 8384,
+       "rank_word": 8008,
        "prob": 0.0
       },
       "twelve": {
        "rank": 1795,
+       "rank_word": 1654,
        "prob": 0.0
       },
       "14": {
        "rank": 8384,
+       "rank_word": 8008,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 4058,
+       "rank_word": 3867,
        "prob": 0.0
       },
       "addition": {
        "rank": 1981,
+       "rank_word": 1861,
        "prob": 0.0
       }
      }
@@ -5350,73 +5116,70 @@
      "layer": 4,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.89222
-      },
-      {
-       "tok": "#",
-       "prob": 0.01634
-      },
-      {
-       "tok": ",",
-       "prob": 0.01273
-      },
-      {
-       "tok": "...",
-       "prob": 0.00991
-      },
-      {
-       "tok": ".",
-       "prob": 0.00601
-      },
-      {
-       "tok": "[",
-       "prob": 0.00601
-      },
-      {
-       "tok": "@",
-       "prob": 0.0044
-      },
-      {
-       "tok": ":",
-       "prob": 0.00343
-      },
-      {
        "tok": "e",
        "prob": 0.00322
       },
       {
-       "tok": " ",
-       "prob": 0.00302
+       "tok": "the",
+       "prob": 0.00092
       },
       {
-       "tok": "+",
-       "prob": 0.00235
+       "tok": "in",
+       "prob": 0.00076
       },
       {
-       "tok": ":",
-       "prob": 0.00183
+       "tok": "at",
+       "prob": 0.00038
+      },
+      {
+       "tok": "a",
+       "prob": 0.00036
+      },
+      {
+       "tok": "to",
+       "prob": 0.00034
+      },
+      {
+       "tok": "i",
+       "prob": 0.00032
+      },
+      {
+       "tok": "The",
+       "prob": 0.0003
+      },
+      {
+       "tok": "from",
+       "prob": 0.00028
+      },
+      {
+       "tok": "one",
+       "prob": 0.00025
       }
      ],
      "track": {
       "12": {
        "rank": 1566,
+       "rank_word": 1340,
        "prob": 1e-06
       },
       "twelve": {
        "rank": 3669,
+       "rank_word": 3242,
        "prob": 0.0
       },
       "14": {
        "rank": 1566,
+       "rank_word": 1340,
        "prob": 1e-06
       },
       "fourteen": {
        "rank": 6674,
+       "rank_word": 6077,
        "prob": 0.0
       },
       "addition": {
        "rank": 4444,
+       "rank_word": 4018,
        "prob": 0.0
       }
      }
@@ -5425,73 +5188,70 @@
      "layer": 5,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.72491
+       "tok": "the",
+       "prob": 0.0001
       },
       {
-       "tok": "...",
-       "prob": 0.16175
+       "tok": "a",
+       "prob": 5e-05
       },
       {
-       "tok": "#",
-       "prob": 0.0409
+       "tok": "in",
+       "prob": 5e-05
       },
       {
-       "tok": "...",
-       "prob": 0.03185
+       "tok": "e",
+       "prob": 4e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00971
+       "tok": "The",
+       "prob": 3e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00431
+       "tok": "because",
+       "prob": 3e-05
       },
       {
-       "tok": "[",
-       "prob": 0.00336
+       "tok": "where",
+       "prob": 3e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00315
+       "tok": "from",
+       "prob": 3e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00261
+       "tok": "one",
+       "prob": 2e-05
       },
       {
-       "tok": "%",
-       "prob": 0.00231
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.00191
-      },
-      {
-       "tok": ":",
-       "prob": 0.00096
+       "tok": "to",
+       "prob": 2e-05
       }
      ],
      "track": {
       "12": {
        "rank": 1605,
+       "rank_word": 1362,
        "prob": 0.0
       },
       "twelve": {
        "rank": 5202,
+       "rank_word": 4717,
        "prob": 0.0
       },
       "14": {
        "rank": 1605,
+       "rank_word": 1362,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 10255,
+       "rank_word": 9501,
        "prob": 0.0
       },
       "addition": {
        "rank": 2965,
+       "rank_word": 2611,
        "prob": 0.0
       }
      }
@@ -5500,73 +5260,70 @@
      "layer": 6,
      "top": [
       {
-       "tok": "=",
-       "prob": 0.49332
+       "tok": "the",
+       "prob": 5e-05
       },
       {
-       "tok": "...",
-       "prob": 0.33905
+       "tok": "one",
+       "prob": 5e-05
       },
       {
-       "tok": "#",
-       "prob": 0.08573
+       "tok": "T",
+       "prob": 4e-05
       },
       {
-       "tok": "...",
-       "prob": 0.02615
+       "tok": "where",
+       "prob": 4e-05
       },
       {
-       "tok": "%",
-       "prob": 0.01024
+       "tok": "after",
+       "prob": 4e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00849
+       "tok": "more",
+       "prob": 4e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00849
+       "tok": "because",
+       "prob": 3e-05
       },
       {
-       "tok": ">",
-       "prob": 0.00484
+       "tok": "two",
+       "prob": 3e-05
       },
       {
-       "tok": "   ",
-       "prob": 0.00427
+       "tok": "D",
+       "prob": 3e-05
       },
       {
-       "tok": "==",
-       "prob": 0.00189
-      },
-      {
-       "tok": "<",
-       "prob": 0.00167
-      },
-      {
-       "tok": "\n",
-       "prob": 0.0013
+       "tok": "a",
+       "prob": 3e-05
       }
      ],
      "track": {
       "12": {
        "rank": 16284,
+       "rank_word": 15193,
        "prob": 0.0
       },
       "twelve": {
        "rank": 2963,
+       "rank_word": 2666,
        "prob": 0.0
       },
       "14": {
        "rank": 16284,
+       "rank_word": 15193,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 6421,
+       "rank_word": 5893,
        "prob": 0.0
       },
       "addition": {
        "rank": 2139,
+       "rank_word": 1888,
        "prob": 0.0
       }
      }
@@ -5575,73 +5332,70 @@
      "layer": 7,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.60682
+       "tok": "a",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.17386
+       "tok": "the",
+       "prob": 1e-05
       },
       {
-       "tok": "=",
-       "prob": 0.1354
+       "tok": "D",
+       "prob": 1e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.05644
+       "tok": "T",
+       "prob": 1e-05
       },
       {
-       "tok": "#",
-       "prob": 0.01044
+       "tok": "one",
+       "prob": 1e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00633
+       "tok": "what",
+       "prob": 1e-05
       },
       {
-       "tok": "+",
-       "prob": 0.0017
+       "tok": "i",
+       "prob": 1e-05
       },
       {
-       "tok": "%",
-       "prob": 0.00097
+       "tok": "maybe",
+       "prob": 1e-05
       },
       {
-       "tok": "   ",
-       "prob": 0.00091
+       "tok": "e",
+       "prob": 1e-05
       },
       {
-       "tok": "@",
-       "prob": 0.00076
-      },
-      {
-       "tok": ">",
-       "prob": 0.00067
-      },
-      {
-       "tok": "(...)",
-       "prob": 0.00049
+       "tok": "more",
+       "prob": 1e-05
       }
      ],
      "track": {
       "12": {
        "rank": 204,
+       "rank_word": 83,
        "prob": 1e-06
       },
       "twelve": {
        "rank": 1990,
+       "rank_word": 1633,
        "prob": 0.0
       },
       "14": {
        "rank": 204,
+       "rank_word": 83,
        "prob": 1e-06
       },
       "fourteen": {
        "rank": 4255,
+       "rank_word": 3715,
        "prob": 0.0
       },
       "addition": {
        "rank": 2960,
+       "rank_word": 2504,
        "prob": 0.0
       }
      }
@@ -5650,73 +5404,70 @@
      "layer": 8,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.75921
+       "tok": "etc",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.13193
+       "tok": "the",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.07062
+       "tok": "a",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.02944
+       "tok": "one",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 0.0033
+       "tok": "Fig",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.00129
+       "tok": "D",
+       "prob": 0.0
       },
       {
-       "tok": "+",
-       "prob": 0.00074
+       "tok": "\u03a3",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00031
+       "tok": "T",
+       "prob": 0.0
       },
       {
-       "tok": ">",
-       "prob": 0.00027
+       "tok": "where",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n\n",
-       "prob": 0.00022
-      },
-      {
-       "tok": "%",
-       "prob": 0.00022
-      },
-      {
-       "tok": "@",
-       "prob": 0.00019
+       "tok": "more",
+       "prob": 0.0
       }
      ],
      "track": {
       "12": {
        "rank": 1378,
+       "rank_word": 1099,
        "prob": 0.0
       },
       "twelve": {
        "rank": 2130,
+       "rank_word": 1775,
        "prob": 0.0
       },
       "14": {
        "rank": 1378,
+       "rank_word": 1099,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 5195,
+       "rank_word": 4693,
        "prob": 0.0
       },
       "addition": {
        "rank": 1664,
+       "rank_word": 1360,
        "prob": 0.0
       }
      }
@@ -5725,73 +5476,70 @@
      "layer": 9,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.8393
+       "tok": "Fig",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.10024
+       "tok": "\u03a3",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.04735
+       "tok": "math",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00641
+       "tok": "a",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 0.00236
+       "tok": "D",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.00111
+       "tok": "something",
+       "prob": 0.0
       },
       {
-       "tok": "+",
-       "prob": 0.00063
+       "tok": "one",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00026
+       "tok": "where",
+       "prob": 0.0
       },
       {
-       "tok": "<",
-       "prob": 0.00021
+       "tok": "the",
+       "prob": 0.0
       },
       {
-       "tok": "...,",
-       "prob": 0.00019
-      },
-      {
-       "tok": ">",
-       "prob": 0.00019
-      },
-      {
-       "tok": "@",
-       "prob": 0.00017
+       "tok": "etc",
+       "prob": 0.0
       }
      ],
      "track": {
       "12": {
        "rank": 446,
+       "rank_word": 237,
        "prob": 0.0
       },
       "twelve": {
        "rank": 1849,
+       "rank_word": 1395,
        "prob": 0.0
       },
       "14": {
        "rank": 446,
+       "rank_word": 237,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 3991,
+       "rank_word": 3389,
        "prob": 0.0
       },
       "addition": {
        "rank": 1393,
+       "rank_word": 1002,
        "prob": 0.0
       }
      }
@@ -5800,73 +5548,70 @@
      "layer": 10,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.92021
+       "tok": "math",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.05191
+       "tok": "\u03a3",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.01685
+       "tok": "Fig",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00312
+       "tok": "\u0394",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 0.00167
+       "tok": "Table",
+       "prob": 0.0
       },
       {
-       "tok": "<",
-       "prob": 0.00089
+       "tok": "Math",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00084
+       "tok": "arithmetic",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.0007
+       "tok": "numbers",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.00042
+       "tok": "\u03bb",
+       "prob": 0.0
       },
       {
-       "tok": "+",
-       "prob": 0.0004
-      },
-      {
-       "tok": "...,",
-       "prob": 0.00035
-      },
-      {
-       "tok": "...\\",
-       "prob": 0.00027
+       "tok": "D",
+       "prob": 0.0
       }
      ],
      "track": {
       "12": {
        "rank": 172,
+       "rank_word": 34,
        "prob": 1e-06
       },
       "twelve": {
        "rank": 3338,
+       "rank_word": 2710,
        "prob": 0.0
       },
       "14": {
        "rank": 172,
+       "rank_word": 34,
        "prob": 1e-06
       },
       "fourteen": {
        "rank": 5849,
+       "rank_word": 5012,
        "prob": 0.0
       },
       "addition": {
        "rank": 889,
+       "rank_word": 557,
        "prob": 0.0
       }
      }
@@ -5875,73 +5620,70 @@
      "layer": 11,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.88988
+       "tok": "2",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.09379
+       "tok": "1",
+       "prob": 1e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00872
+       "tok": "3",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.00221
+       "tok": "math",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.00134
+       "tok": "5",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00118
+       "tok": "4",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.00063
+       "tok": "Math",
+       "prob": 0.0
       },
       {
-       "tok": "...,",
-       "prob": 0.0003
+       "tok": "Table",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 0.00026
+       "tok": "0",
+       "prob": 0.0
       },
       {
-       "tok": "[...",
-       "prob": 0.00023
-      },
-      {
-       "tok": "...\\",
-       "prob": 0.00019
-      },
-      {
-       "tok": "\n\n\n",
-       "prob": 0.00018
+       "tok": "\u03a3",
+       "prob": 0.0
       }
      ],
      "track": {
       "12": {
        "rank": 44,
+       "rank_word": 1,
        "prob": 5e-06
       },
       "twelve": {
        "rank": 2531,
+       "rank_word": 1862,
        "prob": 0.0
       },
       "14": {
        "rank": 44,
+       "rank_word": 1,
        "prob": 5e-06
       },
       "fourteen": {
        "rank": 4364,
+       "rank_word": 3494,
        "prob": 0.0
       },
       "addition": {
        "rank": 1288,
+       "rank_word": 783,
        "prob": 0.0
       }
      }
@@ -5950,73 +5692,70 @@
      "layer": 12,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.95957
+       "tok": "math",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.03721
+       "tok": "Math",
+       "prob": 0.0
       },
       {
-       "tok": "=",
-       "prob": 0.00112
+       "tok": "2",
+       "prob": 0.0
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00047
+       "tok": "Table",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.00041
+       "tok": "D",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00025
+       "tok": "Number",
+       "prob": 0.0
       },
       {
-       "tok": "...,",
-       "prob": 0.00016
+       "tok": "1",
+       "prob": 0.0
       },
       {
-       "tok": "\n",
-       "prob": 0.00014
+       "tok": "arithmetic",
+       "prob": 0.0
       },
       {
-       "tok": "...\\",
-       "prob": 0.00013
+       "tok": "T",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 9e-05
-      },
-      {
-       "tok": "[...",
-       "prob": 6e-05
-      },
-      {
-       "tok": "(...",
-       "prob": 5e-05
+       "tok": "3",
+       "prob": 0.0
       }
      ],
      "track": {
       "12": {
        "rank": 86,
+       "rank_word": 6,
        "prob": 0.0
       },
       "twelve": {
        "rank": 1579,
+       "rank_word": 1164,
        "prob": 0.0
       },
       "14": {
        "rank": 86,
+       "rank_word": 6,
        "prob": 0.0
       },
       "fourteen": {
        "rank": 3428,
+       "rank_word": 2809,
        "prob": 0.0
       },
       "addition": {
        "rank": 841,
+       "rank_word": 548,
        "prob": 0.0
       }
      }
@@ -6025,73 +5764,70 @@
      "layer": 13,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.90025
+       "tok": "2",
+       "prob": 3e-05
       },
       {
-       "tok": "...",
-       "prob": 0.08374
+       "tok": "3",
+       "prob": 2e-05
       },
       {
-       "tok": "=",
-       "prob": 0.01
+       "tok": "1",
+       "prob": 1e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00072
+       "tok": "math",
+       "prob": 1e-05
       },
       {
-       "tok": "...\\",
-       "prob": 0.00068
+       "tok": "5",
+       "prob": 1e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00064
+       "tok": "4",
+       "prob": 0.0
       },
       {
-       "tok": "...,",
-       "prob": 0.00056
+       "tok": "0",
+       "prob": 0.0
       },
       {
-       "tok": "(...)",
-       "prob": 0.00044
+       "tok": "Math",
+       "prob": 0.0
       },
       {
-       "tok": "[...]",
-       "prob": 0.00041
+       "tok": "Number",
+       "prob": 0.0
       },
       {
-       "tok": "#",
-       "prob": 0.00034
-      },
-      {
-       "tok": "+",
-       "prob": 0.00021
-      },
-      {
-       "tok": "(...",
-       "prob": 0.00015
+       "tok": "something",
+       "prob": 0.0
       }
      ],
      "track": {
       "12": {
        "rank": 41,
+       "rank_word": 2,
        "prob": 1.2e-05
       },
       "twelve": {
        "rank": 1594,
+       "rank_word": 1099,
        "prob": 0.0
       },
       "14": {
        "rank": 41,
+       "rank_word": 2,
        "prob": 1.2e-05
       },
       "fourteen": {
        "rank": 3542,
+       "rank_word": 2858,
        "prob": 0.0
       },
       "addition": {
        "rank": 1070,
+       "rank_word": 667,
        "prob": 0.0
       }
      }
@@ -6100,73 +5836,70 @@
      "layer": 14,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.81327
+       "tok": "math",
+       "prob": 0.00014
       },
       {
-       "tok": "...",
-       "prob": 0.12472
+       "tok": "2",
+       "prob": 6e-05
       },
       {
-       "tok": "=",
-       "prob": 0.04588
+       "tok": "3",
+       "prob": 5e-05
       },
       {
-       "tok": "\n\n",
-       "prob": 0.00228
+       "tok": "Math",
+       "prob": 4e-05
       },
       {
-       "tok": "+",
-       "prob": 0.00178
+       "tok": "arithmetic",
+       "prob": 2e-05
       },
       {
-       "tok": "\n",
-       "prob": 0.00147
+       "tok": "1",
+       "prob": 2e-05
       },
       {
-       "tok": "#",
-       "prob": 0.00084
+       "tok": "etc",
+       "prob": 2e-05
       },
       {
-       "tok": "...,",
-       "prob": 0.0007
+       "tok": "Number",
+       "prob": 1e-05
       },
       {
-       "tok": "<",
-       "prob": 0.00061
+       "tok": "x",
+       "prob": 1e-05
       },
       {
-       "tok": "...\\",
-       "prob": 0.00058
-      },
-      {
-       "tok": "\r\n\r\n",
-       "prob": 0.00031
-      },
-      {
-       "tok": "\u2192",
-       "prob": 0.00031
+       "tok": "NaN",
+       "prob": 1e-05
       }
      ],
      "track": {
       "12": {
        "rank": 56,
+       "rank_word": 4,
        "prob": 2e-05
       },
       "twelve": {
        "rank": 2936,
+       "rank_word": 2406,
        "prob": 0.0
       },
       "14": {
        "rank": 56,
+       "rank_word": 4,
        "prob": 2e-05
       },
       "fourteen": {
        "rank": 6478,
+       "rank_word": 5718,
        "prob": 0.0
       },
       "addition": {
        "rank": 1268,
+       "rank_word": 933,
        "prob": 0.0
       }
      }
@@ -6175,73 +5908,70 @@
      "layer": 15,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.24392
+       "tok": "2",
+       "prob": 0.00307
       },
       {
-       "tok": "...",
-       "prob": 0.12265
+       "tok": "3",
+       "prob": 0.00239
       },
       {
-       "tok": "...",
-       "prob": 0.10168
+       "tok": "1",
+       "prob": 0.00186
       },
       {
-       "tok": "=",
-       "prob": 0.06989
+       "tok": "Number",
+       "prob": 0.00088
       },
       {
-       "tok": "\n",
-       "prob": 0.06989
+       "tok": "5",
+       "prob": 0.00078
       },
       {
-       "tok": "?",
-       "prob": 0.04803
+       "tok": "What",
+       "prob": 0.00073
       },
       {
-       "tok": "\\n",
-       "prob": 0.03982
+       "tok": "0",
+       "prob": 0.00073
       },
       {
-       "tok": ".",
-       "prob": 0.01559
+       "tok": "math",
+       "prob": 0.00057
       },
       {
-       "tok": "____",
-       "prob": 0.01376
+       "tok": "4",
+       "prob": 0.00044
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.01293
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.01141
-      },
-      {
-       "tok": "   ",
-       "prob": 0.01007
+       "tok": "Why",
+       "prob": 0.00034
       }
      ],
      "track": {
       "12": {
        "rank": 37,
+       "rank_word": 2,
        "prob": 0.001862
       },
       "twelve": {
        "rank": 1507,
+       "rank_word": 917,
        "prob": 8e-06
       },
       "14": {
        "rank": 37,
+       "rank_word": 2,
        "prob": 0.001862
       },
       "fourteen": {
        "rank": 2643,
+       "rank_word": 1861,
        "prob": 4e-06
       },
       "addition": {
        "rank": 2621,
+       "rank_word": 1853,
        "prob": 4e-06
       }
      }
@@ -6250,73 +5980,70 @@
      "layer": 16,
      "top": [
       {
-       "tok": "\n",
-       "prob": 0.50565
-      },
-      {
-       "tok": ".",
-       "prob": 0.06039
-      },
-      {
-       "tok": "=",
-       "prob": 0.03233
-      },
-      {
-       "tok": "?",
-       "prob": 0.03233
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.02087
-      },
-      {
-       "tok": "...",
-       "prob": 0.01961
-      },
-      {
-       "tok": "\\n",
-       "prob": 0.01527
-      },
-      {
-       "tok": "\r\n",
-       "prob": 0.01348
-      },
-      {
-       "tok": "...",
-       "prob": 0.00986
-      },
-      {
-       "tok": "   ",
-       "prob": 0.00678
-      },
-      {
        "tok": "2",
        "prob": 0.00562
       },
       {
-       "tok": "?",
-       "prob": 0.00528
+       "tok": "3",
+       "prob": 0.00466
+      },
+      {
+       "tok": "1",
+       "prob": 0.00341
+      },
+      {
+       "tok": "Number",
+       "prob": 0.00265
+      },
+      {
+       "tok": "5",
+       "prob": 0.00182
+      },
+      {
+       "tok": "Total",
+       "prob": 0.00182
+      },
+      {
+       "tok": "math",
+       "prob": 0.00151
+      },
+      {
+       "tok": "0",
+       "prob": 0.00151
+      },
+      {
+       "tok": "Correct",
+       "prob": 0.00133
+      },
+      {
+       "tok": "4",
+       "prob": 0.00125
       }
      ],
      "track": {
       "12": {
        "rank": 17,
+       "rank_word": 2,
        "prob": 0.003407
       },
       "twelve": {
        "rank": 3077,
+       "rank_word": 2508,
        "prob": 8e-06
       },
       "14": {
        "rank": 17,
+       "rank_word": 2,
        "prob": 0.003407
       },
       "fourteen": {
        "rank": 4214,
+       "rank_word": 3468,
        "prob": 6e-06
       },
       "addition": {
        "rank": 1439,
+       "rank_word": 1051,
        "prob": 1.8e-05
       }
      }
@@ -6325,26 +6052,6 @@
      "layer": 17,
      "top": [
       {
-       "tok": "...",
-       "prob": 0.34245
-      },
-      {
-       "tok": "?",
-       "prob": 0.13411
-      },
-      {
-       "tok": "...",
-       "prob": 0.07178
-      },
-      {
-       "tok": "=",
-       "prob": 0.0409
-      },
-      {
-       "tok": ".",
-       "prob": 0.03185
-      },
-      {
        "tok": "2",
        "prob": 0.01815
       },
@@ -6353,45 +6060,62 @@
        "prob": 0.01815
       },
       {
-       "tok": "\uff1f",
-       "prob": 0.01505
-      },
-      {
-       "tok": "?...",
-       "prob": 0.01172
-      },
-      {
        "tok": "1",
        "prob": 0.01034
       },
       {
-       "tok": "\n",
-       "prob": 0.00913
+       "tok": "5",
+       "prob": 0.00627
       },
       {
-       "tok": "=?",
-       "prob": 0.00857
+       "tok": "4",
+       "prob": 0.0052
+      },
+      {
+       "tok": "6",
+       "prob": 0.00278
+      },
+      {
+       "tok": "9",
+       "prob": 0.00246
+      },
+      {
+       "tok": "7",
+       "prob": 0.00217
+      },
+      {
+       "tok": "8",
+       "prob": 0.00204
+      },
+      {
+       "tok": "0",
+       "prob": 0.00204
       }
      ],
      "track": {
       "12": {
        "rank": 9,
+       "rank_word": 2,
        "prob": 0.010341
       },
       "twelve": {
        "rank": 1626,
+       "rank_word": 1139,
        "prob": 1.2e-05
       },
       "14": {
        "rank": 9,
+       "rank_word": 2,
        "prob": 0.010341
       },
       "fourteen": {
        "rank": 2088,
+       "rank_word": 1557,
        "prob": 1e-05
       },
       "addition": {
        "rank": 1774,
+       "rank_word": 1282,
        "prob": 1.1e-05
       }
      }
@@ -6400,73 +6124,70 @@
      "layer": 18,
      "top": [
       {
-       "tok": "\uff1f",
-       "prob": 0.24168
+       "tok": "math",
+       "prob": 0.00127
       },
       {
-       "tok": "?",
-       "prob": 0.18822
+       "tok": "arithmetic",
+       "prob": 0.0006
       },
       {
-       "tok": "=?",
-       "prob": 0.08891
+       "tok": "Logic",
+       "prob": 0.00047
       },
       {
-       "tok": "???",
-       "prob": 0.07846
+       "tok": "logic",
+       "prob": 0.00039
       },
       {
-       "tok": "?...",
-       "prob": 0.05393
+       "tok": "What",
+       "prob": 0.00036
       },
       {
-       "tok": "?",
-       "prob": 0.04471
+       "tok": "Why",
+       "prob": 0.00036
       },
       {
-       "tok": "???",
-       "prob": 0.02112
+       "tok": "Arithmetic",
+       "prob": 0.00034
       },
       {
-       "tok": "?<",
-       "prob": 0.01751
+       "tok": "Math",
+       "prob": 0.00028
       },
       {
-       "tok": "??",
-       "prob": 0.01545
+       "tok": "3",
+       "prob": 0.00025
       },
       {
-       "tok": "}?",
-       "prob": 0.01281
-      },
-      {
-       "tok": "?=",
-       "prob": 0.01062
-      },
-      {
-       "tok": ")?",
-       "prob": 0.01062
+       "tok": "5",
+       "prob": 0.00023
       }
      ],
      "track": {
       "12": {
        "rank": 200,
+       "rank_word": 38,
        "prob": 5.6e-05
       },
       "twelve": {
        "rank": 11120,
+       "rank_word": 9651,
        "prob": 1e-06
       },
       "14": {
        "rank": 200,
+       "rank_word": 38,
        "prob": 5.6e-05
       },
       "fourteen": {
        "rank": 15286,
+       "rank_word": 13332,
        "prob": 0.0
       },
       "addition": {
        "rank": 4592,
+       "rank_word": 3668,
        "prob": 1e-06
       }
      }
@@ -6475,73 +6196,70 @@
      "layer": 19,
      "top": [
       {
-       "tok": "\"?",
-       "prob": 0.12382
-      },
-      {
-       "tok": "?",
-       "prob": 0.06628
-      },
-      {
-       "tok": "?\\",
-       "prob": 0.05494
-      },
-      {
        "tok": "4",
        "prob": 0.05162
-      },
-      {
-       "tok": "\uff1f",
-       "prob": 0.04849
-      },
-      {
-       "tok": ")?",
-       "prob": 0.02941
-      },
-      {
-       "tok": "?\"",
-       "prob": 0.02438
       },
       {
        "tok": "3",
        "prob": 0.0229
       },
       {
-       "tok": "\u201d?",
-       "prob": 0.02152
-      },
-      {
-       "tok": "  \n",
-       "prob": 0.01899
-      },
-      {
-       "tok": "...\"",
-       "prob": 0.01574
-      },
-      {
        "tok": "2",
        "prob": 0.01389
+      },
+      {
+       "tok": "6",
+       "prob": 0.00843
+      },
+      {
+       "tok": "8",
+       "prob": 0.00616
+      },
+      {
+       "tok": "5",
+       "prob": 0.00579
+      },
+      {
+       "tok": "Correct",
+       "prob": 0.00213
+      },
+      {
+       "tok": "9",
+       "prob": 0.00213
+      },
+      {
+       "tok": "7",
+       "prob": 0.00177
+      },
+      {
+       "tok": "1",
+       "prob": 0.00146
       }
      ],
      "track": {
       "12": {
        "rank": 62,
+       "rank_word": 9,
        "prob": 0.001464
       },
       "twelve": {
        "rank": 6490,
+       "rank_word": 5107,
        "prob": 5e-06
       },
       "14": {
        "rank": 62,
+       "rank_word": 9,
        "prob": 0.001464
       },
       "fourteen": {
        "rank": 2292,
+       "rank_word": 1601,
        "prob": 1.3e-05
       },
       "addition": {
        "rank": 7966,
+       "rank_word": 6488,
        "prob": 4e-06
       }
      }
@@ -6562,16 +6280,8 @@
        "prob": 0.03503
       },
       {
-       "tok": "\"?",
-       "prob": 0.02904
-      },
-      {
        "tok": "3",
        "prob": 0.02563
-      },
-      {
-       "tok": "?\\",
-       "prob": 0.01761
       },
       {
        "tok": "5",
@@ -6586,37 +6296,42 @@
        "prob": 0.01372
       },
       {
-       "tok": "____",
-       "prob": 0.01289
-      },
-      {
        "tok": "2",
        "prob": 0.01004
       },
       {
-       "tok": "?\"",
-       "prob": 0.00943
+       "tok": "math",
+       "prob": 0.00418
+      },
+      {
+       "tok": "Calculation",
+       "prob": 0.00198
       }
      ],
      "track": {
       "12": {
        "rank": 118,
+       "rank_word": 47,
        "prob": 0.000469
       },
       "twelve": {
        "rank": 1842,
+       "rank_word": 1315,
        "prob": 3.9e-05
       },
       "14": {
        "rank": 118,
+       "rank_word": 47,
        "prob": 0.000469
       },
       "fourteen": {
        "rank": 321,
+       "rank_word": 158,
        "prob": 0.000178
       },
       "addition": {
        "rank": 28273,
+       "rank_word": 24544,
        "prob": 3e-06
       }
      }
@@ -6653,45 +6368,42 @@
        "prob": 0.00375
       },
       {
-       "tok": "?\\",
-       "prob": 0.00375
-      },
-      {
        "tok": "Puzzle",
        "prob": 0.00311
       },
       {
-       "tok": "____",
-       "prob": 0.00311
+       "tok": "Answer",
+       "prob": 0.00177
       },
       {
-       "tok": "?\"",
-       "prob": 0.00292
-      },
-      {
-       "tok": "\"=",
-       "prob": 0.00274
+       "tok": "2",
+       "prob": 0.00166
       }
      ],
      "track": {
       "12": {
        "rank": 909,
+       "rank_word": 709,
        "prob": 0.0001
       },
       "twelve": {
        "rank": 4979,
+       "rank_word": 4409,
        "prob": 2.7e-05
       },
       "14": {
        "rank": 909,
+       "rank_word": 709,
        "prob": 0.0001
       },
       "fourteen": {
        "rank": 1475,
+       "rank_word": 1168,
        "prob": 6.9e-05
       },
       "addition": {
        "rank": 61344,
+       "rank_word": 54249,
        "prob": 2e-06
       }
      }
@@ -6728,45 +6440,42 @@
        "prob": 0.00617
       },
       {
-       "tok": "?</",
-       "prob": 0.0048
-      },
-      {
-       "tok": "|\"",
-       "prob": 0.00351
-      },
-      {
-       "tok": "?=",
-       "prob": 0.00188
-      },
-      {
-       "tok": "\"=",
+       "tok": "whatsapp",
        "prob": 0.00156
       },
       {
-       "tok": "?\\",
+       "tok": "Answer",
        "prob": 0.00156
+      },
+      {
+       "tok": "kal",
+       "prob": 0.00138
       }
      ],
      "track": {
       "12": {
        "rank": 74,
+       "rank_word": 49,
        "prob": 0.000539
       },
       "twelve": {
        "rank": 494,
+       "rank_word": 397,
        "prob": 0.00015
       },
       "14": {
        "rank": 74,
+       "rank_word": 49,
        "prob": 0.000539
       },
       "fourteen": {
        "rank": 90,
+       "rank_word": 61,
        "prob": 0.000461
       },
       "addition": {
        "rank": 190808,
+       "rank_word": 167401,
        "prob": 0.0
       }
      }
@@ -6791,11 +6500,11 @@
        "prob": 0.00374
       },
       {
-       "tok": "\u7b2c\u5341\u4e8c",
+       "tok": "NOTA",
        "prob": 0.00351
       },
       {
-       "tok": "NOTA",
+       "tok": "\u7b2c\u5341\u4e8c",
        "prob": 0.00351
       },
       {
@@ -6803,45 +6512,42 @@
        "prob": 0.00274
       },
       {
-       "tok": "?=",
-       "prob": 0.00257
-      },
-      {
        "tok": "COMPL",
        "prob": 0.00241
-      },
-      {
-       "tok": "\u5341\u4e8c\u6761",
-       "prob": 0.00213
       },
       {
        "tok": "8",
        "prob": 0.00213
       },
       {
-       "tok": "\u03cd\u03bd",
-       "prob": 0.00166
+       "tok": "\u5341\u4e8c\u6761",
+       "prob": 0.00213
       }
      ],
      "track": {
       "12": {
        "rank": 124,
+       "rank_word": 95,
        "prob": 0.000359
       },
       "twelve": {
        "rank": 2,
+       "rank_word": 2,
        "prob": 0.006164
       },
       "14": {
        "rank": 124,
+       "rank_word": 95,
        "prob": 0.000359
       },
       "fourteen": {
        "rank": 29,
+       "rank_word": 22,
        "prob": 0.000834
       },
       "addition": {
        "rank": 141995,
+       "rank_word": 125130,
        "prob": 1e-06
       }
      }
@@ -6888,35 +6594,32 @@
       {
        "tok": "seventeen",
        "prob": 0.00269
-      },
-      {
-       "tok": "\u5341\u4e09",
-       "prob": 0.00237
-      },
-      {
-       "tok": "Trace",
-       "prob": 0.00223
       }
      ],
      "track": {
       "12": {
        "rank": 216,
+       "rank_word": 189,
        "prob": 0.000235
       },
       "twelve": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.053987
       },
       "14": {
        "rank": 216,
+       "rank_word": 189,
        "prob": 0.000235
       },
       "fourteen": {
        "rank": 3,
+       "rank_word": 3,
        "prob": 0.01453
       },
       "addition": {
        "rank": 86916,
+       "rank_word": 77536,
        "prob": 1e-06
       }
      }
@@ -6957,41 +6660,38 @@
        "prob": 0.00552
       },
       {
-       "tok": "(__",
-       "prob": 0.00487
-      },
-      {
        "tok": "ten",
        "prob": 0.00335
       },
       {
        "tok": "Seven",
        "prob": 0.00296
-      },
-      {
-       "tok": "\u5341\u4e00",
-       "prob": 0.00278
       }
      ],
      "track": {
       "12": {
        "rank": 128,
+       "rank_word": 105,
        "prob": 0.000413
       },
       "twelve": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.015007
       },
       "14": {
        "rank": 128,
+       "rank_word": 105,
        "prob": 0.000413
       },
       "fourteen": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.013244
       },
       "addition": {
        "rank": 161176,
+       "rank_word": 141764,
        "prob": 0.0
       }
      }
@@ -7020,15 +6720,7 @@
        "prob": 0.00473
       },
       {
-       "tok": "?=",
-       "prob": 0.00473
-      },
-      {
        "tok": "\u5341\u4e8c",
-       "prob": 0.00346
-      },
-      {
-       "tok": "+=",
        "prob": 0.00346
       },
       {
@@ -7036,37 +6728,42 @@
        "prob": 0.00325
       },
       {
-       "tok": "+",
-       "prob": 0.00287
-      },
-      {
        "tok": "irse",
        "prob": 0.0027
       },
       {
-       "tok": "=",
-       "prob": 0.00253
+       "tok": "zim",
+       "prob": 0.00238
+      },
+      {
+       "tok": "\u5341\u4e8c\u7ae0",
+       "prob": 0.00224
       }
      ],
      "track": {
       "12": {
        "rank": 85,
+       "rank_word": 65,
        "prob": 0.000499
       },
       "twelve": {
        "rank": 4,
+       "rank_word": 4,
        "prob": 0.004734
       },
       "14": {
        "rank": 85,
+       "rank_word": 65,
        "prob": 0.000499
       },
       "fourteen": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.013699
       },
       "addition": {
        "rank": 169190,
+       "rank_word": 149218,
        "prob": 0.0
       }
      }
@@ -7083,10 +6780,6 @@
        "prob": 0.00813
       },
       {
-       "tok": " ",
-       "prob": 0.00493
-      },
-      {
        "tok": "ten",
        "prob": 0.00463
       },
@@ -7099,24 +6792,20 @@
        "prob": 0.00409
       },
       {
-       "tok": "?",
-       "prob": 0.00384
-      },
-      {
        "tok": "sixteen",
        "prob": 0.00361
-      },
-      {
-       "tok": "TEN",
-       "prob": 0.00318
       },
       {
        "tok": "\u5341\u56db",
        "prob": 0.00318
       },
       {
-       "tok": "+",
+       "tok": "TEN",
        "prob": 0.00318
+      },
+      {
+       "tok": "Home",
+       "prob": 0.00264
       },
       {
        "tok": "twelve",
@@ -7126,22 +6815,27 @@
      "track": {
       "12": {
        "rank": 5,
+       "rank_word": 4,
        "prob": 0.004087
       },
       "twelve": {
        "rank": 12,
+       "rank_word": 8,
        "prob": 0.002639
       },
       "14": {
        "rank": 5,
+       "rank_word": 4,
        "prob": 0.004087
       },
       "fourteen": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.053001
       },
       "addition": {
        "rank": 67540,
+       "rank_word": 61705,
        "prob": 2e-06
       }
      }
@@ -7154,24 +6848,12 @@
        "prob": 0.11427
       },
       {
-       "tok": " ",
-       "prob": 0.06931
-      },
-      {
        "tok": "1",
        "prob": 0.03949
       },
       {
-       "tok": "+",
-       "prob": 0.01646
-      },
-      {
        "tok": "\u5341\u56db",
        "prob": 0.00938
-      },
-      {
-       "tok": "?",
-       "prob": 0.00778
       },
       {
        "tok": "\u2081",
@@ -7190,33 +6872,42 @@
        "prob": 0.00367
       },
       {
-       "tok": "__",
+       "tok": "thirteen",
        "prob": 0.00345
       },
       {
-       "tok": "thirteen",
+       "tok": "sixteen",
        "prob": 0.00345
+      },
+      {
+       "tok": "ten",
+       "prob": 0.00286
       }
      ],
      "track": {
       "12": {
        "rank": 2,
+       "rank_word": 1,
        "prob": 0.039489
       },
       "twelve": {
        "rank": 8,
+       "rank_word": 5,
        "prob": 0.003673
       },
       "14": {
        "rank": 2,
+       "rank_word": 1,
        "prob": 0.039489
       },
       "fourteen": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.114266
       },
       "addition": {
        "rank": 79233,
+       "rank_word": 71450,
        "prob": 1e-06
       }
      }
@@ -7229,16 +6920,8 @@
        "prob": 0.30377
       },
       {
-       "tok": " ",
-       "prob": 0.1348
-      },
-      {
        "tok": "1",
        "prob": 0.11896
-      },
-      {
-       "tok": "?",
-       "prob": 0.03008
       },
       {
        "tok": "\u5341\u56db",
@@ -7249,14 +6932,6 @@
        "prob": 0.0081
       },
       {
-       "tok": "??",
-       "prob": 0.00714
-      },
-      {
-       "tok": "__",
-       "prob": 0.00491
-      },
-      {
        "tok": "\u5341\u56db\u6761",
        "prob": 0.00433
       },
@@ -7265,33 +6940,46 @@
        "prob": 0.00407
       },
       {
-       "tok": "???",
-       "prob": 0.00382
+       "tok": "none",
+       "prob": 0.00317
       },
       {
-       "tok": "?,",
-       "prob": 0.00382
+       "tok": "Trace",
+       "prob": 0.0028
+      },
+      {
+       "tok": "None",
+       "prob": 0.0028
+      },
+      {
+       "tok": "undefined",
+       "prob": 0.00192
       }
      ],
      "track": {
       "12": {
        "rank": 2,
+       "rank_word": 1,
        "prob": 0.118957
       },
       "twelve": {
        "rank": 89,
+       "rank_word": 60,
        "prob": 0.000277
       },
       "14": {
        "rank": 2,
+       "rank_word": 1,
        "prob": 0.118957
       },
       "fourteen": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.303768
       },
       "addition": {
        "rank": 42586,
+       "rank_word": 39057,
        "prob": 1e-06
       }
      }
@@ -7300,44 +6988,8 @@
      "layer": 30,
      "top": [
       {
-       "tok": " ",
-       "prob": 0.95965
-      },
-      {
-       "tok": "?",
-       "prob": 0.01551
-      },
-      {
        "tok": "1",
        "prob": 0.0078
-      },
-      {
-       "tok": "??",
-       "prob": 0.00144
-      },
-      {
-       "tok": "?,",
-       "prob": 0.00106
-      },
-      {
-       "tok": "???",
-       "prob": 0.00093
-      },
-      {
-       "tok": "__",
-       "prob": 0.00088
-      },
-      {
-       "tok": "?**",
-       "prob": 0.0006
-      },
-      {
-       "tok": "?.",
-       "prob": 0.00036
-      },
-      {
-       "tok": "____",
-       "prob": 0.0002
       },
       {
        "tok": "Trace",
@@ -7346,27 +6998,60 @@
       {
        "tok": "fourteen",
        "prob": 0.00017
+      },
+      {
+       "tok": "None",
+       "prob": 0.00011
+      },
+      {
+       "tok": "NOT",
+       "prob": 8e-05
+      },
+      {
+       "tok": "C",
+       "prob": 7e-05
+      },
+      {
+       "tok": "False",
+       "prob": 6e-05
+      },
+      {
+       "tok": "NaN",
+       "prob": 6e-05
+      },
+      {
+       "tok": "Jan",
+       "prob": 6e-05
+      },
+      {
+       "tok": "X",
+       "prob": 5e-05
       }
      ],
      "track": {
       "12": {
        "rank": 2,
+       "rank_word": 0,
        "prob": 0.0078
       },
       "twelve": {
        "rank": 659,
+       "rank_word": 447,
        "prob": 2e-06
       },
       "14": {
        "rank": 2,
+       "rank_word": 0,
        "prob": 0.0078
       },
       "fourteen": {
        "rank": 11,
+       "rank_word": 2,
        "prob": 0.000172
       },
       "addition": {
        "rank": 26472,
+       "rank_word": 24316,
        "prob": 0.0
       }
      }
@@ -7374,54 +7059,48 @@
    ],
    "model_out": [
     {
-     "tok": " ",
-     "prob": 0.99184
-    },
-    {
-     "tok": "?",
-     "prob": 0.0059
-    },
-    {
-     "tok": "\n",
-     "prob": 0.00021
-    },
-    {
-     "tok": "(",
-     "prob": 0.00019
-    },
-    {
      "tok": "1",
      "prob": 0.00018
     },
     {
-     "tok": "-",
-     "prob": 0.00017
+     "tok": "None",
+     "prob": 2e-05
     },
     {
-     "tok": "__",
-     "prob": 0.0001
+     "tok": "x",
+     "prob": 2e-05
     },
     {
-     "tok": "...",
-     "prob": 8e-05
+     "tok": "C",
+     "prob": 2e-05
     },
     {
-     "tok": " \n",
-     "prob": 7e-05
+     "tok": "X",
+     "prob": 2e-05
     },
     {
-     "tok": "_",
-     "prob": 7e-05
+     "tok": "A",
+     "prob": 1e-05
     },
     {
-     "tok": "?",
-     "prob": 6e-05
+     "tok": "c",
+     "prob": 1e-05
     },
     {
-     "tok": "\\",
-     "prob": 5e-05
+     "tok": "False",
+     "prob": 1e-05
+    },
+    {
+     "tok": "N",
+     "prob": 1e-05
+    },
+    {
+     "tok": "n",
+     "prob": 1e-05
     }
-   ]
+   ],
+   "expr": "2 + 3 * 4",
+   "inter": "12"
   }
  ]
 }

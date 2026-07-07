@@ -1,6 +1,7 @@
 {
  "model": "Qwen/Qwen3.5-4B",
  "lens": "neuronpedia/jacobian-lens@qwen-n1000",
+ "display": "top-k restricted to word-like tokens (paper mask); ranks full-vocab",
  "items": [
   {
    "name": "couplet-breath-death",
@@ -37,12 +38,13 @@
    ],
    "read_pos": -1,
    "read_token": " of",
+   "answer": "death",
+   "generated": "death.",
    "track_words": [
     "death",
     "God",
     "peace"
    ],
-   "answer": "death",
    "layers": [
     0,
     1,
@@ -77,21 +79,14 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.08912
-      },
-      {
        "tok": "the",
        "prob": 0.02399
-      },
-      {
-       "tok": "\"",
-       "prob": 0.01989
       },
       {
        "tok": "of",
@@ -106,33 +101,44 @@
        "prob": 0.01206
       },
       {
-       "tok": "a",
-       "prob": 0.00646
-      },
-      {
        "tok": "and",
        "prob": 0.00646
       },
       {
-       "tok": "'",
-       "prob": 0.00606
+       "tok": "a",
+       "prob": 0.00646
       },
       {
        "tok": "an",
        "prob": 0.00444
+      },
+      {
+       "tok": "as",
+       "prob": 0.00404
+      },
+      {
+       "tok": "on",
+       "prob": 0.00335
+      },
+      {
+       "tok": "a",
+       "prob": 0.00335
       }
      ],
      "track": {
       "death": {
        "rank": 137,
+       "rank_word": 121,
        "prob": 0.000364
       },
       "God": {
        "rank": 9357,
+       "rank_word": 8840,
        "prob": 1.3e-05
       },
       "peace": {
        "rank": 853,
+       "rank_word": 808,
        "prob": 8.1e-05
       }
      }
@@ -140,22 +146,6 @@
     {
      "layer": 1,
      "top": [
-      {
-       "tok": "\u2026.",
-       "prob": 0.21471
-      },
-      {
-       "tok": ",\u2026",
-       "prob": 0.04791
-      },
-      {
-       "tok": ",",
-       "prob": 0.04501
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.03731
-      },
       {
        "tok": "the",
        "prob": 0.03505
@@ -165,33 +155,52 @@
        "prob": 0.03293
       },
       {
-       "tok": "\u2022",
-       "prob": 0.03093
+       "tok": "at",
+       "prob": 0.01069
       },
       {
-       "tok": ".\u2022",
-       "prob": 0.01997
+       "tok": "The",
+       "prob": 0.00886
       },
       {
-       "tok": "..",
-       "prob": 0.01656
+       "tok": "a",
+       "prob": 0.00648
       },
       {
-       "tok": "\u2026",
-       "prob": 0.01289
+       "tok": "in",
+       "prob": 0.00474
+      },
+      {
+       "tok": "In",
+       "prob": 0.00474
+      },
+      {
+       "tok": "Bene",
+       "prob": 0.00326
+      },
+      {
+       "tok": "e",
+       "prob": 0.00288
+      },
+      {
+       "tok": "an",
+       "prob": 0.00288
       }
      ],
      "track": {
       "death": {
        "rank": 376,
+       "rank_word": 309,
        "prob": 0.000115
       },
       "God": {
        "rank": 3381,
+       "rank_word": 3183,
        "prob": 1.6e-05
       },
       "peace": {
        "rank": 969,
+       "rank_word": 891,
        "prob": 4.8e-05
       }
      }
@@ -200,57 +209,60 @@
      "layer": 2,
      "top": [
       {
-       "tok": ",",
-       "prob": 0.48563
-      },
-      {
-       "tok": ".",
-       "prob": 0.05449
-      },
-      {
-       "tok": ".,",
-       "prob": 0.03518
-      },
-      {
-       "tok": "..",
-       "prob": 0.03518
-      },
-      {
-       "tok": "\u2026.",
-       "prob": 0.03305
-      },
-      {
-       "tok": "\n",
-       "prob": 0.03105
-      },
-      {
-       "tok": ".\"",
-       "prob": 0.02271
-      },
-      {
-       "tok": ".[",
-       "prob": 0.02134
-      },
-      {
        "tok": "the",
        "prob": 0.01662
       },
       {
-       "tok": "<|endoftext|>",
-       "prob": 0.01561
+       "tok": "at",
+       "prob": 0.01466
+      },
+      {
+       "tok": "a",
+       "prob": 0.01466
+      },
+      {
+       "tok": "a",
+       "prob": 0.00447
+      },
+      {
+       "tok": "in",
+       "prob": 0.00447
+      },
+      {
+       "tok": "e",
+       "prob": 0.00447
+      },
+      {
+       "tok": "an",
+       "prob": 0.00211
+      },
+      {
+       "tok": "and",
+       "prob": 0.00175
+      },
+      {
+       "tok": "the",
+       "prob": 0.00136
+      },
+      {
+       "tok": "The",
+       "prob": 0.00136
       }
      ],
      "track": {
       "death": {
        "rank": 271,
+       "rank_word": 187,
        "prob": 6.8e-05
       },
       "God": {
        "rank": 2100,
+       "rank_word": 1838,
        "prob": 8e-06
       },
       "peace": {
        "rank": 1271,
+       "rank_word": 1098,
        "prob": 1.2e-05
       }
      }
@@ -259,57 +271,60 @@
      "layer": 3,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.26115
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.2165
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.13978
-      },
-      {
-       "tok": "'",
-       "prob": 0.05474
-      },
-      {
-       "tok": "\n\n\n",
-       "prob": 0.04263
-      },
-      {
-       "tok": ",",
-       "prob": 0.02586
-      },
-      {
        "tok": "the",
        "prob": 0.02586
       },
       {
-       "tok": "..",
-       "prob": 0.01221
+       "tok": "a",
+       "prob": 0.00696
       },
       {
-       "tok": "``",
-       "prob": 0.00894
+       "tok": "an",
+       "prob": 0.00309
       },
       {
-       "tok": "...",
-       "prob": 0.00741
+       "tok": "at",
+       "prob": 0.00176
+      },
+      {
+       "tok": "much",
+       "prob": 0.00114
+      },
+      {
+       "tok": "in",
+       "prob": 0.00094
+      },
+      {
+       "tok": "its",
+       "prob": 0.00094
+      },
+      {
+       "tok": "Tow",
+       "prob": 0.00083
+      },
+      {
+       "tok": "The",
+       "prob": 0.00083
+      },
+      {
+       "tok": "and",
+       "prob": 0.00073
       }
      ],
      "track": {
       "death": {
        "rank": 48,
+       "rank_word": 18,
        "prob": 0.000504
       },
       "God": {
        "rank": 2546,
+       "rank_word": 2337,
        "prob": 8e-06
       },
       "peace": {
        "rank": 1314,
+       "rank_word": 1178,
        "prob": 1.5e-05
       }
      }
@@ -318,57 +333,60 @@
      "layer": 4,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.90968
+       "tok": "the",
+       "prob": 0.00047
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.03997
+       "tok": "a",
+       "prob": 9e-05
       },
       {
-       "tok": "\u2026",
-       "prob": 0.02139
+       "tok": "an",
+       "prob": 3e-05
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.01888
+       "tok": "of",
+       "prob": 2e-05
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.00308
+       "tok": "at",
+       "prob": 2e-05
       },
       {
-       "tok": "..",
-       "prob": 0.00165
+       "tok": "The",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026..",
-       "prob": 0.00073
+       "tok": "its",
+       "prob": 1e-05
       },
       {
-       "tok": "...",
-       "prob": 0.00065
+       "tok": "in",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.00057
+       "tok": "much",
+       "prob": 1e-05
       },
       {
-       "tok": "'",
-       "prob": 0.00057
+       "tok": "being",
+       "prob": 1e-05
       }
      ],
      "track": {
       "death": {
        "rank": 88,
+       "rank_word": 31,
        "prob": 2e-06
       },
       "God": {
        "rank": 633,
+       "rank_word": 499,
        "prob": 0.0
       },
       "peace": {
        "rank": 926,
+       "rank_word": 813,
        "prob": 0.0
       }
      }
@@ -377,57 +395,60 @@
      "layer": 5,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.93185
+       "tok": "the",
+       "prob": 0.00013
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.02814
+       "tok": "a",
+       "prob": 2e-05
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.01934
+       "tok": "of",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026",
-       "prob": 0.00806
+       "tok": "an",
+       "prob": 1e-05
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.00297
+       "tok": "at",
+       "prob": 0.0
       },
       {
-       "tok": ".",
-       "prob": 0.00231
+       "tok": "The",
+       "prob": 0.0
       },
       {
-       "tok": "..",
-       "prob": 0.00124
+       "tok": "a",
+       "prob": 0.0
       },
       {
-       "tok": ".\"",
-       "prob": 0.00096
+       "tok": "in",
+       "prob": 0.0
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.00085
+       "tok": "its",
+       "prob": 0.0
       },
       {
-       "tok": "...",
-       "prob": 0.0008
+       "tok": "upon",
+       "prob": 0.0
       }
      ],
      "track": {
       "death": {
        "rank": 194,
+       "rank_word": 86,
        "prob": 0.0
       },
       "God": {
        "rank": 887,
+       "rank_word": 681,
        "prob": 0.0
       },
       "peace": {
        "rank": 1229,
+       "rank_word": 982,
        "prob": 0.0
       }
      }
@@ -436,57 +457,60 @@
      "layer": 6,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.87544
+       "tok": "the",
+       "prob": 9e-05
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.04939
+       "tok": "a",
+       "prob": 7e-05
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.02996
+       "tok": "a",
+       "prob": 3e-05
       },
       {
-       "tok": "\u2026",
-       "prob": 0.02333
+       "tok": "an",
+       "prob": 2e-05
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.00858
+       "tok": "endeavor",
+       "prob": 1e-05
       },
       {
-       "tok": ".",
-       "prob": 0.00297
+       "tok": "Bene",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.00192
+       "tok": "Tow",
+       "prob": 1e-05
       },
       {
-       "tok": ".\"",
-       "prob": 0.0014
+       "tok": "f",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.00124
+       "tok": "nearly",
+       "prob": 1e-05
       },
       {
-       "tok": "..",
-       "prob": 0.0007
+       "tok": "America",
+       "prob": 1e-05
       }
      ],
      "track": {
       "death": {
        "rank": 184,
+       "rank_word": 80,
        "prob": 1e-06
       },
       "God": {
        "rank": 1065,
+       "rank_word": 875,
        "prob": 0.0
       },
       "peace": {
        "rank": 1324,
+       "rank_word": 1107,
        "prob": 0.0
       }
      }
@@ -495,57 +519,60 @@
      "layer": 7,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.80525
+       "tok": "the",
+       "prob": 8e-05
       },
       {
-       "tok": "\u2026",
-       "prob": 0.0749
+       "tok": "a",
+       "prob": 8e-05
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.05148
+       "tok": "a",
+       "prob": 3e-05
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.04009
+       "tok": "humanity",
+       "prob": 2e-05
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.00789
+       "tok": "Tow",
+       "prob": 2e-05
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.0045
+       "tok": "an",
+       "prob": 2e-05
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.00329
+       "tok": "endeavor",
+       "prob": 2e-05
       },
       {
-       "tok": ".\"",
-       "prob": 0.00273
+       "tok": "man",
+       "prob": 2e-05
       },
       {
-       "tok": ".",
-       "prob": 0.00129
+       "tok": "f",
+       "prob": 2e-05
       },
       {
-       "tok": "\u2026..",
-       "prob": 0.00054
+       "tok": "face",
+       "prob": 2e-05
       }
      ],
      "track": {
       "death": {
        "rank": 119,
+       "rank_word": 37,
        "prob": 5e-06
       },
       "God": {
        "rank": 1098,
+       "rank_word": 913,
        "prob": 0.0
       },
       "peace": {
        "rank": 1256,
+       "rank_word": 1055,
        "prob": 0.0
       }
      }
@@ -554,57 +581,60 @@
      "layer": 8,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.80611
+       "tok": "the",
+       "prob": 2e-05
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.08496
+       "tok": "a",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.04548
+       "tok": "humanity",
+       "prob": 1e-05
       },
       {
-       "tok": "\u2026",
-       "prob": 0.03126
+       "tok": "a",
+       "prob": 1e-05
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.00896
+       "tok": "man",
+       "prob": 0.0
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.00841
+       "tok": "death",
+       "prob": 0.0
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.00543
+       "tok": "america",
+       "prob": 0.0
       },
       {
-       "tok": ".\"",
-       "prob": 0.002
+       "tok": "America",
+       "prob": 0.0
       },
       {
-       "tok": ".",
-       "prob": 0.00137
+       "tok": "face",
+       "prob": 0.0
       },
       {
-       "tok": "\u2026..",
-       "prob": 0.00094
+       "tok": "an",
+       "prob": 0.0
       }
      ],
      "track": {
       "death": {
        "rank": 74,
+       "rank_word": 5,
        "prob": 5e-06
       },
       "God": {
        "rank": 328,
+       "rank_word": 171,
        "prob": 0.0
       },
       "peace": {
        "rank": 1433,
+       "rank_word": 1168,
        "prob": 0.0
       }
      }
@@ -613,57 +643,60 @@
      "layer": 9,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.74602
+       "tok": "humanity",
+       "prob": 0.00014
       },
       {
-       "tok": "\u2026",
-       "prob": 0.11441
+       "tok": "the",
+       "prob": 8e-05
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.04769
+       "tok": "death",
+       "prob": 8e-05
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.03714
+       "tok": "face",
+       "prob": 4e-05
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01648
+       "tok": "Death",
+       "prob": 4e-05
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.01206
+       "tok": "a",
+       "prob": 3e-05
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.00779
+       "tok": "man",
+       "prob": 3e-05
       },
       {
-       "tok": ".\"",
-       "prob": 0.00345
+       "tok": "mourn",
+       "prob": 3e-05
       },
       {
-       "tok": "\u2026..",
-       "prob": 0.00112
+       "tok": "America",
+       "prob": 3e-05
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00112
+       "tok": "a",
+       "prob": 3e-05
       }
      ],
      "track": {
       "death": {
        "rank": 29,
+       "rank_word": 2,
        "prob": 8.1e-05
       },
       "God": {
        "rank": 133,
+       "rank_word": 49,
        "prob": 9e-06
       },
       "peace": {
        "rank": 1435,
+       "rank_word": 1179,
        "prob": 1e-06
       }
      }
@@ -672,57 +705,60 @@
      "layer": 10,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.67434
+       "tok": "death",
+       "prob": 0.00115
       },
       {
-       "tok": "\u2026",
-       "prob": 0.09715
+       "tok": "humanity",
+       "prob": 0.00079
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.05892
+       "tok": "Death",
+       "prob": 0.00045
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.04589
+       "tok": "mourn",
+       "prob": 0.00042
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.04311
+       "tok": "grief",
+       "prob": 0.00024
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01913
+       "tok": "dying",
+       "prob": 0.00021
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.0109
+       "tok": "Humanity",
+       "prob": 0.00018
       },
       {
-       "tok": ".\"",
-       "prob": 0.00427
+       "tok": "despair",
+       "prob": 0.00017
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.00332
+       "tok": "sorrow",
+       "prob": 0.00017
       },
       {
-       "tok": "\u2026..",
-       "prob": 0.00202
+       "tok": "terrifying",
+       "prob": 0.00013
       }
      ],
      "track": {
       "death": {
        "rank": 13,
+       "rank_word": 0,
        "prob": 0.001149
       },
       "God": {
        "rank": 86,
+       "rank_word": 32,
        "prob": 5.4e-05
       },
       "peace": {
        "rank": 902,
+       "rank_word": 724,
        "prob": 4e-06
       }
      }
@@ -731,57 +767,60 @@
      "layer": 11,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.61794
+       "tok": "death",
+       "prob": 0.00367
       },
       {
-       "tok": "\u2026",
-       "prob": 0.06933
+       "tok": "humanity",
+       "prob": 0.00286
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.06933
+       "tok": "Death",
+       "prob": 0.00223
       },
       {
-       "tok": "\u2026\"",
-       "prob": 0.05072
+       "tok": "Humanity",
+       "prob": 0.00105
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.03486
+       "tok": "mourn",
+       "prob": 0.00077
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01547
+       "tok": "despair",
+       "prob": 0.00064
       },
       {
-       "tok": ".\"",
-       "prob": 0.01282
+       "tok": "terrifying",
+       "prob": 0.0006
       },
       {
-       "tok": ",\u2026",
-       "prob": 0.01132
+       "tok": "grief",
+       "prob": 0.0006
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.00778
+       "tok": "dying",
+       "prob": 0.0006
       },
       {
-       "tok": "[\u2026]",
-       "prob": 0.00443
+       "tok": "Human",
+       "prob": 0.00047
       }
      ],
      "track": {
       "death": {
        "rank": 10,
+       "rank_word": 0,
        "prob": 0.003674
       },
       "God": {
        "rank": 42,
+       "rank_word": 16,
        "prob": 0.000321
       },
       "peace": {
        "rank": 642,
+       "rank_word": 531,
        "prob": 1.8e-05
       }
      }
@@ -790,57 +829,60 @@
      "layer": 12,
      "top": [
       {
-       "tok": ".\\\"",
-       "prob": 0.13513
+       "tok": "humanity",
+       "prob": 0.01109
       },
       {
-       "tok": "\u2026",
-       "prob": 0.11926
+       "tok": "death",
+       "prob": 0.00632
       },
       {
-       "tok": "\\\"",
-       "prob": 0.09887
+       "tok": "Death",
+       "prob": 0.00558
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.07233
+       "tok": "Humanity",
+       "prob": 0.00383
       },
       {
-       "tok": "\u2026",
-       "prob": 0.05292
+       "tok": "terrifying",
+       "prob": 0.00218
       },
       {
-       "tok": ".\\",
-       "prob": 0.04121
+       "tok": "america",
+       "prob": 0.00218
       },
       {
-       "tok": ".\"",
-       "prob": 0.02348
+       "tok": "Heaven",
+       "prob": 0.00193
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.02206
+       "tok": "America",
+       "prob": 0.00193
       },
       {
-       "tok": ",\\\"",
-       "prob": 0.02072
+       "tok": "Human",
+       "prob": 0.00193
       },
       {
-       "tok": "\u2026.",
-       "prob": 0.01947
+       "tok": "mankind",
+       "prob": 0.0017
       }
      ],
      "track": {
       "death": {
        "rank": 15,
+       "rank_word": 1,
        "prob": 0.00632
       },
       "God": {
        "rank": 39,
+       "rank_word": 10,
        "prob": 0.001501
       },
       "peace": {
        "rank": 890,
+       "rank_word": 687,
        "prob": 4.5e-05
       }
      }
@@ -849,57 +891,60 @@
      "layer": 13,
      "top": [
       {
-       "tok": "\\\"",
-       "prob": 0.1047
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.03399
-      },
-      {
        "tok": "humanity",
        "prob": 0.02647
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.02195
       },
       {
        "tok": "death",
        "prob": 0.02195
       },
       {
-       "tok": "\u2026",
-       "prob": 0.01937
-      },
-      {
        "tok": "Death",
        "prob": 0.01508
       },
       {
-       "tok": ",\\\"",
-       "prob": 0.01331
+       "tok": "America",
+       "prob": 0.00807
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01175
+       "tok": "sorrow",
+       "prob": 0.00758
       },
       {
-       "tok": "  ",
-       "prob": 0.01103
+       "tok": "terrifying",
+       "prob": 0.00758
+      },
+      {
+       "tok": "Humanity",
+       "prob": 0.00555
+      },
+      {
+       "tok": "america",
+       "prob": 0.0049
+      },
+      {
+       "tok": "despair",
+       "prob": 0.0049
+      },
+      {
+       "tok": "mankind",
+       "prob": 0.0046
       }
      ],
      "track": {
       "death": {
        "rank": 4,
+       "rank_word": 1,
        "prob": 0.021945
       },
       "God": {
        "rank": 46,
+       "rank_word": 26,
        "prob": 0.002041
       },
       "peace": {
        "rank": 636,
+       "rank_word": 552,
        "prob": 0.000153
       }
      }
@@ -908,57 +953,60 @@
      "layer": 14,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.05439
-      },
-      {
        "tok": "humanity",
        "prob": 0.03299
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.03099
       },
       {
        "tok": "terrifying",
        "prob": 0.02413
       },
       {
-       "tok": "\\\"",
-       "prob": 0.0188
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.01558
-      },
-      {
        "tok": "death",
        "prob": 0.01375
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01214
-      },
-      {
-       "tok": ",\\\"",
-       "prob": 0.01071
-      },
-      {
        "tok": "Death",
        "prob": 0.01071
+      },
+      {
+       "tok": "Humanity",
+       "prob": 0.00783
+      },
+      {
+       "tok": "sorrow",
+       "prob": 0.00783
+      },
+      {
+       "tok": "america",
+       "prob": 0.0065
+      },
+      {
+       "tok": "despair",
+       "prob": 0.00573
+      },
+      {
+       "tok": "destiny",
+       "prob": 0.00475
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00475
       }
      ],
      "track": {
       "death": {
        "rank": 6,
+       "rank_word": 2,
        "prob": 0.013751
       },
       "God": {
        "rank": 23,
+       "rank_word": 12,
        "prob": 0.004194
       },
       "peace": {
        "rank": 439,
+       "rank_word": 385,
        "prob": 0.000252
       }
      }
@@ -971,53 +1019,56 @@
        "prob": 0.05289
       },
       {
-       "tok": "\\\"",
-       "prob": 0.04119
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.03013
-      },
-      {
-       "tok": "\u2026",
-       "prob": 0.02659
-      },
-      {
        "tok": "terrifying",
        "prob": 0.02071
-      },
-      {
-       "tok": "____",
-       "prob": 0.01613
-      },
-      {
-       "tok": ".\"",
-       "prob": 0.01256
-      },
-      {
-       "tok": "death",
-       "prob": 0.0118
       },
       {
        "tok": "Humanity",
        "prob": 0.0118
       },
       {
-       "tok": ".\\",
-       "prob": 0.01041
+       "tok": "death",
+       "prob": 0.0118
+      },
+      {
+       "tok": "America",
+       "prob": 0.00978
+      },
+      {
+       "tok": "Death",
+       "prob": 0.00919
+      },
+      {
+       "tok": "america",
+       "prob": 0.00632
+      },
+      {
+       "tok": "mankind",
+       "prob": 0.00632
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00557
+      },
+      {
+       "tok": "God",
+       "prob": 0.00524
       }
      ],
      "track": {
       "death": {
        "rank": 7,
+       "rank_word": 3,
        "prob": 0.011801
       },
       "God": {
        "rank": 23,
+       "rank_word": 9,
        "prob": 0.005237
       },
       "peace": {
        "rank": 236,
+       "rank_word": 182,
        "prob": 0.000417
       }
      }
@@ -1026,57 +1077,60 @@
      "layer": 16,
      "top": [
       {
-       "tok": ".\\\"",
-       "prob": 0.16385
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.1446
-      },
-      {
-       "tok": "____",
-       "prob": 0.02847
-      },
-      {
        "tok": "humanity",
        "prob": 0.02847
       },
       {
-       "tok": ".\"",
-       "prob": 0.02847
+       "tok": "Humanity",
+       "prob": 0.00816
       },
       {
-       "tok": "\u2026",
-       "prob": 0.0236
+       "tok": "death",
+       "prob": 0.0072
       },
       {
-       "tok": "_____",
-       "prob": 0.02083
+       "tok": "Death",
+       "prob": 0.0072
       },
       {
-       "tok": "\\\"",
-       "prob": 0.01622
+       "tok": "terrifying",
+       "prob": 0.00597
       },
       {
-       "tok": "\\\"",
-       "prob": 0.01524
+       "tok": "America",
+       "prob": 0.00465
       },
       {
-       "tok": ".'",
-       "prob": 0.01187
+       "tok": "america",
+       "prob": 0.0041
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00319
+      },
+      {
+       "tok": "human",
+       "prob": 0.00249
+      },
+      {
+       "tok": "despair",
+       "prob": 0.00234
       }
      ],
      "track": {
       "death": {
        "rank": 18,
+       "rank_word": 2,
        "prob": 0.007199
       },
       "God": {
        "rank": 36,
+       "rank_word": 10,
        "prob": 0.002337
       },
       "peace": {
        "rank": 370,
+       "rank_word": 259,
        "prob": 0.000159
       }
      }
@@ -1085,57 +1139,60 @@
      "layer": 17,
      "top": [
       {
-       "tok": "\u2026",
-       "prob": 0.10128
+       "tok": "humanity",
+       "prob": 0.01288
       },
       {
-       "tok": ".\\",
-       "prob": 0.08397
+       "tok": "Death",
+       "prob": 0.00885
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.08397
+       "tok": "death",
+       "prob": 0.00831
       },
       {
-       "tok": "____",
-       "prob": 0.06143
+       "tok": "terrifying",
+       "prob": 0.00734
       },
       {
-       "tok": ".\"",
-       "prob": 0.02726
+       "tok": "despair",
+       "prob": 0.00608
       },
       {
-       "tok": ".",
-       "prob": 0.02406
+       "tok": "sorrow",
+       "prob": 0.00306
       },
       {
-       "tok": "\n\n",
-       "prob": 0.0226
+       "tok": "Humanity",
+       "prob": 0.00287
       },
       {
-       "tok": ".|",
-       "prob": 0.01874
+       "tok": "God",
+       "prob": 0.00254
       },
       {
-       "tok": ".'",
-       "prob": 0.01874
+       "tok": "murdered",
+       "prob": 0.00224
       },
       {
-       "tok": ".\u2026",
-       "prob": 0.01553
+       "tok": "dying",
+       "prob": 0.00224
       }
      ],
      "track": {
       "death": {
        "rank": 17,
+       "rank_word": 2,
        "prob": 0.008314
       },
       "God": {
        "rank": 41,
+       "rank_word": 7,
        "prob": 0.002536
       },
       "peace": {
        "rank": 652,
+       "rank_word": 406,
        "prob": 7.4e-05
       }
      }
@@ -1164,37 +1221,40 @@
        "prob": 0.0293
       },
       {
-       "tok": "\u2026",
-       "prob": 0.02752
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.02143
-      },
-      {
-       "tok": ".\u2026",
-       "prob": 0.013
-      },
-      {
-       "tok": ".|",
-       "prob": 0.01078
-      },
-      {
        "tok": "dying",
        "prob": 0.01078
+      },
+      {
+       "tok": "doom",
+       "prob": 0.00893
+      },
+      {
+       "tok": "heaven",
+       "prob": 0.00893
+      },
+      {
+       "tok": "darkness",
+       "prob": 0.00839
+      },
+      {
+       "tok": "dead",
+       "prob": 0.00741
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.102255
       },
       "God": {
        "rank": 29,
+       "rank_word": 21,
        "prob": 0.005419
       },
       "peace": {
        "rank": 344,
+       "rank_word": 264,
        "prob": 0.000246
       }
      }
@@ -1211,49 +1271,52 @@
        "prob": 0.07617
       },
       {
-       "tok": "\u2026",
-       "prob": 0.06722
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.02632
-      },
-      {
        "tok": "dying",
        "prob": 0.02473
-      },
-      {
-       "tok": "\u2026.",
-       "prob": 0.02323
       },
       {
        "tok": "dead",
        "prob": 0.0205
       },
       {
-       "tok": "\u2026\u2026",
-       "prob": 0.01409
-      },
-      {
        "tok": "despair",
        "prob": 0.01243
       },
       {
-       "tok": "____",
-       "prob": 0.01097
+       "tok": "heaven",
+       "prob": 0.00803
+      },
+      {
+       "tok": "grief",
+       "prob": 0.00587
+      },
+      {
+       "tok": "God",
+       "prob": 0.00587
+      },
+      {
+       "tok": "Heaven",
+       "prob": 0.00552
+      },
+      {
+       "tok": "murdered",
+       "prob": 0.00487
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.386829
       },
       "God": {
        "rank": 15,
+       "rank_word": 7,
        "prob": 0.005874
       },
       "peace": {
        "rank": 297,
+       "rank_word": 185,
        "prob": 0.000118
       }
      }
@@ -1272,10 +1335,6 @@
       {
        "tok": "dead",
        "prob": 0.01492
-      },
-      {
-       "tok": "-death",
-       "prob": 0.0085
       },
       {
        "tok": "dying",
@@ -1300,19 +1359,26 @@
       {
        "tok": "despair",
        "prob": 0.0013
+      },
+      {
+       "tok": "Death",
+       "prob": 0.0013
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.765409
       },
       "God": {
        "rank": 20,
+       "rank_word": 19,
        "prob": 0.000423
       },
       "peace": {
        "rank": 131,
+       "rank_word": 112,
        "prob": 2.4e-05
       }
      }
@@ -1327,10 +1393,6 @@
       {
        "tok": "Death",
        "prob": 0.30733
-      },
-      {
-       "tok": "-death",
-       "prob": 0.02859
       },
       {
        "tok": "death",
@@ -1359,19 +1421,26 @@
       {
        "tok": "grief",
        "prob": 0.00266
+      },
+      {
+       "tok": "eternity",
+       "prob": 0.0025
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.574161
       },
       "God": {
        "rank": 6,
+       "rank_word": 5,
        "prob": 0.003634
       },
       "peace": {
        "rank": 73,
+       "rank_word": 66,
        "prob": 0.000141
       }
      }
@@ -1386,10 +1455,6 @@
       {
        "tok": "Death",
        "prob": 0.20157
-      },
-      {
-       "tok": "-death",
-       "prob": 0.05097
       },
       {
        "tok": "death",
@@ -1418,19 +1483,26 @@
       {
        "tok": "deceased",
        "prob": 0.00113
+      },
+      {
+       "tok": "eternity",
+       "prob": 0.00099
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.703552
       },
       "God": {
        "rank": 22,
+       "rank_word": 21,
        "prob": 0.000366
       },
       "peace": {
        "rank": 48,
+       "rank_word": 47,
        "prob": 8.2e-05
       }
      }
@@ -1445,10 +1517,6 @@
       {
        "tok": "Death",
        "prob": 0.34539
-      },
-      {
-       "tok": "-death",
-       "prob": 0.0364
       },
       {
        "tok": "death",
@@ -1477,19 +1545,26 @@
       {
        "tok": "dead",
        "prob": 0.00097
+      },
+      {
+       "tok": "\u6b7b\u8005",
+       "prob": 0.00091
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.569449
       },
       "God": {
        "rank": 22,
+       "rank_word": 20,
        "prob": 0.000203
       },
       "peace": {
        "rank": 41,
+       "rank_word": 39,
        "prob": 6.2e-05
       }
      }
@@ -1504,10 +1579,6 @@
       {
        "tok": "Death",
        "prob": 0.35136
-      },
-      {
-       "tok": "-death",
-       "prob": 0.02246
       },
       {
        "tok": "death",
@@ -1536,19 +1607,26 @@
       {
        "tok": "darkness",
        "prob": 0.00144
+      },
+      {
+       "tok": "Darkness",
+       "prob": 0.00135
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.579295
       },
       "God": {
        "rank": 6,
+       "rank_word": 5,
        "prob": 0.005012
       },
       "peace": {
        "rank": 31,
+       "rank_word": 30,
        "prob": 7.1e-05
       }
      }
@@ -1573,10 +1651,6 @@
        "prob": 0.00165
       },
       {
-       "tok": "-death",
-       "prob": 0.00146
-      },
-      {
        "tok": "\u6b7b\u4ea1",
        "prob": 0.00114
       },
@@ -1589,25 +1663,32 @@
        "prob": 0.00011
       },
       {
-       "tok": "_death",
-       "prob": 3e-05
+       "tok": "\u0441\u043c\u0435\u0440\u0442\u0438",
+       "prob": 2e-05
       },
       {
        "tok": "deaths",
+       "prob": 2e-05
+      },
+      {
+       "tok": "\u6b7b\u8005",
        "prob": 2e-05
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.857181
       },
       "God": {
        "rank": 29,
+       "rank_word": 28,
        "prob": 1e-06
       },
       "peace": {
        "rank": 49,
+       "rank_word": 47,
        "prob": 0.0
       }
      }
@@ -1636,10 +1717,6 @@
        "prob": 0.00159
       },
       {
-       "tok": "-death",
-       "prob": 0.00124
-      },
-      {
        "tok": "dead",
        "prob": 0.00075
       },
@@ -1652,6 +1729,10 @@
        "prob": 3e-05
       },
       {
+       "tok": "\u6b7b\u8005",
+       "prob": 3e-05
+      },
+      {
        "tok": "dying",
        "prob": 3e-05
       }
@@ -1659,14 +1740,17 @@
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.824822
       },
       "God": {
        "rank": 34,
+       "rank_word": 31,
        "prob": 0.0
       },
       "peace": {
        "rank": 80,
+       "rank_word": 73,
        "prob": 0.0
       }
      }
@@ -1687,20 +1771,12 @@
        "prob": 0.00903
       },
       {
-       "tok": "-death",
-       "prob": 0.00483
-      },
-      {
        "tok": "Death",
        "prob": 0.00376
       },
       {
        "tok": "Heaven",
        "prob": 0.00045
-      },
-      {
-       "tok": "_death",
-       "prob": 0.00021
       },
       {
        "tok": "heaven",
@@ -1713,19 +1789,30 @@
       {
        "tok": "dead",
        "prob": 0.00011
+      },
+      {
+       "tok": "peace",
+       "prob": 3e-05
+      },
+      {
+       "tok": "Sleep",
+       "prob": 3e-05
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.717159
       },
       "God": {
        "rank": 13,
+       "rank_word": 11,
        "prob": 2.4e-05
       },
       "peace": {
        "rank": 10,
+       "rank_word": 8,
        "prob": 3.5e-05
       }
      }
@@ -1746,10 +1833,6 @@
        "prob": 0.00456
       },
       {
-       "tok": "-death",
-       "prob": 0.00244
-      },
-      {
        "tok": "Death",
        "prob": 0.0019
       },
@@ -1766,25 +1849,32 @@
        "prob": 0.00024
       },
       {
-       "tok": "_death",
+       "tok": "peace",
        "prob": 0.00021
       },
       {
-       "tok": "peace",
-       "prob": 0.00021
+       "tok": "God",
+       "prob": 0.00011
+      },
+      {
+       "tok": "sleep",
+       "prob": 0.00011
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.767451
       },
       "God": {
        "rank": 10,
+       "rank_word": 8,
        "prob": 0.000114
       },
       "peace": {
        "rank": 8,
+       "rank_word": 7,
        "prob": 0.000213
       }
      }
@@ -1803,10 +1893,6 @@
       {
        "tok": "death",
        "prob": 0.00116
-      },
-      {
-       "tok": "-death",
-       "prob": 0.00071
       },
       {
        "tok": "peace",
@@ -1831,19 +1917,26 @@
       {
        "tok": "heaven",
        "prob": 0.00017
+      },
+      {
+       "tok": "life",
+       "prob": 8e-05
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.876539
       },
       "God": {
        "rank": 11,
+       "rank_word": 11,
        "prob": 5.8e-05
       },
       "peace": {
        "rank": 4,
+       "rank_word": 4,
        "prob": 0.000402
       }
      }
@@ -1872,10 +1965,6 @@
        "prob": 0.00018
       },
       {
-       "tok": "-death",
-       "prob": 0.00013
-      },
-      {
        "tok": "Heaven",
        "prob": 0.00013
       },
@@ -1890,19 +1979,26 @@
       {
        "tok": "heaven",
        "prob": 7e-05
+      },
+      {
+       "tok": "God",
+       "prob": 4e-05
       }
      ],
      "track": {
       "death": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.796535
       },
       "God": {
        "rank": 10,
+       "rank_word": 9,
        "prob": 4.4e-05
       },
       "peace": {
        "rank": 3,
+       "rank_word": 3,
        "prob": 0.000236
       }
      }
@@ -1930,11 +2026,11 @@
      "prob": 0.00108
     },
     {
-     "tok": "God",
+     "tok": "night",
      "prob": 0.00079
     },
     {
-     "tok": "night",
+     "tok": "God",
      "prob": 0.00079
     },
     {
@@ -1942,15 +2038,14 @@
      "prob": 0.0007
     },
     {
-     "tok": "...",
-     "prob": 0.00054
-    },
-    {
      "tok": "light",
      "prob": 0.00037
+    },
+    {
+     "tok": "the",
+     "prob": 0.00031
     }
-   ],
-   "generated": "death."
+   ]
   },
   {
    "name": "typo-language",
@@ -1970,11 +2065,12 @@
    ],
    "read_pos": -1,
    "read_token": "auge",
+   "answer": "language",
+   "generated": ".",
    "track_words": [
     "language",
     "langauge"
    ],
-   "answer": "language",
    "layers": [
     0,
     1,
@@ -2009,6 +2105,7 @@
     30
    ],
    "n_layers": 32,
+   "wordlike_vocab": 217522,
    "per_layer": [
     {
      "layer": 0,
@@ -2026,41 +2123,43 @@
        "prob": 0.01092
       },
       {
-       "tok": "--",
-       "prob": 0.01026
-      },
-      {
-       "tok": "\u2013",
-       "prob": 0.00905
-      },
-      {
-       "tok": "==",
-       "prob": 0.0085
-      },
-      {
-       "tok": "\u00ab",
-       "prob": 0.00584
-      },
-      {
-       "tok": "[#",
-       "prob": 0.00549
-      },
-      {
-       "tok": "\u2013and",
-       "prob": 0.00516
-      },
-      {
        "tok": "amongst",
        "prob": 0.00428
+      },
+      {
+       "tok": "orgeous",
+       "prob": 0.00259
+      },
+      {
+       "tok": "\u4f46\u4e0d\u9650\u4e8e",
+       "prob": 0.00259
+      },
+      {
+       "tok": "eid",
+       "prob": 0.00215
+      },
+      {
+       "tok": "\u9eb5",
+       "prob": 0.00215
+      },
+      {
+       "tok": "\u9b31",
+       "prob": 0.00208
+      },
+      {
+       "tok": "\u5fb5",
+       "prob": 0.00152
       }
      ],
      "track": {
       "language": {
        "rank": 134894,
+       "rank_word": 118766,
        "prob": 0.0
       },
       "langauge": {
        "rank": 75246,
+       "rank_word": 65837,
        "prob": 1e-06
       }
      }
@@ -2069,53 +2168,55 @@
      "layer": 1,
      "top": [
       {
-       "tok": "``",
-       "prob": 0.22692
-      },
-      {
-       "tok": "...",
-       "prob": 0.05737
-      },
-      {
-       "tok": "&#",
-       "prob": 0.04468
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.04198
-      },
-      {
-       "tok": "--",
-       "prob": 0.03269
-      },
-      {
-       "tok": "`",
-       "prob": 0.02885
-      },
-      {
-       "tok": "\u00ab",
-       "prob": 0.02247
-      },
-      {
        "tok": "ca",
        "prob": 0.0128
       },
       {
-       "tok": "==",
-       "prob": 0.00685
+       "tok": "auge",
+       "prob": 0.00568
       },
       {
-       "tok": "&",
-       "prob": 0.00605
+       "tok": "wo",
+       "prob": 0.00252
+      },
+      {
+       "tok": "whilst",
+       "prob": 0.00127
+      },
+      {
+       "tok": "ga",
+       "prob": 0.00112
+      },
+      {
+       "tok": "the",
+       "prob": 0.00093
+      },
+      {
+       "tok": "womens",
+       "prob": 0.00084
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.00077
+      },
+      {
+       "tok": "eid",
+       "prob": 0.0007
+      },
+      {
+       "tok": "gauge",
+       "prob": 0.00066
       }
      ],
      "track": {
       "language": {
        "rank": 23922,
+       "rank_word": 21615,
        "prob": 3e-06
       },
       "langauge": {
        "rank": 6756,
+       "rank_word": 5993,
        "prob": 1e-05
       }
      }
@@ -2132,10 +2233,6 @@
        "prob": 0.10623
       },
       {
-       "tok": "\u00a0",
-       "prob": 0.09979
-      },
-      {
        "tok": "y",
        "prob": 0.04428
       },
@@ -2148,29 +2245,35 @@
        "prob": 0.01846
       },
       {
-       "tok": "@",
-       "prob": 0.0153
-      },
-      {
-       "tok": "->",
-       "prob": 0.0153
-      },
-      {
        "tok": "seperate",
        "prob": 0.01269
       },
       {
        "tok": "s",
        "prob": 0.0112
+      },
+      {
+       "tok": "t",
+       "prob": 0.01052
+      },
+      {
+       "tok": "es",
+       "prob": 0.0077
+      },
+      {
+       "tok": "on",
+       "prob": 0.0077
       }
      ],
      "track": {
       "language": {
        "rank": 1551,
+       "rank_word": 1277,
        "prob": 1e-05
       },
       "langauge": {
        "rank": 1295,
+       "rank_word": 1053,
        "prob": 1.2e-05
       }
      }
@@ -2179,53 +2282,55 @@
      "layer": 3,
      "top": [
       {
-       "tok": "\n\n\n",
-       "prob": 0.43644
-      },
-      {
-       "tok": "--",
-       "prob": 0.11035
-      },
-      {
-       "tok": "->",
-       "prob": 0.04897
-      },
-      {
-       "tok": "...",
-       "prob": 0.04897
-      },
-      {
-       "tok": "......",
-       "prob": 0.046
-      },
-      {
-       "tok": "==",
-       "prob": 0.02173
-      },
-      {
-       "tok": "..",
-       "prob": 0.0159
-      },
-      {
-       "tok": "::",
-       "prob": 0.01238
-      },
-      {
        "tok": "seperate",
        "prob": 0.01026
       },
       {
-       "tok": " \n\n\n",
-       "prob": 0.01026
+       "tok": "whilst",
+       "prob": 0.00585
+      },
+      {
+       "tok": "english",
+       "prob": 0.00455
+      },
+      {
+       "tok": "recieved",
+       "prob": 0.00333
+      },
+      {
+       "tok": "isnt",
+       "prob": 0.00178
+      },
+      {
+       "tok": "jewish",
+       "prob": 0.0013
+      },
+      {
+       "tok": "unicode",
+       "prob": 0.00123
+      },
+      {
+       "tok": "russian",
+       "prob": 0.00115
+      },
+      {
+       "tok": "amongst",
+       "prob": 0.00102
+      },
+      {
+       "tok": "alot",
+       "prob": 0.00095
       }
      ],
      "track": {
       "language": {
        "rank": 96,
+       "rank_word": 43,
        "prob": 0.000274
       },
       "langauge": {
        "rank": 105,
+       "rank_word": 47,
        "prob": 0.000257
       }
      }
@@ -2234,36 +2339,8 @@
      "layer": 4,
      "top": [
       {
-       "tok": "\n\n\n",
-       "prob": 0.31036
-      },
-      {
-       "tok": "--",
-       "prob": 0.10076
-      },
-      {
-       "tok": "\n\n",
-       "prob": 0.06111
-      },
-      {
-       "tok": "...",
-       "prob": 0.02548
-      },
-      {
-       "tok": "......",
-       "prob": 0.01864
-      },
-      {
        "tok": "seperate",
        "prob": 0.01452
-      },
-      {
-       "tok": "..",
-       "prob": 0.01062
-      },
-      {
-       "tok": "->",
-       "prob": 0.00937
       },
       {
        "tok": "whilst",
@@ -2272,15 +2349,45 @@
       {
        "tok": "english",
        "prob": 0.00686
+      },
+      {
+       "tok": "en",
+       "prob": 0.00443
+      },
+      {
+       "tok": "y",
+       "prob": 0.00304
+      },
+      {
+       "tok": "s",
+       "prob": 0.00304
+      },
+      {
+       "tok": "i",
+       "prob": 0.00304
+      },
+      {
+       "tok": "e",
+       "prob": 0.00286
+      },
+      {
+       "tok": "recieved",
+       "prob": 0.00286
+      },
+      {
+       "tok": "isnt",
+       "prob": 0.00269
       }
      ],
      "track": {
       "language": {
        "rank": 41,
+       "rank_word": 18,
        "prob": 0.001268
       },
       "langauge": {
        "rank": 126,
+       "rank_word": 85,
        "prob": 0.000341
       }
      }
@@ -2313,10 +2420,6 @@
        "prob": 0.01655
       },
       {
-       "tok": "--",
-       "prob": 0.01554
-      },
-      {
        "tok": "everytime",
        "prob": 0.01289
       },
@@ -2327,15 +2430,21 @@
       {
        "tok": "wich",
        "prob": 0.01004
+      },
+      {
+       "tok": "y",
+       "prob": 0.00886
       }
      ],
      "track": {
       "language": {
        "rank": 94,
+       "rank_word": 75,
        "prob": 0.000994
       },
       "langauge": {
        "rank": 188,
+       "rank_word": 153,
        "prob": 0.000469
       }
      }
@@ -2344,32 +2453,8 @@
      "layer": 6,
      "top": [
       {
-       "tok": "\n\n",
-       "prob": 0.17517
-      },
-      {
-       "tok": "--",
-       "prob": 0.12816
-      },
-      {
-       "tok": "\n\n\n",
-       "prob": 0.04715
-      },
-      {
-       "tok": "-",
-       "prob": 0.02371
-      },
-      {
        "tok": "english",
        "prob": 0.01965
-      },
-      {
-       "tok": "...",
-       "prob": 0.01734
-      },
-      {
-       "tok": "\n",
-       "prob": 0.01629
       },
       {
        "tok": "language",
@@ -2382,15 +2467,41 @@
       {
        "tok": "spanish",
        "prob": 0.00872
+      },
+      {
+       "tok": "i",
+       "prob": 0.00819
+      },
+      {
+       "tok": "chinese",
+       "prob": 0.00638
+      },
+      {
+       "tok": "european",
+       "prob": 0.00529
+      },
+      {
+       "tok": "russian",
+       "prob": 0.00529
+      },
+      {
+       "tok": "of",
+       "prob": 0.00497
+      },
+      {
+       "tok": "french",
+       "prob": 0.00439
       }
      ],
      "track": {
       "language": {
        "rank": 7,
+       "rank_word": 1,
        "prob": 0.014379
       },
       "langauge": {
        "rank": 51,
+       "rank_word": 33,
        "prob": 0.001424
       }
      }
@@ -2398,14 +2509,6 @@
     {
      "layer": 7,
      "top": [
-      {
-       "tok": "\n\n",
-       "prob": 0.20788
-      },
-      {
-       "tok": "\n\n\n",
-       "prob": 0.09225
-      },
       {
        "tok": "language",
        "prob": 0.04638
@@ -2419,33 +2522,43 @@
        "prob": 0.01506
       },
       {
-       "tok": "--",
-       "prob": 0.01329
-      },
-      {
        "tok": "spanish",
        "prob": 0.01248
       },
       {
-       "tok": "\n",
-       "prob": 0.01173
+       "tok": "languages",
+       "prob": 0.00806
       },
       {
-       "tok": "...",
-       "prob": 0.01035
+       "tok": "s",
+       "prob": 0.00806
       },
       {
-       "tok": "..",
-       "prob": 0.00858
+       "tok": "italian",
+       "prob": 0.00628
+      },
+      {
+       "tok": "european",
+       "prob": 0.0052
+      },
+      {
+       "tok": "russian",
+       "prob": 0.00405
+      },
+      {
+       "tok": "latin",
+       "prob": 0.00405
       }
      ],
      "track": {
       "language": {
        "rank": 2,
+       "rank_word": 0,
        "prob": 0.046384
       },
       "langauge": {
        "rank": 34,
+       "rank_word": 25,
        "prob": 0.001799
       }
      }
@@ -2497,10 +2610,12 @@
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.484139
       },
       "langauge": {
        "rank": 37,
+       "rank_word": 34,
        "prob": 0.001541
       }
      }
@@ -2552,10 +2667,12 @@
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.454073
       },
       "langauge": {
        "rank": 57,
+       "rank_word": 54,
        "prob": 0.000602
       }
      }
@@ -2607,10 +2724,12 @@
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.442862
       },
       "langauge": {
        "rank": 54,
+       "rank_word": 53,
        "prob": 0.000487
       }
      }
@@ -2662,10 +2781,12 @@
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.336646
       },
       "langauge": {
        "rank": 57,
+       "rank_word": 56,
        "prob": 0.000834
       }
      }
@@ -2698,10 +2819,6 @@
        "prob": 0.012
       },
       {
-       "tok": "......",
-       "prob": 0.012
-      },
-      {
        "tok": "i",
        "prob": 0.00995
       },
@@ -2712,15 +2829,21 @@
       {
        "tok": "latin",
        "prob": 0.00728
+      },
+      {
+       "tok": "English",
+       "prob": 0.00684
       }
      ],
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.155672
       },
       "langauge": {
        "rank": 51,
+       "rank_word": 35,
        "prob": 0.001625
       }
      }
@@ -2749,15 +2872,7 @@
        "prob": 0.01138
       },
       {
-       "tok": ".",
-       "prob": 0.00943
-      },
-      {
        "tok": "latin",
-       "prob": 0.00886
-      },
-      {
-       "tok": "..",
        "prob": 0.00886
       },
       {
@@ -2767,15 +2882,25 @@
       {
        "tok": "Languages",
        "prob": 0.00735
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.0069
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.00609
       }
      ],
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.122349
       },
       "langauge": {
        "rank": 52,
+       "rank_word": 40,
        "prob": 0.001745
       }
      }
@@ -2804,33 +2929,35 @@
        "prob": 0.01572
       },
       {
-       "tok": "..",
-       "prob": 0.01387
-      },
-      {
-       "tok": ".",
-       "prob": 0.01224
-      },
-      {
-       "tok": "......",
-       "prob": 0.01015
-      },
-      {
        "tok": "Languages",
        "prob": 0.0079
       },
       {
        "tok": "or",
        "prob": 0.00743
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.00698
+      },
+      {
+       "tok": "i",
+       "prob": 0.00655
+      },
+      {
+       "tok": "spanish",
+       "prob": 0.00616
       }
      ],
      "track": {
       "language": {
        "rank": 0,
+       "rank_word": 0,
        "prob": 0.096299
       },
       "langauge": {
        "rank": 83,
+       "rank_word": 56,
        "prob": 0.00129
       }
      }
@@ -2838,10 +2965,6 @@
     {
      "layer": 15,
      "top": [
-      {
-       "tok": ".",
-       "prob": 0.06591
-      },
       {
        "tok": "language",
        "prob": 0.04822
@@ -2855,37 +2978,43 @@
        "prob": 0.03314
       },
       {
-       "tok": "..",
-       "prob": 0.02748
-      },
-      {
        "tok": "i",
        "prob": 0.01774
       },
       {
-       "tok": "......",
-       "prob": 0.01774
-      },
-      {
-       "tok": "?",
-       "prob": 0.01566
-      },
-      {
-       "tok": "...",
-       "prob": 0.01471
-      },
-      {
        "tok": "Language",
        "prob": 0.01298
+      },
+      {
+       "tok": "i",
+       "prob": 0.0074
+      },
+      {
+       "tok": "e",
+       "prob": 0.00695
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00613
+      },
+      {
+       "tok": "spanish",
+       "prob": 0.00541
+      },
+      {
+       "tok": "or",
+       "prob": 0.00508
       }
      ],
      "track": {
       "language": {
        "rank": 1,
+       "rank_word": 0,
        "prob": 0.048222
       },
       "langauge": {
        "rank": 108,
+       "rank_word": 54,
        "prob": 0.001065
       }
      }
@@ -2893,14 +3022,6 @@
     {
      "layer": 16,
      "top": [
-      {
-       "tok": ".",
-       "prob": 0.21793
-      },
-      {
-       "tok": "?",
-       "prob": 0.08534
-      },
       {
        "tok": "language",
        "prob": 0.0314
@@ -2914,33 +3035,43 @@
        "prob": 0.01579
       },
       {
-       "tok": "____",
-       "prob": 0.01393
-      },
-      {
-       "tok": "__",
-       "prob": 0.01393
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.01229
-      },
-      {
-       "tok": "?",
-       "prob": 0.01155
-      },
-      {
        "tok": "or",
        "prob": 0.01155
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00899
+      },
+      {
+       "tok": "i",
+       "prob": 0.00746
+      },
+      {
+       "tok": "which",
+       "prob": 0.00481
+      },
+      {
+       "tok": "e",
+       "prob": 0.00425
+      },
+      {
+       "tok": "English",
+       "prob": 0.00352
+      },
+      {
+       "tok": "i",
+       "prob": 0.00352
       }
      ],
      "track": {
       "language": {
        "rank": 2,
+       "rank_word": 0,
        "prob": 0.031395
       },
       "langauge": {
        "rank": 224,
+       "rank_word": 117,
        "prob": 0.000395
       }
      }
@@ -2949,53 +3080,55 @@
      "layer": 17,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.19394
-      },
-      {
-       "tok": "?",
-       "prob": 0.09752
-      },
-      {
-       "tok": "__",
-       "prob": 0.04327
-      },
-      {
-       "tok": "____",
-       "prob": 0.03819
-      },
-      {
        "tok": "language",
        "prob": 0.02466
-      },
-      {
-       "tok": "____________",
-       "prob": 0.02176
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.01804
-      },
-      {
-       "tok": "________",
-       "prob": 0.01496
       },
       {
        "tok": "languages",
        "prob": 0.01405
       },
       {
-       "tok": "__",
-       "prob": 0.01405
+       "tok": "or",
+       "prob": 0.01094
+      },
+      {
+       "tok": "english",
+       "prob": 0.01028
+      },
+      {
+       "tok": "Language",
+       "prob": 0.0055
+      },
+      {
+       "tok": "which",
+       "prob": 0.0055
+      },
+      {
+       "tok": "English",
+       "prob": 0.0026
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.00229
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00229
+      },
+      {
+       "tok": "1",
+       "prob": 0.00215
       }
      ],
      "track": {
       "language": {
        "rank": 4,
+       "rank_word": 0,
        "prob": 0.024657
       },
       "langauge": {
        "rank": 411,
+       "rank_word": 211,
        "prob": 0.000129
       }
      }
@@ -3004,53 +3137,55 @@
      "layer": 18,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.5058
-      },
-      {
-       "tok": "?",
-       "prob": 0.039
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.01731
-      },
-      {
-       "tok": "...",
-       "prob": 0.01435
-      },
-      {
-       "tok": "__",
-       "prob": 0.01266
-      },
-      {
-       "tok": "____",
-       "prob": 0.01266
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.0105
-      },
-      {
-       "tok": "..",
-       "prob": 0.00986
-      },
-      {
        "tok": "language",
        "prob": 0.00926
       },
       {
-       "tok": "......",
-       "prob": 0.0087
+       "tok": "or",
+       "prob": 0.00562
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00496
+      },
+      {
+       "tok": "languages",
+       "prob": 0.0032
+      },
+      {
+       "tok": "english",
+       "prob": 0.0032
+      },
+      {
+       "tok": "which",
+       "prob": 0.00171
+      },
+      {
+       "tok": "i",
+       "prob": 0.00161
+      },
+      {
+       "tok": "1",
+       "prob": 0.00111
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.00104
+      },
+      {
+       "tok": "English",
+       "prob": 0.00098
       }
      ],
      "track": {
       "language": {
        "rank": 8,
+       "rank_word": 0,
        "prob": 0.009264
       },
       "langauge": {
        "rank": 425,
+       "rank_word": 186,
        "prob": 9.7e-05
       }
      }
@@ -3059,53 +3194,55 @@
      "layer": 19,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.87086
+       "tok": "or",
+       "prob": 0.00048
       },
       {
-       "tok": "?",
-       "prob": 0.02048
+       "tok": "language",
+       "prob": 0.00031
       },
       {
-       "tok": ".\\",
-       "prob": 0.01322
+       "tok": "which",
+       "prob": 0.00021
       },
       {
-       "tok": "\\\"",
-       "prob": 0.01167
+       "tok": "Language",
+       "prob": 0.0002
       },
       {
-       "tok": ".\\\"",
-       "prob": 0.00802
+       "tok": "learning",
+       "prob": 0.00014
       },
       {
-       "tok": "..",
-       "prob": 0.00665
+       "tok": "1",
+       "prob": 0.00012
       },
       {
-       "tok": "...",
-       "prob": 0.00486
+       "tok": "in",
+       "prob": 0.0001
       },
       {
-       "tok": ".\"",
-       "prob": 0.00457
+       "tok": "because",
+       "prob": 8e-05
       },
       {
-       "tok": ".?",
-       "prob": 0.00379
+       "tok": "languages",
+       "prob": 7e-05
       },
       {
-       "tok": "....",
-       "prob": 0.00245
+       "tok": "2",
+       "prob": 7e-05
       }
      ],
      "track": {
       "language": {
        "rank": 46,
+       "rank_word": 1,
        "prob": 0.000311
       },
       "langauge": {
        "rank": 902,
+       "rank_word": 363,
        "prob": 3e-06
       }
      }
@@ -3114,53 +3251,55 @@
      "layer": 20,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.81854
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.02049
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.01596
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.01323
-      },
-      {
-       "tok": ".\"",
-       "prob": 0.01168
-      },
-      {
-       "tok": "?",
-       "prob": 0.01097
-      },
-      {
-       "tok": ".?",
-       "prob": 0.00487
-      },
-      {
-       "tok": ".*",
-       "prob": 0.0043
-      },
-      {
        "tok": "language",
        "prob": 0.00335
       },
       {
-       "tok": ".\".",
-       "prob": 0.00295
+       "tok": "Language",
+       "prob": 0.0023
+      },
+      {
+       "tok": "languages",
+       "prob": 0.0009
+      },
+      {
+       "tok": "or",
+       "prob": 0.0007
+      },
+      {
+       "tok": "which",
+       "prob": 0.00043
+      },
+      {
+       "tok": "english",
+       "prob": 0.00038
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00035
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.00031
+      },
+      {
+       "tok": "learning",
+       "prob": 0.0002
+      },
+      {
+       "tok": "English",
+       "prob": 0.0002
       }
      ],
      "track": {
       "language": {
        "rank": 8,
+       "rank_word": 0,
        "prob": 0.003345
       },
       "langauge": {
        "rank": 532,
+       "rank_word": 172,
        "prob": 1.4e-05
       }
      }
@@ -3169,53 +3308,55 @@
      "layer": 21,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.73638
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.04708
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.02367
-      },
-      {
-       "tok": ".\"",
-       "prob": 0.01349
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.0119
-      },
-      {
        "tok": "language",
        "prob": 0.01118
-      },
-      {
-       "tok": "?",
-       "prob": 0.00871
       },
       {
        "tok": "Language",
        "prob": 0.00818
       },
       {
-       "tok": ".?",
-       "prob": 0.00496
+       "tok": "languages",
+       "prob": 0.00283
       },
       {
-       "tok": "____",
-       "prob": 0.00438
+       "tok": "lingu",
+       "prob": 0.00134
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00104
+      },
+      {
+       "tok": "english",
+       "prob": 0.00098
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.00071
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00071
+      },
+      {
+       "tok": "language",
+       "prob": 0.00052
+      },
+      {
+       "tok": "Lingu",
+       "prob": 0.00049
       }
      ],
      "track": {
       "language": {
        "rank": 5,
+       "rank_word": 0,
        "prob": 0.011181
       },
       "langauge": {
        "rank": 324,
+       "rank_word": 91,
        "prob": 4e-05
       }
      }
@@ -3223,18 +3364,6 @@
     {
      "layer": 22,
      "top": [
-      {
-       "tok": ".",
-       "prob": 0.45447
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.0697
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.04227
-      },
       {
        "tok": "Language",
        "prob": 0.03971
@@ -3244,33 +3373,47 @@
        "prob": 0.03093
       },
       {
-       "tok": "__.",
-       "prob": 0.01289
-      },
-      {
-       "tok": "\\\"",
-       "prob": 0.01138
-      },
-      {
        "tok": "languages",
        "prob": 0.01069
       },
       {
-       "tok": ".\"",
-       "prob": 0.01004
+       "tok": "during",
+       "prob": 0.0069
       },
       {
-       "tok": ".\"\"",
-       "prob": 0.00782
+       "tok": "lingu",
+       "prob": 0.00572
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00537
+      },
+      {
+       "tok": "\u8bed\u8a00",
+       "prob": 0.00474
+      },
+      {
+       "tok": "Lingu",
+       "prob": 0.00369
+      },
+      {
+       "tok": "Language",
+       "prob": 0.00347
+      },
+      {
+       "tok": "besides",
+       "prob": 0.00306
       }
      ],
      "track": {
       "language": {
        "rank": 4,
+       "rank_word": 1,
        "prob": 0.030927
       },
       "langauge": {
        "rank": 320,
+       "rank_word": 94,
        "prob": 0.000112
       }
      }
@@ -3279,20 +3422,8 @@
      "layer": 23,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.42384
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.0784
-      },
-      {
        "tok": "besides",
        "prob": 0.065
-      },
-      {
-       "tok": ".\\\"",
-       "prob": 0.04755
       },
       {
        "tok": "during",
@@ -3303,29 +3434,43 @@
        "prob": 0.00997
       },
       {
-       "tok": "\\\"",
-       "prob": 0.00997
+       "tok": "language",
+       "prob": 0.00442
       },
       {
-       "tok": ".\"\"",
-       "prob": 0.00936
+       "tok": "before",
+       "prob": 0.0039
       },
       {
-       "tok": ".?",
-       "prob": 0.00936
+       "tok": "BEFORE",
+       "prob": 0.00304
       },
       {
-       "tok": ".\"",
-       "prob": 0.0088
+       "tok": "During",
+       "prob": 0.00268
+      },
+      {
+       "tok": "languages",
+       "prob": 0.00268
+      },
+      {
+       "tok": "Languages",
+       "prob": 0.00252
+      },
+      {
+       "tok": "lingu",
+       "prob": 0.00196
       }
      ],
      "track": {
       "language": {
        "rank": 16,
+       "rank_word": 3,
        "prob": 0.004423
       },
       "langauge": {
        "rank": 699,
+       "rank_word": 287,
        "prob": 3.9e-05
       }
      }
@@ -3354,10 +3499,6 @@
        "prob": 0.04247
       },
       {
-       "tok": ".",
-       "prob": 0.03307
-      },
-      {
        "tok": "Languages",
        "prob": 0.03307
       },
@@ -3372,15 +3513,21 @@
       {
        "tok": "Language",
        "prob": 0.02135
+      },
+      {
+       "tok": "spoken",
+       "prob": 0.01663
       }
      ],
      "track": {
       "language": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.190322
       },
       "langauge": {
        "rank": 131,
+       "rank_word": 80,
        "prob": 0.000197
       }
      }
@@ -3405,10 +3552,6 @@
        "prob": 0.06123
       },
       {
-       "tok": ".",
-       "prob": 0.05403
-      },
-      {
        "tok": "besides",
        "prob": 0.04768
       },
@@ -3427,15 +3570,21 @@
       {
        "tok": "\u8bed\u8a00",
        "prob": 0.02252
+      },
+      {
+       "tok": "linguistic",
+       "prob": 0.01283
       }
      ],
      "track": {
       "language": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.100948
       },
       "langauge": {
        "rank": 133,
+       "rank_word": 87,
        "prob": 0.00025
       }
      }
@@ -3480,17 +3629,19 @@
        "prob": 0.02733
       },
       {
-       "tok": "-language",
-       "prob": 0.01658
+       "tok": "\u5916\u8bed",
+       "prob": 0.01213
       }
      ],
      "track": {
       "language": {
        "rank": 1,
+       "rank_word": 1,
        "prob": 0.115066
       },
       "langauge": {
        "rank": 110,
+       "rank_word": 86,
        "prob": 0.000268
       }
      }
@@ -3498,10 +3649,6 @@
     {
      "layer": 27,
      "top": [
-      {
-       "tok": ".",
-       "prob": 0.25099
-      },
       {
        "tok": "besides",
        "prob": 0.15223
@@ -3537,15 +3684,21 @@
       {
        "tok": "Languages",
        "prob": 0.00914
+      },
+      {
+       "tok": "Spanish",
+       "prob": 0.00859
       }
      ],
      "track": {
       "language": {
        "rank": 3,
+       "rank_word": 2,
        "prob": 0.038491
       },
       "langauge": {
        "rank": 510,
+       "rank_word": 306,
        "prob": 9e-05
       }
      }
@@ -3554,53 +3707,55 @@
      "layer": 28,
      "top": [
       {
-       "tok": ".",
-       "prob": 0.76608
-      },
-      {
        "tok": "besides",
        "prob": 0.01692
-      },
-      {
-       "tok": ",",
-       "prob": 0.01163
       },
       {
        "tok": "during",
        "prob": 0.00663
       },
       {
-       "tok": ".\"",
-       "prob": 0.00456
-      },
-      {
        "tok": "Language",
        "prob": 0.00402
       },
       {
-       "tok": ".\"\"",
-       "prob": 0.00378
+       "tok": "language",
+       "prob": 0.00355
       },
       {
        "tok": "within",
        "prob": 0.00355
       },
       {
-       "tok": ".(",
-       "prob": 0.00355
+       "tok": "by",
+       "prob": 0.00313
       },
       {
-       "tok": "language",
-       "prob": 0.00355
+       "tok": "before",
+       "prob": 0.00276
+      },
+      {
+       "tok": "flu",
+       "prob": 0.0026
+      },
+      {
+       "tok": "Spanish",
+       "prob": 0.00229
+      },
+      {
+       "tok": "English",
+       "prob": 0.00202
       }
      ],
      "track": {
       "language": {
        "rank": 8,
+       "rank_word": 3,
        "prob": 0.003548
       },
       "langauge": {
        "rank": 1264,
+       "rank_word": 615,
        "prob": 1e-05
       }
      }
@@ -3608,14 +3763,6 @@
     {
      "layer": 29,
      "top": [
-      {
-       "tok": ".",
-       "prob": 0.82475
-      },
-      {
-       "tok": ",",
-       "prob": 0.01712
-      },
       {
        "tok": "besides",
        "prob": 0.01333
@@ -3625,15 +3772,7 @@
        "prob": 0.00382
       },
       {
-       "tok": "?",
-       "prob": 0.00382
-      },
-      {
        "tok": "by",
-       "prob": 0.00359
-      },
-      {
-       "tok": ".\"",
        "prob": 0.00359
       },
       {
@@ -3645,17 +3784,35 @@
        "prob": 0.00317
       },
       {
-       "tok": ".\\",
-       "prob": 0.00317
+       "tok": "flu",
+       "prob": 0.00262
+      },
+      {
+       "tok": "before",
+       "prob": 0.00192
+      },
+      {
+       "tok": "aside",
+       "prob": 0.00109
+      },
+      {
+       "tok": "from",
+       "prob": 0.00103
+      },
+      {
+       "tok": "apart",
+       "prob": 0.00097
       }
      ],
      "track": {
       "language": {
        "rank": 153,
+       "rank_word": 59,
        "prob": 0.000139
       },
       "langauge": {
        "rank": 3480,
+       "rank_word": 2057,
        "prob": 2e-06
       }
      }
@@ -3663,34 +3820,6 @@
     {
      "layer": 30,
      "top": [
-      {
-       "tok": ".",
-       "prob": 0.96211
-      },
-      {
-       "tok": ",",
-       "prob": 0.02564
-      },
-      {
-       "tok": ".\\",
-       "prob": 0.00064
-      },
-      {
-       "tok": "?",
-       "prob": 0.00064
-      },
-      {
-       "tok": ":",
-       "prob": 0.0005
-      },
-      {
-       "tok": ";",
-       "prob": 0.0005
-      },
-      {
-       "tok": ".(",
-       "prob": 0.00041
-      },
       {
        "tok": "besides",
        "prob": 0.00039
@@ -3700,17 +3829,47 @@
        "prob": 0.00037
       },
       {
-       "tok": ".\"",
-       "prob": 0.00034
+       "tok": "within",
+       "prob": 0.00027
+      },
+      {
+       "tok": "by",
+       "prob": 0.0002
+      },
+      {
+       "tok": "flu",
+       "prob": 0.00016
+      },
+      {
+       "tok": "other",
+       "prob": 0.00016
+      },
+      {
+       "tok": "before",
+       "prob": 9e-05
+      },
+      {
+       "tok": "in",
+       "prob": 7e-05
+      },
+      {
+       "tok": "and",
+       "prob": 6e-05
+      },
+      {
+       "tok": "at",
+       "prob": 6e-05
       }
      ],
      "track": {
       "language": {
        "rank": 446,
+       "rank_word": 145,
        "prob": 2e-06
       },
       "langauge": {
        "rank": 4678,
+       "rank_word": 2944,
        "prob": 0.0
       }
      }
@@ -3718,20 +3877,8 @@
    ],
    "model_out": [
     {
-     "tok": ".",
-     "prob": 0.42056
-    },
-    {
-     "tok": ",",
-     "prob": 0.10633
-    },
-    {
      "tok": "and",
      "prob": 0.05023
-    },
-    {
-     "tok": "\n\n",
-     "prob": 0.03452
     },
     {
      "tok": "in",
@@ -3739,10 +3886,6 @@
     },
     {
      "tok": "by",
-     "prob": 0.02373
-    },
-    {
-     "tok": "(",
      "prob": 0.02373
     },
     {
@@ -3756,9 +3899,24 @@
     {
      "tok": "at",
      "prob": 0.01631
+    },
+    {
+     "tok": "other",
+     "prob": 0.01439
+    },
+    {
+     "tok": "during",
+     "prob": 0.01352
+    },
+    {
+     "tok": "as",
+     "prob": 0.01352
+    },
+    {
+     "tok": "to",
+     "prob": 0.01352
     }
-   ],
-   "generated": "."
+   ]
   }
  ]
 }
