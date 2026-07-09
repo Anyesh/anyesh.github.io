@@ -615,9 +615,9 @@ export default function App() {
                 </div>
               </div>
               <div style={{ background: C.accentSoft, borderRadius: 10, padding: "12px 14px" }}>
-                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.87 vs 0.56</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.87 / 0.94</div>
                 <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
-                  replicated on Qwen3-8B, zero tuning
+                  replicated on Qwen3-8B and Qwen3-4B
                 </div>
               </div>
               <div style={{ background: C.goodSoft, borderRadius: 10, padding: "12px 14px" }}>
@@ -634,8 +634,9 @@ export default function App() {
               </div>
             </div>
             <Caption style={{ marginTop: 14 }}>
-              At 25% retention the workspace ranking keeps the planted fact answerable in 35/36
-              episodes on both models, while SnapKV drops to 25/36 (7B) and 14/36 (8B). It composes
+              At 25% retention the workspace ranking keeps the planted fact answerable in 35-36 of 36
+              episodes on all three models tested (Qwen3-4B saturates at 36/36 everywhere), while
+              SnapKV drops to 25/36, 14/36, and 13/36. It composes
               with recovery rather than replacing it: the probe avoids evicting what will be needed,
               and the splice brings back whatever still had to go. Pipeline and probes:{" "}
               <a
