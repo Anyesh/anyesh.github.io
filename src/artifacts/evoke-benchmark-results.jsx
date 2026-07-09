@@ -82,6 +82,26 @@ const SERIES = [
   { key: "recency", label: "Recency (tail-only)", color: "#c0bab4", width: 1.5, dash: "3 3" },
 ];
 
+// Workspace-scored eviction (J-lens probe): true probe accuracy after masked
+// eviction at three retention budgets, 36 planted-fact episodes per model.
+// Solid lines = Qwen2.5-7B, dashed = Qwen3-8B (replication, no hand-tuning).
+// Source: eviction_eval_qwen2.5-7b-instruct.json / eviction_eval_qwen3-8b.json
+// in the EVOKE repo, produced by github.com/Anyesh/j-space.
+const JLENS_SWEEP = [
+  { kept: "25%", workspace: 97.2, snapkv: 69.4, recency: 22.2, workspace8b: 97.2, snapkv8b: 38.9, recency8b: 22.2 },
+  { kept: "50%", workspace: 100.0, snapkv: 94.4, recency: 33.3, workspace8b: 100.0, snapkv8b: 86.1, recency8b: 33.3 },
+  { kept: "75%", workspace: 100.0, snapkv: 100.0, recency: 66.7, workspace8b: 100.0, snapkv8b: 97.2, recency8b: 66.7 },
+];
+
+const JLENS_SERIES = [
+  { key: "workspace", label: "Workspace probe · 7B", color: C.evoke, width: 2.5, dash: "" },
+  { key: "workspace8b", label: "Workspace probe · 8B", color: C.evoke, width: 1.8, dash: "5 3" },
+  { key: "snapkv", label: "SnapKV · 7B", color: "#6b6560", width: 1.5, dash: "" },
+  { key: "snapkv8b", label: "SnapKV · 8B", color: "#6b6560", width: 1.5, dash: "5 3" },
+  { key: "recency", label: "Recency · 7B", color: "#c0bab4", width: 1.5, dash: "" },
+  { key: "recency8b", label: "Recency · 8B", color: "#c0bab4", width: 1.5, dash: "5 3" },
+];
+
 function Card({ children, style }) {
   return (
     <div
@@ -163,6 +183,52 @@ function BudgetSweepChart() {
         <Tooltip content={<CustomTooltip />} />
         <ReferenceLine y={50} stroke={C.faint} strokeDasharray="4 2" />
         {SERIES.map((s) => (
+          <Line
+            key={s.key}
+            dataKey={s.key}
+            name={s.label}
+            stroke={s.color}
+            strokeWidth={s.width}
+            strokeDasharray={s.dash}
+            dot={{ fill: s.color, r: 3, strokeWidth: 0 }}
+            activeDot={{ r: 5, strokeWidth: 0 }}
+          />
+        ))}
+        <Legend
+          iconType="line"
+          wrapperStyle={{ fontSize: 11, paddingTop: 8 }}
+          formatter={(val, entry) => (
+            <span style={{ color: entry.color === C.evoke ? C.evoke : C.muted, fontWeight: entry.color === C.evoke ? 700 : 400 }}>
+              {val}
+            </span>
+          )}
+        />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+
+
+function JlensChart() {
+  return (
+    <ResponsiveContainer width="100%" height={280}>
+      <LineChart data={JLENS_SWEEP} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+        <XAxis
+          dataKey="kept"
+          tick={{ fontSize: 11, fill: C.muted }}
+          tickLine={false}
+          axisLine={{ stroke: C.border }}
+          label={{ value: "KV blocks retained", position: "insideBottom", offset: -2, fontSize: 11, fill: C.muted }}
+        />
+        <YAxis
+          domain={[0, 100]}
+          tick={{ fontSize: 11, fill: C.muted }}
+          tickLine={false}
+          axisLine={false}
+          tickFormatter={(v) => `${v}%`}
+        />
+        <Tooltip content={<CustomTooltip />} />
+        {JLENS_SERIES.map((s) => (
           <Line
             key={s.key}
             dataKey={s.key}
@@ -296,6 +362,7 @@ const TABS = [
   { id: "sweep", label: "Budget sweep" },
   { id: "arch", label: "Cross-architecture" },
   { id: "agent", label: "Agent efficiency" },
+  { id: "workspace", label: "Workspace signal (new)" },
 ];
 
 export default function App() {
@@ -514,6 +581,70 @@ export default function App() {
               remaining 59 evicted blocks recovered via tensor splice at zero recompute cost. The
               "no eviction" arm decoded cheaply (intact prefix cache) but left 10,952 tokens resident
               at session end and would OOM on longer sessions or smaller GPUs.
+            </Caption>
+          </Card>
+        )}
+
+
+        {tab === "workspace" && (
+          <Card>
+            <SectionTitle>Choosing better eviction victims: the workspace signal (new)</SectionTitle>
+            <Caption>
+              Every classic eviction selector ranks blocks by attention history (H2O, SnapKV) or
+              position (recency), so none can score a block before the model has attended to it.
+              The workspace signal is different: a tiny ridge probe distilled from the model's
+              Jacobian-lens workspace readout scores each block by <i>content</i> at prefill time,
+              one dot product per position. Blocks holding workspace content, the sliver later
+              reasoning routes through, tend to be exactly the blocks a future question needs.
+            </Caption>
+            <div style={{ marginTop: 20 }}>
+              <JlensChart />
+            </div>
+            <div
+              style={{
+                marginTop: 18,
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                gap: 10,
+              }}
+            >
+              <div style={{ background: C.accentSoft, borderRadius: 10, padding: "12px 14px" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.89 vs 0.62</div>
+                <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                  fact-AUC vs SnapKV (Qwen2.5-7B)
+                </div>
+              </div>
+              <div style={{ background: C.accentSoft, borderRadius: 10, padding: "12px 14px" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.87 vs 0.56</div>
+                <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                  replicated on Qwen3-8B, zero tuning
+                </div>
+              </div>
+              <div style={{ background: C.goodSoft, borderRadius: 10, padding: "12px 14px" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.good }}>3/3</div>
+                <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                  agent-bench budgets passed with recovery off
+                </div>
+              </div>
+              <div style={{ background: C.faint, borderRadius: 10, padding: "12px 14px" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.ink }}>&minus;0.6%</div>
+                <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                  measured decode overhead (noise)
+                </div>
+              </div>
+            </div>
+            <Caption style={{ marginTop: 14 }}>
+              At 25% retention the workspace ranking keeps the planted fact answerable in 35/36
+              episodes on both models, while SnapKV drops to 25/36 (7B) and 14/36 (8B). It composes
+              with recovery rather than replacing it: the probe avoids evicting what will be needed,
+              and the splice brings back whatever still had to go. Pipeline and probes:{" "}
+              <a
+                href="https://github.com/Anyesh/j-space"
+                style={{ color: C.accent, textDecorationColor: `${C.accent}66`, fontWeight: 600 }}
+              >
+                github.com/Anyesh/j-space
+              </a>
+              .
             </Caption>
           </Card>
         )}
