@@ -138,8 +138,7 @@ function Caption({ children, style }) {
   );
 }
 
-function CustomTooltip({ active, payload, label }) {
-  if (!active || !payload?.length) return null;
+function TooltipShell({ header, subhead, payload }) {
   return (
     <div
       style={{
@@ -151,9 +150,8 @@ function CustomTooltip({ active, payload, label }) {
         boxShadow: "0 2px 8px #0001",
       }}
     >
-      <div style={{ fontWeight: 700, marginBottom: 6, color: C.ink }}>
-        Budget: {label} blocks ({BUDGET_TOKENS[label]}, block size 64)
-      </div>
+      <div style={{ fontWeight: 700, color: C.ink }}>{header}</div>
+      <div style={{ color: C.muted, fontSize: 11, marginBottom: 6 }}>{subhead}</div>
       {payload
         .slice()
         .sort((a, b) => b.value - a.value)
@@ -165,6 +163,28 @@ function CustomTooltip({ active, payload, label }) {
           </div>
         ))}
     </div>
+  );
+}
+
+function CustomTooltip({ active, payload, label }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <TooltipShell
+      header={`Budget: ${label} blocks (${BUDGET_TOKENS[label]}, block size 64)`}
+      subhead="Accuracy: share of probes answered correctly"
+      payload={payload}
+    />
+  );
+}
+
+function JlensTooltip({ active, payload, label }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <TooltipShell
+      header={`${label} of KV blocks retained`}
+      subhead="Pass rate: share of 36 episodes still answerable"
+      payload={payload}
+    />
   );
 }
 
@@ -219,7 +239,7 @@ function BudgetSweepChart() {
 function JlensChart() {
   return (
     <ResponsiveContainer width="100%" height={280}>
-      <LineChart data={JLENS_SWEEP} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+      <LineChart data={JLENS_SWEEP} margin={{ top: 8, right: 16, bottom: 8, left: 12 }}>
         <XAxis
           dataKey="kept"
           tick={{ fontSize: 11, fill: C.muted }}
@@ -233,8 +253,9 @@ function JlensChart() {
           tickLine={false}
           axisLine={false}
           tickFormatter={(v) => `${v}%`}
+          label={{ value: "% of episodes still answerable", angle: -90, position: "insideLeft", fontSize: 10.5, fill: C.muted }}
         />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip content={<JlensTooltip />} />
         {JLENS_SERIES.map((s) => (
           <Line
             key={s.key}
