@@ -17,7 +17,7 @@ export const meta = {
   title: "EVOKE: Benchmark Results",
   category: "LLM Systems",
   description:
-    "How well can an LLM answer questions about content it had to evict from its KV cache? Measured across three model architectures and three memory budgets, with EVOKE's tensor-save recovery compared to heuristic eviction baselines.",
+    "Can an LLM still answer questions about content it evicted from its KV cache to save memory? EVOKE saves the exact K/V tensors instead of throwing them away and recovers them with no recompute. These results test that against heuristic eviction and a retrieval-based baseline, across model architectures, memory budgets, and a live agent session.",
   date: "2026-06-30",
   tags: ["kv-cache", "llm-inference", "eviction", "benchmark", "memory-hierarchy"],
 };
@@ -48,7 +48,7 @@ const C = {
 //         mfb_llama31_8b_n15.json (Llama-3.1-8B-Instruct, chihiro)
 //         mfb_qwen35_9b.json      (Qwen3.5-9B-Q4_K_M, chihiro)
 //         mfb_qwen36_35ba3b.json  (Qwen3.6-35B-A3B, chihiro)
-const BUDGET_LABELS = ["512 blk\n(~33K tok)", "1024 blk\n(~66K tok)", "2048 blk\n(~131K tok)"];
+const BUDGET_TOKENS = { "512": "~33K tok", "1024": "~66K tok", "2048": "~131K tok" };
 const BUDGET_SWEEP = [
   { budget: "512", evoke: 50.7, infllm: 81.3, snapkv: 0.0, h2o: 0.0, recency: 0.0 },
   { budget: "1024", evoke: 57.3, infllm: 58.7, snapkv: 2.7, h2o: 1.3, recency: 5.3 },
@@ -88,18 +88,22 @@ const SERIES = [
 // Source: eviction_eval_qwen2.5-7b-instruct.json / eviction_eval_qwen3-8b.json
 // in the EVOKE repo, produced by github.com/Anyesh/j-space.
 const JLENS_SWEEP = [
-  { kept: "25%", workspace: 97.2, snapkv: 69.4, recency: 22.2, workspace8b: 97.2, snapkv8b: 38.9, recency8b: 22.2 },
-  { kept: "50%", workspace: 100.0, snapkv: 94.4, recency: 33.3, workspace8b: 100.0, snapkv8b: 86.1, recency8b: 33.3 },
-  { kept: "75%", workspace: 100.0, snapkv: 100.0, recency: 66.7, workspace8b: 100.0, snapkv8b: 97.2, recency8b: 66.7 },
+  { kept: "25%", workspace: 97.2, snapkv: 69.4, recency: 22.2, workspace8b: 97.2, snapkv8b: 38.9, workspace4b: 100.0, snapkv4b: 36.1 },
+  { kept: "50%", workspace: 100.0, snapkv: 94.4, recency: 33.3, workspace8b: 100.0, snapkv8b: 86.1, workspace4b: 100.0, snapkv4b: 77.8 },
+  { kept: "75%", workspace: 100.0, snapkv: 100.0, recency: 66.7, workspace8b: 100.0, snapkv8b: 97.2, workspace4b: 100.0, snapkv4b: 97.2 },
 ];
 
+// Recency's pass rate is identical across all three models at every retention
+// level (positional only, never looks at model output), so it is plotted
+// once instead of three overlapping lines.
 const JLENS_SERIES = [
   { key: "workspace", label: "Workspace probe · 7B", color: C.evoke, width: 2.5, dash: "" },
   { key: "workspace8b", label: "Workspace probe · 8B", color: C.evoke, width: 1.8, dash: "5 3" },
+  { key: "workspace4b", label: "Workspace probe · 4B", color: C.evoke, width: 1.4, dash: "1 3" },
   { key: "snapkv", label: "SnapKV · 7B", color: "#6b6560", width: 1.5, dash: "" },
   { key: "snapkv8b", label: "SnapKV · 8B", color: "#6b6560", width: 1.5, dash: "5 3" },
-  { key: "recency", label: "Recency · 7B", color: "#c0bab4", width: 1.5, dash: "" },
-  { key: "recency8b", label: "Recency · 8B", color: "#c0bab4", width: 1.5, dash: "5 3" },
+  { key: "snapkv4b", label: "SnapKV · 4B", color: "#6b6560", width: 1.2, dash: "1 3" },
+  { key: "recency", label: "Recency · all models", color: "#c0bab4", width: 1.5, dash: "" },
 ];
 
 function Card({ children, style }) {
@@ -147,7 +151,9 @@ function CustomTooltip({ active, payload, label }) {
         boxShadow: "0 2px 8px #0001",
       }}
     >
-      <div style={{ fontWeight: 700, marginBottom: 6, color: C.ink }}>Budget: {label} blocks</div>
+      <div style={{ fontWeight: 700, marginBottom: 6, color: C.ink }}>
+        Budget: {label} blocks ({BUDGET_TOKENS[label]}, block size 64)
+      </div>
       {payload
         .slice()
         .sort((a, b) => b.value - a.value)
@@ -171,7 +177,8 @@ function BudgetSweepChart() {
           tick={{ fontSize: 11, fill: C.muted }}
           tickLine={false}
           axisLine={{ stroke: C.border }}
-          label={{ value: "KV budget (blocks)", position: "insideBottom", offset: -2, fontSize: 11, fill: C.muted }}
+          tickFormatter={(v) => `${v} (${BUDGET_TOKENS[v]})`}
+          label={{ value: "KV budget, in blocks (block size 64 tokens)", position: "insideBottom", offset: -2, fontSize: 11, fill: C.muted }}
         />
         <YAxis
           domain={[0, 100]}
@@ -388,9 +395,13 @@ export default function App() {
             EVOKE: Benchmark Results
           </h1>
           <p style={{ color: C.muted, fontSize: 13, margin: "8px 0 0", lineHeight: 1.65, maxWidth: "62ch" }}>
-            When an LLM evicts context from its KV cache to save GPU memory, can it still answer questions
-            about what it evicted? EVOKE saves the raw K/V tensors to host RAM and splices them back on
-            re-send. These are the measured results against heuristic baselines.
+            An LLM's KV cache is its working memory: every token it has read so far, kept around so it
+            doesn't have to reprocess history on every turn. When that memory fills up, something has to
+            go. EVOKE evicts to host RAM instead of discarding: it saves the exact K/V tensors for
+            whatever gets evicted and splices them back in later with zero recompute. The four tabs below
+            test that idea from different angles: does it beat just guessing what to keep, does it hold up
+            across model architectures, does it save real compute in an actual agent session, and (a
+            separate, complementary result) can eviction pick smarter victims in the first place.
           </p>
         </div>
 
@@ -420,9 +431,14 @@ export default function App() {
           <Card>
             <SectionTitle>Fact recall vs. KV budget (Qwen2.5-7B, n=15 seeds)</SectionTitle>
             <Caption>
-              The agent reads a long document that is then evicted to free KV memory. A probe question
-              asks for a detail from the evicted text. Accuracy = share of probes answered correctly.
-              EVOKE saves each evicted block's K/V tensors to host RAM; heuristic methods throw them away.
+              The agent reads a long document, the document gets evicted to free KV memory, then a probe
+              question asks for a detail from the evicted text. Accuracy is the share of probes answered
+              correctly. Two kinds of baseline are on this chart: heuristic eviction (SnapKV and H2O pick
+              what to keep by attention score, recency just keeps the newest tokens) drops whatever it
+              evicts with no way back, while InfLLM offloads evicted text to CPU and retrieves the right
+              passage by similarity search when it's needed. EVOKE takes a third path: it saves the exact
+              K/V tensors for evicted blocks and splices them back in by content identity, without
+              needing a retrieval model or paying any recompute cost.
             </Caption>
             <div style={{ marginTop: 20 }}>
               <BudgetSweepChart />
@@ -453,10 +469,14 @@ export default function App() {
               </div>
             </div>
             <Caption style={{ marginTop: 12 }}>
-              InfLLM also recovers well at tight budgets because it offloads text to CPU and retrieves
-              by similarity. EVOKE recovers by exact identity: same bytes at the same position splice
-              back with zero recompute, no retrieval model required. At b=2048, EVOKE overtakes
-              InfLLM (63% vs. 56%) while heuristic methods are still catching up.
+              At the tightest budget (512 blocks) InfLLM beats EVOKE, 81% vs. 51%: its similarity
+              search can pull the right passage from anywhere in the offloaded history, while EVOKE
+              only recovers blocks that get evicted and later re-requested, and fewer of those come
+              back into play when the budget is this tight. That gap closes by 1024 blocks and flips
+              by 2048 (63% vs. 56%), and EVOKE gets there without InfLLM's separate
+              retrieval model, embedding index, or CPU-offload bookkeeping. Heuristic eviction never
+              catches up at any budget tested: dropping content with no way back costs 30 to 60 points
+              of accuracy against either recovery method.
             </Caption>
           </Card>
         )}
@@ -465,11 +485,13 @@ export default function App() {
           <Card>
             <SectionTitle>EVOKE vs. best heuristic baseline at b=1024, across architectures</SectionTitle>
             <Caption>
-              Same multifact probe benchmark, n=15 seeds, 1024-block KV budget. Each "best baseline"
-              bar is the highest-scoring heuristic eviction method for that architecture (SnapKV or H2O).
-              The test covers dense attention (Qwen2.5, Llama3.1), hybrid Mamba/attention (Qwen3.5),
-              and MoE (Qwen3.6). EVOKE's C++ primitives were added to the llama.cpp fork once; all
-              architectures inherit them without model-specific tuning.
+              Same multifact probe benchmark, n=15 seeds, 1024-block KV budget. Each "best baseline" bar
+              is the strongest heuristic eviction method tested for that architecture: SnapKV
+              and H2O for the two dense models, H2O only for the hybrid and MoE models (SnapKV assumes
+              standard attention throughout and wasn't run on either). The test covers dense attention
+              (Qwen2.5, Llama3.1), hybrid Mamba/attention (Qwen3.5), and MoE (Qwen3.6). EVOKE's C++
+              primitives were added to the llama.cpp fork once; all architectures inherit them without
+              model-specific tuning.
             </Caption>
             <div style={{ marginTop: 20 }}>
               <CrossArchChart />
@@ -499,10 +521,12 @@ export default function App() {
               ))}
             </div>
             <Caption style={{ marginTop: 12 }}>
-              Qwen3.5-9B uses hybrid SSM/attention layers; SSM layers have no KV cache, so EVOKE only
-              manages the attention layers. Qwen3.6-35B-A3B is a sparse MoE model where only 3B of 35B
-              parameters activate per token. The recovery primitive is architecture-agnostic: it
-              operates on the raw K/V tensor layout, not on model internals.
+              Qwen3.5-9B interleaves standard attention layers with SSM layers (state-space model
+              layers, Mamba-style, that keep no KV cache at all), so EVOKE only manages the attention
+              layers that have one. Qwen3.6-35B-A3B is a sparse MoE model where only 3B of the
+              35B parameters activate per token. The recovery primitive is architecture-agnostic: it
+              operates on the raw K/V tensor layout, not on model internals, so it needed no changes to
+              run on either.
             </Caption>
           </Card>
         )}
@@ -576,8 +600,8 @@ export default function App() {
               </div>
             </div>
             <Caption style={{ marginTop: 14 }}>
-              The "discard" arm re-decoded every prompt token on each turn (17,200 total), because it
-              had no saved tensors to splice back. EVOKE decoded 9,719 tokens (44% fewer), with the
+              The "discard" arm re-decoded every prompt token on each turn (17,200 total, summed across
+              the session log), because it had no saved tensors to splice back. EVOKE decoded 9,719 tokens (43% fewer), with the
               remaining 59 evicted blocks recovered via tensor splice at zero recompute cost. The
               "no eviction" arm decoded cheaply (intact prefix cache) but left 10,952 tokens resident
               at session end and would OOM on longer sessions or smaller GPUs.
@@ -588,14 +612,22 @@ export default function App() {
 
         {tab === "workspace" && (
           <Card>
-            <SectionTitle>Choosing better eviction victims: the workspace signal (new)</SectionTitle>
+            <SectionTitle>Choosing better eviction victims: a companion signal, not EVOKE itself</SectionTitle>
             <Caption>
-              Every classic eviction selector ranks blocks by attention history (H2O, SnapKV) or
-              position (recency), so none can score a block before the model has attended to it.
-              The workspace signal is different: a tiny ridge probe distilled from the model's
-              Jacobian-lens workspace readout scores each block by <i>content</i> at prefill time,
-              one dot product per position. Blocks holding workspace content, the sliver later
-              reasoning routes through, tend to be exactly the blocks a future question needs.
+              Everything on the other three tabs tests EVOKE's recovery step: what happens after
+              content gets evicted. This tab tests an earlier, separate question: which blocks should
+              get evicted in the first place. It's a different technique from a sibling project
+              (j-space), meant to run before EVOKE's recovery, not replace it. Every classic eviction
+              selector ranks blocks by attention history (SnapKV, H2O) or position (recency), so none
+              of them can score a block before the model has attended to it. The workspace
+              signal scores blocks up front instead: a small ridge probe (a one-line linear regression,
+              not a trained network) reads a compressed summary of the model's internal state at that
+              position, called a Jacobian-lens workspace readout, and scores each block by{" "}
+              <i>content</i> at prefill time, one dot product per position, before generation even
+              starts. Blocks holding workspace content, the sliver later reasoning routes through,
+              tend to be exactly the blocks a future question will need. fact-AUC below
+              measures how well a method's ranking predicts which blocks hold the answer, across every
+              retention budget at once: 1.0 is a perfect ranking, 0.5 is a coin flip.
             </Caption>
             <div style={{ marginTop: 20 }}>
               <JlensChart />
@@ -611,13 +643,19 @@ export default function App() {
               <div style={{ background: C.accentSoft, borderRadius: 10, padding: "12px 14px" }}>
                 <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.89 vs 0.62</div>
                 <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
-                  fact-AUC vs SnapKV (Qwen2.5-7B)
+                  fact-AUC vs SnapKV, Qwen2.5-7B
                 </div>
               </div>
               <div style={{ background: C.accentSoft, borderRadius: 10, padding: "12px 14px" }}>
-                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.87 / 0.94</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.87 vs 0.56</div>
                 <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
-                  replicated on Qwen3-8B and Qwen3-4B
+                  fact-AUC vs SnapKV, Qwen3-8B
+                </div>
+              </div>
+              <div style={{ background: C.accentSoft, borderRadius: 10, padding: "12px 14px" }}>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.evoke }}>0.94 vs 0.54</div>
+                <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                  fact-AUC vs SnapKV, Qwen3-4B
                 </div>
               </div>
               <div style={{ background: C.goodSoft, borderRadius: 10, padding: "12px 14px" }}>
@@ -629,16 +667,20 @@ export default function App() {
               <div style={{ background: C.faint, borderRadius: 10, padding: "12px 14px" }}>
                 <div style={{ fontSize: 18, fontWeight: 700, color: C.ink }}>&minus;0.6%</div>
                 <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
-                  measured decode overhead (noise)
+                  decode overhead added, per the project's own report (noise-level, not
+                  independently re-measured here)
                 </div>
               </div>
             </div>
             <Caption style={{ marginTop: 14 }}>
-              At 25% retention the workspace ranking keeps the planted fact answerable in 35-36 of 36
-              episodes on all three models tested (Qwen3-4B saturates at 36/36 everywhere), while
-              SnapKV drops to 25/36, 14/36, and 13/36. It composes
-              with recovery rather than replacing it: the probe avoids evicting what will be needed,
-              and the splice brings back whatever still had to go. Pipeline and probes:{" "}
+              At 25% retention the workspace ranking keeps the planted fact answerable in 35/36
+              episodes on Qwen2.5-7B and Qwen3-8B, and 36/36 (saturated) on Qwen3-4B. SnapKV drops to
+              25/36 on Qwen2.5-7B, 14/36 on Qwen3-8B, and 13/36 on Qwen3-4B over the same episodes.
+              Recency's pass rate (22/36) is identical across all three models, since it's purely
+              positional and never looks at the model's output, which is why it's plotted once instead
+              of three overlapping lines. The workspace signal composes with recovery rather than
+              replacing it: the probe avoids evicting what will be needed, and the splice brings back
+              whatever still had to go. Pipeline and probes:{" "}
               <a
                 href="https://github.com/Anyesh/j-space"
                 style={{ color: C.accent, textDecorationColor: `${C.accent}66`, fontWeight: 600 }}

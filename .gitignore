@@ -7,3 +7,4 @@ dist-ssr
 .scope-turn-count
 screenshots
 .playwright-mcp
+screenshots/
