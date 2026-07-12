@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-const BASE = "https://anyesh.github.io";
+const BASE = "https://learn.anyesh.me";
 const DIST = "dist";
 const SITE_NAME = "Learning Lab";
 const AUTHOR = "Anish Shrestha";

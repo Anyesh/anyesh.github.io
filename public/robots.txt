@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anyesh.github.io/sitemap.xml
+Sitemap: https://learn.anyesh.me/sitemap.xml
