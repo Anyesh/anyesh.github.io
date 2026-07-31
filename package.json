@@ -7,8 +7,10 @@
   "author": "Anish Shrestha",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npm run build:client && npm run build:ssr && node scripts/prerender-seo.mjs",
+    "preview": "vite preview",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/ssr-entry.jsx --outDir dist-ssr"
   },
   "dependencies": {
     "react": "^18.3.1",

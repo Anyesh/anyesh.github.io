@@ -24,9 +24,9 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # npm run build chains the client build, the SSR build, and the prerender
+      # pass that writes dist/a/<slug>.html, sitemap.xml, robots.txt, and llms.txt.
       - run: npm run build
-      - name: Prerender per-route SEO heads and sitemap
-        run: node scripts/prerender-seo.mjs
       - name: SPA fallback for client-side routing
         run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
