@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { Link } from "react-router-dom";
 import { getManifest, categoriesOf } from "../registry.js";
-import { site } from "../config.js";
+import GalleryGrid from "./GalleryGrid.jsx";
+import Hero from "./Hero.jsx";
 
 const PAGE_SIZE = 48;
 
@@ -62,11 +62,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
-        <p className="hero-kicker">{site.kicker}</p>
-        <h1 className="hero-title">{site.tagline}</h1>
-        <p className="hero-intro">{site.intro}</p>
-      </section>
+      <Hero />
 
       {manifest === null ? (
         <div className="gallery-loading">Loading the collection…</div>
@@ -117,33 +113,7 @@ export default function Home() {
             </div>
           ) : (
             <>
-              <div className="grid">
-                {shown.map((a, i) => (
-                  <Link
-                    key={a.slug}
-                    to={`/a/${a.slug}`}
-                    className="card"
-                    style={{ "--i": Math.min(i, 12) }}
-                  >
-                    <div className="card-top">
-                      <span className="card-cat">{a.category}</span>
-                      {a.date && <span className="card-date">{a.date}</span>}
-                    </div>
-                    <h2 className="card-title">{a.title}</h2>
-                    {a.description && <p className="card-desc">{a.description}</p>}
-                    {a.tags && a.tags.length > 0 && (
-                      <div className="card-tags">
-                        {a.tags.map((t) => (
-                          <span key={t} className="tag">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <span className="card-go">Open →</span>
-                  </Link>
-                ))}
-              </div>
+              <GalleryGrid articles={shown} />
 
               <div className="gallery-foot">
                 <span className="result-count">
