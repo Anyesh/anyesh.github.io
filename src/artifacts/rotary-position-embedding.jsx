@@ -4,7 +4,7 @@ export const meta = {
   title: "Rotary Position Embedding: The Clock Hands of Attention",
   category: "Transformers",
   description:
-    "Attention compares tokens with a dot product, a similarity score that has no idea which token came first. So how does a model tell \"dog bites man\" from \"man bites dog\"? RoPE's answer isn't to stamp a position number onto each vector, it's to spin the vector by an angle proportional to its position. Spin two clock hands to a fixed distance apart and watch their dot product hold dead still, split one hand into four speeds to see a single position encoded at every resolution at once, then push a sequence past the length a model trained on and watch the fix that keeps the angles in familiar territory.",
+    "Attention compares tokens with a dot product, a similarity score that has no idea which token came first. So how does a model tell \"dog bites man\" from \"man bites dog\"? RoPE's answer isn't to stamp a position number onto each vector, it's to spin the vector by an angle proportional to its position. Spin two vectors to a fixed angle apart and watch their dot product hold dead still, split one hand into four speeds to see a single position encoded at every resolution at once, then push a sequence past the length a model trained on and watch the fix that keeps the angles in familiar territory.",
   date: "2026-08-26",
   tags: ["rope", "positional-encoding", "transformers", "attention", "context-length"],
 };
@@ -101,6 +101,10 @@ const FREQS = ropeFrequencies(EMB_DIM, BASE);
 const CORE_THETA = Math.PI / 6; // 30 degrees: 12 slider steps sweep one full turn, like a clock face
 const Q0 = [1.0, 0.5];
 const K0 = [0.5, -0.9];
+const Q0_MAG = Math.hypot(Q0[0], Q0[1]);
+const K0_MAG = Math.hypot(K0[0], K0[1]);
+const Q0_ANGLE = Math.atan2(Q0[1], Q0[0]);
+const K0_ANGLE = Math.atan2(K0[1], K0[0]);
 const SENTENCE = ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "runs", "past", "gate"];
 const TOKEN_A_IDX = 3; // "fox"
 const TOKEN_B_IDX = 1; // "quick"
@@ -342,6 +346,91 @@ function vecToHand(vec, color, maxLen, width) {
   return { angle: Math.atan2(vec[1], vec[0]), length: clamp(mag / maxLen, 0.15, 1), color, width };
 }
 
+// A plain x/y coordinate plot, not the clock face used elsewhere on this page: for a
+// first look at "rotate a vector by position" the reader needs axes and a fixed
+// reference direction to read an angle off of, not a clock's own 12-o'clock convention.
+// Angles are math-convention (0 along +x, positive = counterclockwise); each vector is
+// still drawn with an SVG `rotate` transform like Clock's hands, but negated (`rotate(-deg)`)
+// to cancel out SVG's y-down axis, which otherwise makes a positive angle look clockwise.
+function VectorPlot({ size = 230, range = 1.5, vectors = [], arc, showOrbit = false, reduce, ariaLabel }) {
+  const half = size / 2;
+  const pad = 22;
+  const scale = (half - pad) / range;
+
+  let arcEls = null;
+  if (arc && Math.abs(arc.to - arc.from) > 0.02) {
+    const arcR = arc.radius ?? range * 0.35 * scale;
+    const steps = 48;
+    const pts = Array.from({ length: steps + 1 }, (_, i) => {
+      const a = arc.from + ((arc.to - arc.from) * i) / steps;
+      return [half + Math.cos(a) * arcR, half - Math.sin(a) * arcR];
+    });
+    const d = pts.map(([x, y], i) => `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`).join(" ");
+    const [tipX, tipY] = pts[pts.length - 1];
+    const [prevX, prevY] = pts[Math.max(0, pts.length - 2)];
+    const tangent = Math.atan2(tipY - prevY, tipX - prevX);
+    const wing = 6.5;
+    const chL = [tipX - Math.cos(tangent - 0.45) * wing, tipY - Math.sin(tangent - 0.45) * wing];
+    const chR = [tipX - Math.cos(tangent + 0.45) * wing, tipY - Math.sin(tangent + 0.45) * wing];
+    const mid = arc.from + (arc.to - arc.from) / 2;
+    const labelR = arcR + 15;
+    const labelX = half + Math.cos(mid) * labelR;
+    const labelY = half - Math.sin(mid) * labelR;
+    const arcColor = arc.color ?? C.accent;
+    arcEls = (
+      <>
+        <path d={d} fill="none" stroke={arcColor} strokeWidth={1.75} opacity={0.85} />
+        <path
+          d={`M ${tipX.toFixed(2)} ${tipY.toFixed(2)} L ${chL[0].toFixed(2)} ${chL[1].toFixed(2)} M ${tipX.toFixed(2)} ${tipY.toFixed(2)} L ${chR[0].toFixed(2)} ${chR[1].toFixed(2)}`}
+          stroke={arcColor}
+          strokeWidth={1.75}
+          strokeLinecap="round"
+          fill="none"
+        />
+        <text x={labelX} y={labelY} fontSize={11.5} fill={arcColor} fontFamily={MONO} fontWeight={700} textAnchor="middle" dominantBaseline="middle">
+          {degFmt(Math.abs(arc.to - arc.from))}
+        </text>
+      </>
+    );
+  }
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={ariaLabel} style={{ display: "block", maxWidth: "100%", margin: "0 auto" }}>
+      {showOrbit && vectors[0] && (
+        <circle cx={half} cy={half} r={vectors[0].mag * scale} fill="none" stroke={C.faint} strokeWidth={1.5} strokeDasharray="2 4" />
+      )}
+      <line x1={pad - 6} y1={half} x2={size - pad + 6} y2={half} stroke={C.border} strokeWidth={1.5} />
+      <line x1={half} y1={size - pad + 6} x2={half} y2={pad - 6} stroke={C.border} strokeWidth={1.5} />
+      <text x={size - pad + 6} y={half + 13} fontSize={11} fill={C.muted} fontFamily={MONO}>x</text>
+      <text x={half + 6} y={pad - 8} fontSize={11} fill={C.muted} fontFamily={MONO}>y</text>
+
+      {arcEls}
+
+      {vectors.map((v, i) => {
+        const deg = -((v.angle * 180) / Math.PI);
+        const len = v.mag * scale;
+        return (
+          <g key={i} transform={`rotate(${deg} ${half} ${half})`} style={{ transition: v.dashed || reduce ? "none" : `transform 360ms ${EASE}` }}>
+            <line
+              x1={half}
+              y1={half}
+              x2={half + len}
+              y2={half}
+              stroke={v.color}
+              strokeWidth={v.dashed ? 2.5 : v.width ?? 3.5}
+              strokeLinecap="round"
+              strokeDasharray={v.dashed ? "5 3" : undefined}
+              opacity={v.dashed ? 0.65 : 1}
+            />
+            <circle cx={half + len} cy={half} r={v.dashed ? 3.5 : 5} fill={v.color} opacity={v.dashed ? 0.65 : 1} />
+          </g>
+        );
+      })}
+      <circle cx={half} cy={half} r={3} fill={C.ink} />
+    </svg>
+  );
+}
+
 function AdditiveVsRotationDiagram() {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14 }}>
@@ -444,14 +533,16 @@ export default function App() {
   `;
 
   // ---- Section 3: single-vector rotation demo ----
-  const vRot1 = rotate2D(Q0, pos1 * CORE_THETA);
   const angle1 = pos1 * CORE_THETA;
+  const rotatedAngle1 = Q0_ANGLE + angle1;
+  const vRot1 = rotate2D(Q0, angle1);
 
   // ---- Section 4: core 2D invariance demo ----
+  const qAngle = Q0_ANGLE + m * CORE_THETA;
+  const kAngle = K0_ANGLE + n * CORE_THETA;
   const qRot = rotate2D(Q0, m * CORE_THETA);
   const kRot = rotate2D(K0, n * CORE_THETA);
   const coreDot = dot(qRot, kRot);
-  const coreMaxLen = 1.6;
   const shiftBoth = (delta) => {
     setM((v) => clamp(v + delta, 0, 12));
     setN((v) => clamp(v + delta, 0, 12));
@@ -510,9 +601,8 @@ export default function App() {
         </Prose>
         <Prose style={{ fontSize: 15 }}>
           RoPE&apos;s move is to rotate each vector by an angle proportional to its position, rather than
-          tagging a position number onto it. Below, drag two clock hands to a fixed distance apart and watch the
-          dot product between them hold still no matter where on the clock they stand, then break the match and
-          watch it move.
+          tagging a position number onto it. Below, drag two vectors to a fixed angle apart and watch the dot
+          product between them hold still no matter where they point, then break the match and watch it move.
         </Prose>
 
         <SectionTitle>Why not just add a position number?</SectionTitle>
@@ -527,40 +617,67 @@ export default function App() {
 
         <SectionTitle>Start with one vector</SectionTitle>
         <Prose>
-          Forget queries and keys for a second. Take a single toy vector, <code>[1, 0.5]</code>, plotted as a
-          point on the circle below&mdash;the same vector this page calls the query in the next section. RoPE
-          encodes its position by rotating that point: <code>position &times; &theta;</code>, a small fixed
-          angle repeated once per step. The vector&apos;s length never changes, only its direction, and a
-          larger position just means more turns around the clock face.
+          Take a single toy vector, <code>[1, 0.5]</code>&mdash;the dashed arrow below, sitting at
+          &ldquo;position 0.&rdquo; RoPE encodes a different position by rotating that same vector
+          counterclockwise around the origin, by <code>position &times; &theta;</code> (a fixed angle per step,
+          shown here as a friendly 30°). Drag the slider and the solid arrow sweeps away from the dashed one;
+          the shaded arc between them is exactly how many degrees it turned. The dotted circle is the vector&apos;s
+          length: rotation is a multiplication by a matrix that only ever spins a vector around that circle, so
+          the tip can move along it but never toward or away from the center.
         </Prose>
         <Card style={{ marginBottom: 8 }}>
           <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}>
-            <Clock
-              size={190}
-              showTicks
-              ticks={12}
+            <VectorPlot
+              size={220}
+              range={1.5}
+              vectors={[
+                { angle: Q0_ANGLE, mag: Q0_MAG, color: C.muted, dashed: true },
+                { angle: rotatedAngle1, mag: Q0_MAG, color: C.blue },
+              ]}
+              arc={{ from: Q0_ANGLE, to: rotatedAngle1, color: C.accent }}
+              showOrbit
               reduce={reduce}
-              ariaLabel={`Vector at position ${pos1}, rotated ${degFmt(angle1)}`}
-              hands={[vecToHand(vRot1, C.blue, 1.6, 4)]}
+              ariaLabel={`Vector rotated ${degFmt(angle1)} counterclockwise from its original direction, at position ${pos1}`}
             />
             <div style={{ minWidth: 200 }}>
               <SliderRow id="rope-pos1" label="Position" value={pos1} min={0} max={12} onChange={setPos1} color={C.blue} />
+              <div style={{ display: "flex", gap: 16, flexWrap: "wrap", fontSize: 12, color: C.muted, marginTop: 4 }}>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  <svg width="16" height="10" aria-hidden="true">
+                    <line x1="0" y1="5" x2="16" y2="5" stroke={C.muted} strokeWidth="2" strokeDasharray="3 2" />
+                  </svg>
+                  original, position 0
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  <svg width="16" height="10" aria-hidden="true">
+                    <line x1="0" y1="5" x2="16" y2="5" stroke={C.blue} strokeWidth="2.5" />
+                  </svg>
+                  rotated, position {pos1}
+                </span>
+              </div>
             </div>
           </div>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
-            <StatBox label="Angle turned" value={degFmt(angle1)} bg={C.faint} />
+            <StatBox label="Original vector" value={`[${fmt(Q0[0])}, ${fmt(Q0[1])}]`} bg={C.faint} />
             <StatBox
               label="Rotated vector"
               value={<FlashNumber value={vRot1} format={(v) => `[${fmt(v[0])}, ${fmt(v[1])}]`} color={C.blue} reduce={reduce} size={16} />}
               bg={C.blueSoft}
               color={C.blue}
             />
+            <StatBox
+              label="Angle swept"
+              value={<FlashNumber value={angle1} format={(v) => `${degFmt(v)} CCW`} color={C.accent} reduce={reduce} size={16} />}
+              bg={C.accentSoft}
+              color={C.accent}
+            />
           </div>
           <Caption>
-            Rotation step here is a friendly 30° so 12 slider clicks make one full turn, matching the clock
-            below. Real RoPE uses a much smaller angle per position (see &ldquo;One angle isn&apos;t
-            enough&rdquo; further down); the mechanism&mdash;turn the vector by position times a fixed
-            angle&mdash;is identical either way.
+            &ldquo;CCW&rdquo; is counterclockwise, the direction a positive angle turns in standard math (and the
+            direction this page&apos;s rotation formula always uses). Position 0 means zero rotation, so the
+            dashed and solid arrows overlap; each slider click adds one more 30° turn. Real RoPE uses a much
+            smaller angle per position (see &ldquo;One angle isn&apos;t enough&rdquo; further down)&mdash;only the
+            step size changes, not the idea.
           </Caption>
         </Card>
 
@@ -576,13 +693,16 @@ export default function App() {
 
         <Card style={{ marginBottom: 8 }}>
           <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}>
-            <Clock
-              size={210}
-              showTicks
-              ticks={12}
+            <VectorPlot
+              size={220}
+              range={1.5}
+              vectors={[
+                { angle: qAngle, mag: Q0_MAG, color: C.blue },
+                { angle: kAngle, mag: K0_MAG, color: C.green },
+              ]}
+              arc={{ from: Math.min(qAngle, kAngle), to: Math.max(qAngle, kAngle), color: C.accent }}
               reduce={reduce}
-              ariaLabel={`Query hand at position ${m}, key hand at position ${n}, on a 12-step clock face`}
-              hands={[vecToHand(qRot, C.blue, coreMaxLen, 4), vecToHand(kRot, C.green, coreMaxLen, 4)]}
+              ariaLabel={`Query vector at position ${m}, key vector at position ${n}, ${degFmt(Math.abs(qAngle - kAngle))} apart`}
             />
             <div style={{ minWidth: 200 }}>
               <SliderRow
@@ -620,18 +740,26 @@ export default function App() {
               bg={C.faint}
             />
             <StatBox
-              label="Dot product"
-              value={<FlashNumber value={coreDot} format={(v) => fmt(v, 4)} color={C.accent} reduce={reduce} size={18} />}
+              label="Angle between Q, K"
+              value={<FlashNumber value={qAngle - kAngle} format={(v) => degFmt(Math.abs(v))} color={C.accent} reduce={reduce} size={17} />}
               bg={C.accentSoft}
               color={C.accent}
+              sub="the arc above"
+            />
+            <StatBox
+              label="Dot product"
+              value={<FlashNumber value={coreDot} format={(v) => fmt(v, 4)} color={C.ink} reduce={reduce} size={18} />}
+              bg={C.faint}
               sub="rotate(q,mθ) · rotate(k,nθ)"
             />
           </div>
           <Caption>
-            Rotation step here is a friendly 30° so 12 slider clicks make one full turn, like an ordinary clock.
-            Real RoPE uses a much smaller angle per position (see below); the identity being demonstrated is the
-            same either way. Click &ldquo;shift both&rdquo; repeatedly: the distance box never changes, and
-            neither does the dot product. Drag <code>m</code> or <code>n</code> alone and both move.
+            The shaded arc is the actual angle between the two vectors right now&mdash;not just
+            <code>(m&minus;n)&times;30°</code>, since Q and K don&apos;t start out pointing the same way, but
+            that plus their own fixed head start. Click &ldquo;shift both&rdquo; repeatedly: the arc, the
+            distance box, and the dot product all hold still. Drag <code>m</code> or <code>n</code> alone and
+            all three move together, because the actual gap between the vectors changed. Real RoPE uses a much
+            smaller angle per position; the identity being demonstrated is the same either way.
           </Caption>
         </Card>
 
@@ -698,7 +826,11 @@ export default function App() {
           <Caption>
             Base 10000 and 4 pairs (an 8-number embedding slice), matching the formula real models use. The
             slowest hand here barely creeps across 64 steps&mdash;that&apos;s deliberate: it&apos;s the one
-            reserved for telling apart tokens hundreds of steps apart.
+            reserved for telling apart tokens hundreds of steps apart. Note the hands sweep clockwise as
+            position increases, like an ordinary clock&mdash;the opposite visual direction from the
+            counterclockwise vector plots above. Both draw the exact same rotation formula; this page just
+            reads a single spinning hand as a clock and a single arrow as a math-class vector, and each reads
+            more naturally its own way.
           </Caption>
         </Card>
 
