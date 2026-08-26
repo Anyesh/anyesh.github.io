@@ -393,6 +393,8 @@ function AdditiveVsRotationDiagram() {
 export default function App() {
   const reduce = usePrefersReducedMotion();
 
+  const [pos1, setPos1] = useState(3);
+
   const [m, setM] = useState(7);
   const [n, setN] = useState(4);
 
@@ -441,7 +443,11 @@ export default function App() {
     }
   `;
 
-  // ---- Section 3: core 2D invariance demo ----
+  // ---- Section 3: single-vector rotation demo ----
+  const vRot1 = rotate2D(Q0, pos1 * CORE_THETA);
+  const angle1 = pos1 * CORE_THETA;
+
+  // ---- Section 4: core 2D invariance demo ----
   const qRot = rotate2D(Q0, m * CORE_THETA);
   const kRot = rotate2D(K0, n * CORE_THETA);
   const coreDot = dot(qRot, kRot);
@@ -451,14 +457,14 @@ export default function App() {
     setN((v) => clamp(v + delta, 0, 12));
   };
 
-  // ---- Section 4: multi-frequency demo ----
+  // ---- Section 5: multi-frequency demo ----
   const freqHands = FREQS.map((theta, i) => {
     const v = rotate2D([1, 0], pos4 * theta);
     const palette = [C.accent, C.blue, C.green, "#8a5a00"];
     return { ...vecToHand(v, palette[i % palette.length], 1), width: 4.5 - i * 0.7 };
   });
 
-  // ---- Section 5: real toy attention scores ----
+  // ---- Section 6: real toy attention scores ----
   const wordA = SENTENCE[TOKEN_A_IDX];
   const wordB = SENTENCE[TOKEN_B_IDX];
   const qVec = qVecFor(wordA);
@@ -470,7 +476,7 @@ export default function App() {
   const scoreRope = dot(ropeRotateFull(qVec, posA, FREQS), ropeRotateFull(kVec, posB, FREQS)) / scaleRoot;
   const distance5 = posA - posB;
 
-  // ---- Section 6: context extension ----
+  // ---- Section 7: context extension ----
   const thetaSlowNaive = FREQS[SLOW_IDX];
   const trainedMaxAngle = L_TRAIN * thetaSlowNaive;
   const naiveAngleAtL = seqLen * thetaSlowNaive;
@@ -518,6 +524,45 @@ export default function App() {
           though nothing about the sentence itself did.
         </Prose>
         <AdditiveVsRotationDiagram />
+
+        <SectionTitle>Start with one vector</SectionTitle>
+        <Prose>
+          Forget queries and keys for a second. Take a single toy vector, <code>[1, 0.5]</code>, plotted as a
+          point on the circle below&mdash;the same vector this page calls the query in the next section. RoPE
+          encodes its position by rotating that point: <code>position &times; &theta;</code>, a small fixed
+          angle repeated once per step. The vector&apos;s length never changes, only its direction, and a
+          larger position just means more turns around the clock face.
+        </Prose>
+        <Card style={{ marginBottom: 8 }}>
+          <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}>
+            <Clock
+              size={190}
+              showTicks
+              ticks={12}
+              reduce={reduce}
+              ariaLabel={`Vector at position ${pos1}, rotated ${degFmt(angle1)}`}
+              hands={[vecToHand(vRot1, C.blue, 1.6, 4)]}
+            />
+            <div style={{ minWidth: 200 }}>
+              <SliderRow id="rope-pos1" label="Position" value={pos1} min={0} max={12} onChange={setPos1} color={C.blue} />
+            </div>
+          </div>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
+            <StatBox label="Angle turned" value={degFmt(angle1)} bg={C.faint} />
+            <StatBox
+              label="Rotated vector"
+              value={<FlashNumber value={vRot1} format={(v) => `[${fmt(v[0])}, ${fmt(v[1])}]`} color={C.blue} reduce={reduce} size={16} />}
+              bg={C.blueSoft}
+              color={C.blue}
+            />
+          </div>
+          <Caption>
+            Rotation step here is a friendly 30° so 12 slider clicks make one full turn, matching the clock
+            below. Real RoPE uses a much smaller angle per position (see &ldquo;One angle isn&apos;t
+            enough&rdquo; further down); the mechanism&mdash;turn the vector by position times a fixed
+            angle&mdash;is identical either way.
+          </Caption>
+        </Card>
 
         <SectionTitle>The core trick: rotate, don&apos;t add</SectionTitle>
         <Prose>
