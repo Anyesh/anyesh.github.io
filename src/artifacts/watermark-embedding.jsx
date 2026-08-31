@@ -6,7 +6,7 @@ export const meta = {
   title: "Claude's Watermark: Hidden in Word Choice",
   category: "LLM Systems",
   description:
-    "Anthropic announced that Claude now watermarks generated text, and the natural guess is a hidden character or a metadata tag. Neither is true: the signal is which ordinary words get picked. Step through real word-by-word generation on a bigram model (a lookup table of word to next-word odds) trained on real text, watch the model hash the previous word into a seed, split its whole vocabulary into a green and red list from that seed, nudge the odds toward green, and see the statistical fingerprint that leaves behind.",
+    "Anthropic says Claude watermarks its writing, but there is no hidden character or tag anywhere in the text. The trick is which ordinary word gets picked at each step, nudged by a rigged coin flip that changes with every word. Step through real word-by-word generation and watch that rigging happen live, on real text, in your browser.",
   date: "2026-08-14",
   tags: ["watermarking", "llm", "text-generation", "provenance", "hashing"],
 };
@@ -241,14 +241,13 @@ function DistributionPanel({ prevWord, hash, distribution, chosenWordIdx, waterm
         ))}
       </div>
       <Caption>
-        Top row of each bar is the odds straight from the bigram table (a lookup of previous word &rarr; next-word
-        counts, no different from a hash map you'd build for autocomplete); bottom row is the odds after{" "}
+        Top bar: how likely each word is normally, straight from the lookup table. Bottom bar: the odds after{" "}
         {watermark ? (
-          <>green-listed candidates get {`+${DELTA}`} added to their log-odds</>
+          <>green words get a boost before picking</>
         ) : (
-          <>no nudge, since this is the Plain card</>
+          <>nothing changes, since this is the plain version</>
         )}
-        . The outlined chip is the word this step actually sampled.
+        . The chip with the outline is the word that actually got picked.
       </Caption>
     </div>
   );
@@ -492,18 +491,18 @@ function Generator({ reduce }) {
             <Stat label="plain z-score" value={detection.plain.z.toFixed(1)} tone={C.ink} />
           </div>
           <Caption>
-            Anthropic doesn&apos;t need the model weights to check this, only the key. Recompute the same green list at
-            every position and count how often the real text landed there; a z-score past about 4 happens by chance
-            roughly once in 30,000 runs, while ordinary writing sits within a couple points of zero, exactly the split
-            you can watch appear above as you add words.
+            To check a piece of text, Anthropic does not need Claude at all, just the key. Redo the same shuffle at
+            every position and count how often the real words landed on the lucky quarter. Ordinary writing lands
+            there about a quarter of the time, plain chance. The z-score above is just how far past a quarter the
+            result is; once it climbs past about 4, that is roughly a one-in-30,000 coincidence, so it is not one.
           </Caption>
         </div>
       )}
 
       <Caption style={{ marginTop: detection ? 0 : 10 }}>
-        Both tracks consume the same run of random draws, so any word where they differ is the bias, not luck.
-        Toggle which one is inspected above with the two cards; keep pressing Step to watch the green share of the
-        watermarked run climb while the plain run hovers near {Math.round(GAMMA * 100)}%.
+        Both tracks use the exact same random draws, so wherever they disagree, that is the rigging, not luck. Click
+        either card above to inspect it, and keep hitting Step: the watermarked run&apos;s green share climbs well
+        past {Math.round(GAMMA * 100)}%, while the plain run just hovers there.
       </Caption>
     </Card>
   );
@@ -537,46 +536,63 @@ export default function App() {
             Claude&apos;s Watermark: Hidden in Word Choice
           </h1>
           <Prose style={{ color: C.muted, margin: "10px 0 0", fontSize: 13.5 }}>
-            Ask Claude to write the same paragraph twice and, character for character, both can look completely
-            ordinary: no stray unicode, no invisible tag, nothing a diff would catch. Anthropic can still tell you
-            afterward which one it wrote. The signal was never attached to the text; it is the text, specifically
-            which of several equally reasonable words got picked at every position. Type a seed word below, step
-            through real generation one word at a time, and watch that bias get computed live in your browser.
+            Claude writes one word at a time, the same way your phone&apos;s keyboard suggests the next word as you
+            type. Anthropic quietly rigs that pick: at every single word, a secret formula flags about a quarter of
+            all possible words as &ldquo;lucky&rdquo; for that exact moment, and Claude leans toward whichever lucky
+            word actually fits. Read the sentence and it looks completely normal. Check it against the same secret
+            formula afterward, and the lucky words show up far more than chance would allow. Below, you can step
+            through the whole process yourself, one real word at a time, and watch the rigging happen live in your
+            browser.
           </Prose>
         </header>
 
-        <SectionTitle>Three steps, every single word</SectionTitle>
+        <SectionTitle>How the rigging actually works</SectionTitle>
         <Prose>
-          The model behind this page is a bigram (a lookup table built from real children&apos;s stories: for every
-          word, which word tends to follow, and how often). At each position it does three things before it writes
-          anything down. First, hash the previous word together with a secret key into one number, the same way a
-          hash map turns a string key into a bucket index. Second, use that number to seed a pseudorandom shuffle of
-          the model&apos;s entire vocabulary and take the first slice, about a quarter of it, as this position&apos;s
-          &ldquo;green list&rdquo;; a different quarter at every position, but the same quarter every time that exact
-          context and key recur. Third, before picking the next word, add a fixed bonus to every green candidate&apos;s
-          odds. Nothing about which word looks natural changes: green and red candidates are both plausible, the die
-          is just loaded toward green.
+          The model behind this page is a bigram: a lookup table trained on real children&apos;s stories that says,
+          for any given word, which word tends to come next and how often. That part works exactly like the
+          autocomplete on your phone keyboard.
+        </Prose>
+        <Prose>
+          Before it writes the next word down, three things happen. First, take the word that was just written, mix
+          it with a secret key, and turn that into one number, the same trick a hash map uses to turn a name into an
+          array index.
+        </Prose>
+        <Prose>
+          Second, use that number to shuffle the model&apos;s entire vocabulary, all {VOCAB_SIZE} words, not just the
+          ones that make sense here, into a new order. The top quarter of that shuffle becomes this exact
+          moment&apos;s &ldquo;green list.&rdquo; A different previous word gives a completely different shuffle, but
+          the same previous word and the same key always give back the same green list.
+        </Prose>
+        <Prose>
+          Third, look at the handful of words the model actually thinks could come next, check which of those happen
+          to be green, and give them a small boost before picking. Nothing is forced: a red word can still win if it
+          is clearly the better fit, the boost just tips close calls toward green.
         </Prose>
 
         <SectionTitle>Watch a word get chosen</SectionTitle>
         <Prose>
-          Pick where the sentence starts, then press Step. Both a watermarked and a plain continuation grow at once
-          from the same random draws, so the only thing that can make them diverge is the bias itself. The panel
-          below the two tracks shows the mechanism for whichever one you&apos;re inspecting: the hash, the top
-          candidates split into green and red, their odds before and after the nudge, and which word the model
-          actually wrote down.
+          Pick a starting phrase, then press Step. Two versions grow side by side using the exact same run of random
+          luck, one rigged, one not, so wherever they end up disagreeing, that is the rigging at work, not chance.
+          The panel below shows exactly what happened at that step: the hash, which words were in the running, which
+          of those landed green or red, and which one actually got picked.
         </Prose>
         <Generator reduce={reduce} />
 
         <SectionTitle>What this means for you</SectionTitle>
         <Prose>
-          This toy runs a 500-word bigram table where the real system runs a full language model, but the check
-          Anthropic performs afterward is the same shape: recompute the green list at every position from the key
-          and count how often the text landed there. You can&apos;t detect it by reading; the words all read fine.
-          You also can&apos;t strip it by asking a different model to lightly rephrase a sentence or two, since the
-          statistic only firms up over many words and survives most single-word edits. Paraphrasing the whole thing
-          in your own words, translating it, or generating it unwatermarked in the first place all remove it, because
-          each replaces the biased word choices with an independent set.
+          The real Claude uses a full language model instead of this page&apos;s small lookup table, but checking
+          works the exact same way: redo the shuffle at every position with the key, and see how often the actual
+          text landed lucky.
+        </Prose>
+        <Prose>
+          You cannot spot it by reading; every word reads completely normal. It also survives light editing: change
+          one or two words and the overall average barely moves, since the signal comes from many words averaged
+          together, not any single one.
+        </Prose>
+        <Prose>
+          What does remove it: rewriting the whole thing in your own words, translating it, or just not using Claude
+          to write it in the first place. Each of those replaces the rigged picks with a fresh, unrigged set of
+          words, so the result drops back to ordinary chance.
         </Prose>
 
         <footer style={{ marginTop: 30, paddingTop: 16, borderTop: `1px solid ${C.border}` }}>
